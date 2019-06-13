@@ -8,17 +8,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:showIn="@layout/activity_main">
+    tools:showIn="@layout/activity_main"
+    tools:context=".views.MainActivity">
 
+    <TextView
+        android:id="@+id/name_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Name: "
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="#0E0000"
+        android:textSize="18sp"
+
+        android:layout_marginLeft="40dp" android:layout_marginStart="40dp"/>
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Enter Name: "
+        android:text=""
         android:ems="15"
         android:id="@+id/name_input" app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="40dp" app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="50dp" app:layout_constraintStart_toStartOf="parent"
         android:layout_marginLeft="40dp" android:layout_marginStart="40dp"/>
 
     <TextView
@@ -46,7 +59,7 @@
         android:layout_marginStart="40dp" android:layout_marginTop="60dp"
         app:layout_constraintTop_toBottomOf="@+id/difficulty_header"/>
     <TextView
-        android:text="#pointsHere"
+        android:text="16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/skill_points_number" android:layout_marginLeft="40dp" android:layout_marginStart="40dp"
@@ -141,28 +154,28 @@
         app:layout_constraintTop_toTopOf="@+id/engineer_header"
         app:layout_constraintStart_toStartOf="@+id/pilot_minus"/>
     <TextView
-        android:text="#points"
+        android:text="0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/pilot_points" app:layout_constraintStart_toEndOf="@+id/pilot_minus"
         android:layout_marginLeft="20dp" android:layout_marginStart="20dp"
         app:layout_constraintTop_toTopOf="@+id/pilot_header"/>
     <TextView
-        android:text="#points"
+        android:text="0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/fighter_points" app:layout_constraintStart_toEndOf="@+id/fighter_minus"
         android:layout_marginLeft="20dp" android:layout_marginStart="20dp"
         app:layout_constraintTop_toTopOf="@+id/fighter_header"/>
     <TextView
-        android:text="#points"
+        android:text="0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/trader_points" app:layout_constraintStart_toEndOf="@+id/trader_minus"
         android:layout_marginLeft="20dp" android:layout_marginStart="20dp"
         app:layout_constraintTop_toTopOf="@+id/trader_header"/>
     <TextView
-        android:text="#points"
+        android:text="0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/engineer_points" app:layout_constraintStart_toEndOf="@+id/engineer_minus"
@@ -177,5 +190,7 @@
         android:layout_marginLeft="75dp" android:layout_marginStart="75dp"
         app:layout_constraintStart_toEndOf="@+id/engineer_header"
         app:layout_constraintTop_toBottomOf="@+id/engineer_header"/>
+
+
 
 </android.support.constraint.ConstraintLayout>
