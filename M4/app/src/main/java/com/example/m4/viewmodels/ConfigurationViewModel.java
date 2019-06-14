@@ -26,7 +26,7 @@ public class ConfigurationViewModel extends AndroidViewModel {
     public void setFighter(int fighter) {
         this.fighter = fighter;
     }
-    public void settrader(int trader) {
+    public void setTrader(int trader) {
         this.trader = trader;
     }
     public void setEngineer(int engineer) {

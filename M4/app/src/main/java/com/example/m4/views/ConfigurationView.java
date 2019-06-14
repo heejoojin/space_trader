@@ -131,7 +131,7 @@ public class ConfigurationView extends AppCompatActivity implements OnClickListe
                         fighter_points.setText(String.valueOf(viewModel.getFighter()));
 
                     } else if (v.getId() == R.id.trader_plus) {
-                        viewModel.settrader(viewModel.getTrader() + 1);
+                        viewModel.setTrader(viewModel.getTrader() + 1);
                         trader_points.setText(String.valueOf(viewModel.getTrader()));
 
                     } else if (v.getId() == R.id.engineer_plus) {
@@ -166,7 +166,7 @@ public class ConfigurationView extends AppCompatActivity implements OnClickListe
 
                     } else if (v.getId() == R.id.trader_minus && viewModel.getTrader() > 0) {
 
-                        viewModel.settrader(viewModel.getTrader() - 1);
+                        viewModel.setTrader(viewModel.getTrader() - 1);
                         trader_points.setText(String.valueOf(viewModel.getTrader()));
 
                         viewModel.setScore(viewModel.getScore() + 1);
