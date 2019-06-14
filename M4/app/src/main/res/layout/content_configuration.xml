@@ -187,9 +187,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/okay_button"
-        android:layout_marginTop="70dp"
-        android:layout_marginLeft="75dp" android:layout_marginStart="75dp"
-        app:layout_constraintStart_toEndOf="@+id/engineer_header"
-        app:layout_constraintTop_toBottomOf="@+id/engineer_header"/>
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="0dp" android:layout_marginStart="0dp"
+        app:layout_constraintStart_toStartOf="@+id/engineer_plus"
+        app:layout_constraintTop_toBottomOf="@+id/engineer_plus"/>
+    <Button
+        android:text="EXIT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/exit_button"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="0dp" android:layout_marginStart="0dp"
+        app:layout_constraintStart_toStartOf="@+id/engineer_minus"
+        app:layout_constraintTop_toTopOf="@+id/okay_button"/>
 
 </android.support.constraint.ConstraintLayout>

@@ -19,6 +19,9 @@
         <activity
             android:name=".views.ConfigurationView"
             android:parentActivityName=".views.MainActivity" />
+        <activity
+            android:name=".views.ErrorView"
+            android:parentActivityName=".views.ConfigurationView" />
     </application>
 
 </manifest>

@@ -1,8 +1,10 @@
 package com.example.m4.views;
 
-// import android.arch.lifecycle.ViewModelProviders;
+import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 // import android.widget.EditText;
@@ -12,9 +14,13 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.m4.R;
+import com.example.m4.model.Difficulty;
+import com.example.m4.viewmodels.ConfigurationViewModel;
 
 
 public class ConfigurationView extends AppCompatActivity implements OnClickListener {
+
+    private ConfigurationViewModel viewModel;
     private Spinner difficultySpinner;
     private TextView score;
 
@@ -32,23 +38,18 @@ public class ConfigurationView extends AppCompatActivity implements OnClickListe
     private TextView trader_points;
     private TextView engineer_points;
 
-
-    int int_score = 16;
-
-    int pilot = 0;
-    int fighter = 0;
-    int trader = 0;
-    int engineer = 0;
+    private Button exit;
+    private Button okay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_configuration);
 
         difficultySpinner = findViewById(R.id.difficulty_spinner);
-        String[] list = new String[]{"Beginner", "Easy", "Normal", "Hard", "Impossible"};
 
-        ArrayAdapter<String> difficultyAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, list);
+        ArrayAdapter<Difficulty> difficultyAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Difficulty.values());
         difficultyAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         difficultySpinner.setAdapter(difficultyAdapter);
 
@@ -59,8 +60,6 @@ public class ConfigurationView extends AppCompatActivity implements OnClickListe
         trader_points = findViewById(R.id.trader_points);
         engineer_points = findViewById(R.id.engineer_points);
 
-
-        // viewModel = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
         pilot_plus = findViewById(R.id.pilot_plus);
         pilot_plus.setOnClickListener(this);
 
@@ -85,36 +84,59 @@ public class ConfigurationView extends AppCompatActivity implements OnClickListe
         engineer_minus = findViewById(R.id.engineer_minus);
         engineer_minus.setOnClickListener(this);
 
+        exit = findViewById(R.id.exit_button);
+        exit.setOnClickListener(this);
+
+        okay = findViewById(R.id.okay_button);
+        okay.setOnClickListener(this);
+
+        viewModel = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
     }
 
     @Override
     public void onClick (View v) {
 
-        if (int_score <= 16 && int_score >= 0) {
+        if (v.getId() == R.id.exit_button) {
+            System.exit(0);
+        }
+
+        if (v.getId() == R.id.okay_button) {
+            if (viewModel.getScore() != 0) {
+                startActivity(new Intent(ConfigurationView.this, ErrorView.class));
+            }
+        }
+
+        if (viewModel.getScore() <= 16 && viewModel.getScore() >= 0) {
 
             if (v.getId() == R.id.pilot_plus ||
                     v.getId() == R.id.fighter_plus ||
                     v.getId() == R.id.trader_plus ||
                     v.getId() == R.id.engineer_plus) {
-                if (int_score != 0 && pilot < 16 && fighter < 16 && trader < 16 && engineer < 16) {
-                    int_score--;
-                    score.setText(String.valueOf(int_score));
+
+                if (viewModel.getScore() != 0 &&
+                        viewModel.getPilot() < 16 &&
+                        viewModel.getFighter() < 16 &&
+                        viewModel.getTrader() < 16 &&
+                        viewModel.getEngineer() < 16) {
+
+                    viewModel.setScore(viewModel.getScore() - 1);
+                    score.setText(String.valueOf(viewModel.getScore()));
 
                     if (v.getId() == R.id.pilot_plus) {
-                        pilot++;
-                        pilot_points.setText(String.valueOf(pilot));
+                        viewModel.setPilot(viewModel.getPilot() + 1);
+                        pilot_points.setText(String.valueOf(viewModel.getPilot()));
 
                     } else if (v.getId() == R.id.fighter_plus) {
-                        fighter++;
-                        fighter_points.setText(String.valueOf(fighter));
+                        viewModel.setFighter(viewModel.getFighter() + 1);
+                        fighter_points.setText(String.valueOf(viewModel.getFighter()));
 
                     } else if (v.getId() == R.id.trader_plus) {
-                        trader++;
-                        trader_points.setText(String.valueOf(trader));
+                        viewModel.settrader(viewModel.getTrader() + 1);
+                        trader_points.setText(String.valueOf(viewModel.getTrader()));
 
                     } else if (v.getId() == R.id.engineer_plus) {
-                        engineer++;
-                        engineer_points.setText(String.valueOf(engineer));
+                        viewModel.setEngineer(viewModel.getEngineer() + 1);
+                        engineer_points.setText(String.valueOf(viewModel.getEngineer()));
 
                     }
                 }
@@ -124,37 +146,42 @@ public class ConfigurationView extends AppCompatActivity implements OnClickListe
                     v.getId() == R.id.trader_minus ||
                     v.getId() == R.id.engineer_minus) {
 
-                if (int_score != 16) {
+                if (viewModel.getScore() != 16) {
 
+                    if (v.getId() == R.id.pilot_minus && viewModel.getPilot() > 0) {
 
-                    if (v.getId() == R.id.pilot_minus && pilot > 0) {
-                        pilot--;
-                        pilot_points.setText(String.valueOf(pilot));
-                        int_score++;
-                        score.setText(String.valueOf(int_score));
+                        viewModel.setPilot(viewModel.getPilot() - 1);
+                        pilot_points.setText(String.valueOf(viewModel.getPilot()));
 
-                    } else if (v.getId() == R.id.fighter_minus && fighter > 0) {
-                        fighter--;
-                        fighter_points.setText(String.valueOf(fighter));
-                        int_score++;
-                        score.setText(String.valueOf(int_score));
+                        viewModel.setScore(viewModel.getScore() + 1);
+                        score.setText(String.valueOf(viewModel.getScore()));
 
-                    } else if (v.getId() == R.id.trader_minus  && trader > 0) {
-                        trader--;
-                        trader_points.setText(String.valueOf(trader));
-                        int_score++;
-                        score.setText(String.valueOf(int_score));
+                    } else if (v.getId() == R.id.fighter_minus && viewModel.getFighter() > 0) {
 
-                    } else if (v.getId() == R.id.engineer_minus && engineer > 0){
-                        engineer--;
-                        engineer_points.setText(String.valueOf(engineer));
-                        int_score++;
-                        score.setText(String.valueOf(int_score));
+                        viewModel.setFighter(viewModel.getFighter() - 1);
+                        fighter_points.setText(String.valueOf(viewModel.getFighter()));
 
+                        viewModel.setScore(viewModel.getScore() + 1);
+                        score.setText(String.valueOf(viewModel.getScore()));
+
+                    } else if (v.getId() == R.id.trader_minus && viewModel.getTrader() > 0) {
+
+                        viewModel.settrader(viewModel.getTrader() - 1);
+                        trader_points.setText(String.valueOf(viewModel.getTrader()));
+
+                        viewModel.setScore(viewModel.getScore() + 1);
+                        score.setText(String.valueOf(viewModel.getScore()));
+
+                    } else if (v.getId() == R.id.engineer_minus && viewModel.getEngineer() > 0){
+
+                        viewModel.setEngineer(viewModel.getEngineer() - 1);
+                        engineer_points.setText(String.valueOf(viewModel.getEngineer()));
+
+                        viewModel.setScore(viewModel.getScore() + 1);
+                        score.setText(String.valueOf(viewModel.getScore()));
                     }
                 }
             }
         }
     }
-
 }
