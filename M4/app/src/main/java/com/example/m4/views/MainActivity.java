@@ -15,7 +15,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     private Button openM4;
     private Button exitM4;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +26,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         exitM4 = findViewById(R.id.exitM4_button);
         exitM4.setOnClickListener(this);
 
-
     }
 
     @Override
@@ -37,7 +35,5 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         } else if (v.getId() == R.id.exitM4_button) {
             System.exit(0);
         }
-
     }
-
 }
