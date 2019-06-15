@@ -6,17 +6,14 @@ public enum Difficulty {
 
     private String difficulty;
 
-    // Constructor
     Difficulty(String difficulty) {
         this.difficulty = difficulty;
     }
 
-    // Getter
     public String getDifficulty() {
         return difficulty;
     }
 
-    // Setter
     public void setDifficulty(String difficulty) {
         this.difficulty = difficulty;
     }
