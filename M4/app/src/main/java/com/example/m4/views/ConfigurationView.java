@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
-// import android.widget.EditText;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.view.View;
@@ -16,11 +16,17 @@ import android.widget.Button;
 import com.example.m4.R;
 import com.example.m4.model.Difficulty;
 import com.example.m4.viewmodels.ConfigurationViewModel;
+import com.example.m4.model.Player;
 
 
 public class ConfigurationView extends AppCompatActivity implements OnClickListener {
 
     private ConfigurationViewModel viewModel;
+
+    private Player player = new Player("", 0, 0, 0, 0);
+
+    private EditText name;
+
     private Spinner difficultySpinner;
     private TextView score;
 
@@ -41,11 +47,14 @@ public class ConfigurationView extends AppCompatActivity implements OnClickListe
     private Button exit;
     private Button okay;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_configuration);
+
+        name = findViewById(R.id.name_input);
 
         difficultySpinner = findViewById(R.id.difficulty_spinner);
 
@@ -100,12 +109,6 @@ public class ConfigurationView extends AppCompatActivity implements OnClickListe
             System.exit(0);
         }
 
-        if (v.getId() == R.id.okay_button) {
-            if (viewModel.getScore() != 0) {
-                startActivity(new Intent(ConfigurationView.this, ErrorView.class));
-            }
-        }
-
         if (viewModel.getScore() <= 16 && viewModel.getScore() >= 0) {
 
             if (v.getId() == R.id.pilot_plus ||
@@ -114,30 +117,29 @@ public class ConfigurationView extends AppCompatActivity implements OnClickListe
                     v.getId() == R.id.engineer_plus) {
 
                 if (viewModel.getScore() != 0 &&
-                        viewModel.getPilot() < 16 &&
-                        viewModel.getFighter() < 16 &&
-                        viewModel.getTrader() < 16 &&
-                        viewModel.getEngineer() < 16) {
+                        player.getPilotPoints() < 16 &&
+                        player.getFighterPoints() < 16 &&
+                        player.getTraderPoints() < 16 &&
+                        player.getEngineerPoints() < 16) {
 
                     viewModel.setScore(viewModel.getScore() - 1);
                     score.setText(String.valueOf(viewModel.getScore()));
 
                     if (v.getId() == R.id.pilot_plus) {
-                        viewModel.setPilot(viewModel.getPilot() + 1);
-                        pilot_points.setText(String.valueOf(viewModel.getPilot()));
+                        player.setPilotPoints(player.getPilotPoints() + 1);
+                        pilot_points.setText(String.valueOf(player.getPilotPoints()));
 
                     } else if (v.getId() == R.id.fighter_plus) {
-                        viewModel.setFighter(viewModel.getFighter() + 1);
-                        fighter_points.setText(String.valueOf(viewModel.getFighter()));
+                        player.setFighterPoints(player.getFighterPoints() + 1);
+                        fighter_points.setText(String.valueOf(player.getFighterPoints()));
 
                     } else if (v.getId() == R.id.trader_plus) {
-                        viewModel.setTrader(viewModel.getTrader() + 1);
-                        trader_points.setText(String.valueOf(viewModel.getTrader()));
+                        player.setTraderPoints(player.getTraderPoints() + 1);
+                        trader_points.setText(String.valueOf(player.getTraderPoints()));
 
                     } else if (v.getId() == R.id.engineer_plus) {
-                        viewModel.setEngineer(viewModel.getEngineer() + 1);
-                        engineer_points.setText(String.valueOf(viewModel.getEngineer()));
-
+                        player.setEngineerPoints(player.getEngineerPoints() + 1);
+                        engineer_points.setText(String.valueOf(player.getEngineerPoints()));
                     }
                 }
             }
@@ -148,39 +150,71 @@ public class ConfigurationView extends AppCompatActivity implements OnClickListe
 
                 if (viewModel.getScore() != 16) {
 
-                    if (v.getId() == R.id.pilot_minus && viewModel.getPilot() > 0) {
+                    if (v.getId() == R.id.pilot_minus && player.getPilotPoints() > 0) {
 
-                        viewModel.setPilot(viewModel.getPilot() - 1);
-                        pilot_points.setText(String.valueOf(viewModel.getPilot()));
-
-                        viewModel.setScore(viewModel.getScore() + 1);
-                        score.setText(String.valueOf(viewModel.getScore()));
-
-                    } else if (v.getId() == R.id.fighter_minus && viewModel.getFighter() > 0) {
-
-                        viewModel.setFighter(viewModel.getFighter() - 1);
-                        fighter_points.setText(String.valueOf(viewModel.getFighter()));
+                        player.setPilotPoints(player.getPilotPoints() - 1);
+                        pilot_points.setText(String.valueOf(player.getPilotPoints()));
 
                         viewModel.setScore(viewModel.getScore() + 1);
                         score.setText(String.valueOf(viewModel.getScore()));
 
-                    } else if (v.getId() == R.id.trader_minus && viewModel.getTrader() > 0) {
+                    } else if (v.getId() == R.id.fighter_minus && player.getFighterPoints() > 0) {
 
-                        viewModel.setTrader(viewModel.getTrader() - 1);
-                        trader_points.setText(String.valueOf(viewModel.getTrader()));
+                        player.setFighterPoints(player.getFighterPoints() - 1);
+                        fighter_points.setText(String.valueOf(player.getFighterPoints()));
 
                         viewModel.setScore(viewModel.getScore() + 1);
                         score.setText(String.valueOf(viewModel.getScore()));
 
-                    } else if (v.getId() == R.id.engineer_minus && viewModel.getEngineer() > 0){
+                    } else if (v.getId() == R.id.trader_minus && player.getTraderPoints() > 0) {
 
-                        viewModel.setEngineer(viewModel.getEngineer() - 1);
-                        engineer_points.setText(String.valueOf(viewModel.getEngineer()));
+                        player.setTraderPoints(player.getTraderPoints() - 1);
+                        trader_points.setText(String.valueOf(player.getTraderPoints()));
+
+                        viewModel.setScore(viewModel.getScore() + 1);
+                        score.setText(String.valueOf(viewModel.getScore()));
+
+                    } else if (v.getId() == R.id.engineer_minus && player.getEngineerPoints() > 0){
+
+                        player.setEngineerPoints(player.getEngineerPoints() - 1);
+                        engineer_points.setText(String.valueOf(player.getEngineerPoints()));
 
                         viewModel.setScore(viewModel.getScore() + 1);
                         score.setText(String.valueOf(viewModel.getScore()));
                     }
                 }
+            }
+        }
+
+        if (v.getId() == R.id.okay_button) {
+            if (viewModel.getScore() != 0) {
+                startActivity(new Intent(ConfigurationView.this, ErrorView.class));
+            } else if (viewModel.getScore() == 0) {
+
+                player.setDifficulty((Difficulty) difficultySpinner.getSelectedItem());
+                player.setName(name.getText().toString());
+
+                Player.repo.clear();
+
+                Player.repo.add(player.getName());
+                Player.repo.add(player.getDifficulty().toString());
+                Player.repo.add(String.valueOf(player.getShip()));
+                Player.repo.add(String.valueOf(player.getCredits()));
+                Player.repo.add(String.valueOf(player.getPilotPoints()));
+                Player.repo.add(String.valueOf(player.getFighterPoints()));
+                Player.repo.add(String.valueOf(player.getTraderPoints()));
+                Player.repo.add(String.valueOf(player.getEngineerPoints()));
+
+                Log.d("Name", player.getName());
+                Log.d("Difficulty",player.getDifficulty().toString());
+                Log.d("Ship", String.valueOf(player.getShip()));
+                Log.d("Credits", String.valueOf(player.getCredits()));
+                Log.d("Pilot Points", String.valueOf(player.getPilotPoints()));
+                Log.d("Fighter Points", String.valueOf(player.getFighterPoints()));
+                Log.d("Trader Points", String.valueOf(player.getTraderPoints()));
+                Log.d("Engineer Points", String.valueOf(player.getEngineerPoints()));
+
+                startActivity(new Intent(ConfigurationView.this, CreatePlayerView.class));
             }
         }
     }

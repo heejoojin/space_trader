@@ -1,4 +1,6 @@
 package com.example.m4.model;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This class represents a player object
@@ -23,6 +25,14 @@ public class Player {
     /** this player's name */
     private String name;
 
+    /** this player's ship */
+    private String ship;
+
+    private Difficulty difficulty;
+
+    public static List<String> repo = new ArrayList<>();
+
+
     public Player(String name, int pilotPoints, int fighterPoints, int traderPoints, int engineerPoints) {
         this.credits = 1000;
         this.name = name;
@@ -30,21 +40,28 @@ public class Player {
         this.fighterPoints = fighterPoints;
         this.traderPoints = traderPoints;
         this.engineerPoints = engineerPoints;
+        this.ship = "Gnat Spaceship";
     }
 
     //Getters and setters required for accessing the fields
 
-    public int getCredits() { return credits; }
+    public int getCredits() { return this.credits; }
 
-    public int getPilotPoints() { return pilotPoints; }
+    public int getPilotPoints() { return this.pilotPoints; }
 
-    public int getFighterPoints() { return fighterPoints; }
+    public int getFighterPoints() { return this.fighterPoints; }
 
-    public int getTraderPoints() { return traderPoints; }
+    public int getTraderPoints() { return this.traderPoints; }
 
-    public int getEngineerPoints() {return engineerPoints; }
+    public int getEngineerPoints() {return this.engineerPoints; }
 
-    public String getName() {return name; }
+    public String getName() {return this.name; }
+
+    public String getShip() {return this.ship;}
+
+    public Difficulty getDifficulty() {
+        return this.difficulty;
+    }
 
     public void setCredits(int credits) {
         this.credits = credits;
@@ -69,4 +86,13 @@ public class Player {
     public void setName(String name) {
         this.name = name;
     }
+
+    public void setShip(String ship) {
+        this.ship = ship;
+    }
+
+    public void setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
+    }
+
 }

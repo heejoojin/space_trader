@@ -22,6 +22,9 @@
         <activity
             android:name=".views.ErrorView"
             android:parentActivityName=".views.ConfigurationView" />
+        <activity
+            android:name=".views.CreatePlayerView"
+            android:parentActivityName=".views.ConfigurationView" />
     </application>
 
 </manifest>
