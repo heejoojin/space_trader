@@ -47,7 +47,6 @@ public class ConfigurationView extends AppCompatActivity implements OnClickListe
     private Button exit;
     private Button okay;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 

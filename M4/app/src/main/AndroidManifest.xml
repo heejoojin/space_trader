@@ -25,6 +25,10 @@
         <activity
             android:name=".views.CreatePlayerView"
             android:parentActivityName=".views.ConfigurationView" />
+        <activity
+            android:name=".views.UniverseView"
+            android:parentActivityName=".views.CreatePlayerView" />
+
     </application>
 
 </manifest>

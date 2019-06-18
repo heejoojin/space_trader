@@ -32,7 +32,6 @@ public class Player {
 
     public static List<String> repo = new ArrayList<>();
 
-
     public Player(String name, int pilotPoints, int fighterPoints, int traderPoints, int engineerPoints) {
         this.credits = 1000;
         this.name = name;
@@ -94,5 +93,4 @@ public class Player {
     public void setDifficulty(Difficulty difficulty) {
         this.difficulty = difficulty;
     }
-
 }
