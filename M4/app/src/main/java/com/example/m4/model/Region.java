@@ -2,10 +2,6 @@ package com.example.m4.model;
 
 import java.util.ArrayList;
 
-/**
- * Represents a region of planets, defined using an ArrayList of Planet objects.
- * Constructor requires no parameters.
- */
 public enum Region {
 
     PREAGRICULTURE("Pre-Agriculture"), AGRICULTURE("Agriculture"),
@@ -32,6 +28,10 @@ public enum Region {
         return region;
     }
 
+//    /**
+////     * Represents a region of planets, defined using an ArrayList of Planet objects.
+////     * Constructor requires no parameters.
+////     */
 //    ArrayList<Planet> planetList = new ArrayList<>();
 //    int numPlanets;
 //    int xLoc;
