@@ -44,27 +44,5 @@ public class Region {
 
     public void setyLoc(int yLoc) { this.yLoc = yLoc; }
 
-    //    PREAGRICULTURE("Pre-Agriculture"), AGRICULTURE("Agriculture"),
-//    MEDIEVAL("Medieval"), RENAISSANCE("Renaissance"), EARLYINDUSTRIAL("Early Industrial"),
-//    INDUSTRIAL("Industrial"), POSTINDUSTRIAL("Post-Industrial"),
-//    HITECH(" Hi-Tech");
-//
-//    private String region;
-//
-//    Region(String region) {
-//        this.region = region;
-//    }
-//
-//    public String getRegion() {
-//        return region;
-//    }
-//
-//    public void setRegion(String region) {
-//        this.region = region;
-//    }
-//
-//    @Override
-//    public String toString() {
-//        return region;
-//    }
+
 }
