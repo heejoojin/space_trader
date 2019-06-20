@@ -2,68 +2,69 @@ package com.example.m4.model;
 
 import java.util.ArrayList;
 
-public enum Region {
+    /**
+      * Represents a region of planets, defined using an ArrayList of Planet objects.
+      * Constructor requires no parameters.
+      */
 
-    PREAGRICULTURE("Pre-Agriculture"), AGRICULTURE("Agriculture"),
-    MEDIEVAL("Medieval"), RENAISSANCE("Renaissance"), EARLYINDUSTRIAL("Early Industrial"),
-    INDUSTRIAL("Industrial"), POSTINDUSTRIAL("Post-Industrial"),
-    HITECH(" Hi-Tech");
+public class Region {
 
-    private String region;
+    ArrayList<Planet> planetList = new ArrayList<>();
+    int numPlanets;
+    int xLoc;
+    int yLoc;
 
-    Region(String region) {
-        this.region = region;
+    /**
+     * Default constructor initializing all the variables
+     */
+    public Region () {
+        numPlanets = 0;
+        xLoc = 0;
+        yLoc = 0;
     }
 
-    public String getRegion() {
-        return region;
+    /**
+     * Adds a new planet to the ArrayList, also increments the number of planets the region has
+     *
+     * @param planet Planet to be added to the list
+     */
+    public void addPlanet(Planet planet) {
+        planetList.add(planet);
+        numPlanets++;
     }
 
-    public void setRegion(String region) {
-        this.region = region;
-    }
+    //Getters and setters for the variables
+    public int getNumPlanets() { return numPlanets; }
 
-    @Override
-    public String toString() {
-        return region;
-    }
+    public int getxLoc() { return xLoc; }
 
-//    /**
-////     * Represents a region of planets, defined using an ArrayList of Planet objects.
-////     * Constructor requires no parameters.
-////     */
-//    ArrayList<Planet> planetList = new ArrayList<>();
-//    int numPlanets;
-//    int xLoc;
-//    int yLoc;
+    public int getyLoc() { return yLoc; }
+
+    public void setxLoc(int xLoc) { this.xLoc = xLoc; }
+
+    public void setyLoc(int yLoc) { this.yLoc = yLoc; }
+
+    //    PREAGRICULTURE("Pre-Agriculture"), AGRICULTURE("Agriculture"),
+//    MEDIEVAL("Medieval"), RENAISSANCE("Renaissance"), EARLYINDUSTRIAL("Early Industrial"),
+//    INDUSTRIAL("Industrial"), POSTINDUSTRIAL("Post-Industrial"),
+//    HITECH(" Hi-Tech");
 //
-//    /**
-//     * Default constructor initializing all the variables
-//     */
-//    public Region () {
-//        numPlanets = 0;
-//        xLoc = 0;
-//        yLoc = 0;
+//    private String region;
+//
+//    Region(String region) {
+//        this.region = region;
 //    }
 //
-//    /**
-//     * Adds a new planet to the ArrayList, also increments the number of planets the region has
-//     *
-//     * @param planet Planet to be added to the list
-//     */
-//    public void addPlanet(Planet planet) {
-//        planetList.add(planet);
-//        numPlanets++;
+//    public String getRegion() {
+//        return region;
 //    }
 //
-//    //Getters and setters for the variables
-//    public int getNumPlanets() { return numPlanets; }
+//    public void setRegion(String region) {
+//        this.region = region;
+//    }
 //
-//    public int getxLoc() { return xLoc; }
-//
-//    public int getyLoc() { return yLoc; }
-//
-//    public void setxLoc(int xLoc) { this.xLoc = xLoc; }
-//
-//    public void setyLoc(int yLoc) { this.yLoc = yLoc; }
+//    @Override
+//    public String toString() {
+//        return region;
+//    }
 }
