@@ -29,7 +29,9 @@ public class Universe {
      * ensures that the regions are not too close together.
      * @param numRegions
      */
-    private void dropRegions(int numRegions) {}
+    private void dropRegions(int numRegions) {
+        for (int i = 0; i < numRegions; i++) {}
+    }
 
     //adds a region object to the universe
     private void addRegion(Region region) {
@@ -43,7 +45,9 @@ public class Universe {
      * planets are not dropped completely randomly.
      * @param numPlanets number of planets to drop into the universe
      */
-    private void dropPlanets(int numPlanets) {}
+    private void dropPlanets(int numPlanets) {
+        for (int i = 0; i < numPlanets; i++) {}
+    }
 
     //getters and setters for the variables
     public ArrayList<Region> getRegions() {
