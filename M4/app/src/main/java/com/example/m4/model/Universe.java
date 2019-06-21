@@ -8,12 +8,9 @@ public class Universe {
     private ArrayList<Region> regions = new ArrayList<>();
     private int numRegions;
     private int numPlanets;
+    private final int HEIGHT = 150;
+    private final int WIDTH = 100;
 
-    //adds a region object to the universe
-    public void addRegion(Region region) {
-        regions.add(region);
-        numRegions++;
-    }
 
     //constructs a Universe object
     public Universe(int numRegions, int numPlanets) {
@@ -28,12 +25,17 @@ public class Universe {
     }
 
     /**
-     * Drops a certain number of regions into the universe. This method is
-     * not completely random. This is to ensure that there won't be a bad
-     * universe created (the regions are too unevenly distributed)
+     * Drops a certain number of regions into the universe. This method
+     * ensures that the regions are not too close together.
      * @param numRegions
      */
     private void dropRegions(int numRegions) {}
+
+    //adds a region object to the universe
+    private void addRegion(Region region) {
+        regions.add(region);
+        numRegions++;
+    }
 
     /**
      * Drop planets into the universe. This method assigns each planet to
@@ -52,4 +54,27 @@ public class Universe {
         this.regions = regions;
     }
 
+    public int getNumRegions() {
+        return numRegions;
+    }
+
+    public void setNumRegions(int numRegions) {
+        this.numRegions = numRegions;
+    }
+
+    public int getNumPlanets() {
+        return numPlanets;
+    }
+
+    public void setNumPlanets(int numPlanets) {
+        this.numPlanets = numPlanets;
+    }
+
+    public int getHEIGHT() {
+        return HEIGHT;
+    }
+
+    public int getWIDTH() {
+        return WIDTH;
+    }
 }
