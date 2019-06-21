@@ -9,10 +9,12 @@ import java.util.ArrayList;
 
 public class Region {
 
-    ArrayList<Planet> planetList = new ArrayList<>();
-    int numPlanets;
-    int xLoc;
-    int yLoc;
+    private ArrayList<Planet> planetList = new ArrayList<>();
+    private Resource specialResource;
+    private TechLevel techLevel;
+    private int numPlanets;
+    private int xLoc;
+    private int yLoc;
 
     /**
      * Default constructor initializing all the variables
@@ -34,15 +36,53 @@ public class Region {
     }
 
     //Getters and setters for the variables
-    public int getNumPlanets() { return numPlanets; }
-
-    public int getxLoc() { return xLoc; }
-
-    public int getyLoc() { return yLoc; }
-
-    public void setxLoc(int xLoc) { this.xLoc = xLoc; }
-
-    public void setyLoc(int yLoc) { this.yLoc = yLoc; }
 
 
-}
+        public ArrayList<Planet> getPlanetList() {
+            return planetList;
+        }
+
+        public Resource getSpecialResource() {
+            return specialResource;
+        }
+
+        public TechLevel getTechLevel() {
+            return techLevel;
+        }
+
+        public int getNumPlanets() {
+            return numPlanets;
+        }
+
+        public int getxLoc() {
+            return xLoc;
+        }
+
+        public int getyLoc() {
+            return yLoc;
+        }
+
+        public void setPlanetList(ArrayList<Planet> planetList) {
+            this.planetList = planetList;
+        }
+
+        public void setSpecialResource(Resource specialResource) {
+            this.specialResource = specialResource;
+        }
+
+        public void setTechLevel(TechLevel techLevel) {
+            this.techLevel = techLevel;
+        }
+
+        public void setNumPlanets(int numPlanets) {
+            this.numPlanets = numPlanets;
+        }
+
+        public void setxLoc(int xLoc) {
+            this.xLoc = xLoc;
+        }
+
+        public void setyLoc(int yLoc) {
+            this.yLoc = yLoc;
+        }
+    }

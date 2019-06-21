@@ -6,7 +6,6 @@ public class Planet {
     private Colors color;
     private int xLocation;
     private int yLocation;
-    private RegionName regionName;
 
     //constructors for a planet object
 
@@ -15,7 +14,6 @@ public class Planet {
         this.color = color;
         this.xLocation = xLocation;
         this.yLocation = yLocation;
-        this.regionName = regionName;
     }
 
     //getters and setters for the variable
