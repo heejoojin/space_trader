@@ -68,7 +68,6 @@ public class UniverseView extends AppCompatActivity {
                 planets_text.setText(planetName.getRandom().toString() + " & " + itemName);
                 techlevel_text.setText(techLevel.getRandom().toString());
                 resource_text.setText(resource.getRandom().toString());
-                //location_text.setText(region.getxLoc());
 
             }
         });
