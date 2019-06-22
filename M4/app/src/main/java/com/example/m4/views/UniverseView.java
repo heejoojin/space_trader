@@ -47,7 +47,6 @@ public class UniverseView extends AppCompatActivity {
         location_text = findViewById(R.id.location_selected);
 
 
-
         final ArrayAdapter adapter = new ArrayAdapter(this,
                 android.R.layout.simple_list_item_1, regionName.values());
 
@@ -58,7 +57,6 @@ public class UniverseView extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 // TODO Auto-generated method stub
 
-                /* appending I Love with car brand names */
                 String itemName = "" + adapter.getItem(position);
                 String value = itemName + "has been selected";
                 /* Display the Toast */
