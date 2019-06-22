@@ -1,5 +1,6 @@
 package com.example.m4.views;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
@@ -12,12 +13,14 @@ import android.widget.AdapterView;
 import android.view.View;
 import com.example.m4.R;
 import android.widget.Toast;
+import android.widget.Button;
 
 import com.example.m4.model.TechLevel;
 import com.example.m4.model.Resource;
 import com.example.m4.model.Region;
+import android.view.View.OnClickListener;
 
-public class UniverseView extends AppCompatActivity {
+public class UniverseView extends AppCompatActivity implements OnClickListener {
 
     private GridView UniversegridView;
     // TextView textView;
@@ -33,6 +36,8 @@ public class UniverseView extends AppCompatActivity {
     private TextView resource_text;
     private TextView location_text;
 
+    private Button next_button;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -45,6 +50,9 @@ public class UniverseView extends AppCompatActivity {
         techlevel_text = findViewById(R.id.techlevel_selected);
         resource_text = findViewById(R.id.resource_selected);
         location_text = findViewById(R.id.location_selected);
+
+        next_button = findViewById(R.id.next_button_1);
+        next_button.setOnClickListener(this);
 
 
         final ArrayAdapter adapter = new ArrayAdapter(this,
@@ -69,5 +77,12 @@ public class UniverseView extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onClick (View v) {
+        if (v.getId() == R.id.next_button_1) {
+            startActivity(new Intent(this, GameView.class));
+        }
     }
 }

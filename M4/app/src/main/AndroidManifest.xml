@@ -28,6 +28,9 @@
         <activity
             android:name=".views.UniverseView"
             android:parentActivityName=".views.CreatePlayerView" />
+        <activity
+            android:name=".views.GameView"
+            android:parentActivityName=".views.UniverseView" />
 
     </application>
 
