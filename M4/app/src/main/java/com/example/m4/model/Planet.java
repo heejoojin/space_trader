@@ -9,12 +9,13 @@ public class Planet {
 
     //constructors for a planet object
 
-    public Planet(PlanetName planetName, Colors color, int xLocation, int yLocation, RegionName regionName) {
+    public Planet(PlanetName planetName, int xLocation, int yLocation) {
         this.planetName = planetName;
-        this.color = color;
         this.xLocation = xLocation;
         this.yLocation = yLocation;
     }
+
+
 
     //getters and setters for the variable
 

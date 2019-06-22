@@ -10,17 +10,163 @@
     tools:showIn="@layout/activity_universe"
     tools:context=".views.UniverseView">
 
-
     <TextView
-        android:id="@+id/universe"
+        android:id="@+id/region_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Universe Temporary User interface"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        android:layout_marginStart="148dp"
+        android:layout_marginLeft="148dp"
+        android:layout_marginTop="16dp"
+        android:text="Regions"
+        android:textColor="#0E0000"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.394" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <GridView
+        android:id="@+id/universe_gridView"
+        android:layout_width="298dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="60dp"
+        android:numColumns="3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/region_view" />
+
+    <TextView
+        android:id="@+id/regionname_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Name "
+        android:textColor="#0E0000"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/universe_gridView"
+        app:layout_constraintTop_toBottomOf="@+id/universe_gridView" />
+
+    <TextView
+        android:id="@+id/region_selected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="select a region"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.348"
+        app:layout_constraintStart_toEndOf="@+id/planet_view"
+        app:layout_constraintTop_toBottomOf="@+id/universe_gridView" />
+
+    <TextView
+        android:id="@+id/planet_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:text="Planets "
+        android:textColor="#0E0000"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/universe_gridView"
+        app:layout_constraintTop_toBottomOf="@+id/universe_gridView" />
+
+    <TextView
+        android:id="@+id/planet_selected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="select a region"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.348"
+        app:layout_constraintStart_toEndOf="@+id/planet_view"
+        app:layout_constraintTop_toBottomOf="@+id/universe_gridView" />
+
+    <TextView
+        android:id="@+id/techlevel_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="128dp"
+        android:text="Tech Level "
+        android:textColor="#0E0000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/planet_view"
+        app:layout_constraintTop_toBottomOf="@+id/universe_gridView" />
+
+    <TextView
+        android:id="@+id/techlevel_selected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="select a region"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.221"
+        app:layout_constraintStart_toEndOf="@+id/techlevel_view"
+        app:layout_constraintTop_toBottomOf="@+id/planet_selected" />
+
+
+    <TextView
+        android:id="@+id/resource_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="184dp"
+        android:text="Resource "
+        android:textColor="#0E0000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/planet_view"
+        app:layout_constraintTop_toBottomOf="@+id/universe_gridView" />
+
+    <TextView
+        android:id="@+id/resource_selected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="128dp"
+        android:layout_marginRight="128dp"
+        android:text="select a region"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/planet_selected" />
+
+    <TextView
+        android:id="@+id/location_view"
+        android:layout_width="wrap_content"
+        android:layout_height="21dp"
+        android:layout_marginTop="236dp"
+        android:text="Location "
+        android:textColor="#0E0000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/planet_view"
+        app:layout_constraintTop_toBottomOf="@+id/universe_gridView" />
+
+    <TextView
+        android:id="@+id/location_selected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="144dp"
+        android:layout_marginEnd="128dp"
+        android:layout_marginRight="128dp"
+        android:text="select a region"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/planet_selected" />
+
+
+
+    <!--<TextView-->
+        <!--android:id="@+id/universe"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Universe Temporary User interface"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintHorizontal_bias="0.497"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--app:layout_constraintVertical_bias="0.394" />-->
 
 </android.support.constraint.ConstraintLayout>

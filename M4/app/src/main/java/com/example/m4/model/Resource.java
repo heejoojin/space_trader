@@ -1,5 +1,7 @@
 package com.example.m4.model;
 
+import java.util.*;
+
 public enum Resource {
 
     NOSPECIALRESOURCES("No Special Resource"), MINERALRICH("Mineral Rich"), MINERALPOOR("Mineral Poor"),
@@ -8,7 +10,7 @@ public enum Resource {
     WEIRDMUSHROOMS("Weird Mushrooms"), LOTSOFHERBS("Lots of Herbs"),
     ARTISTIC("Artistic"), WARLIKE("Warlike");
 
-    private String resource;
+    private final String resource;
 
     Resource(String resource) {
         this.resource = resource;
@@ -18,12 +20,15 @@ public enum Resource {
         return resource;
     }
 
-    public void setResource(String resource) {
-        this.resource = resource;
-    }
-
     @Override
     public String toString() {
         return resource;
     }
+
+    //this method returns a random resource
+    public static Resource getRandom() {
+        Random random = new Random();
+        return values()[random.nextInt(values().length)];
+    }
+
 }
