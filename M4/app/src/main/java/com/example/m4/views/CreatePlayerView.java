@@ -4,6 +4,7 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View.OnClickListener;
 
 import android.widget.TextView;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.m4.R;
+import com.example.m4.model.Universe;
 import com.example.m4.viewmodels.ConfigurationViewModel;
 import com.example.m4.model.Player;
 
@@ -67,6 +69,10 @@ public class CreatePlayerView extends AppCompatActivity implements OnClickListen
     @Override
     public void onClick (View v) {
         if (v.getId() == R.id.create_universe_button) {
+            Universe universe = new Universe(10, 16);
+            universe.populate();
+            String string = universe.toString();
+            Log.d("Universe", string);
             startActivity(new Intent(this, UniverseView.class));
         }
     }

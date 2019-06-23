@@ -16,8 +16,14 @@ public class Universe {
 
     //constructs a Universe object
     public Universe(int numRegions, int numPlanets) {
+
+        if (numPlanets < numRegions) {
+            throw new IllegalArgumentException("Number of planets cannot be less than number of regions.");
+        }
+
         this.numRegions = numRegions;
         this.numPlanets = numPlanets;
+        random = new Random();
     }
 
     //populates the Universe by calling dropRegions(), then dropPlanets()
@@ -27,6 +33,8 @@ public class Universe {
         int i = 0;
         for(Region region : regions) {
             region.setColor(colors[i]);
+            region.addPlanet(new Planet(getUniquePlanetName(), region.getxLoc(), region.getyLoc()));
+            i++;
         }
         dropPlanets(numPlanets);
     }
@@ -34,13 +42,14 @@ public class Universe {
     @Override
     public String toString() {
 
-        String string = "";
+        String string = "Universe: \n";
         for (Region region : regions) {
             string += region.getRegionName() + ": " + region.getSpecialResource()
-                    + ", " + region.getTechLevel() + "," + "(" + region.getxLoc()
-                    + ", " + region.getyLoc() + ")";
+                    + ", " + region.getTechLevel() + "," + " (" + region.getxLoc()
+                    + ", " + region.getyLoc() + "), " + region.getColor() + " Planets: \n";
             for (Planet planet: region.getPlanetList()) {
-                string += planet.getPlanetName() + "\n";
+                string += planet.getPlanetName() + ", (" + planet.getxLocation()
+                        + ", " + planet.getyLocation() + ")\n";
             }
         }
         return string;
@@ -91,15 +100,14 @@ public class Universe {
         for (int i = 0; i < numRegions; i++) {
             int[] location = getUniqueRegLocation();
             Region region = new Region(getUniqueRegion(), Resource.getRandom(),
-                    TechLevel.getRandom(), location[0], location[i]);
-            regions.add(region);
+                    TechLevel.getRandom(), location[0], location[1]);
+            addRegion(region);
         }
     }
 
     //adds a region object to the universe
     private void addRegion(Region region) {
         regions.add(region);
-        numRegions++;
     }
 
     //this method checks if a RegionName has already been used
@@ -152,10 +160,9 @@ public class Universe {
     }
 
     private boolean isUsedPlanet(PlanetName planetName) {
-        PlanetName temp = PlanetName.getRandom();
         for (Region region : regions) {
             for (Planet planet : region.getPlanetList()) {
-                if (planet.equals(planetName)) {
+                if (planet.getPlanetName().equals(planetName)) {
                     return false;
                 }
             }
@@ -203,7 +210,8 @@ public class Universe {
      * @param numPlanets number of planets to drop into the universe
      */
     private void dropPlanets(int numPlanets) {
-        for (int i = 0; i < numPlanets; i++) {
+
+        for (int i = 0; i < (numPlanets - numRegions); i++) {
             int[] location = getUniquePlanetLocation();
             Planet planet = new Planet(getUniquePlanetName(), location[0], location[1]);
 
