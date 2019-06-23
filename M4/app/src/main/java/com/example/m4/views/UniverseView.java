@@ -18,7 +18,11 @@ import android.widget.Button;
 import com.example.m4.model.TechLevel;
 import com.example.m4.model.Resource;
 import com.example.m4.model.Region;
+import com.example.m4.model.Planet;
+import com.example.m4.model.Universe;
 import android.view.View.OnClickListener;
+import java.lang.String;
+import java.util.*;
 
 public class UniverseView extends AppCompatActivity implements OnClickListener {
 
@@ -29,14 +33,19 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
     private Resource resource;
     private Region region;
     private PlanetName planetName;
+    private Universe universe;
 
     private TextView region_text;
     private TextView planets_text;
     private TextView techlevel_text;
     private TextView resource_text;
     private TextView location_text;
+    private TextView color_text;
 
     private Button next_button;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +59,13 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
         techlevel_text = findViewById(R.id.techlevel_selected);
         resource_text = findViewById(R.id.resource_selected);
         location_text = findViewById(R.id.location_selected);
+        color_text = findViewById(R.id.color_selected);
 
         next_button = findViewById(R.id.next_button_1);
         next_button.setOnClickListener(this);
+
+        universe = new Universe(12, 25);
+        universe.populate();
 
 
         final ArrayAdapter adapter = new ArrayAdapter(this,
@@ -66,15 +79,32 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
                 // TODO Auto-generated method stub
 
                 String itemName = "" + adapter.getItem(position);
-                String value = itemName + "has been selected";
+                String value = itemName + " has been selected";
                 /* Display the Toast */
                 Toast.makeText(getApplicationContext(), value, Toast.LENGTH_SHORT).show();
 
-                region_text.setText(itemName);
-                planets_text.setText(planetName.getRandom().toString() + " & " + itemName);
-                techlevel_text.setText(techLevel.getRandom().toString());
-                resource_text.setText(resource.getRandom().toString());
+                String planet_details = "";
 
+                // planets_text.setText(planetName.getRandom().toString() + " & " + itemName);
+
+                for (Region region: universe.getRegions()) {
+                    if (region.getRegionName().equals(adapter.getItem(position))) {
+
+                        region_text.setText(region.getRegionName().toString());
+                        techlevel_text.setText(region.getTechLevel().toString());
+                        resource_text.setText(region.getSpecialResource().toString());
+                        color_text.setText(region.getColor().toString());
+                        String region_loc = "(" + region.getxLoc()
+                                + ", " + region.getyLoc() + ")";
+                        location_text.setText(region_loc);
+
+                        for (Planet planet : region.getPlanetList()) {
+                            planet_details += planet.getPlanetName() + ", (" + planet.getxLocation()
+                                    + ", " + planet.getyLocation() + ")\n";
+                        }
+                        planets_text.setText(planet_details);
+                    }
+                }
             }
         });
     }

@@ -11,7 +11,10 @@ public enum PlanetName {
     SIRIUS("Sirius"), CANOPUS("Canopus"), ARCTURUS("Arcturus"), CENTAURI("Centauri"),
     VEGA("Vega"), RIGEL("Rigel"), PROCYON("Procyon"), ACHERNAR("Achernar"), BETELGEUSE("Betelgeuse"),
     HADAR("Hadar"), SPICA("Spica"), ANTARES("Antares"), POLLUX("Pollux"), FOMALHAUT("Fomalhaut"),
-    DENEB("Deneb"), MINOSA("Minosa");
+    DENEB("Deneb"), MINOSA("Minosa"), SITULA("Situla"), ALTAIR("Altair"), HAMLA("Hamal"),
+    CAPELLA("Capella"), MAAZ("Maaz"), TARF("Tarf"), CHARA("Chara"),
+    BOTEIN("Botein"), WEZEN("Wezen"), ALUDRA("Aludra"), DABIH("Dabih"),
+    AVIOR("Avior"), CAPH("Caph"), TISH("Tish"), RUCHBAH("Ruchbah");
 
     private final String planet;
 
