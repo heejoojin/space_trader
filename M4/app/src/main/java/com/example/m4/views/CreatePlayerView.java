@@ -69,7 +69,7 @@ public class CreatePlayerView extends AppCompatActivity implements OnClickListen
     @Override
     public void onClick (View v) {
         if (v.getId() == R.id.create_universe_button) {
-            Universe universe = new Universe(10, 16);
+            Universe universe = new Universe(10, 30);
             universe.populate();
             String string = universe.toString();
             Log.d("Universe", string);
