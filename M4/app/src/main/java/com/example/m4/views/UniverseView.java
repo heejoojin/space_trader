@@ -3,6 +3,7 @@ package com.example.m4.views;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.TextView;
@@ -64,8 +65,10 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
         next_button = findViewById(R.id.next_button_1);
         next_button.setOnClickListener(this);
 
-        universe = new Universe(12, 25);
+        universe = new Universe(12, 30);
         universe.populate();
+        String string = universe.toString();
+        Log.d("Universe", string);
 
 
         final ArrayAdapter adapter = new ArrayAdapter(this,
