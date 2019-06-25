@@ -10,16 +10,15 @@
 
 
     <TextView
-        android:id="@+id/game_page"
-        android:layout_width="wrap_content"
+        android:id="@+id/selected_region_view"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="148dp"
-        android:layout_marginLeft="148dp"
-        android:layout_marginTop="256dp"
-        android:text="Game Page"
+        android:layout_marginTop="28dp"
+        android:text="Region"
         android:textColor="#0E0000"
-        android:textSize="22sp"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center"/>
 
 </android.support.constraint.ConstraintLayout>

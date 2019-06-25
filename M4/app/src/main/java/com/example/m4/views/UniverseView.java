@@ -21,6 +21,7 @@ import com.example.m4.model.Resource;
 import com.example.m4.model.Region;
 import com.example.m4.model.Planet;
 import com.example.m4.model.Universe;
+import com.example.m4.model.Player;
 import android.view.View.OnClickListener;
 import java.lang.String;
 import java.util.*;
@@ -44,9 +45,7 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
     private TextView color_text;
 
     private Button next_button;
-
-
-
+    private Player player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +105,7 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
                                     + ", " + planet.getyLocation() + ")\n";
                         }
                         planets_text.setText(planet_details);
+
                     }
                 }
             }
@@ -115,7 +115,11 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
     @Override
     public void onClick (View v) {
         if (v.getId() == R.id.next_button_1) {
+            if (Player.repo.size() == 9) {
+                Player.repo.remove(8);
+            }
             startActivity(new Intent(this, GameView.class));
+            Player.repo.add(region_text.getText().toString());
         }
     }
 }

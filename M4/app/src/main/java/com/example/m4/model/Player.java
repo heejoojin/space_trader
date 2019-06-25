@@ -30,6 +30,8 @@ public class Player {
 
     private Difficulty difficulty;
 
+    private Region region;
+
     public static List<String> repo = new ArrayList<>();
 
     public Player(String name, int pilotPoints, int fighterPoints, int traderPoints, int engineerPoints) {
@@ -93,4 +95,5 @@ public class Player {
     public void setDifficulty(Difficulty difficulty) {
         this.difficulty = difficulty;
     }
+
 }
