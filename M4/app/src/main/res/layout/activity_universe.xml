@@ -112,7 +112,7 @@
         <TextView
             android:id="@+id/location_view"
             android:layout_width="wrap_content"
-            android:layout_height="21dp"
+            android:layout_height="wrap_content"
             android:text="Location "
             android:textColor="#0E0000"
             android:textSize="20sp"
@@ -136,7 +136,7 @@
         <TextView
             android:id="@+id/color_view"
             android:layout_width="wrap_content"
-            android:layout_height="21dp"
+            android:layout_height="wrap_content"
             android:text="Color "
             android:textColor="#0E0000"
             android:textSize="20sp"
@@ -151,7 +151,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="select a region"
-            android:layout_marginTop="13dp"
+            android:layout_marginTop="15dp"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="200dp"
             android:layout_marginLeft="200dp"
@@ -188,12 +188,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
             android:layout_marginLeft="60dp"
-            android:layout_marginTop="134dp"
+            android:layout_marginTop="26dp"
             android:layout_marginBottom="30dp"
             android:text="NEXT"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@id/region_view"
-            app:layout_constraintTop_toBottomOf="@+id/location_selected"
+            app:layout_constraintTop_toBottomOf="@+id/planet_selected"
             app:layout_constraintVertical_bias="0.0" />
 
 

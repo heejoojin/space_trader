@@ -2,6 +2,7 @@ package com.example.m4.views;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -146,6 +147,12 @@ public class ConfigurationView extends AppCompatActivity implements OnClickListe
                 if (viewModel.getScore() == 0) {
                     String m = "You have used all of your points";
                     Toast.makeText(getApplicationContext(), m, Toast.LENGTH_SHORT).show();
+//                    Toast toast = new Toast(getApplicationContext());
+//                    TextView tv = new TextView(this);
+//                    tv.setT;
+//                    Typeface t = Typeface.create("work_sans", Typeface.NORMAL);
+//
+//                            Toast.makeText(, m, Toast.LENGTH_SHORT);
                 }
             }
             if (v.getId() == R.id.pilot_minus ||
