@@ -47,6 +47,8 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
     private Button next_button;
     private Player player;
 
+    private Boolean clicked = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -86,7 +88,7 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
                 // Toast.makeText(getApplicationContext(), value, Toast.LENGTH_SHORT).show();
 
                 String planet_details = "";
-
+                clicked = true;
                 // planets_text.setText(planetName.getRandom().toString() + " & " + itemName);
 
                 for (Region region: universe.getRegions()) {
@@ -105,18 +107,25 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
                                     + ", " + planet.getyLocation() + ")\n";
                         }
                         planets_text.setText(planet_details);
-
+                        Universe.temp_planets = region.getPlanetList();
                     }
                 }
             }
         });
+
     }
 
     @Override
     public void onClick (View v) {
         if (v.getId() == R.id.next_button_1) {
-            startActivity(new Intent(this, GameView.class));
-            Player.repo.put("Region", region_text.getText().toString());
+
+            if (clicked) {
+                startActivity(new Intent(this, GameView.class));
+                Player.repo.put("Region", region_text.getText().toString());
+
+            }
+
+
         }
     }
 }
