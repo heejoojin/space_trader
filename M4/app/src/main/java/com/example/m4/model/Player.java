@@ -1,6 +1,5 @@
 package com.example.m4.model;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * This class represents a player object
@@ -32,7 +31,7 @@ public class Player {
 
     private Region region;
 
-    public static List<String> repo = new ArrayList<>();
+    public static Map<String,String> repo = new HashMap<String, String>();
 
     public Player(String name, int pilotPoints, int fighterPoints, int traderPoints, int engineerPoints) {
         this.credits = 1000;

@@ -51,15 +51,15 @@ public class CreatePlayerView extends AppCompatActivity implements OnClickListen
         trader = findViewById(R.id.player_trader);
         engineer = findViewById(R.id.player_engineer);
 
-        name.setText(Player.repo.get(0));
-        difficulty.setText(Player.repo.get(1));
-        ship.setText(Player.repo.get(2));
-        credit.setText(Player.repo.get(3));
+        name.setText(Player.repo.get("Name"));
+        difficulty.setText(Player.repo.get("Difficulty"));
+        ship.setText(Player.repo.get("Ship"));
+        credit.setText(Player.repo.get("Credits"));
 
-        pilot.setText(Player.repo.get(4));
-        fighter.setText(Player.repo.get(5));
-        trader.setText(Player.repo.get(6));
-        engineer.setText(Player.repo.get(7));
+        pilot.setText(Player.repo.get("Pilot Points"));
+        fighter.setText(Player.repo.get("Fighter Points"));
+        trader.setText(Player.repo.get("Trader Points"));
+        engineer.setText(Player.repo.get("Engineer Points"));
 
         create_universe = findViewById(R.id.create_universe_button);
         create_universe.setOnClickListener(this);
@@ -69,7 +69,6 @@ public class CreatePlayerView extends AppCompatActivity implements OnClickListen
     @Override
     public void onClick (View v) {
         if (v.getId() == R.id.create_universe_button) {
-
             startActivity(new Intent(this, UniverseView.class));
         }
     }

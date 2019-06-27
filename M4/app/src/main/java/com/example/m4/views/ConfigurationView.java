@@ -12,6 +12,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.m4.R;
 import com.example.m4.model.Difficulty;
@@ -141,6 +142,11 @@ public class ConfigurationView extends AppCompatActivity implements OnClickListe
                         engineer_points.setText(String.valueOf(player.getEngineerPoints()));
                     }
                 }
+
+                if (viewModel.getScore() == 0) {
+                    String m = "You have used all of your points";
+                    Toast.makeText(getApplicationContext(), m, Toast.LENGTH_SHORT).show();
+                }
             }
             if (v.getId() == R.id.pilot_minus ||
                     v.getId() == R.id.fighter_minus ||
@@ -183,6 +189,7 @@ public class ConfigurationView extends AppCompatActivity implements OnClickListe
                     }
                 }
             }
+
         }
 
         if (v.getId() == R.id.okay_button) {
@@ -193,16 +200,14 @@ public class ConfigurationView extends AppCompatActivity implements OnClickListe
                 player.setDifficulty((Difficulty) difficultySpinner.getSelectedItem());
                 player.setName(name.getText().toString());
 
-                Player.repo.clear();
-
-                Player.repo.add(player.getName());
-                Player.repo.add(player.getDifficulty().toString());
-                Player.repo.add(String.valueOf(player.getShip()));
-                Player.repo.add(String.valueOf(player.getCredits()));
-                Player.repo.add(String.valueOf(player.getPilotPoints()));
-                Player.repo.add(String.valueOf(player.getFighterPoints()));
-                Player.repo.add(String.valueOf(player.getTraderPoints()));
-                Player.repo.add(String.valueOf(player.getEngineerPoints()));
+                Player.repo.put("Name", player.getName());
+                Player.repo.put("Difficulty", player.getDifficulty().toString());
+                Player.repo.put("Ship", String.valueOf(player.getShip()));
+                Player.repo.put("Credits", String.valueOf(player.getCredits()));
+                Player.repo.put("Pilot Points", String.valueOf(player.getPilotPoints()));
+                Player.repo.put("Fighter Points", String.valueOf(player.getFighterPoints()));
+                Player.repo.put("Trader Points", String.valueOf(player.getTraderPoints()));
+                Player.repo.put("Engineer Points", String.valueOf(player.getEngineerPoints()));
 
                 Log.d("Name", player.getName());
                 Log.d("Difficulty",player.getDifficulty().toString());

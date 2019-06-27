@@ -18,7 +18,7 @@ public class GameView extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
         selectedRegion = findViewById(R.id.selected_region_view);
-        selectedRegion.setText(Player.repo.get(8));
+        selectedRegion.setText(Player.repo.get("Region"));
 
     }
 }

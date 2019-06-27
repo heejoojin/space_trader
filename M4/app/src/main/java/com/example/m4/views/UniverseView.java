@@ -80,10 +80,10 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 // TODO Auto-generated method stub
 
-                String itemName = "" + adapter.getItem(position);
-                String value = itemName + " has been selected";
+                // String itemName = "" + adapter.getItem(position);
+                // String value = itemName + " has been selected";
                 /* Display the Toast */
-                Toast.makeText(getApplicationContext(), value, Toast.LENGTH_SHORT).show();
+                // Toast.makeText(getApplicationContext(), value, Toast.LENGTH_SHORT).show();
 
                 String planet_details = "";
 
@@ -115,11 +115,8 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
     @Override
     public void onClick (View v) {
         if (v.getId() == R.id.next_button_1) {
-            if (Player.repo.size() == 9) {
-                Player.repo.remove(8);
-            }
             startActivity(new Intent(this, GameView.class));
-            Player.repo.add(region_text.getText().toString());
+            Player.repo.put("Region", region_text.getText().toString());
         }
     }
 }

@@ -5,8 +5,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.ErrorView">
+    tools:context=".views.ErrorView"
+    >
 
-    <include layout="@layout/content_error"/>
+    <TextView
+        android:id="@+id/no_player"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="264dp"
+        android:text="Cannot Create Your Player"
+        android:textColor="#0E0000"
+        android:textSize="22sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/error_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Yon need to allocate all the points!"
+        app:layout_constraintBottom_toBottomOf="@id/no_player"
+        app:layout_constraintEnd_toEndOf="@id/no_player"
+        app:layout_constraintStart_toStartOf="@id/no_player"
+        android:layout_marginTop="100dp" app:layout_constraintTop_toTopOf="@id/no_player" />
 
 </android.support.constraint.ConstraintLayout>
