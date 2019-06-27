@@ -9,11 +9,21 @@
         <item name="colorButtonNormal">@color/Button</item>
         <item name="colorControlHighlight">@color/ButtonClicked</item>
         <item name="fontFamily">@font/work_sans</item>
-        <item name="android:textAppearanceButton">@style/TextAppearance.AppCompat.Button.Custom</item>
+        <item name="android:textAppearanceButton">@style/TextAppearance.AppCompat.Button.Custom
+        </item>
     </style>
 
 
     <style name="TextAppearance.AppCompat.Button.Custom">
         <item name="android:textColor">@color/ButtonText</item>
     </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

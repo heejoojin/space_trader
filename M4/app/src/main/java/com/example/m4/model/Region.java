@@ -1,6 +1,7 @@
 package com.example.m4.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Represents a region of planets, defined using an ArrayList of Planet objects.

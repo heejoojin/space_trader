@@ -144,16 +144,16 @@ public class ConfigurationView extends AppCompatActivity implements OnClickListe
                     }
                 }
 
-                if (viewModel.getScore() == 0) {
-                    String m = "You have used all of your points";
-                    Toast.makeText(getApplicationContext(), m, Toast.LENGTH_SHORT).show();
+//                if (viewModel.getScore() == 0) {
+//                    String m = "You have used all of your points";
+//                    Toast.makeText(getApplicationContext(), m, Toast.LENGTH_SHORT).show();
 //                    Toast toast = new Toast(getApplicationContext());
 //                    TextView tv = new TextView(this);
 //                    tv.setT;
 //                    Typeface t = Typeface.create("work_sans", Typeface.NORMAL);
 //
 //                            Toast.makeText(, m, Toast.LENGTH_SHORT);
-                }
+//                }
             }
             if (v.getId() == R.id.pilot_minus ||
                     v.getId() == R.id.fighter_minus ||

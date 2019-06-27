@@ -14,6 +14,8 @@ public class Universe {
     private final int MINREGIONDISTANCE = 10;
     private Random random;
 
+    public static ArrayList<Planet> temp_planets = new ArrayList<>();
+
     //constructs a Universe object
     public Universe(int numRegions, int numPlanets) {
 
