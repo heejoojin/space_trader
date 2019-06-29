@@ -13,7 +13,7 @@ import com.example.m4.model.RegionName;
 import android.widget.AdapterView;
 import android.view.View;
 import com.example.m4.R;
-import android.widget.Toast;
+
 import android.widget.Button;
 
 import com.example.m4.model.TechLevel;
@@ -22,9 +22,10 @@ import com.example.m4.model.Region;
 import com.example.m4.model.Planet;
 import com.example.m4.model.Universe;
 import com.example.m4.model.Player;
+import com.example.m4.repository.Repository;
+
 import android.view.View.OnClickListener;
 import java.lang.String;
-import java.util.*;
 
 public class UniverseView extends AppCompatActivity implements OnClickListener {
 
@@ -70,6 +71,7 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
         universe.populate();
         String string = universe.toString();
         Log.d("Universe", string);
+        Repository.setUniverseClass(universe);
 
 
         final ArrayAdapter adapter = new ArrayAdapter(this,
@@ -94,6 +96,8 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
                 for (Region region: universe.getRegions()) {
                     if (region.getRegionName().equals(adapter.getItem(position))) {
 
+                        Repository.setRegionClass(region);
+
                         region_text.setText(region.getRegionName().toString());
                         techlevel_text.setText(region.getTechLevel().toString());
                         resource_text.setText(region.getSpecialResource().toString());
@@ -103,11 +107,11 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
                         location_text.setText(region_loc);
 
                         for (Planet planet : region.getPlanetList()) {
+
                             planet_details += planet.getPlanetName() + ", (" + planet.getxLocation()
                                     + ", " + planet.getyLocation() + ")\n";
                         }
                         planets_text.setText(planet_details);
-                        Universe.temp_planets = region.getPlanetList();
                     }
                 }
             }
@@ -118,13 +122,9 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
     @Override
     public void onClick (View v) {
         if (v.getId() == R.id.next_button_1) {
-
             if (clicked) {
-                startActivity(new Intent(this, GameView.class));
-                Player.repo.put("Region", region_text.getText().toString());
-
+                startActivity(new Intent(this, PlanetsView.class));
             }
-
 
         }
     }

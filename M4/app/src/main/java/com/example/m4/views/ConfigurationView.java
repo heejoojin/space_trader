@@ -19,6 +19,7 @@ import com.example.m4.R;
 import com.example.m4.model.Difficulty;
 import com.example.m4.viewmodels.ConfigurationViewModel;
 import com.example.m4.model.Player;
+import com.example.m4.repository.Repository;
 
 
 public class ConfigurationView extends AppCompatActivity implements OnClickListener {
@@ -207,23 +208,7 @@ public class ConfigurationView extends AppCompatActivity implements OnClickListe
                 player.setDifficulty((Difficulty) difficultySpinner.getSelectedItem());
                 player.setName(name.getText().toString());
 
-                Player.repo.put("Name", player.getName());
-                Player.repo.put("Difficulty", player.getDifficulty().toString());
-                Player.repo.put("Ship", String.valueOf(player.getShip()));
-                Player.repo.put("Credits", String.valueOf(player.getCredits()));
-                Player.repo.put("Pilot Points", String.valueOf(player.getPilotPoints()));
-                Player.repo.put("Fighter Points", String.valueOf(player.getFighterPoints()));
-                Player.repo.put("Trader Points", String.valueOf(player.getTraderPoints()));
-                Player.repo.put("Engineer Points", String.valueOf(player.getEngineerPoints()));
-
-                Log.d("Name", player.getName());
-                Log.d("Difficulty",player.getDifficulty().toString());
-                Log.d("Ship", String.valueOf(player.getShip()));
-                Log.d("Credits", String.valueOf(player.getCredits()));
-                Log.d("Pilot Points", String.valueOf(player.getPilotPoints()));
-                Log.d("Fighter Points", String.valueOf(player.getFighterPoints()));
-                Log.d("Trader Points", String.valueOf(player.getTraderPoints()));
-                Log.d("Engineer Points", String.valueOf(player.getEngineerPoints()));
+                Repository.setPlayerClass(player);
 
                 startActivity(new Intent(ConfigurationView.this, CreatePlayerView.class));
             }

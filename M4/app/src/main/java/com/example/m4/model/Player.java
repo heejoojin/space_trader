@@ -31,9 +31,6 @@ public class Player {
 
     private Region region;
 
-    public static Map<String,String> repo = new HashMap<String, String>();
-
-
     public Player(String name, int pilotPoints, int fighterPoints, int traderPoints, int engineerPoints) {
         this.credits = 1000;
         this.name = name;

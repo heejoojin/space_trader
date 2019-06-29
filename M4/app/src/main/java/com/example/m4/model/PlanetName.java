@@ -9,8 +9,8 @@ public enum PlanetName {
     //enum stuff here
 
     SIRIUS("Sirius"), CANOPUS("Canopus"), ARCTURUS("Arcturus"), CENTAURI("Centauri"),
-    VEGA("Vega"), RIGEL("Rigel"), PROCYON("Procyon"), ACHERNAR("Achernar"), BETELGEUSE("Betelgeuse"),
-    HADAR("Hadar"), SPICA("Spica"), ANTARES("Antares"), POLLUX("Pollux"), FOMALHAUT("Fomalhaut"),
+    VEGA("Vega"), RIGEL("Rigel"), PROCYON("Procyon"), ACHERNAR("Achernar"), BETELG("Betelg"),
+    HADAR("Hadar"), SPICA("Spica"), ANTARES("Antares"), POLLUX("Pollux"), FOMALH("Fomalh"),
     DENEB("Deneb"), MINOSA("Minosa"), SITULA("Situla"), ALTAIR("Altair"), HAMLA("Hamal"),
     CAPELLA("Capella"), MAAZ("Maaz"), TARF("Tarf"), CHARA("Chara"),
     BOTEIN("Botein"), WEZEN("Wezen"), ALUDRA("Aludra"), DABIH("Dabih"),

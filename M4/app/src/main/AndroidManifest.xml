@@ -29,8 +29,19 @@
             android:name=".views.UniverseView"
             android:parentActivityName=".views.CreatePlayerView" />
         <activity
-            android:name=".views.GameView"
+            android:name=".views.PlanetsView"
             android:parentActivityName=".views.UniverseView" />
+        <activity
+            android:name=".views.MarketView"
+            android:parentActivityName=".views.PlanetsView" />
+
+        <activity
+            android:name=".views.SellCargoView"
+            android:parentActivityName=".views.MarketView" />
+
+        <activity
+            android:name=".views.BuyCargoView"
+            android:parentActivityName=".views.MarketView" />
 
         <meta-data
             android:name="preloaded_fonts"

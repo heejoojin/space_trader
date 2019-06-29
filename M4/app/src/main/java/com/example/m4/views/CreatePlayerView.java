@@ -15,6 +15,7 @@ import com.example.m4.R;
 import com.example.m4.model.Universe;
 import com.example.m4.viewmodels.ConfigurationViewModel;
 import com.example.m4.model.Player;
+import com.example.m4.repository.Repository;
 
 
 public class CreatePlayerView extends AppCompatActivity implements OnClickListener {
@@ -51,15 +52,15 @@ public class CreatePlayerView extends AppCompatActivity implements OnClickListen
         trader = findViewById(R.id.player_trader);
         engineer = findViewById(R.id.player_engineer);
 
-        name.setText(Player.repo.get("Name"));
-        difficulty.setText(Player.repo.get("Difficulty"));
-        ship.setText(Player.repo.get("Ship"));
-        credit.setText(Player.repo.get("Credits"));
+        name.setText(Repository.playerClass.getName());
+        difficulty.setText(Repository.playerClass.getDifficulty().toString());
+        ship.setText(Repository.playerClass.getShip());
+        credit.setText(String.valueOf(Repository.playerClass.getCredits()));
 
-        pilot.setText(Player.repo.get("Pilot Points"));
-        fighter.setText(Player.repo.get("Fighter Points"));
-        trader.setText(Player.repo.get("Trader Points"));
-        engineer.setText(Player.repo.get("Engineer Points"));
+        pilot.setText(String.valueOf(Repository.playerClass.getPilotPoints()));
+        fighter.setText(String.valueOf(Repository.playerClass.getFighterPoints()));
+        trader.setText(String.valueOf(Repository.playerClass.getTraderPoints()));
+        engineer.setText(String.valueOf(Repository.playerClass.getEngineerPoints()));
 
         create_universe = findViewById(R.id.create_universe_button);
         create_universe.setOnClickListener(this);
