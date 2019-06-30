@@ -1,6 +1,7 @@
 package com.example.m4.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,21 +10,25 @@ import android.widget.Button;
 import android.widget.TextView;
 import com.example.m4.R;
 import com.example.m4.model.Item;
+import com.example.m4.repository.Repository;
 
 import java.util.List;
 
-public class MarketItemAdapter extends ArrayAdapter<Item> {
+public class MarketItemAdapter extends ArrayAdapter<Item>{
 
     private List<Item> list;
     private Context context;
+
+    private static int checkpoint = 1000;
+
 
     TextView currentItemName,
             selectedItemNum,
             quantityLeftText,
             currentPrice;
 
-    Button addItem,
-            subtractItem;
+    Button addItem, subtractItem;
+
 
     public MarketItemAdapter(Context context, List<Item> myOrders) {
         super(context, 0, myOrders);
@@ -32,11 +37,11 @@ public class MarketItemAdapter extends ArrayAdapter<Item> {
     }
 
 
-    public View getView(final int position, View convertView, ViewGroup parent){
+    public View getView(final int position, final View convertView, ViewGroup parent){
         View listItemView = convertView;
         if(listItemView == null){
             listItemView = LayoutInflater.from(getContext()).inflate(
-                    R.layout.content_sellbuycargo,parent,false
+                    R.layout.content_market,parent,false
             );
         }
 
@@ -49,45 +54,59 @@ public class MarketItemAdapter extends ArrayAdapter<Item> {
         addItem = (Button)listItemView.findViewById(R.id.plus_item_button);
         currentPrice = (TextView)listItemView.findViewById(R.id.selected_item_price);
 
+
         //Set the text of the meal, amount and quantity
         currentItemName.setText(currentItem.getName());
         currentPrice.setText("$ " + currentItem.getPrice());
         quantityLeftText.setText("" + currentItem.getQuantityLeft());
         selectedItemNum.setText(""+ currentItem.getQuantityChange());
 
-        //OnClick listeners for all the buttons on the ListView Item
+
         addItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                // buy items
-                currentItem.removeFromQuantity();
-                quantityLeftText.setText("" + currentItem.getQuantityLeft());
-                //currentCost.setText("GH"+"\u20B5"+" "+ (currentFood.getmAmount() * currentFood.getmQuantity()));
+                if (Repository.isitBuying) {
+
+                    if (checkpoint >= 0) {
+                        if ( (checkpoint - currentItem.getPrice()) >= 0 ) {
+                            currentItem.addToQuantity();
+                            currentItem.addToCargo();
+                            //credit -= currentItem.getQuantityChange() * currentItem.getPrice();
+                            checkpoint -= (currentItem.getPrice());
+                            Log.d("check", String.valueOf(checkpoint));
+                        }
+                    }
+
+                } else {
+                    // selling
+                    if (currentItem.getQuantityLeft() > 0) {
+                        currentItem.addToQuantity();
+                        currentItem.removeFromCargo();
+                    }
+                }
                 notifyDataSetChanged();
+
             }
         });
-
         subtractItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                // sell items
-                currentItem.addToQuantity();
-
-                quantityLeftText.setText("" + currentItem.getQuantityLeft());
-                //currentCost.setText("GH"+"\u20B5"+" "+ (currentFood.getmAmount() * currentFood.getmQuantity()));
+                if (Repository.isitBuying) {
+                    if (currentItem.getQuantityChange() != 0) {
+                        currentItem.removeFromQuantity();
+                        currentItem.removeFromCargo();
+                        quantityLeftText.setText("" + currentItem.getQuantityLeft());
+                    }
+                } else {
+                    if (currentItem.getQuantityChange() != 0) {
+                        currentItem.removeFromQuantity();
+                        currentItem.addToCargo();
+                    }
+                }
                 notifyDataSetChanged();
             }
         });
-
-//        removeMeal.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                list.remove(position);
-//                notifyDataSetChanged();
-//            }
-//        });
 
         return listItemView;
     }

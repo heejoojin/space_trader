@@ -35,9 +35,6 @@
             android:name=".views.MarketView"
             android:parentActivityName=".views.PlanetsView" />
 
-        <activity
-            android:name=".views.SellBuyCargoView"
-            android:parentActivityName=".views.MarketView" />
 
         <meta-data
             android:name="preloaded_fonts"

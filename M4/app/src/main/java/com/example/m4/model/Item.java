@@ -12,12 +12,15 @@ public class Item implements Serializable {
     public void setQuantityChange(int quantityChange) {
         this.quantityChange = quantityChange;
     }
+    public void setQuantityLeft(int quantityLeft) {
+        this.quantityLeft = quantityLeft;
+    }
 
     public Item(){}
 
-    public Item(String name, int quantityLeft, int price) {
+    public Item(String name, int price) {
         this.name = name;
-        this.quantityLeft = quantityLeft;
+        this.quantityLeft = 0;
         this.price = price;
         this.quantityChange = 0;
     }
@@ -39,18 +42,24 @@ public class Item implements Serializable {
     }
 
     public void addToQuantity() {
-        if (this.quantityChange >= 1){
-            this.quantityLeft += 1;
-            this.quantityChange -= 1;
+        this.quantityChange += 1;
+    }
+
+    public void addToCargo() {
+        this.quantityLeft += 1;
+    }
+
+    public void removeFromCargo() {
+        if (this.quantityLeft >= 1){
+            this.quantityLeft -= 1;
         }
     }
 
     public void removeFromQuantity(){
-        if (this.quantityLeft >= 1){
-            this.quantityLeft -= 1;
-            this.quantityChange += 1;
+        if (this.quantityChange >= 1){
+            this.quantityChange -= 1;
         }
-
     }
+
 
 }

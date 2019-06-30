@@ -7,8 +7,6 @@ import com.example.m4.model.Item;
 
 public class Market {
 
-    public static ArrayList<String> itemList = new ArrayList<>(Arrays.asList("Water", "Furs", "Food", "Ore", "Games", "Firearms", "Medicine", "Machines", "Narcotics", "Robots"));
-    public static ArrayList<Integer> itemPrice = new ArrayList<>(Arrays.asList(30, 250, 100, 350, 250, 1250, 650, 900, 3500, 5000));
 
     private int numWater;
     private int numFurs;
@@ -21,6 +19,18 @@ public class Market {
     private int numNarcotics;
     private int numRobots;
 
+    private int priceWater;
+    private int priceFurs;
+    private int priceFood;
+    private int priceOre;
+    private int priceGames;
+    private int priceFirearms;
+    private int priceMedicine;
+    private int priceMachines;
+    private int priceNarcotics;
+    private int priceRobots;
+
+
     //getters and setters for fields
     public int getNumWater() { return numWater; }
     public int getNumFurs() { return numFurs; }
@@ -32,6 +42,7 @@ public class Market {
     public int getNumMachines() { return numMachines; }
     public int getNumNarcotics() { return numNarcotics; }
     public int getNumRobots() { return numRobots; }
+    public int getPriceRobots() { return priceRobots; }
 
     public void setNumWater(int numWater) { this.numWater = numWater; }
     public void setNumFurs(int numFurs) { this.numFurs = numFurs; }
@@ -43,5 +54,6 @@ public class Market {
     public void setNumMachines(int numMachines) { this.numMachines = numMachines; }
     public void setNumNarcotics(int numNarcotics) { this.numNarcotics = numNarcotics; }
     public void setNumRobots(int numRobots) { this.numRobots = numRobots; }
+
 
 }

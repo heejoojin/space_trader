@@ -118,7 +118,6 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
         });
 
     }
-
     @Override
     public void onClick (View v) {
         if (v.getId() == R.id.next_button_1) {
