@@ -21,11 +21,12 @@ import android.widget.Button;
 
 public class MarketView extends AppCompatActivity implements OnClickListener {
 
-    TextView itemTotalText, itemTotalView;
-    TextView creditTotalText;
+    TextView itemTotaltoEditText, itemTotalView;
+    TextView creditTotaltoEditText;
+    TextView marketMode;
     ArrayList<Item> orders;
 
-    Button switchButton, buyorsellButton, toMarket;
+    Button switchButton, buyorsellButton, toShipyardButton, doneButton;
 
     TextView selectedPlanet;
 
@@ -38,17 +39,22 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
         String planet_text = "You are in " + Repository.planetClass.getPlanetName().toString() + " Planet";
         selectedPlanet.setText(planet_text);
 
+        marketMode = findViewById(R.id.market_mode_view);
+
         switchButton = findViewById(R.id.switch_button);
         switchButton.setOnClickListener(this);
 
         buyorsellButton = findViewById(R.id.make_item_change_button);
         buyorsellButton.setOnClickListener(this);
 
-        toMarket = findViewById(R.id.back_to_market_button);
-        toMarket.setOnClickListener(this);
+        toShipyardButton = findViewById(R.id.shipyard_button);
+        toShipyardButton.setOnClickListener(this);
 
-        itemTotalText = (TextView)findViewById(R.id.total_num_view);
-        creditTotalText = (TextView)findViewById(R.id.credit_num_view);
+        doneButton = findViewById(R.id.done_button);
+        doneButton.setOnClickListener(this);
+
+        itemTotaltoEditText = (TextView)findViewById(R.id.total_num_view);
+        creditTotaltoEditText = (TextView)findViewById(R.id.credit_num_view);
 
         itemTotalView = (TextView)findViewById(R.id.item_total);
 
@@ -72,22 +78,22 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
     public int calculateCreditTotal(){
 
         if (Repository.isitBuying) {
-            return Integer.parseInt((String)creditTotalText.getText()) - calculateItemTotal();
+            return Integer.parseInt((String)creditTotaltoEditText.getText()) - calculateItemTotal();
         } else {
-            return Integer.parseInt((String)creditTotalText.getText()) + calculateItemTotal();
+            return Integer.parseInt((String)creditTotaltoEditText.getText()) + calculateItemTotal();
         }
     }
 
     public void setItemTotal(){
-        itemTotalText.setText("" + calculateItemTotal());
+        itemTotaltoEditText.setText("" + calculateItemTotal());
     }
-    public void setCreditTotal() {creditTotalText.setText("" + calculateCreditTotal());}
+    public void setCreditTotal() {creditTotaltoEditText.setText("" + calculateCreditTotal());}
 
     public void resetItemTotal() {
         for (Item order : orders) {
             order.setQuantityChange(0);
         }
-        itemTotalText.setText("0");
+        itemTotaltoEditText.setText("0");
     }
 
     DataSetObserver observer = new DataSetObserver() {
@@ -105,20 +111,10 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
         ArrayList<Integer> itemPrice = new ArrayList<>(Arrays.asList(30, 250, 100, 350, 250, 1250, 650, 900, 3500, 5000));
         int i = 0;
         while (i < 10) {
-            int price_random_generator = 1 + (int)(Math.random() * (6 - 1));
-            listViewItems.add(new Item(itemName.get(i), itemPrice.get(i) * price_random_generator));
+            listViewItems.add(new Item(itemName.get(i), itemPrice.get(i)));
             i++;
         }
         return listViewItems;
-    }
-
-    public boolean calcualteNuminCargo(int input) {
-        boolean result = false;
-
-        if (input > Integer.parseInt((String)creditTotalText.getText())) {
-            result = true;
-        }
-        return result;
     }
 
     @Override
@@ -129,6 +125,8 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
                 switchButton.setText("Swith to Buy");
                 buyorsellButton.setText("Sell");
                 itemTotalView.setText("Total Sale   ");
+                marketMode.setText("Sell Items");
+
                 Repository.isitBuying = false;
 
                 resetItemTotal();
@@ -137,6 +135,7 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
                 switchButton.setText("Swith to Sell");
                 buyorsellButton.setText("Buy");
                 itemTotalView.setText("Total Expense   ");
+                marketMode.setText("Buy Items");
                 Repository.isitBuying = true;
 
                 resetItemTotal();
@@ -144,13 +143,13 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
 
         } else if (v.getId() == R.id.make_item_change_button) {
             if (Repository.isitBuying) {
-                if (Integer.parseInt((String) creditTotalText.getText()) < calculateItemTotal()) {
+                if (Integer.parseInt((String) creditTotaltoEditText.getText()) < calculateItemTotal()) {
 
                     String m = "You don't have enough credits";
                     Toast.makeText(getApplicationContext(), m, Toast.LENGTH_SHORT).show();
 
 
-                } else if (Integer.parseInt((String) creditTotalText.getText()) >= calculateItemTotal()) {
+                } else if (Integer.parseInt((String) creditTotaltoEditText.getText()) >= calculateItemTotal()) {
                     if (calculateItemTotal() == 0) {
                         String m = "You didn't select any items";
                         Toast.makeText(getApplicationContext(), m, Toast.LENGTH_SHORT).show();
@@ -163,21 +162,21 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
                 }
             } else {
                 // selling
-                if (Integer.parseInt((String) itemTotalText.getText()) > 0) {
+                if (Integer.parseInt((String) itemTotaltoEditText.getText()) > 0) {
                     String m = "You successfully sold your items";
                     Toast.makeText(getApplicationContext(), m, Toast.LENGTH_SHORT).show();
                     setCreditTotal();
                     resetItemTotal();
-                }
-                if (calculateItemTotal() == 0) {
+                } else if (calculateItemTotal() == 0) {
                     String m = "You didn't select any items";
                     Toast.makeText(getApplicationContext(), m, Toast.LENGTH_SHORT).show();
                 }
             }
-        }
-//        } else if (v.getId() == R.id.back_to_market_button) {
-//                startActivity(new Intent(this, MarketView.class));
-//        }
+        } else if (v.getId() == R.id.shipyard_button) {
+            startActivity(new Intent(this, ShipyardView.class));
 
+        } else if (v.getId() == R.id.done_button) {
+            startActivity(new Intent(this, PlanetsView.class));
+        }
     }
 }

@@ -5,24 +5,23 @@ import java.io.Serializable;
 public class Item implements Serializable {
 
     private  String name;
-    private int quantityLeft;
+    private int quantityOwned;
     private int quantityChange;
     private int price;
+    private int quantityInMarket;
 
     public void setQuantityChange(int quantityChange) {
         this.quantityChange = quantityChange;
-    }
-    public void setQuantityLeft(int quantityLeft) {
-        this.quantityLeft = quantityLeft;
     }
 
     public Item(){}
 
     public Item(String name, int price) {
         this.name = name;
-        this.quantityLeft = 0;
-        this.price = price;
+        this.quantityOwned = 0;
+        this.price = price * (1 + (int)(Math.random() * (6 - 1)));
         this.quantityChange = 0;
+        this.quantityInMarket = 5 + (int)(Math.random() * (51 - 5));
     }
 
     public String getName() {
@@ -30,11 +29,15 @@ public class Item implements Serializable {
     }
 
     public int getQuantityLeft() {
-        return quantityLeft;
+        return quantityOwned;
     }
 
     public int getPrice() {
         return price;
+    }
+
+    public int getQuantityInMarket() {
+        return quantityInMarket;
     }
 
     public int getQuantityChange(){
@@ -45,13 +48,13 @@ public class Item implements Serializable {
         this.quantityChange += 1;
     }
 
-    public void addToCargo() {
-        this.quantityLeft += 1;
+    public void addToQuanitiyinHold() {
+        this.quantityOwned += 1;
     }
 
-    public void removeFromCargo() {
-        if (this.quantityLeft >= 1){
-            this.quantityLeft -= 1;
+    public void removeFromQuantityinHold() {
+        if (this.quantityOwned >= 1){
+            this.quantityOwned -= 1;
         }
     }
 
@@ -59,6 +62,17 @@ public class Item implements Serializable {
         if (this.quantityChange >= 1){
             this.quantityChange -= 1;
         }
+    }
+
+    public void addToQuantityinMarket() {
+        this.quantityInMarket += 1;
+    }
+
+    public void removeFromQuantityinMarket() {
+        if (this.quantityInMarket >= 1){
+            this.quantityInMarket -= 1;
+        }
+
     }
 
 

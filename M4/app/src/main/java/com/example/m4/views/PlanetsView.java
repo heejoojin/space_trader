@@ -12,6 +12,8 @@ import android.widget.Toast;
 import android.widget.Button;
 
 import com.example.m4.R;
+import com.example.m4.adapter.MarketItemAdapter;
+import com.example.m4.model.Market;
 import com.example.m4.model.Planet;
 import com.example.m4.repository.Repository;
 
@@ -31,6 +33,7 @@ public class PlanetsView extends AppCompatActivity implements View.OnClickListen
     private boolean clicked = false;
 
     private Button enterMarket;
+    private Button travelTonewRegion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +51,9 @@ public class PlanetsView extends AppCompatActivity implements View.OnClickListen
         planet_location_text = findViewById(R.id.single_planet_location_selected);
 
         enterMarket = findViewById(R.id.enter_market_button);
+        enterMarket.setOnClickListener(this);
+
+        travelTonewRegion = findViewById(R.id.travel_region_button);
         enterMarket.setOnClickListener(this);
 
         for (Planet planet : Repository.regionClass.getPlanetList()) {
@@ -91,7 +97,11 @@ public class PlanetsView extends AppCompatActivity implements View.OnClickListen
         if (v.getId() == R.id.enter_market_button) {
             if (clicked) {
                 startActivity(new Intent(this, MarketView.class));
+                MarketItemAdapter.checkpoint = 1000;
+                Repository.isitBuying = true;
             }
+        } else if (v.getId() == R.id.travel_region_button) {
+            startActivity(new Intent(this, UniverseView.class));
         }
     }
 }

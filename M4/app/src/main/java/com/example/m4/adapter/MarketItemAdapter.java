@@ -19,13 +19,14 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
     private List<Item> list;
     private Context context;
 
-    private int checkpoint = 1000;
+    public static int checkpoint = 1000;
 
 
     TextView currentItemName,
             selectedItemNum,
-            quantityLeftText,
-            currentPrice;
+            quantityLeftinHold,
+            currentPrice,
+            quantityLeftinMarket;
 
     Button addItem, subtractItem;
 
@@ -48,18 +49,20 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
         final Item currentItem = getItem(position);
 
         currentItemName = (TextView)listItemView.findViewById(R.id.selected_item_name);
-        quantityLeftText = (TextView)listItemView.findViewById(R.id.quantity_left);
+        quantityLeftinHold = (TextView)listItemView.findViewById(R.id.quantityowned_left_num);
         subtractItem = (Button)listItemView.findViewById(R.id.minus_item_button);
         selectedItemNum = (TextView)listItemView.findViewById(R.id.selected_item_amount);
         addItem = (Button)listItemView.findViewById(R.id.plus_item_button);
         currentPrice = (TextView)listItemView.findViewById(R.id.selected_item_price);
+        quantityLeftinMarket = (TextView)listItemView.findViewById(R.id.quantity_leftinmarket_num);
 
 
         //Set the text of the meal, amount and quantity
         currentItemName.setText(currentItem.getName());
         currentPrice.setText("$ " + currentItem.getPrice());
-        quantityLeftText.setText("" + currentItem.getQuantityLeft());
+        quantityLeftinHold.setText("" + currentItem.getQuantityLeft());
         selectedItemNum.setText(""+ currentItem.getQuantityChange());
+        quantityLeftinMarket.setText("" + currentItem.getQuantityInMarket());
 
 
         addItem.setOnClickListener(new View.OnClickListener() {
@@ -68,13 +71,14 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
 
                 if (Repository.isitBuying) {
 
-                    if (checkpoint >= 0) {
+                    if (checkpoint >= 0 && currentItem.getQuantityInMarket() > 0) {
                         if ( (checkpoint - currentItem.getPrice()) >= 0 ) {
                             currentItem.addToQuantity();
-                            currentItem.addToCargo();
-                            //credit -= currentItem.getQuantityChange() * currentItem.getPrice();
+                            currentItem.addToQuanitiyinHold();
+                            currentItem.removeFromQuantityinMarket();
                             checkpoint -= (currentItem.getPrice());
-                            Log.d("check", String.valueOf(checkpoint));
+
+                            System.out.println(checkpoint);
                         }
                     }
 
@@ -82,8 +86,11 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
                     // selling
                     if (currentItem.getQuantityLeft() > 0) {
                         currentItem.addToQuantity();
-                        currentItem.removeFromCargo();
+                        currentItem.removeFromQuantityinHold();
+                        currentItem.addToQuantityinMarket();
                         checkpoint += (currentItem.getPrice());
+
+                        System.out.println(checkpoint);
                     }
                 }
                 notifyDataSetChanged();
@@ -96,15 +103,22 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
                 if (Repository.isitBuying) {
                     if (currentItem.getQuantityChange() != 0) {
                         currentItem.removeFromQuantity();
-                        currentItem.removeFromCargo();
+                        currentItem.removeFromQuantityinHold();
+                        currentItem.addToQuantityinMarket();
                         checkpoint += (currentItem.getPrice());
-                        quantityLeftText.setText("" + currentItem.getQuantityLeft());
+                        // quantityLeftText.setText("" + currentItem.getQuantityLeft());
+
+                        System.out.println(checkpoint);
                     }
                 } else {
+                    // selling
                     if (currentItem.getQuantityChange() != 0) {
                         currentItem.removeFromQuantity();
-                        currentItem.addToCargo();
+                        currentItem.addToQuanitiyinHold();
+                        currentItem.removeFromQuantityinMarket();
+                        checkpoint -= (currentItem.getPrice());
 
+                        System.out.println(checkpoint);
                     }
                 }
                 notifyDataSetChanged();

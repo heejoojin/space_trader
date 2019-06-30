@@ -33,13 +33,26 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/market_view" />
 
+        <TextView
+            android:id="@+id/market_mode_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:gravity="center"
+            android:text="Buy Items"
+            android:textStyle="bold"
+            android:textColor="#6d3d7a"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/selected_planet_view" />
+
         <ListView
             android:id="@+id/selected_item_list"
             android:layout_width="match_parent"
-            android:layout_height="350dp"
+            android:layout_height="340dp"
             android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="@+id/selected_planet_view"
-            app:layout_constraintTop_toBottomOf="@+id/selected_planet_view"/>
+            app:layout_constraintTop_toBottomOf="@+id/market_mode_view"/>
 
         <TextView
             android:id="@+id/item_total"
@@ -80,7 +93,7 @@
             android:id="@+id/credit_num_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_marginLeft="0dp"
             app:layout_constraintStart_toEndOf="@+id/total_credit_view"
             app:layout_constraintTop_toBottomOf="@+id/total_num_view"
@@ -97,33 +110,43 @@
             android:layout_marginBottom="30dp"
             android:text="switch to sell"
             app:layout_constraintStart_toStartOf="parent"
-
             app:layout_constraintTop_toBottomOf="@+id/total_credit_view"/>
 
         <Button
             android:id="@+id/make_item_change_button"
+            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="30dp"
+            android:text="buy"
+            app:layout_constraintStart_toEndOf="@+id/credit_num_view"
+            app:layout_constraintStart_toStartOf="@+id/done_button"
+            app:layout_constraintTop_toBottomOf="@+id/selected_item_list" />
 
+        <Button
+            android:id="@+id/done_button"
             android:layout_height="wrap_content"
             android:layout_width="100dp"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="30dp"
-            android:text="buy"
-            app:layout_constraintStart_toEndOf="@+id/switch_button"
+            android:text="done"
+            app:layout_constraintStart_toEndOf="@+id/shipyard_button"
             app:layout_constraintTop_toBottomOf="@+id/total_credit_view" />
 
         <Button
-            android:id="@+id/back_to_market_button"
+            android:id="@+id/shipyard_button"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="30dp"
             android:text="shipyard"
-            app:layout_constraintStart_toEndOf="@+id/make_item_change_button"
+            app:layout_constraintStart_toEndOf="@+id/switch_button"
             app:layout_constraintTop_toBottomOf="@+id/total_credit_view" />
 
 </android.support.constraint.ConstraintLayout>

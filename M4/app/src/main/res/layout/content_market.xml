@@ -24,7 +24,7 @@
         android:textColor="#6d3d7a"/>
 
     <TextView
-        android:id="@+id/quantity_left"
+        android:id="@+id/quantityowned_left_num"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="24dp"
@@ -32,12 +32,30 @@
         android:textSize="11sp" />
 
     <TextView
-        android:id="@+id/quantity_left_str"
+        android:id="@+id/quantity_leftinmarket_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="24dp"
+        android:paddingLeft="85dp"
+        android:textSize="11sp" />
+
+    <TextView
+        android:id="@+id/quantity_leftinmarket_stf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="24dp"
+        android:paddingLeft="92dp"
+        android:text="   in market"
+        android:textSize="11sp" />
+
+
+    <TextView
+        android:id="@+id/quantityowned_left_str"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="24dp"
         android:paddingLeft="22dp"
-        android:text="  in Cargo"
+        android:text="  owned  | "
         android:textSize="11sp" />
 
     <Button
