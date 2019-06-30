@@ -100,7 +100,8 @@ public class PlanetsView extends AppCompatActivity implements View.OnClickListen
                 MarketItemAdapter.checkpoint = 1000;
                 Repository.isitBuying = true;
             }
-        } else if (v.getId() == R.id.travel_region_button) {
+        }
+        if (v.getId() == R.id.travel_region_button) {
             startActivity(new Intent(this, UniverseView.class));
         }
     }
