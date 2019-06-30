@@ -105,7 +105,7 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
         ArrayList<Integer> itemPrice = new ArrayList<>(Arrays.asList(30, 250, 100, 350, 250, 1250, 650, 900, 3500, 5000));
         int i = 0;
         while (i < 10) {
-            int price_random_generator = (int)(Math.random() * (6 - 1));
+            int price_random_generator = 1 + (int)(Math.random() * (6 - 1));
             listViewItems.add(new Item(itemName.get(i), itemPrice.get(i) * price_random_generator));
             i++;
         }

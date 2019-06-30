@@ -19,7 +19,7 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
     private List<Item> list;
     private Context context;
 
-    private static int checkpoint = 1000;
+    private int checkpoint = 1000;
 
 
     TextView currentItemName,
@@ -83,6 +83,7 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
                     if (currentItem.getQuantityLeft() > 0) {
                         currentItem.addToQuantity();
                         currentItem.removeFromCargo();
+                        checkpoint += (currentItem.getPrice());
                     }
                 }
                 notifyDataSetChanged();
@@ -96,12 +97,14 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
                     if (currentItem.getQuantityChange() != 0) {
                         currentItem.removeFromQuantity();
                         currentItem.removeFromCargo();
+                        checkpoint += (currentItem.getPrice());
                         quantityLeftText.setText("" + currentItem.getQuantityLeft());
                     }
                 } else {
                     if (currentItem.getQuantityChange() != 0) {
                         currentItem.removeFromQuantity();
                         currentItem.addToCargo();
+
                     }
                 }
                 notifyDataSetChanged();
