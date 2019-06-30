@@ -36,11 +36,7 @@
             android:parentActivityName=".views.PlanetsView" />
 
         <activity
-            android:name=".views.SellCargoView"
-            android:parentActivityName=".views.MarketView" />
-
-        <activity
-            android:name=".views.BuyCargoView"
+            android:name=".views.SellBuyCargoView"
             android:parentActivityName=".views.MarketView" />
 
         <meta-data

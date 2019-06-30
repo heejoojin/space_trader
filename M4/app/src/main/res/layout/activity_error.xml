@@ -12,12 +12,13 @@
         android:id="@+id/no_player"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
         android:layout_marginTop="264dp"
         android:text="Cannot Create Your Player"
-        android:textColor="#0E0000"
+        android:textColor="#6d3d7a"
         android:textSize="22sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

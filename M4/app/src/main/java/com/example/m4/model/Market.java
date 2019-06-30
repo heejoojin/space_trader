@@ -1,6 +1,14 @@
 package com.example.m4.model;
+import android.util.Log;
+
+import java.util.*;
+import com.example.m4.repository.Repository;
+import com.example.m4.model.Item;
 
 public class Market {
+
+    public static ArrayList<String> itemList = new ArrayList<>(Arrays.asList("Water", "Furs", "Food", "Ore", "Games", "Firearms", "Medicine", "Machines", "Narcotics", "Robots"));
+    public static ArrayList<Integer> itemPrice = new ArrayList<>(Arrays.asList(30, 250, 100, 350, 250, 1250, 650, 900, 3500, 5000));
 
     private int numWater;
     private int numFurs;
@@ -12,8 +20,6 @@ public class Market {
     private int numMachines;
     private int numNarcotics;
     private int numRobots;
-
-
 
     //getters and setters for fields
     public int getNumWater() { return numWater; }
@@ -37,4 +43,5 @@ public class Market {
     public void setNumMachines(int numMachines) { this.numMachines = numMachines; }
     public void setNumNarcotics(int numNarcotics) { this.numNarcotics = numNarcotics; }
     public void setNumRobots(int numRobots) { this.numRobots = numRobots; }
+
 }

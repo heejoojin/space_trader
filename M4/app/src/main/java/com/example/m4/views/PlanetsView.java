@@ -39,7 +39,7 @@ public class PlanetsView extends AppCompatActivity implements View.OnClickListen
         setContentView(R.layout.activity_planets);
 
         selectedRegion = findViewById(R.id.selected_region_view);
-        region_title = "You are in " + Repository.regionClass.getRegionName() + "\n" + "Select a Planet";
+        region_title = "You are in " + Repository.regionClass.getRegionName() + " Region" + "\n";
         selectedRegion.setText(region_title);
 
         planetsView = findViewById(R.id.planets_gridView);

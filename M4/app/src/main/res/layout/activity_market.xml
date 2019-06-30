@@ -8,16 +8,29 @@
     tools:context=".views.MarketView">
 
     <TextView
-        android:id="@+id/selected_planet_view"
+        android:id="@+id/market_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:gravity="center"
-        android:text="Planet"
-        android:textColor="#0E0000"
+        android:text="Marketplace"
+        android:textColor="#6d3d7a"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/selected_planet_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="Planet"
+        android:textColor="#6d3d7a"
+        android:textSize="21sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/market_view" />
 
     <Button
         android:id="@+id/sell_cargo_button"

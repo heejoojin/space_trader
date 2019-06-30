@@ -1,0 +1,137 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:showIn="@layout/activity_sellbuycargo">
+
+    <TextView
+        android:id="@+id/selected_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="8dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#6d3d7a"/>
+
+    <TextView
+        android:id="@+id/selected_item_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingLeft="122dp"
+        android:textSize="11sp"
+        android:textColor="#6d3d7a"/>
+
+    <TextView
+        android:id="@+id/quantity_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="24dp"
+        android:paddingLeft="13dp"
+        android:textSize="11sp" />
+
+    <TextView
+        android:id="@+id/quantity_left_str"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="24dp"
+        android:paddingLeft="22dp"
+        android:text="  available"
+        android:textSize="11sp" />
+
+    <Button
+        android:id="@+id/plus_item_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="2dp"
+        android:layout_toLeftOf="@+id/selected_item_amount"
+        android:text="+" />
+
+    <TextView
+        android:id="@+id/selected_item_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="13dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginRight="102dp"
+        android:layout_toLeftOf="@+id/minus_item_button"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/minus_item_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="-" />
+
+</RelativeLayout>
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+    <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:orientation="horizontal"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:padding="@dimen/activity_horizontal_margin">-->
+
+    <!--<TextView-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="1"-->
+    <!--tools:text="Rice Balls"-->
+    <!--android:padding="5dp"-->
+    <!--android:layout_gravity="center_vertical"-->
+    <!--android:id="@+id/selected_food_name"/>-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:padding="3dp"-->
+    <!--android:layout_gravity="center_vertical"-->
+    <!--android:background="@drawable/rectangle_border"-->
+    <!--android:drawableLeft="@drawable/ic_add_24dp"-->
+    <!--android:id="@+id/plus_meal"/>-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:padding="3dp"-->
+    <!--android:layout_margin="3dp"-->
+    <!--android:layout_gravity="center_vertical"-->
+    <!--android:background="@drawable/rectangle_border"-->
+    <!--android:drawableLeft="@drawable/ic_remove_black"-->
+    <!--android:id="@+id/minus_meal"/>-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="1"-->
+    <!--android:gravity="right"-->
+    <!--android:text="x 1"-->
+    <!--android:layout_gravity="center_vertical"-->
+    <!--android:id="@+id/quantity"/>-->
+
+    <!--<TextView-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="1"-->
+    <!--android:gravity="right"-->
+    <!--tools:text="455"-->
+    <!--android:layout_gravity="center_vertical"-->
+    <!--android:id="@+id/selected_food_amount"/>-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:padding="3dp"-->
+    <!--android:layout_margin="3dp"-->
+    <!--android:layout_gravity="center_vertical"-->
+    <!--android:background="@drawable/rectangle_border"-->
+    <!--android:drawableLeft="@drawable/ic_close"-->
+    <!--android:id="@+id/delete_item"/>-->
+    <!--</LinearLayout>-->

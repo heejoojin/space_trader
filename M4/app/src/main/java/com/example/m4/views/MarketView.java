@@ -25,7 +25,7 @@ public class MarketView extends AppCompatActivity implements View.OnClickListene
         setContentView(R.layout.activity_market);
 
         selectedPlanet = findViewById(R.id.selected_planet_view);
-        String planet_text = "You are in " + Repository.planetClass.getPlanetName().toString();
+        String planet_text = "You are in " + Repository.planetClass.getPlanetName().toString() + " Planet";
         selectedPlanet.setText(planet_text);
 
         buyCargo = findViewById(R.id.buy_cargo_button);
@@ -40,11 +40,11 @@ public class MarketView extends AppCompatActivity implements View.OnClickListene
     public void onClick (View v) {
         if (v.getId() == R.id.buy_cargo_button) {
 
-            startActivity(new Intent(this, BuyCargoView.class));
+            startActivity(new Intent(this, SellBuyCargoView.class));
 
         } else if (v.getId() == R.id.sell_cargo_button) {
 
-            startActivity(new Intent(this, SellCargoView.class));
+            startActivity(new Intent(this, SellBuyCargoView.class));
 
         } else if (v.getId() == R.id.shipyard_button) {
 

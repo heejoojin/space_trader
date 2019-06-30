@@ -3,7 +3,7 @@ import com.example.m4.model.Player;
 import com.example.m4.model.Planet;
 import com.example.m4.model.Universe;
 import com.example.m4.model.Region;
-
+import com.example.m4.model.Item;
 import java.util.*;
 
 public class Repository {
@@ -12,6 +12,7 @@ public class Repository {
     public static Universe universeClass;
     public static Region regionClass;
     public static Planet planetClass;
+    public static ArrayList<Item> itemsList;
 
     public static void setPlayerClass(Player p) {
         playerClass = p;
@@ -27,6 +28,10 @@ public class Repository {
 
     public static void setPlanetClass(Planet pl) {
         planetClass = pl;
+    }
+
+    public static void setItemsList(ArrayList<Item> i) {
+        itemsList = i;
     }
 
 }

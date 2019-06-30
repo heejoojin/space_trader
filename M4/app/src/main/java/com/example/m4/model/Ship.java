@@ -1,6 +1,10 @@
 package com.example.m4.model;
 
+import java.util.ArrayList;
+
 public class Ship {
+
+
 
     private String name;
     private int numWater;

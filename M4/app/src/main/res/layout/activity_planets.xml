@@ -10,16 +10,29 @@
     tools:context=".views.PlanetsView">
 
     <TextView
-        android:id="@+id/selected_region_view"
+        android:id="@+id/select_a_planet_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:gravity="center"
-        android:text="Region"
-        android:textColor="#0E0000"
+        android:text="Select a Planet"
+        android:textStyle="bold"
+        android:textColor="#6d3d7a"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/selected_region_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="Region"
+        android:textColor="#6d3d7a"
+        android:textSize="21sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/select_a_planet_view" />
 
     <GridView
         android:id="@+id/planets_gridView"
@@ -27,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
-        android:layout_marginTop="95dp"
+        android:layout_marginTop="20dp"
         android:numColumns="3"
         android:gravity="center"
         android:horizontalSpacing="10dp"
@@ -36,7 +49,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/selected_region_view" />
+        app:layout_constraintTop_toBottomOf="@+id/selected_region_view" />
 
     <TextView
         android:id="@+id/single_planetname_view"
@@ -44,7 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         android:text="Name "
-        android:textColor="#0E0000"
+        android:textColor="#6d3d7a"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="70dp"
@@ -67,7 +80,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Location "
-        android:textColor="#0E0000"
+        android:textColor="#6d3d7a"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -92,22 +105,22 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="76dp"
         android:layout_marginLeft="76dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:text=" Travel to a different region "
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/single_planet_location_selected"
+        app:layout_constraintTop_toBottomOf="@id/enter_market_button"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/enter_market_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginLeft="128dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="118dp"
+        android:layout_marginLeft="118dp"
+        android:layout_marginTop="30dp"
         android:text="  Enter the Market  "
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/travel_region_button" />
+        app:layout_constraintTop_toBottomOf="@id/single_planet_location_selected" />
 
 
 </android.support.constraint.ConstraintLayout>

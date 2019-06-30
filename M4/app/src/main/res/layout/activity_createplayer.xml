@@ -15,10 +15,12 @@
         android:layout_marginLeft="136dp"
         android:layout_marginTop="16dp"
         android:text="Welcome!"
-        android:textColor="#0E0000"
+        android:textColor="#6d3d7a"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textStyle="bold"
+        />
 
     <TextView
         android:id="@+id/name_view"
@@ -28,8 +30,8 @@
         android:text="Name"
         app:layout_constraintTop_toBottomOf="@+id/welcome"
         app:layout_constraintStart_toStartOf="parent"
-        android:textColor="#0E0000"
-        android:textSize="18sp"
+        android:textColor="#6d3d7a"
+        android:textSize="21sp"
         android:layout_marginLeft="40dp" android:layout_marginStart="40dp"/>
 
     <TextView
@@ -46,26 +48,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="40dp"
-        android:layout_marginStart="40dp" android:id="@+id/difficulty_header" android:textSize="18sp"
+        android:layout_marginStart="40dp" android:id="@+id/difficulty_header" android:textSize="20sp"
         android:layout_marginTop="20dp" app:layout_constraintTop_toBottomOf="@+id/player_name"
-        android:textColor="#0E0000"/>
+        android:textColor="#6d3d7a"/>
 
     <TextView
         android:text="difficulty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginLeft="40dp" app:layout_constraintEnd_toEndOf="@id/player_name"
+        android:layout_marginLeft="60dp"
+        android:layout_marginStart="61dp"
+        app:layout_constraintEnd_toEndOf="@id/player_name"
         android:id="@+id/player_difficulty"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="25dp"
         app:layout_constraintTop_toBottomOf="@+id/player_name"/>
 
     <TextView
         android:text="Spaceship"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:textColor="#0E0000"
+        android:textSize="21sp"
+        android:textColor="#6d3d7a"
         android:id="@+id/ship_header" app:layout_constraintStart_toStartOf="parent"
         android:layout_marginLeft="40dp"
         android:layout_marginStart="40dp" android:layout_marginTop="20dp"
@@ -75,8 +79,9 @@
         android:id="@+id/player_ship"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="25dp"
         android:text="ship"
         app:layout_constraintEnd_toEndOf="@id/player_name"
         app:layout_constraintHorizontal_bias="0.727"
@@ -87,8 +92,8 @@
         android:text="Credits"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:textColor="#0E0000"
+        android:textSize="20sp"
+        android:textColor="#6d3d7a"
         android:id="@+id/credit_header" app:layout_constraintStart_toStartOf="parent"
         android:layout_marginLeft="40dp"
         android:layout_marginStart="40dp" android:layout_marginTop="20dp"
@@ -99,17 +104,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginLeft="40dp" app:layout_constraintEnd_toEndOf="@id/player_name"
+        android:layout_marginLeft="60dp" app:layout_constraintEnd_toEndOf="@id/player_name"
         android:id="@+id/player_credit"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="25dp"
         app:layout_constraintTop_toBottomOf="@+id/ship_header"/>
 
     <TextView
         android:text="Skill Points"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:textColor="#0E0000"
+        android:textSize="20sp"
+        android:textColor="#6d3d7a"
         android:id="@+id/skill_points" app:layout_constraintStart_toStartOf="parent"
         android:layout_marginLeft="40dp"
         android:layout_marginStart="40dp" android:layout_marginTop="40dp"
@@ -188,7 +193,7 @@
         android:id="@+id/create_universe_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=" Create  Your  Universe "
+        android:text=" Create Your Universe "
         android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
