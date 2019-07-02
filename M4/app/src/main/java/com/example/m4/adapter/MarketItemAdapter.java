@@ -1,6 +1,7 @@
 package com.example.m4.adapter;
 
 import android.content.Context;
+import android.renderscript.ScriptIntrinsicYuvToRGB;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -75,6 +76,7 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
                         if ( (checkpoint - currentItem.getPrice()) >= 0 ) {
                             currentItem.addToQuantity();
                             currentItem.addToQuanitiyinHold();
+                            //System.out.println(currentItem.getQuantityLeft());
                             currentItem.removeFromQuantityinMarket();
                             checkpoint -= (currentItem.getPrice());
 
@@ -82,7 +84,7 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
                         }
                     }
 
-                } else {
+                } else if (!Repository.isitBuying) {
                     // selling
                     if (currentItem.getQuantityLeft() > 0) {
                         currentItem.addToQuantity();

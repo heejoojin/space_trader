@@ -25,6 +25,8 @@ import com.example.m4.model.Player;
 import com.example.m4.repository.Repository;
 
 import android.view.View.OnClickListener;
+import android.widget.Toast;
+
 import java.lang.String;
 
 public class UniverseView extends AppCompatActivity implements OnClickListener {
@@ -38,14 +40,18 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
     private PlanetName planetName;
     private Universe universe;
 
+    private TextView initial_region_text;
+
     private TextView region_text;
     private TextView planets_text;
     private TextView techlevel_text;
     private TextView resource_text;
     private TextView location_text;
     private TextView color_text;
+    private TextView fuel_text;
 
     private Button next_button;
+    private Button travel_between_region_button;
     private Player player;
 
     private Boolean clicked = false;
@@ -57,15 +63,20 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
         setContentView(R.layout.activity_universe);
         UniversegridView = (GridView)findViewById(R.id.universe_gridView);
 
+        initial_region_text = findViewById(R.id.initial_ship_view);
         region_text = findViewById(R.id.region_selected);
         planets_text = findViewById(R.id.planet_selected);
         techlevel_text = findViewById(R.id.techlevel_selected);
         resource_text = findViewById(R.id.resource_selected);
         location_text = findViewById(R.id.location_selected);
         color_text = findViewById(R.id.color_selected);
+        fuel_text = findViewById(R.id.fuel_needed_selected);
 
         next_button = findViewById(R.id.next_button_1);
         next_button.setOnClickListener(this);
+        travel_between_region_button = findViewById(R.id.travel_between_region_button);
+        travel_between_region_button.setOnClickListener(this);
+
 
         universe = new Universe(12, 30);
         universe.populate();
@@ -105,6 +116,8 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
                         String region_loc = "(" + region.getxLoc()
                                 + ", " + region.getyLoc() + ")";
                         location_text.setText(region_loc);
+                        String fuel_needed = "" + region.getFuelneededtoTravel() + " L needed to travel";
+                        fuel_text.setText(fuel_needed);
 
                         for (Planet planet : region.getPlanetList()) {
 
@@ -124,7 +137,17 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
             if (clicked) {
                 startActivity(new Intent(this, PlanetsView.class));
             }
-
+        }
+        if (v.getId() == R.id.travel_between_region_button) {
+            int fuel_left = Repository.playerClass.getFuel() - Repository.regionClass.getFuelneededtoTravel();
+            if (fuel_left < 0) {
+                Toast.makeText(getApplicationContext(), "You don't have enough fuel to travel", Toast.LENGTH_SHORT).show();
+            } else {
+                Repository.playerClass.setFuel(fuel_left);
+                String new_region_new_fuel_text = "You are in " + Repository.regionClass.getRegionName() + "\n" + "Gnat Spaceship | Fuel "  +
+                        fuel_left + " L available";
+                initial_region_text.setText(new_region_new_fuel_text);
+            }
         }
     }
 }

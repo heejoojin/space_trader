@@ -29,7 +29,7 @@ public class Player {
 
     private Difficulty difficulty;
 
-    private Region region;
+    private int fuel;
 
     public Player(String name, int pilotPoints, int fighterPoints, int traderPoints, int engineerPoints) {
         this.credits = 1000;
@@ -39,9 +39,12 @@ public class Player {
         this.traderPoints = traderPoints;
         this.engineerPoints = engineerPoints;
         this.ship = "Gnat Spaceship";
+        this.fuel = 1203760;
     }
 
     //Getters and setters required for accessing the fields
+
+    public int getFuel() { return this.fuel; }
 
     public int getCredits() { return this.credits; }
 
@@ -92,5 +95,7 @@ public class Player {
     public void setDifficulty(Difficulty difficulty) {
         this.difficulty = difficulty;
     }
+
+    public void setFuel(int fuel) { this.fuel = fuel; }
 
 }

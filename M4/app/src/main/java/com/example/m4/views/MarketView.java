@@ -122,24 +122,29 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
         if (v.getId() == R.id.switch_button) {
 
             if (Repository.isitBuying) {
+
                 switchButton.setText("Swith to Buy");
                 buyorsellButton.setText("Sell");
                 itemTotalView.setText("Total Sale   ");
                 marketMode.setText("Sell Items");
 
                 Repository.isitBuying = false;
-
                 resetItemTotal();
+
 
             } else {
                 switchButton.setText("Swith to Sell");
                 buyorsellButton.setText("Buy");
                 itemTotalView.setText("Total Expense   ");
                 marketMode.setText("Buy Items");
+
                 Repository.isitBuying = true;
+
 
                 resetItemTotal();
             }
+
+
 
         } else if (v.getId() == R.id.make_item_change_button) {
             if (Repository.isitBuying) {
@@ -167,9 +172,11 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
                     Toast.makeText(getApplicationContext(), m, Toast.LENGTH_SHORT).show();
                     setCreditTotal();
                     resetItemTotal();
+
                 } else if (calculateItemTotal() == 0) {
                     String m = "You didn't select any items";
                     Toast.makeText(getApplicationContext(), m, Toast.LENGTH_SHORT).show();
+
                 }
             }
         } else if (v.getId() == R.id.shipyard_button) {

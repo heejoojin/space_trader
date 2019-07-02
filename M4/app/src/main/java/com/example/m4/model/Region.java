@@ -18,6 +18,7 @@ public class Region {
     private int numPlanets;
     private int xLoc;
     private int yLoc;
+    private int fuelneededtoTravel;
 
     /**
      * Default constructor initializing all necessary variables
@@ -28,6 +29,8 @@ public class Region {
         this.techLevel = techLevel;
         this.xLoc = xLoc;
         this.yLoc = yLoc;
+        this.fuelneededtoTravel = (200000 + (int)(Math.random() * (3000000 - 200000)));
+
     }
 
     /**
@@ -66,6 +69,8 @@ public class Region {
         return yLoc;
     }
 
+    public int getFuelneededtoTravel() { return fuelneededtoTravel; }
+
     public void setPlanetList(ArrayList<Planet> planetList) {
         this.planetList = planetList;
     }
@@ -88,6 +93,10 @@ public class Region {
 
     public void setyLoc(int yLoc) {
         this.yLoc = yLoc;
+    }
+
+    public void setFuelneededtoTravel(int fuelneededtoTravel) {
+        this.fuelneededtoTravel = fuelneededtoTravel;
     }
 
     public RegionName getRegionName() {

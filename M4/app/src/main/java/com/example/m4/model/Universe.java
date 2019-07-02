@@ -46,7 +46,7 @@ public class Universe {
         for (Region region : regions) {
             string += region.getRegionName() + ": " + region.getSpecialResource()
                     + ", " + region.getTechLevel() + "," + " (" + region.getxLoc()
-                    + ", " + region.getyLoc() + "), " + region.getColor() + " Planets: \n";
+                    + ", " + region.getyLoc() + "), " + region.getColor() + region.getFuelneededtoTravel() + " Planets: \n";
             for (Planet planet: region.getPlanetList()) {
                 string += planet.getPlanetName() + ", (" + planet.getxLocation()
                         + ", " + planet.getyLocation() + ")\n";
