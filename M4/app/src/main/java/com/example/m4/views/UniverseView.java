@@ -57,6 +57,7 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
 
     private Boolean clicked = false;
     private DecimalFormat formatter = new DecimalFormat("#,###,###");
+    String initial_region;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +67,16 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
         UniversegridView = (GridView)findViewById(R.id.universe_gridView);
 
         initial_region_text = findViewById(R.id.initial_ship_view);
+        String fuel_initial = formatter.format(Repository.playerClass.getFuel());
+
+        if (Repository.regionClass != null) {
+            initial_region = "You are in " + Repository.regionClass.getRegionName().toString() + "\n" + Repository.playerClass.getShip() + " | Fuel "  +
+                    fuel_initial + " L available";
+        } else {
+            initial_region = "You are in Earth \n" + Repository.playerClass.getShip() + " | Fuel "  +
+                    fuel_initial + " L available";
+        }
+        initial_region_text.setText(initial_region);
         region_text = findViewById(R.id.region_selected);
         planets_text = findViewById(R.id.planet_selected);
         techlevel_text = findViewById(R.id.techlevel_selected);
@@ -159,7 +170,7 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
                     String new_region = "You are now in " + Repository.regionClass.getRegionName().toString();
                     Toast.makeText(getApplicationContext(), new_region, Toast.LENGTH_SHORT).show();
                     String fuel_left_formatted = formatter.format(fuel_left);
-                    String new_region_new_fuel_text = "You are in " + Repository.regionClass.getRegionName() + "\n" + "Gnat Spaceship | Fuel "  +
+                    String new_region_new_fuel_text = "You are in " + Repository.regionClass.getRegionName().toString() + "\n" + Repository.playerClass.getShip() + " | Fuel "  +
                             fuel_left_formatted + " L available";
                     initial_region_text.setText(new_region_new_fuel_text);
                 }

@@ -54,7 +54,7 @@ public class PlanetsView extends AppCompatActivity implements View.OnClickListen
         enterMarket.setOnClickListener(this);
 
         travelTonewRegion = findViewById(R.id.travel_region_button);
-        enterMarket.setOnClickListener(this);
+        travelTonewRegion.setOnClickListener(this);
 
         for (Planet planet : Repository.regionClass.getPlanetList()) {
             planets.add(planet.getPlanetName().toString());
