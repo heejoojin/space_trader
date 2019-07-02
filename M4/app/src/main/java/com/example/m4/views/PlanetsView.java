@@ -94,6 +94,10 @@ public class PlanetsView extends AppCompatActivity implements View.OnClickListen
     }
     @Override
     public void onClick (View v) {
+        if (v.getId() == R.id.travel_region_button) {
+            startActivity(new Intent(this, UniverseView.class));
+        }
+
         if (v.getId() == R.id.enter_market_button) {
             if (clicked) {
                 startActivity(new Intent(this, MarketView.class));
@@ -101,8 +105,6 @@ public class PlanetsView extends AppCompatActivity implements View.OnClickListen
                 Repository.isitBuying = true;
             }
         }
-        if (v.getId() == R.id.travel_region_button) {
-            startActivity(new Intent(this, UniverseView.class));
-        }
+
     }
 }

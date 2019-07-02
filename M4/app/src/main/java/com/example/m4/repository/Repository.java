@@ -6,6 +6,7 @@ import com.example.m4.model.Planet;
 import com.example.m4.model.Universe;
 import com.example.m4.model.Region;
 import com.example.m4.model.Item;
+import com.example.m4.model.RegionName;
 import java.util.*;
 
 public class Repository {
@@ -17,6 +18,8 @@ public class Repository {
     public static ArrayList<Item> itemsList = new ArrayList<>();
 
     public static Boolean isitBuying = true;
+
+    public static RegionName toTravelRegionName;
 
     public static void setPlayerClass(Player p) {
         playerClass = p;
@@ -37,6 +40,8 @@ public class Repository {
     public static void setItemsList(ArrayList<Item> i) {
         itemsList = i;
     }
+
+    public static void setToTravelRegionName(RegionName rn) { toTravelRegionName = rn; }
 
 
 }

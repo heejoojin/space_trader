@@ -28,6 +28,7 @@ import android.view.View.OnClickListener;
 import android.widget.Toast;
 
 import java.lang.String;
+import java.text.DecimalFormat;
 
 public class UniverseView extends AppCompatActivity implements OnClickListener {
 
@@ -55,6 +56,7 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
     private Player player;
 
     private Boolean clicked = false;
+    private DecimalFormat formatter = new DecimalFormat("#,###,###");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,7 +118,8 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
                         String region_loc = "(" + region.getxLoc()
                                 + ", " + region.getyLoc() + ")";
                         location_text.setText(region_loc);
-                        String fuel_needed = "" + region.getFuelneededtoTravel() + " L needed to travel";
+                        String fuel_formatted = formatter.format(region.getFuelneededtoTravel());
+                        String fuel_needed = "" + fuel_formatted + " L required";
                         fuel_text.setText(fuel_needed);
 
                         for (Planet planet : region.getPlanetList()) {
@@ -136,17 +139,30 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
         if (v.getId() == R.id.next_button_1) {
             if (clicked) {
                 startActivity(new Intent(this, PlanetsView.class));
+            } else {
+                Toast.makeText(getApplicationContext(), "You have to select a region to travel", Toast.LENGTH_SHORT).show();
             }
         }
         if (v.getId() == R.id.travel_between_region_button) {
-            int fuel_left = Repository.playerClass.getFuel() - Repository.regionClass.getFuelneededtoTravel();
-            if (fuel_left < 0) {
-                Toast.makeText(getApplicationContext(), "You don't have enough fuel to travel", Toast.LENGTH_SHORT).show();
+
+            if (Repository.regionClass.getRegionName().equals(Repository.toTravelRegionName)) {
+                String same_region = "You are already in " + Repository.regionClass.getRegionName().toString();
+                Toast.makeText(getApplicationContext(), same_region, Toast.LENGTH_SHORT).show();
             } else {
-                Repository.playerClass.setFuel(fuel_left);
-                String new_region_new_fuel_text = "You are in " + Repository.regionClass.getRegionName() + "\n" + "Gnat Spaceship | Fuel "  +
-                        fuel_left + " L available";
-                initial_region_text.setText(new_region_new_fuel_text);
+                int fuel_left = Repository.playerClass.getFuel() - Repository.regionClass.getFuelneededtoTravel();
+                if (fuel_left < 0) {
+                    Toast.makeText(getApplicationContext(), "You don't have enough fuel to travel", Toast.LENGTH_SHORT).show();
+                } else {
+                    Repository.playerClass.setFuel(fuel_left);
+                    Repository.setToTravelRegionName(Repository.regionClass.getRegionName());
+
+                    String new_region = "You are now in " + Repository.regionClass.getRegionName().toString();
+                    Toast.makeText(getApplicationContext(), new_region, Toast.LENGTH_SHORT).show();
+                    String fuel_left_formatted = formatter.format(fuel_left);
+                    String new_region_new_fuel_text = "You are in " + Repository.regionClass.getRegionName() + "\n" + "Gnat Spaceship | Fuel "  +
+                            fuel_left_formatted + " L available";
+                    initial_region_text.setText(new_region_new_fuel_text);
+                }
             }
         }
     }

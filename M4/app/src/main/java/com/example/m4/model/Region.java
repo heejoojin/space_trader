@@ -29,7 +29,7 @@ public class Region {
         this.techLevel = techLevel;
         this.xLoc = xLoc;
         this.yLoc = yLoc;
-        this.fuelneededtoTravel = (200000 + (int)(Math.random() * (3000000 - 200000)));
+        this.fuelneededtoTravel = (200000 + (int)(Math.random() * (1000000 - 200000)));
 
     }
 
