@@ -1,11 +1,10 @@
 package com.example.m4.views;
 
-import android.arch.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProviders;
 import android.content.Intent;
-import android.graphics.Typeface;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -13,7 +12,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.m4.R;
 import com.example.m4.model.Difficulty;

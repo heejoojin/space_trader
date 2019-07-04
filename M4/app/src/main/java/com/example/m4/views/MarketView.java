@@ -3,7 +3,7 @@ package com.example.m4.views;
 import android.content.Intent;
 import android.database.DataSetObserver;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View.OnClickListener;
 import android.view.View;
 import android.widget.ListView;
@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import com.example.m4.model.Item;
 import com.example.m4.R;
-import com.example.m4.model.Market;
 import com.example.m4.repository.Repository;
 
 import android.widget.Button;

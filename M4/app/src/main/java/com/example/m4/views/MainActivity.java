@@ -1,8 +1,7 @@
 package com.example.m4.views;
 
 
-import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View.OnClickListener;
 import android.view.View;
@@ -10,9 +9,6 @@ import android.widget.Button;
 import android.content.Intent;
 import android.widget.TextView;
 import android.graphics.*;
-import android.graphics.Paint.*;
-import android.text.*;
-import android.content.res.ColorStateList;
 
 import com.example.m4.R;
 
@@ -21,6 +17,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     private Button open;
     private Button exit;
+    private Button minigame;
 
     private TextView title;
 
@@ -39,6 +36,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
         title.getPaint().setStrokeWidth(5);
         title.getPaint().setStyle(Paint.Style.STROKE);
+
+        minigame = findViewById(R.id.minigame_button);
+        minigame.setOnClickListener(this);
     }
 
 
@@ -48,6 +48,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             startActivity(new Intent(MainActivity.this, ConfigurationView.class));
         } else if (v.getId() == R.id.main_exit_button) {
             System.exit(0);
+        } else if (v.getId() == R.id.minigame_button) {
+            startActivity(new Intent(MainActivity.this, MiniGameView.class));
         }
     }
 }

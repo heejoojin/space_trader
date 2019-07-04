@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".views.UniverseView">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -245,7 +245,7 @@
             app:layout_constraintTop_toBottomOf="@+id/fuel_needed_selected"
             app:layout_constraintVertical_bias="0.0" />
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </ScrollView>

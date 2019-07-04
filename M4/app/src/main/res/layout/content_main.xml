@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -37,16 +37,28 @@
         app:layout_constraintVertical_bias="0.875" />
 
     <Button
-        android:id="@+id/main_exit_button"
+    android:id="@+id/main_exit_button"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="EXIT"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.667"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.875" />
+
+    <Button
+        android:id="@+id/minigame_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="EXIT"
+        android:text="MINI GAME"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.667"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.875" />
+        app:layout_constraintVertical_bias="0.956" />
 
     <TextView
         android:id="@+id/game_title_view"
@@ -68,4 +80,4 @@
         />
 
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
