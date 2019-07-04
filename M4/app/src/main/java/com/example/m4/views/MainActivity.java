@@ -1,38 +1,52 @@
 package com.example.m4.views;
 
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View.OnClickListener;
 import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
+import android.widget.TextView;
+import android.graphics.*;
+import android.graphics.Paint.*;
+import android.text.*;
+import android.content.res.ColorStateList;
+
 import com.example.m4.R;
 
 
 public class MainActivity extends AppCompatActivity implements OnClickListener {
 
-    private Button openM4;
-    private Button exitM4;
+    private Button open;
+    private Button exit;
+
+    private TextView title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        openM4 = findViewById(R.id.main_button);
-        openM4.setOnClickListener(this);
+        open = findViewById(R.id.main_start_button);
+        open.setOnClickListener(this);
 
-        exitM4 = findViewById(R.id.exitM4_button);
-        exitM4.setOnClickListener(this);
+        exit = findViewById(R.id.main_exit_button);
+        exit.setOnClickListener(this);
 
+        title = findViewById(R.id.game_title_view);
+
+        title.getPaint().setStrokeWidth(5);
+        title.getPaint().setStyle(Paint.Style.STROKE);
     }
+
 
     @Override
     public void onClick (View v) {
-        if (v.getId() == R.id.main_button) {
+        if (v.getId() == R.id.main_start_button) {
             startActivity(new Intent(MainActivity.this, ConfigurationView.class));
-        } else if (v.getId() == R.id.exitM4_button) {
+        } else if (v.getId() == R.id.main_exit_button) {
             System.exit(0);
         }
     }
