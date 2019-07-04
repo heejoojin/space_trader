@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import com.example.m4.model.Item;
 import com.example.m4.R;
+import com.example.m4.model.Market;
 import com.example.m4.repository.Repository;
 
 import android.widget.Button;
@@ -25,6 +26,8 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
     TextView creditTotaltoEditText;
     TextView marketMode;
     ArrayList<Item> orders;
+
+    MarketItemAdapter setadpater;
 
     Button switchButton, buyorsellButton, toShipyardButton, doneButton;
 
@@ -63,8 +66,9 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
         orders = getListItemData();
         Repository.setItemsList(orders);
         MarketItemAdapter adapter = new MarketItemAdapter(this, orders);
-        storedOrders.setAdapter(adapter);
-        adapter.registerDataSetObserver(observer);
+        setadpater = adapter;
+        storedOrders.setAdapter(setadpater);
+        setadpater.registerDataSetObserver(observer);
     }
 
     public int calculateItemTotal(){
@@ -96,6 +100,12 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
         itemTotaltoEditText.setText("0");
     }
 
+    public void updateIteminCargo() {
+        for (Item order : orders) {
+            order.updateQuantity();
+        }
+    }
+
     DataSetObserver observer = new DataSetObserver() {
         @Override
         public void onChanged() {
@@ -117,8 +127,10 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
         return listViewItems;
     }
 
+
     @Override
     public void onClick (View v) {
+
         if (v.getId() == R.id.switch_button) {
 
             if (Repository.isitBuying) {
@@ -130,6 +142,7 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
 
                 Repository.isitBuying = false;
                 resetItemTotal();
+                setadpater.notifyDataSetChanged();
 
 
             } else {
@@ -139,22 +152,13 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
                 marketMode.setText("Buy Items");
 
                 Repository.isitBuying = true;
-
-
                 resetItemTotal();
+                setadpater.notifyDataSetChanged();
             }
-
-
 
         } else if (v.getId() == R.id.make_item_change_button) {
             if (Repository.isitBuying) {
-                if (Integer.parseInt((String) creditTotaltoEditText.getText()) < calculateItemTotal()) {
-
-                    String m = "You don't have enough credits";
-                    Toast.makeText(getApplicationContext(), m, Toast.LENGTH_SHORT).show();
-
-
-                } else if (Integer.parseInt((String) creditTotaltoEditText.getText()) >= calculateItemTotal()) {
+                if (Integer.parseInt((String) creditTotaltoEditText.getText()) >= calculateItemTotal()) {
                     if (calculateItemTotal() == 0) {
                         String m = "You didn't select any items";
                         Toast.makeText(getApplicationContext(), m, Toast.LENGTH_SHORT).show();
@@ -163,6 +167,9 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
                         Toast.makeText(getApplicationContext(), m, Toast.LENGTH_SHORT).show();
                         setCreditTotal();
                         resetItemTotal();
+                        updateIteminCargo();
+                        setadpater.notifyDataSetChanged();
+
                     }
                 }
             } else {
@@ -172,6 +179,8 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
                     Toast.makeText(getApplicationContext(), m, Toast.LENGTH_SHORT).show();
                     setCreditTotal();
                     resetItemTotal();
+                    updateIteminCargo();
+                    setadpater.notifyDataSetChanged();
 
                 } else if (calculateItemTotal() == 0) {
                     String m = "You didn't select any items";

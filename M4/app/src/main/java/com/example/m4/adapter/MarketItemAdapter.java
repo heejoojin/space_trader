@@ -43,7 +43,7 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
         View listItemView = convertView;
         if(listItemView == null){
             listItemView = LayoutInflater.from(getContext()).inflate(
-                    R.layout.content_market,parent,false
+                    R.layout.content_market, parent,false
             );
         }
 
@@ -61,7 +61,7 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
         //Set the text of the meal, amount and quantity
         currentItemName.setText(currentItem.getName());
         currentPrice.setText("$ " + currentItem.getPrice());
-        quantityLeftinHold.setText("" + currentItem.getQuantityLeft());
+        quantityLeftinHold.setText("" + currentItem.getQuantityOwned());
         selectedItemNum.setText(""+ currentItem.getQuantityChange());
         quantityLeftinMarket.setText("" + currentItem.getQuantityInMarket());
 
@@ -74,9 +74,8 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
 
                     if (checkpoint >= 0 && currentItem.getQuantityInMarket() > 0) {
                         if ( (checkpoint - currentItem.getPrice()) >= 0 ) {
-                            currentItem.addToQuantity();
+                            currentItem.addToQuantityChange();
                             currentItem.addToQuanitiyinHold();
-                            //System.out.println(currentItem.getQuantityLeft());
                             currentItem.removeFromQuantityinMarket();
                             checkpoint -= (currentItem.getPrice());
 
@@ -86,8 +85,8 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
 
                 } else if (!Repository.isitBuying) {
                     // selling
-                    if (currentItem.getQuantityLeft() > 0) {
-                        currentItem.addToQuantity();
+                    if (currentItem.getQuantityOwned() > 0 && currentItem.getQuantityChange() < currentItem.getQuantityOwned()) {
+                        currentItem.addToQuantityChange();
                         currentItem.removeFromQuantityinHold();
                         currentItem.addToQuantityinMarket();
                         checkpoint += (currentItem.getPrice());
@@ -104,18 +103,17 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
             public void onClick(View view) {
                 if (Repository.isitBuying) {
                     if (currentItem.getQuantityChange() != 0) {
-                        currentItem.removeFromQuantity();
+                        currentItem.removeFromQuantityChange();
                         currentItem.removeFromQuantityinHold();
                         currentItem.addToQuantityinMarket();
                         checkpoint += (currentItem.getPrice());
-                        // quantityLeftText.setText("" + currentItem.getQuantityLeft());
 
                         System.out.println(checkpoint);
                     }
                 } else {
                     // selling
                     if (currentItem.getQuantityChange() != 0) {
-                        currentItem.removeFromQuantity();
+                        currentItem.removeFromQuantityChange();
                         currentItem.addToQuanitiyinHold();
                         currentItem.removeFromQuantityinMarket();
                         checkpoint -= (currentItem.getPrice());
@@ -129,5 +127,4 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
 
         return listItemView;
     }
-
 }
