@@ -11,7 +11,7 @@ import com.example.m4.R;
 
 public class TravelView extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView travel_message;
+    private TextView travelMessage;
     private Button nextButton;
 
     @Override
@@ -19,7 +19,9 @@ public class TravelView extends AppCompatActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_travel);
 
-
+        travelMessage = findViewById(R.id.travel_message);
+        nextButton = findViewById(R.id.next_button);
+        nextButton.setOnClickListener(this);
     }
 
 

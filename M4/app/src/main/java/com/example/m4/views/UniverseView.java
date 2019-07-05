@@ -167,12 +167,14 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
                     Repository.playerClass.setFuel(fuel_left);
                     Repository.setToTravelRegionName(Repository.regionClass.getRegionName());
 
-                    String new_region = "You are now in " + Repository.regionClass.getRegionName().toString();
+                    startActivity(new Intent(this, TravelView.class));
+
+                    /*String new_region = "You are now in " + Repository.regionClass.getRegionName().toString();
                     Toast.makeText(getApplicationContext(), new_region, Toast.LENGTH_SHORT).show();
                     String fuel_left_formatted = formatter.format(fuel_left);
                     String new_region_new_fuel_text = "You are in " + Repository.regionClass.getRegionName().toString() + "\n" + Repository.playerClass.getShip() + " | Fuel "  +
                             fuel_left_formatted + " L available";
-                    initial_region_text.setText(new_region_new_fuel_text);
+                    initial_region_text.setText(new_region_new_fuel_text);*/
                 }
             }
         }

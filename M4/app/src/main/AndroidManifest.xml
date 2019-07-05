@@ -46,6 +46,10 @@
             android:name=".views.MiniGameView"
             android:parentActivityName=".views.MainActivity" />
 
+        <activity
+            android:name=".views.TravelView"
+            android:parentActivityName=".views.UniverseView" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
