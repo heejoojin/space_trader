@@ -55,7 +55,7 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
     private Button travel_between_region_button;
     private Player player;
 
-    private Boolean clicked = false;
+    private static Boolean clicked = false;
     private DecimalFormat formatter = new DecimalFormat("#,###,###");
     String initial_region;
 
