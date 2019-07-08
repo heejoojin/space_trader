@@ -48,7 +48,7 @@
 
         <activity
             android:name=".views.TravelView"
-            android:parentActivityName=".views.UniverseView" />
+            android:parentActivityName=".views.PlanetsView" />
 
         <meta-data
             android:name="preloaded_fonts"

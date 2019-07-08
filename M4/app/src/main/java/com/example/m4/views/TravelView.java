@@ -29,7 +29,7 @@ public class TravelView extends AppCompatActivity implements View.OnClickListene
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.next_button) {
-            startActivity(new Intent(this, UniverseView.class));
+            startActivity(new Intent(this, PlanetsView.class));
         }
     }
 }
