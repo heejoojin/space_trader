@@ -12,7 +12,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/initial_ship_view"
+            android:id="@+id/region_display_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -47,7 +47,7 @@
             android:numColumns="3"
             android:textColor="#6d3d7a"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/initial_ship_view" />
+            app:layout_constraintTop_toTopOf="@+id/region_display_view" />
 
         <TextView
             android:id="@+id/regionname_view"
@@ -223,6 +223,8 @@
             android:id="@+id/travel_between_region_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="88dp"
+            android:layout_marginLeft="88dp"
             android:layout_marginTop="26dp"
             android:layout_marginBottom="30dp"
             android:text="Travel"
@@ -232,18 +234,16 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <Button
-            android:id="@+id/next_button_1"
+            android:id="@+id/save_next_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="128dp"
-            android:layout_marginLeft="128dp"
-            android:layout_marginTop="26dp"
+            android:layout_marginTop="8dp"
             android:layout_marginBottom="30dp"
-            android:text=" SAVE &amp; NEXT "
+            android:text=" STAY IN THE SAME REGION &amp; NEXT "
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@id/fuel_needed_view"
-            app:layout_constraintTop_toBottomOf="@+id/fuel_needed_selected"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/travel_between_region_button"
+            app:layout_constraintVertical_bias="1.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

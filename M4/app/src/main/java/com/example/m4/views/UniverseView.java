@@ -10,18 +10,16 @@ import android.widget.TextView;
 
 import com.example.m4.model.PlanetName;
 import com.example.m4.model.RegionName;
+import com.example.m4.model.Region;
 import android.widget.AdapterView;
 import android.view.View;
 import com.example.m4.R;
 
 import android.widget.Button;
-
-import com.example.m4.model.TechLevel;
-import com.example.m4.model.Resource;
-import com.example.m4.model.Region;
 import com.example.m4.model.Planet;
+import com.example.m4.model.Resource;
+import com.example.m4.model.TechLevel;
 import com.example.m4.model.Universe;
-import com.example.m4.model.Player;
 import com.example.m4.repository.Repository;
 
 import android.view.View.OnClickListener;
@@ -33,15 +31,11 @@ import java.text.DecimalFormat;
 public class UniverseView extends AppCompatActivity implements OnClickListener {
 
     private GridView UniversegridView;
-    // TextView textView;
     private RegionName regionName;
-    private TechLevel techLevel;
-    private Resource resource;
-    private Region region;
     private PlanetName planetName;
     private Universe universe;
 
-    private TextView initial_region_text;
+    private TextView region_display_textview;
 
     private TextView region_text;
     private TextView planets_text;
@@ -51,13 +45,15 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
     private TextView color_text;
     private TextView fuel_text;
 
-    private Button next_button;
     private Button travel_between_region_button;
-    private Player player;
+    private Button save_next_button;
 
-    private static Boolean clicked = false;
+    private Boolean clicked = false;
+    private static Boolean travelled = false;
+
     private DecimalFormat formatter = new DecimalFormat("#,###,###");
-    String initial_region;
+    String region_display_message;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,17 +62,17 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
         setContentView(R.layout.activity_universe);
         UniversegridView = (GridView)findViewById(R.id.universe_gridView);
 
-        initial_region_text = findViewById(R.id.initial_ship_view);
+        region_display_textview = findViewById(R.id.region_display_view);
         String fuel_initial = formatter.format(Repository.playerClass.getFuel());
 
-        if (Repository.regionClass != null) {
-            initial_region = "You are in " + Repository.regionClass.getRegionName().toString() + "\n" + Repository.playerClass.getShip() + " | Fuel "  +
+        if (Repository.toTravelRegionName != null) {
+            region_display_message = "You are in " + Repository.toTravelRegionName.toString() + "\n" + Repository.playerClass.getShip() + " | Fuel "  +
                     fuel_initial + " L available";
         } else {
-            initial_region = "You are in Earth \n" + Repository.playerClass.getShip() + " | Fuel "  +
+            region_display_message = "You are in Earth \n" + Repository.playerClass.getShip() + " | Fuel "  +
                     fuel_initial + " L available";
         }
-        initial_region_text.setText(initial_region);
+        region_display_textview.setText(region_display_message);
         region_text = findViewById(R.id.region_selected);
         planets_text = findViewById(R.id.planet_selected);
         techlevel_text = findViewById(R.id.techlevel_selected);
@@ -85,11 +81,17 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
         color_text = findViewById(R.id.color_selected);
         fuel_text = findViewById(R.id.fuel_needed_selected);
 
-        next_button = findViewById(R.id.next_button_1);
-        next_button.setOnClickListener(this);
         travel_between_region_button = findViewById(R.id.travel_between_region_button);
         travel_between_region_button.setOnClickListener(this);
 
+        save_next_button = findViewById(R.id.save_next_button);
+        save_next_button.setOnClickListener(this);
+
+        if (!travelled) {
+            save_next_button.setVisibility(View.GONE);
+        } else {
+            save_next_button.setVisibility(View.VISIBLE);
+        }
 
         universe = new Universe(12, 30);
         universe.populate();
@@ -114,11 +116,12 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
                 // Toast.makeText(getApplicationContext(), value, Toast.LENGTH_SHORT).show();
 
                 String planet_details = "";
-                clicked = true;
-                // planets_text.setText(planetName.getRandom().toString() + " & " + itemName);
+
 
                 for (Region region: universe.getRegions()) {
+
                     if (region.getRegionName().equals(adapter.getItem(position))) {
+                        clicked = true;
 
                         Repository.setRegionClass(region);
 
@@ -145,36 +148,41 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
         });
 
     }
+
+
     @Override
     public void onClick (View v) {
-        if (v.getId() == R.id.next_button_1) {
-            if (clicked) {
-                startActivity(new Intent(this, PlanetsView.class));
-            } else {
-                Toast.makeText(getApplicationContext(), "You have to select a region to travel", Toast.LENGTH_SHORT).show();
-            }
+
+        if (v.getId() == R.id.save_next_button) {
+            startActivity(new Intent(this, PlanetsView.class));
         }
+
         if (v.getId() == R.id.travel_between_region_button) {
 
-            if (Repository.regionClass.getRegionName().equals(Repository.toTravelRegionName)) {
-                String same_region = "You are already in " + Repository.regionClass.getRegionName().toString();
-                Toast.makeText(getApplicationContext(), same_region, Toast.LENGTH_SHORT).show();
+            if (!clicked) {
+                Toast.makeText(getApplicationContext(), "You have to select a region to travel", Toast.LENGTH_SHORT).show();
             } else {
-                int fuel_left = Repository.playerClass.getFuel() - Repository.regionClass.getFuelneededtoTravel();
-                if (fuel_left < 0) {
-                    Toast.makeText(getApplicationContext(), "You don't have enough fuel to travel", Toast.LENGTH_SHORT).show();
+                if (Repository.regionClass.getRegionName().equals(Repository.toTravelRegionName)) {
+                    String same_region = "You are already in " + Repository.regionClass.getRegionName().toString();
+                    Toast.makeText(getApplicationContext(), same_region, Toast.LENGTH_SHORT).show();
                 } else {
-                    Repository.playerClass.setFuel(fuel_left);
-                    Repository.setToTravelRegionName(Repository.regionClass.getRegionName());
+                    int fuel_left = Repository.playerClass.getFuel() - Repository.regionClass.getFuelneededtoTravel();
 
-                    startActivity(new Intent(this, TravelView.class));
+                    if (fuel_left < 0) {
+                        Toast.makeText(getApplicationContext(), "You don't have enough fuel to travel", Toast.LENGTH_SHORT).show();
 
-                    /*String new_region = "You are now in " + Repository.regionClass.getRegionName().toString();
-                    Toast.makeText(getApplicationContext(), new_region, Toast.LENGTH_SHORT).show();
-                    String fuel_left_formatted = formatter.format(fuel_left);
-                    String new_region_new_fuel_text = "You are in " + Repository.regionClass.getRegionName().toString() + "\n" + Repository.playerClass.getShip() + " | Fuel "  +
-                            fuel_left_formatted + " L available";
-                    initial_region_text.setText(new_region_new_fuel_text);*/
+                    } else {
+                        travelled = true;
+
+                        Repository.playerClass.setFuel(fuel_left);
+                        System.out.println(Repository.playerClass.getFuel());
+
+                        Repository.setToTravelRegionName(Repository.regionClass.getRegionName());
+                        Repository.setToTravelPlanets(Repository.regionClass.getPlanetList());
+
+                        startActivity(new Intent(this, TravelView.class));
+
+                    }
                 }
             }
         }

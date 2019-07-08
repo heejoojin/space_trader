@@ -41,7 +41,7 @@ public class PlanetsView extends AppCompatActivity implements View.OnClickListen
         setContentView(R.layout.activity_planets);
 
         selectedRegion = findViewById(R.id.selected_region_view);
-        region_title = "You are in " + Repository.regionClass.getRegionName() + " Region" + "\n";
+        region_title = "You are in " + Repository.toTravelRegionName.toString() + " Region" + "\n";
         selectedRegion.setText(region_title);
 
         planetsView = findViewById(R.id.planets_gridView);
@@ -55,7 +55,7 @@ public class PlanetsView extends AppCompatActivity implements View.OnClickListen
         travelTonewRegion = findViewById(R.id.travel_region_button);
         travelTonewRegion.setOnClickListener(this);
 
-        for (Planet planet : Repository.regionClass.getPlanetList()) {
+        for (Planet planet : Repository.toTravelPlanets) {
             planets.add(planet.getPlanetName().toString());
         }
 
@@ -73,7 +73,7 @@ public class PlanetsView extends AppCompatActivity implements View.OnClickListen
                 message = adapter.getItem(position) + " has been selected";
                 Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
 
-                for (Planet planet : Repository.regionClass.getPlanetList()) {
+                for (Planet planet : Repository.toTravelPlanets) {
 
                     String pl_name = planet.getPlanetName().toString();
 

@@ -20,6 +20,8 @@ public class Repository {
     public static Boolean isitBuying = true;
 
     public static RegionName toTravelRegionName;
+    public static ArrayList<Planet> toTravelPlanets;
+
 
     public static void setPlayerClass(Player p) {
         playerClass = p;
@@ -42,6 +44,7 @@ public class Repository {
     }
 
     public static void setToTravelRegionName(RegionName rn) { toTravelRegionName = rn; }
+    public static void setToTravelPlanets(ArrayList<Planet> pls) { toTravelPlanets = pls; }
 
 
 }

@@ -30,7 +30,6 @@ public class Region {
         this.xLoc = xLoc;
         this.yLoc = yLoc;
         this.fuelneededtoTravel = (200000 + (int)(Math.random() * (1000000 - 200000)));
-
     }
 
     /**

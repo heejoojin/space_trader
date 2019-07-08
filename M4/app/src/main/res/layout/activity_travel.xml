@@ -12,25 +12,52 @@
         android:id="@+id/travel_message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="264dp"
-        android:text="After an uneventful trip, you arrive at your destination."
+        android:layout_marginTop="244dp"
+        android:text="After an uneventful trip, \n you arrive at your destination."
         android:textColor="#6d3d7a"
         android:gravity="center"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/region_display_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="You are in Earth \n Gnat Spaceship | Fuel 1,203,760 L available"
+        android:textColor="#6d3d7a"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/travel_message"
+        />
+
     <Button
         android:id="@+id/next_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="Next"
         app:layout_constraintEnd_toEndOf="@+id/travel_message"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="@+id/travel_message"
-        app:layout_constraintTop_toBottomOf="@+id/travel_message" />
+        app:layout_constraintTop_toBottomOf="@+id/region_display_view" />
+
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Back"
+        app:layout_constraintEnd_toEndOf="@+id/travel_message"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="@+id/travel_message"
+        app:layout_constraintTop_toBottomOf="@+id/region_display_view" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
