@@ -26,6 +26,7 @@ public class Player {
 
     /** this player's ship */
     private String ship;
+    private int weaponsLevel;
 
     private Difficulty difficulty;
 
@@ -39,6 +40,7 @@ public class Player {
         this.traderPoints = traderPoints;
         this.engineerPoints = engineerPoints;
         this.ship = "Gnat Spaceship";
+        this.weaponsLevel = 1;
         this.fuel = 1203760;
     }
 
@@ -59,6 +61,8 @@ public class Player {
     public String getName() {return this.name; }
 
     public String getShip() {return this.ship;}
+
+    public int getWeaponsLevel() {return this.weaponsLevel;}
 
     public Difficulty getDifficulty() {
         return this.difficulty;
@@ -91,6 +95,8 @@ public class Player {
     public void setShip(String ship) {
         this.ship = ship;
     }
+
+    public void setWeaponsLevel(int weaponsLevel) {this.weaponsLevel = weaponsLevel;}
 
     public void setDifficulty(Difficulty difficulty) {
         this.difficulty = difficulty;
