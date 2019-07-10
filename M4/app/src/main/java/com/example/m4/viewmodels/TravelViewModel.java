@@ -9,8 +9,8 @@ import java.util.*;
 public class TravelViewModel extends AndroidViewModel {
 
     private ArrayList<String> eventsList =
-            new ArrayList<String>(Arrays.asList("Pirate Encounter"));
-            //new ArrayList<String>(Arrays.asList("Trader Encounter", "Pirate Encounter", "Police Encounter", "Random Event", "Safe Travel"));
+            //new ArrayList<String>(Arrays.asList("Pirate Encounter"));
+            new ArrayList<String>(Arrays.asList("Trader Encounter", "Pirate Encounter", "Police Encounter", "Random Event", "Safe Travel"));
 
     private String randomElement;
     private boolean isitPirate = false;
