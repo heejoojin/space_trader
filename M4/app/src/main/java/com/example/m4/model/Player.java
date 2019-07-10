@@ -41,7 +41,7 @@ public class Player {
         this.engineerPoints = engineerPoints;
         this.ship = "Gnat Spaceship";
         this.weaponsLevel = 1;
-        this.fuel = 1203760;
+        this.fuel = 3203760;
     }
 
     //Getters and setters required for accessing the fields

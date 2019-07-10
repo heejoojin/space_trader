@@ -102,6 +102,8 @@ public class PlanetsView extends AppCompatActivity implements View.OnClickListen
                 startActivity(new Intent(this, MarketView.class));
                 MarketItemAdapter.checkpoint = 1000;
                 Repository.isitBuying = true;
+            } else {
+                Toast.makeText(getApplicationContext(), "You have to select a planet", Toast.LENGTH_SHORT).show();
             }
         }
 

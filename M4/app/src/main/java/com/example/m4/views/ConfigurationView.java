@@ -26,6 +26,7 @@ public class ConfigurationView extends AppCompatActivity implements OnClickListe
 
     private Player player = new Player("", 0, 0, 0, 0);
 
+
     private EditText name;
 
     private Spinner difficultySpinner;

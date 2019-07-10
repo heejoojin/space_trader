@@ -67,6 +67,7 @@ public class CreatePlayerView extends AppCompatActivity implements OnClickListen
     @Override
     public void onClick (View v) {
         if (v.getId() == R.id.create_universe_button) {
+
             startActivity(new Intent(this, UniverseView.class));
         }
     }

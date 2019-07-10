@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:gravity="center"
-            android:text="You are in Earth \n Gnat Spaceship | Fuel 1,203,760 L available"
+            android:text="You are in Earth \n Gnat Spaceship | Fuel 3,203,760 L available"
             android:textColor="#6d3d7a"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"

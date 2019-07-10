@@ -57,6 +57,7 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
 
         itemTotaltoEditText = (TextView)findViewById(R.id.total_num_view);
         creditTotaltoEditText = (TextView)findViewById(R.id.credit_num_view);
+        creditTotaltoEditText.setText("" + Repository.playerClass.getCredits());
 
         itemTotalView = (TextView)findViewById(R.id.item_total);
 

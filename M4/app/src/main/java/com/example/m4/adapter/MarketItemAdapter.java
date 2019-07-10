@@ -20,7 +20,7 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
     private List<Item> list;
     private Context context;
 
-    public static int checkpoint = 1000;
+    public static int checkpoint;
 
 
     TextView currentItemName,
@@ -36,6 +36,7 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
         super(context, 0, myOrders);
         this.list = myOrders;
         this.context = context;
+        this.checkpoint = Repository.playerClass.getCredits();
     }
 
 

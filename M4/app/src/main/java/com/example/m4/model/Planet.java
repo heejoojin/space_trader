@@ -6,6 +6,7 @@ public class Planet {
     private Colors color;
     private int xLocation;
     private int yLocation;
+    private int fuel;
 
     //constructors for a planet object
 
@@ -13,8 +14,8 @@ public class Planet {
         this.planetName = planetName;
         this.xLocation = xLocation;
         this.yLocation = yLocation;
+//        this.fuel = (10000 + (int)(Math.random() * (30000 - 10000)));
     }
-
 
 
     //getters and setters for the variable
@@ -50,4 +51,9 @@ public class Planet {
     public void setyLocation(int yLocation) {
         this.yLocation = yLocation;
     }
+
+//    public int getFuel() { return this.fuel; }
+//
+//    public void setFuel(int fuel) { this.fuel = fuel; }
+
 }

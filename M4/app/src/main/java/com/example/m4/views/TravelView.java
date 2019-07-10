@@ -10,7 +10,9 @@ import com.example.m4.model.Universe;
 import com.example.m4.repository.Repository;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
 import com.example.m4.R;
+import com.example.m4.viewmodels.TravelViewModel;
 
 import java.text.DecimalFormat;
 
@@ -21,7 +23,11 @@ public class TravelView extends AppCompatActivity implements View.OnClickListene
     private Button nextButton;
     private Button backButton;
     private DecimalFormat formatter = new DecimalFormat("#,###,###");
-    String region_display_message;
+    private String region_display_message;
+
+    private TravelViewModel viewModel;
+    private String creditLeft;
+    private String pirateMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,20 +43,79 @@ public class TravelView extends AppCompatActivity implements View.OnClickListene
         backButton.setOnClickListener(this);
 
         region_display_textview = findViewById(R.id.region_display_view);
-        String fuel_initial = formatter.format(Repository.playerClass.getFuel());
 
+        viewModel = ViewModelProviders.of(this).get(TravelViewModel.class);
+        String randomElement = viewModel.getRandomElement();
+        System.out.println(randomElement);
+
+        String fuel_initial = formatter.format(Repository.playerClass.getFuel());
         region_display_message = "You are in " + Repository.regionClass.getRegionName().toString() + "\n" + Repository.playerClass.getShip() + " | Fuel "  +
                 fuel_initial + " L available";
         region_display_textview.setText(region_display_message);
-    }
 
+        // "Trader Encounter", "Pirate Encounter", "Police Encounter", "Random Event", "Safe Travel"
+
+        if (randomElement.equals("Trader Encounter")) {
+
+            travelMessage.setText("You have encountered a trader!\n\nYou have no items to trade\nGo to market and buy some goods :)");
+
+        } else if (randomElement.equals("Pirate Encounter")) {
+            Repository.playerClass.setCredits(Repository.playerClass.getCredits() - 150);
+            creditLeft = String.valueOf(Repository.playerClass.getCredits());
+            pirateMessage = "You have encountered a pirate!\n\nThe pirate took 150 credits from you :(\nNow you have " + creditLeft + " credits\n\nIf you fight him,\nyou could get your money back or\nyou may lose even more.";
+            travelMessage.setText(pirateMessage);
+
+            region_display_textview.setText("");
+
+            backButton.setText("Fight !");
+            nextButton.setText("Surrender & Next");
+
+        } else if (randomElement.equals("Police Encounter")) {
+
+            travelMessage.setText("You have encountered a police!\n\nSince you don't have any illegal goods,\nyou don't need to pay any fines :)");
+
+        } else if (randomElement.equals("Random Event")) {
+            travelMessage.setText("After an eventful trip,\nyou couldn't arrive at your destination :(\n\nTry again");
+            region_display_textview.setText("");
+            nextButton.setVisibility(View.GONE);
+        }
+    }
 
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.next_button) {
             startActivity(new Intent(this, PlanetsView.class));
+
         } else if (view.getId() == R.id.back_button) {
-            startActivity(new Intent(this, UniverseView.class));
+            if (viewModel.getIsItPirate() == true) {
+
+                backButton.setText("Back");
+                nextButton.setText("Next");
+                viewModel.setIsItPirate(false);
+
+                String fuel_initial = formatter.format(Repository.playerClass.getFuel());
+                region_display_message = "You are in " + Repository.regionClass.getRegionName().toString() + "\n" + Repository.playerClass.getShip() + " | Fuel "  +
+                        fuel_initial + " L available";
+                region_display_textview.setText(region_display_message);
+
+                // fight
+                if (viewModel.winningChancePirate()) {
+                    Repository.playerClass.setCredits(Repository.playerClass.getCredits() + 150);
+                    creditLeft = String.valueOf(Repository.playerClass.getCredits());
+                    pirateMessage = "You beat the pirate!\nYou have collected your 150 credits back :)\nNow you have " + creditLeft + " credits";
+                    travelMessage.setText(pirateMessage);
+
+                } else {
+                    Repository.playerClass.setCredits(Repository.playerClass.getCredits() - 200);
+                    creditLeft = String.valueOf(Repository.playerClass.getCredits());
+                    pirateMessage = "You lost!\nThe pirate took 200 more credits from you :(\nNow you have " + creditLeft + " credits";
+                    travelMessage.setText(pirateMessage);
+                }
+
+            } else {
+                startActivity(new Intent(this, UniverseView.class));
+            }
+
         }
     }
 }

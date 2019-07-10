@@ -118,7 +118,7 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
                 String planet_details = "";
 
 
-                for (Region region: universe.getRegions()) {
+                for (Region region: Repository.universeClass.getRegions()) {
 
                     if (region.getRegionName().equals(adapter.getItem(position))) {
                         clicked = true;
