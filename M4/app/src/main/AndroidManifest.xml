@@ -50,6 +50,10 @@
             android:name=".views.TravelView"
             android:parentActivityName=".views.UniverseView" />
 
+        <activity
+            android:name=".views.MapView"
+            android:parentActivityName=".views.UniverseView" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

@@ -47,6 +47,7 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
 
     private Button travel_between_region_button;
     private Button save_next_button;
+    private Button map_button;
 
     private Boolean clicked = false;
     private static Boolean travelled = false;
@@ -86,6 +87,8 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
 
         save_next_button = findViewById(R.id.save_next_button);
         save_next_button.setOnClickListener(this);
+        map_button = findViewById(R.id.map_button);
+        map_button.setOnClickListener(this);
 
         if (!travelled) {
             save_next_button.setVisibility(View.GONE);
@@ -152,6 +155,10 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
 
     @Override
     public void onClick (View v) {
+
+        if (v.getId() == R.id.map_button) {
+            startActivity(new Intent(this, MapView.class));
+        }
 
         if (v.getId() == R.id.save_next_button) {
             startActivity(new Intent(this, PlanetsView.class));

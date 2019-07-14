@@ -223,15 +223,12 @@
             android:id="@+id/travel_between_region_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="88dp"
-            android:layout_marginLeft="88dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="8dp"
             android:layout_marginTop="26dp"
-            android:layout_marginBottom="30dp"
             android:text="Travel"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@id/fuel_needed_view"
-            app:layout_constraintTop_toBottomOf="@+id/fuel_needed_selected"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintStart_toStartOf="@+id/fuel_needed_view"
+            app:layout_constraintTop_toBottomOf="@+id/fuel_needed_selected" />
 
         <Button
             android:id="@+id/save_next_button"
@@ -244,6 +241,21 @@
             app:layout_constraintStart_toStartOf="@id/fuel_needed_view"
             app:layout_constraintTop_toBottomOf="@+id/travel_between_region_button"
             app:layout_constraintVertical_bias="1.0" />
+
+        <Button
+            android:id="@+id/map_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:text="Map"
+            app:layout_constraintEnd_toEndOf="@+id/fuel_needed_selected"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/travel_between_region_button"
+            app:layout_constraintTop_toTopOf="@+id/travel_between_region_button" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
