@@ -7,6 +7,8 @@ import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.example.m4.model.PlanetName;
 import com.example.m4.model.RegionName;
@@ -21,12 +23,14 @@ import com.example.m4.model.Resource;
 import com.example.m4.model.TechLevel;
 import com.example.m4.model.Universe;
 import com.example.m4.repository.Repository;
+import com.example.m4.viewmodels.TravelViewModel;
 
 import android.view.View.OnClickListener;
 import android.widget.Toast;
 
 import java.lang.String;
 import java.text.DecimalFormat;
+import com.example.m4.viewmodels.TravelViewModel;
 
 /**
  * View that will depict our entire universe along with its regions/planets
@@ -54,9 +58,12 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
 
     private Boolean clicked = false;
     private static Boolean travelled = false;
+    private TravelViewModel viewModel;
 
     private DecimalFormat formatter = new DecimalFormat("#,###,###");
     String region_display_message;
+
+    String randomElement;
 
 
     @Override
@@ -69,9 +76,14 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
         region_display_textview = findViewById(R.id.region_display_view);
         String fuel_initial = formatter.format(Repository.playerClass.getFuel());
 
+        viewModel = ViewModelProviders.of(this).get(TravelViewModel.class);
+        randomElement = viewModel.getRandomElement();
+
         if (Repository.toTravelRegionName != null) {
+
             region_display_message = "You are in " + Repository.toTravelRegionName.toString() + "\n" + Repository.playerClass.getShip() + " | Fuel "  +
                     fuel_initial + " L available";
+
         } else {
             region_display_message = "You are in Earth \n" + Repository.playerClass.getShip() + " | Fuel "  +
                     fuel_initial + " L available";
@@ -92,6 +104,7 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
         save_next_button.setOnClickListener(this);
         map_button = findViewById(R.id.map_button);
         map_button.setOnClickListener(this);
+
 
         if (!travelled) {
             save_next_button.setVisibility(View.GONE);
@@ -182,16 +195,22 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
                         Toast.makeText(getApplicationContext(), "You don't have enough fuel to travel", Toast.LENGTH_SHORT).show();
 
                     } else {
-                        travelled = true;
 
-                        Repository.playerClass.setFuel(fuel_left);
-                        System.out.println(Repository.playerClass.getFuel());
+                        if (randomElement.equals("Random Event")) {
+                            startActivity(new Intent(this, RandomEventView.class));
 
-                        Repository.setToTravelRegionName(Repository.regionClass.getRegionName());
-                        Repository.setToTravelPlanets(Repository.regionClass.getPlanetList());
+                        } else {
+                            travelled = true;
 
-                        startActivity(new Intent(this, TravelView.class));
+                            Repository.playerClass.setFuel(fuel_left);
+                            System.out.println(Repository.playerClass.getFuel());
 
+                            Repository.setToTravelRegionName(Repository.regionClass.getRegionName());
+                            Repository.setToTravelPlanets(Repository.regionClass.getPlanetList());
+
+                            startActivity(new Intent(this, TravelView.class));
+
+                        }
                     }
                 }
             }

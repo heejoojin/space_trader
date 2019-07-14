@@ -49,14 +49,13 @@ public class TravelView extends AppCompatActivity implements View.OnClickListene
 
         viewModel = ViewModelProviders.of(this).get(TravelViewModel.class);
         String randomElement = viewModel.getRandomElement();
-        System.out.println(randomElement);
 
         String fuel_initial = formatter.format(Repository.playerClass.getFuel());
-        region_display_message = "You are in " + Repository.regionClass.getRegionName().toString() + "\n" + Repository.playerClass.getShip() + " | Fuel "  +
+        region_display_message = "You are in " + Repository.toTravelRegionName.toString() + "\n" + Repository.playerClass.getShip() + " | Fuel "  +
                 fuel_initial + " L available";
         region_display_textview.setText(region_display_message);
 
-        // "Trader Encounter", "Pirate Encounter", "Police Encounter", "Random Event", "Safe Travel"
+        // "Trader Encounter", "Pirate Encounter", "Police Encounter", "Safe Travel"
 
         if (randomElement.equals("Trader Encounter")) {
 
@@ -77,10 +76,6 @@ public class TravelView extends AppCompatActivity implements View.OnClickListene
 
             travelMessage.setText("You have encountered a police!\n\nSince you don't have any illegal goods,\nyou don't need to pay any fines :)");
 
-        } else if (randomElement.equals("Random Event")) {
-            travelMessage.setText("After an eventful trip,\nyou couldn't arrive at your destination :(\n\nTry again");
-            region_display_textview.setText("");
-            nextButton.setVisibility(View.GONE);
         }
     }
 
@@ -97,7 +92,7 @@ public class TravelView extends AppCompatActivity implements View.OnClickListene
                 viewModel.setIsItPirate(false);
 
                 String fuel_initial = formatter.format(Repository.playerClass.getFuel());
-                region_display_message = "You are in " + Repository.regionClass.getRegionName().toString() + "\n" + Repository.playerClass.getShip() + " | Fuel "  +
+                region_display_message = "You are in " + Repository.toTravelRegionName.toString() + "\n" + Repository.playerClass.getShip() + " | Fuel "  +
                         fuel_initial + " L available";
                 region_display_textview.setText(region_display_message);
 

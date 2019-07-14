@@ -2,114 +2,65 @@ package com.example.m4.model;
 
 import com.example.m4.repository.Repository;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Random;
+
 /**
  * Class representing the player's ship, containing variables such as the items owned
  */
 public class Ship {
 
     private String name;
-    private int quantityOwned;
-    private int quantityChange;
-    private int price;
-    private int quantityInMarket;
+    private ArrayList<String> weapons = new ArrayList<>(Arrays.asList("Pulse laser", "Beam laser", "Military laser", "No weapon"));
+    private ArrayList<String> shields = new ArrayList<>(Arrays.asList("Energy shield", "Reflective shield", "No shield"));
+    private ArrayList<String> gadgets = new ArrayList<>(Arrays.asList("Navigation system", "Auto-repair system", "Targeting System", "No gadget"));
+    private ArrayList<String> escape_pods = new ArrayList<>(Arrays.asList("Escape pod", "No escape pod"));
+    private ArrayList<String> insurances = new ArrayList<>(Arrays.asList("Insurance", "No insurance"));
 
-    private int beforeUpdateOwned;
-    private int beforeUpdateInMarket;
-
-    public void setQuantityChange(int quantityChange) {
-        this.quantityChange = quantityChange;
-    }
+    private String weapon;
+    private String shield;
+    private String gadget;
+    private String escape_pod;
+    private String insurance;
 
     /**
      * Constructor setting up the name of the ship and the price within the market
      * @param name name of the ship
-     * @param price price within market
      */
-    public Ship(String name, int price) {
+    public Ship(String name) {
         this.name = name;
-        if (name.equals(Repository.playerClass.getShip())) {
-            this.quantityOwned = 1;
-        } else {
-            this.quantityOwned = 0;
-        }
-        this.price = price * (1 + (int)(Math.random() * (6 - 1)));
-        this.quantityChange = 0;
-        if (name.equals(Repository.playerClass.getShip())) {
-            this.quantityInMarket = 0;
-        } else {
-            this.quantityInMarket = 1;
-        }
-        this.beforeUpdateInMarket = this.quantityInMarket;
-        this.beforeUpdateOwned = 0;
+        this.weapon = weapons.get(new Random().nextInt(weapons.size()));
+        this.shield = shields.get(new Random().nextInt(shields.size()));
+        this.gadget = gadgets.get(new Random().nextInt(gadgets.size()));
+        this.escape_pod = escape_pods.get(new Random().nextInt(escape_pods.size()));
+        this.insurance = insurances.get(new Random().nextInt(insurances.size()));
     }
 
     // getters and setters
+
     public String getName() {
         return name;
     }
 
-    public int getQuantityOwned() {
-        return quantityOwned;
+    public String getWeapon() {
+        return weapon;
     }
 
-    public void updateQuantity() {
-        this.quantityOwned = this.beforeUpdateOwned;
-        this.quantityInMarket = this.beforeUpdateInMarket;
+    public String getShield() {
+        return shield;
     }
 
-    public int getPrice() {
-        return price;
+    public String getGadget() {
+        return gadget;
     }
 
-    public int getQuantityInMarket() {
-        return quantityInMarket;
+    public String getEscapePod() {
+        return escape_pod;
     }
 
-    public int getQuantityChange(){
-        return quantityChange;
-    }
-
-    public void addToQuantityChange() {
-        this.quantityChange += 1;
-    }
-
-    public void addToQuanitiyinHold() {
-        //this.quantityOwned += 1;
-        this.beforeUpdateOwned += 1;
-    }
-
-    public void removeFromQuantityinHold() {
-//        if (this.quantityOwned >= 1){
-//            this.quantityOwned -= 1;
-//        }
-
-        if (this.beforeUpdateOwned >= 1){
-            this.beforeUpdateOwned -= 1;
-        }
-    }
-
-    public void removeFromQuantityChange(){
-        if (this.quantityChange >= 1){
-            this.quantityChange -= 1;
-        }
-    }
-
-    public void addToQuantityinMarket() {
-        // this.quantityInMarket += 1;
-
-        this.beforeUpdateInMarket += 1;
-
-    }
-
-    public void removeFromQuantityinMarket() {
-//        if (this.quantityInMarket >= 1){
-//            this.quantityInMarket -= 1;
-//        }
-
-        if (this.beforeUpdateInMarket >= 1) {
-            this.beforeUpdateInMarket -= 1;
-
-        }
+    public String getInsurance() {
+        return insurance;
     }
 
 }

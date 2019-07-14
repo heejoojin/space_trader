@@ -16,6 +16,8 @@ public class Repository {
     public static Universe universeClass;
     public static Region regionClass;
     public static Planet planetClass;
+    public static Ship shipClass;
+
     public static ArrayList<Item> itemsList = new ArrayList<>();
     public static ArrayList<Ship> shipList = new ArrayList<>();
 
@@ -41,11 +43,13 @@ public class Repository {
         planetClass = pl;
     }
 
-    public static void setItemsList(ArrayList<Item> i) {
-        itemsList = i;
+    public static void setItemsList(ArrayList<Item> il) {
+        itemsList = il;
     }
 
-    public static void setShipList(ArrayList<Ship> s) {shipList = s; }
+    public static void setShipList(ArrayList<Ship> sl) {shipList = sl; }
+
+    public static void setShipClass(Ship s) { shipClass = s; }
 
     public static void setToTravelRegionName(RegionName rn) { toTravelRegionName = rn; }
     public static void setToTravelPlanets(ArrayList<Planet> pls) { toTravelPlanets = pls; }
