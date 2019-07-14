@@ -13,7 +13,6 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 
-
 import java.util.List;
 
 public class ShipAdapter extends ArrayAdapter<Ship> {
@@ -39,11 +38,9 @@ public class ShipAdapter extends ArrayAdapter<Ship> {
                     R.layout.content_shipyard, parent, false
             );
         }
-
         final Ship currentShip = getItem(position);
-
-        currentShipName = (TextView)listShipView.findViewById(R.id.selected_ship_name);
-        shipEquipment = (TextView)listShipView.findViewById(R.id.selected_ship_cap);
+        currentShipName = listShipView.findViewById(R.id.selected_ship_name);
+        shipEquipment = listShipView.findViewById(R.id.selected_ship_cap);
 
         currentShipName.setText(currentShip.getName());
         equipment = String.format("has %s, %s, %s, %s, %s",

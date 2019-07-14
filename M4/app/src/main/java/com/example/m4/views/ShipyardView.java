@@ -39,6 +39,8 @@ public class ShipyardView extends AppCompatActivity implements View.OnClickListe
         selectedPlanet.setText(planet_text);
 
         shipDescription = findViewById(R.id.ship_description);
+        String m = "Your current ship is\n" + Repository.playerClass.getShip() + " spaceship";
+        shipDescription.setText(m);
 
         toMarketButton = findViewById(R.id.market_button);
         toMarketButton.setOnClickListener(this);
@@ -73,9 +75,6 @@ public class ShipyardView extends AppCompatActivity implements View.OnClickListe
                 String m = "You now have " + Repository.shipClass.getName() + " spaceship with " + equipment;
                 shipDescription.setText(m);
             }
-        } else {
-            String m = "Your current ship is\n" + Repository.playerClass.getShip() + " spaceship";
-            shipDescription.setText(m);
         }
     }
 
