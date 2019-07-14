@@ -39,7 +39,7 @@ public class Player {
         this.fighterPoints = fighterPoints;
         this.traderPoints = traderPoints;
         this.engineerPoints = engineerPoints;
-        this.ship = "Gnat Spaceship";
+        this.ship = "Gnat";
         this.weaponsLevel = 1;
         this.fuel = 3203760;
     }

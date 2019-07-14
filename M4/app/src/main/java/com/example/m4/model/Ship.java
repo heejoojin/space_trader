@@ -1,8 +1,8 @@
 package com.example.m4.model;
 
-import java.io.Serializable;
+import com.example.m4.repository.Repository;
 
-public class Item implements Serializable {
+public class Ship {
 
     private  String name;
     private int quantityOwned;
@@ -13,18 +13,24 @@ public class Item implements Serializable {
     private int beforeUpdateOwned;
     private int beforeUpdateInMarket;
 
-    private int beforeUpdateQuantityLimited;
-
     public void setQuantityChange(int quantityChange) {
         this.quantityChange = quantityChange;
     }
 
-    public Item(String name, int price) {
+    public Ship(String name, int price) {
         this.name = name;
-        this.quantityOwned = 0;
+        if (name.equals(Repository.playerClass.getShip())) {
+            this.quantityOwned = 1;
+        } else {
+            this.quantityOwned = 0;
+        }
         this.price = price * (1 + (int)(Math.random() * (6 - 1)));
         this.quantityChange = 0;
-        this.quantityInMarket = 5 + (int)(Math.random() * (51 - 5));
+        if (name.equals(Repository.playerClass.getShip())) {
+            this.quantityInMarket = 0;
+        } else {
+            this.quantityInMarket = 1;
+        }
         this.beforeUpdateInMarket = this.quantityInMarket;
         this.beforeUpdateOwned = 0;
     }
@@ -40,7 +46,6 @@ public class Item implements Serializable {
     public void updateQuantity() {
         this.quantityOwned = this.beforeUpdateOwned;
         this.quantityInMarket = this.beforeUpdateInMarket;
-
     }
 
     public int getPrice() {
@@ -97,6 +102,5 @@ public class Item implements Serializable {
 
         }
     }
-
 
 }

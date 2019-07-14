@@ -1,56 +1,50 @@
 package com.example.m4.adapter;
+import com.example.m4.R;
+import com.example.m4.model.Ship;
+import com.example.m4.repository.Repository;
 
 import android.content.Context;
-import android.renderscript.ScriptIntrinsicYuvToRGB;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
-import com.example.m4.R;
-import com.example.m4.model.Item;
-import com.example.m4.repository.Repository;
 
 import java.util.List;
 
-public class MarketItemAdapter extends ArrayAdapter<Item>{
+public class ShipAdapter extends ArrayAdapter<Ship>{
 
-    private List<Item> list;
+    private List<Ship> list;
     private Context context;
 
     public static int checkpoint;
 
-    public int count = 5;
 
-
-    TextView currentItemName,
+    private TextView currentItemName,
             selectedItemNum,
             quantityLeftinHold,
             currentPrice,
             quantityLeftinMarket;
 
-    Button addItem, subtractItem;
+    private Button addItem, subtractItem;
 
-
-    public MarketItemAdapter(Context context, List<Item> myOrders) {
+    public ShipAdapter(Context context, List<Ship> myOrders) {
         super(context, 0, myOrders);
         this.list = myOrders;
         this.context = context;
         this.checkpoint = Repository.playerClass.getCredits();
     }
 
-
     public View getView(final int position, final View convertView, ViewGroup parent){
         View listItemView = convertView;
         if(listItemView == null){
             listItemView = LayoutInflater.from(getContext()).inflate(
-                    R.layout.content_market, parent,false
+                    R.layout.content_shipyard, parent,false
             );
         }
 
-        final Item currentItem = getItem(position);
+        final Ship currentItem = getItem(position);
 
         currentItemName = (TextView)listItemView.findViewById(R.id.selected_item_name);
         quantityLeftinHold = (TextView)listItemView.findViewById(R.id.quantityowned_left_num);
@@ -76,13 +70,9 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
                 if (Repository.isitBuying) {
 
                     if (checkpoint >= 0 && currentItem.getQuantityInMarket() > 0) {
-                        if ( (checkpoint - currentItem.getPrice()) >= 0 && count > 0) {
-
-                            count--;
-
+                        if ( (checkpoint - currentItem.getPrice()) >= 0 ) {
                             currentItem.addToQuantityChange();
                             currentItem.addToQuanitiyinHold();
-
                             currentItem.removeFromQuantityinMarket();
                             checkpoint -= (currentItem.getPrice());
 
@@ -96,7 +86,6 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
                         currentItem.addToQuantityChange();
                         currentItem.removeFromQuantityinHold();
                         currentItem.addToQuantityinMarket();
-
                         checkpoint += (currentItem.getPrice());
 
                         System.out.println(checkpoint);
@@ -114,7 +103,6 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
                         currentItem.removeFromQuantityChange();
                         currentItem.removeFromQuantityinHold();
                         currentItem.addToQuantityinMarket();
-
                         checkpoint += (currentItem.getPrice());
 
                         System.out.println(checkpoint);
@@ -125,7 +113,6 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
                         currentItem.removeFromQuantityChange();
                         currentItem.addToQuanitiyinHold();
                         currentItem.removeFromQuantityinMarket();
-
                         checkpoint -= (currentItem.getPrice());
 
                         System.out.println(checkpoint);
@@ -137,4 +124,5 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
 
         return listItemView;
     }
+
 }
