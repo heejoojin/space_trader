@@ -24,13 +24,18 @@ public class ShipAdapter extends ArrayAdapter<Ship> {
 
     private TextView currentShipName, shipEquipment;
 
-
+    /**
+     * Default ArrayAdapter constructor
+     * @param context context
+     * @param myOrders list of Ship objects
+     */
     public ShipAdapter(Context context, List<Ship> myOrders) {
         super(context, 0, myOrders);
         this.list = myOrders;
         this.context = context;
     }
 
+    @Override
     public View getView(final int position, final View convertView, ViewGroup parent) {
         View listShipView = convertView;
         if (listShipView == null) {

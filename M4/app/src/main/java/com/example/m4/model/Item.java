@@ -19,10 +19,6 @@ public class Item implements Serializable {
 
     private int beforeUpdateQuantityLimited;
 
-    public void setQuantityChange(int quantityChange) {
-        this.quantityChange = quantityChange;
-    }
-
     /**
      * Constructor to set up the name of the item and its preliminary price
      * @param name name of the item
@@ -38,11 +34,16 @@ public class Item implements Serializable {
         this.beforeUpdateOwned = 0;
     }
 
-    //getter methods
+    /**
+     * Gets name of the item
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Gets the number of the iten that the player owns
+     */
     public int getQuantityOwned() {
         return quantityOwned;
     }
@@ -56,10 +57,14 @@ public class Item implements Serializable {
 
     }
 
+    /**
+     * Gets the price of the item
+     */
     public int getPrice() {
         return price;
     }
 
+    
     public int getQuantityInMarket() {
         return quantityInMarket;
     }
@@ -73,14 +78,11 @@ public class Item implements Serializable {
     }
 
     public void addToQuanitiyinHold() {
-        //this.quantityOwned += 1;
+
         this.beforeUpdateOwned += 1;
     }
 
     public void removeFromQuantityinHold() {
-//        if (this.quantityOwned >= 1){
-//            this.quantityOwned -= 1;
-//        }
 
         if (this.beforeUpdateOwned >= 1){
             this.beforeUpdateOwned -= 1;
@@ -94,22 +96,20 @@ public class Item implements Serializable {
     }
 
     public void addToQuantityinMarket() {
-        // this.quantityInMarket += 1;
 
         this.beforeUpdateInMarket += 1;
 
     }
 
     public void removeFromQuantityinMarket() {
-//        if (this.quantityInMarket >= 1){
-//            this.quantityInMarket -= 1;
-//        }
 
         if (this.beforeUpdateInMarket >= 1) {
             this.beforeUpdateInMarket -= 1;
 
         }
     }
-
+    public void setQuantityChange(int quantityChange) {
+        this.quantityChange = quantityChange;
+    }
 
 }

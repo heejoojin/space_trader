@@ -30,7 +30,11 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
 
     Button addItem, subtractItem;
 
-
+    /**
+     * Default ArrayAdapter constructor
+     * @param context context
+     * @param myOrders list of Item objects
+     */
     public MarketItemAdapter(Context context, List<Item> myOrders) {
         super(context, 0, myOrders);
         this.list = myOrders;
@@ -38,7 +42,7 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
         this.checkpoint = Repository.playerClass.getCredits();
     }
 
-
+    @Override
     public View getView(final int position, final View convertView, ViewGroup parent){
         View listItemView = convertView;
         if(listItemView == null){

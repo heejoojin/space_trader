@@ -18,11 +18,18 @@ public enum Colors {
         this.color = color;
     }
 
-    //getter and setter for the color
+    /**
+     * Gets color
+     * @return name of color
+     */
     public String getColor() {
         return color;
     }
 
+
+    /**
+     * Sets color
+     */
     public void setColor(String color) {
         this.color = color;
     }

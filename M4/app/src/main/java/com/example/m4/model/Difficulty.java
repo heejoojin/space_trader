@@ -17,11 +17,17 @@ public enum Difficulty {
         this.difficulty = difficulty;
     }
 
-    //getter and setter
+    /**
+     * Gets difficulty
+     * @return name of difficulty
+     */
     public String getDifficulty() {
         return difficulty;
     }
 
+    /**
+     * Sets difficulty
+     */
     public void setDifficulty(String difficulty) {
         this.difficulty = difficulty;
     }
