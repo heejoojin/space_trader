@@ -19,6 +19,9 @@ import com.example.m4.repository.Repository;
 
 import android.widget.Button;
 
+/**
+ * View that represents the market with all its items for sale
+ */
 public class MarketView extends AppCompatActivity implements OnClickListener {
 
     TextView itemTotaltoEditText, itemTotalView;

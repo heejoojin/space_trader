@@ -2,9 +2,13 @@ package com.example.m4.model;
 
 import java.io.Serializable;
 
+/**
+ * Item class that represents a singular item such as water. Contains specifications such as its value
+ * and amount the user owns
+ */
 public class Item implements Serializable {
 
-    private  String name;
+    private String name;
     private int quantityOwned;
     private int quantityChange;
     private int price;
@@ -19,6 +23,11 @@ public class Item implements Serializable {
         this.quantityChange = quantityChange;
     }
 
+    /**
+     * Constructor to set up the name of the item and its preliminary price
+     * @param name name of the item
+     * @param price price of the item
+     */
     public Item(String name, int price) {
         this.name = name;
         this.quantityOwned = 0;
@@ -29,6 +38,7 @@ public class Item implements Serializable {
         this.beforeUpdateOwned = 0;
     }
 
+    //getter methods
     public String getName() {
         return name;
     }
@@ -37,6 +47,9 @@ public class Item implements Serializable {
         return quantityOwned;
     }
 
+    /**
+     * Updates the quantity the user owns
+     */
     public void updateQuantity() {
         this.quantityOwned = this.beforeUpdateOwned;
         this.quantityInMarket = this.beforeUpdateInMarket;

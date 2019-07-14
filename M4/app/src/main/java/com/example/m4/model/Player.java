@@ -32,6 +32,14 @@ public class Player {
 
     private int fuel;
 
+    /**
+     * Constructor that sets up the inital player information
+     * @param name name of the player
+     * @param pilotPoints number of points the user put into pilot
+     * @param fighterPoints number of points the user put into fighter
+     * @param traderPoints number of points the user put into trader
+     * @param engineerPoints number of points the user put into engineer
+     */
     public Player(String name, int pilotPoints, int fighterPoints, int traderPoints, int engineerPoints) {
         this.credits = 1000;
         this.name = name;

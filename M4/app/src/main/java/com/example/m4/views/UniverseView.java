@@ -28,6 +28,9 @@ import android.widget.Toast;
 import java.lang.String;
 import java.text.DecimalFormat;
 
+/**
+ * View that will depict our entire universe along with its regions/planets
+ */
 public class UniverseView extends AppCompatActivity implements OnClickListener {
 
     private GridView UniversegridView;

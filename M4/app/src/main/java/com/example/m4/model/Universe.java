@@ -3,6 +3,9 @@ package com.example.m4.model;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Class that represents the entire universe the game is set in
+ */
 public class Universe {
 
     //variables for a universe object
@@ -14,7 +17,11 @@ public class Universe {
     private final int MINREGIONDISTANCE = 10;
     private Random random;
 
-    //constructs a Universe object
+    /**
+     * Constructor setting up the number of regions and number of planets within the universe
+     * @param numRegions
+     * @param numPlanets
+     */
     public Universe(int numRegions, int numPlanets) {
 
         if (numPlanets < numRegions) {
@@ -26,7 +33,9 @@ public class Universe {
         random = new Random();
     }
 
-    //populates the Universe by calling dropRegions(), then dropPlanets()
+    /**
+     * Populates the Universe by calling dropRegions(), then dropPlanets()
+     */
     public void populate() {
         dropRegions(numRegions);
         Colors[] colors = Colors.values();
@@ -39,6 +48,10 @@ public class Universe {
         dropPlanets(numPlanets);
     }
 
+    /**
+     * Overridden toString method
+     * @return returns a string containing all the regions and planets within the universe
+     */
     @Override
     public String toString() {
 

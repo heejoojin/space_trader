@@ -16,6 +16,9 @@ import com.example.m4.viewmodels.TravelViewModel;
 
 import java.text.DecimalFormat;
 
+/**
+ * View that will depict the traveling of our ship. Will also show random events that occur
+ */
 public class TravelView extends AppCompatActivity implements View.OnClickListener {
 
     private TextView travelMessage;

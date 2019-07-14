@@ -14,7 +14,9 @@ import com.example.m4.R;
 import com.example.m4.viewmodels.ConfigurationViewModel;
 import com.example.m4.repository.Repository;
 
-
+/**
+ * Create player view that sets up the UI for the player creation
+ */
 public class CreatePlayerView extends AppCompatActivity implements OnClickListener {
 
     private ConfigurationViewModel viewModel;

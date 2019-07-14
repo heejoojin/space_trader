@@ -2,9 +2,12 @@ package com.example.m4.model;
 
 import com.example.m4.repository.Repository;
 
+/**
+ * Class representing the player's ship, containing variables such as the items owned
+ */
 public class Ship {
 
-    private  String name;
+    private String name;
     private int quantityOwned;
     private int quantityChange;
     private int price;
@@ -17,6 +20,11 @@ public class Ship {
         this.quantityChange = quantityChange;
     }
 
+    /**
+     * Constructor setting up the name of the ship and the price within the market
+     * @param name name of the ship
+     * @param price price within market
+     */
     public Ship(String name, int price) {
         this.name = name;
         if (name.equals(Repository.playerClass.getShip())) {
@@ -35,6 +43,7 @@ public class Ship {
         this.beforeUpdateOwned = 0;
     }
 
+    // getters and setters
     public String getName() {
         return name;
     }

@@ -12,7 +12,9 @@ import android.graphics.*;
 
 import com.example.m4.R;
 
-
+/**
+ * The main activity view which contains the start and exit button as well as minigames
+ */
 public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     private Button open;

@@ -1,5 +1,9 @@
 package com.example.m4.model;
 
+/**
+ * Planet class that represents a singular planet within a Region. Contains its coordinates within
+ * the region as well as various other essential variables
+ */
 public class Planet {
 
     private PlanetName planetName;

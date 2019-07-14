@@ -4,6 +4,9 @@ import android.app.Application;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.annotation.NonNull;
 
+/**
+ * View model representing the configuration view the user starts in
+ */
 public class ConfigurationViewModel extends AndroidViewModel {
 
     private int score = 16;
@@ -12,6 +15,7 @@ public class ConfigurationViewModel extends AndroidViewModel {
         super(application);
     }
 
+    // getters and setters
     public void setScore(int score) {
         this.score = score;
     }

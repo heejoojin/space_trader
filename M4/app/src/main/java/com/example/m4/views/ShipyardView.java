@@ -18,6 +18,9 @@ import com.example.m4.repository.Repository;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * View representing the shipyard, another version of the market that instead sells ships
+ */
 public class ShipyardView extends AppCompatActivity implements View.OnClickListener {
 
     TextView itemTotaltoEditText, itemTotalView;

@@ -14,6 +14,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.m4.R;
 
+/**
+ * Creates a grid that will depict all the regions
+ */
 public class MapView extends AppCompatActivity implements View.OnClickListener {
 
     final static int HEIGHT = 150;

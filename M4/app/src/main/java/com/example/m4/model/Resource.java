@@ -2,6 +2,9 @@ package com.example.m4.model;
 
 import java.util.*;
 
+/**
+ * Enumerated class that represents the resource level
+ */
 public enum Resource {
 
     NOSPECIALRESOURCES("No Special Resource"), MINERALRICH("Mineral Rich"), MINERALPOOR("Mineral Poor"),
@@ -12,6 +15,10 @@ public enum Resource {
 
     private final String resource;
 
+    /**
+     * Constructor setting up the resource level
+     * @param resource
+     */
     Resource(String resource) {
         this.resource = resource;
     }
@@ -20,12 +27,19 @@ public enum Resource {
         return resource;
     }
 
+    /**
+     * Overridden toString method
+     * @return the resource level
+     */
     @Override
     public String toString() {
         return resource;
     }
 
-    //this method returns a random resource
+    /**
+     * Obtains a random resource level from the list
+     * @return the obtained resource level
+     */
     public static Resource getRandom() {
         Random random = new Random();
         return values()[random.nextInt(values().length)];

@@ -6,6 +6,9 @@ import android.view.View;
 
 import com.example.m4.R;
 
+/**
+ * Minigame view that will depict the minigame we are playing
+ */
 public class MiniGameView extends AppCompatActivity implements View.OnClickListener {
 
     @Override

@@ -6,6 +6,9 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import java.util.*;
 
+/**
+ * View model representing the different events we could encounter whilst traveling
+ */
 public class TravelViewModel extends AndroidViewModel {
 
     private ArrayList<String> eventsList =
@@ -20,7 +23,10 @@ public class TravelViewModel extends AndroidViewModel {
         super(application);
     }
 
-
+    /**
+     * Obtains a random event from the list
+     * @return the random event
+     */
     public String getRandomElement() {
         randomElement = eventsList.get(new Random().nextInt(eventsList.size()));
         if (randomElement.equals("Pirate Encounter")) {
@@ -29,6 +35,10 @@ public class TravelViewModel extends AndroidViewModel {
         return randomElement;
     }
 
+    /**
+     * Sets up the difficulty in beating the pirate
+     * @return whether the pirate can be beaten or not
+     */
     public boolean winningChancePirate() {
         int random = new Random().nextInt(2);
         if (random == 0) {
@@ -39,6 +49,7 @@ public class TravelViewModel extends AndroidViewModel {
         return beatPirate;
     }
 
+    // getter and setter
     public boolean getIsItPirate() {
         return  isitPirate;
     }

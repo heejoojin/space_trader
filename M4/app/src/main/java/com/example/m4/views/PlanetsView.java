@@ -19,6 +19,9 @@ import com.example.m4.repository.Repository;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * View that shows all the planets within the region
+ */
 public class PlanetsView extends AppCompatActivity implements View.OnClickListener {
 
     private TextView selectedRegion;
