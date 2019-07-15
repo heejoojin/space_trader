@@ -19,8 +19,8 @@ public class Universe {
 
     /**
      * Constructor setting up the number of regions and number of planets within the universe
-     * @param numRegions
-     * @param numPlanets
+     * @param numRegions of universe
+     * @param numPlanets of universe
      */
     public Universe(int numRegions, int numPlanets) {
 
@@ -106,7 +106,7 @@ public class Universe {
     /**
      * Drops a certain number of regions into the universe. This method
      * ensures that the regions are not too close together.
-     * @param numRegions
+     * @param numRegions to drop
      */
     private void dropRegions(int numRegions) {
 

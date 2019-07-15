@@ -12,7 +12,7 @@ public enum Colors {
 
     /**
      * Constructor setting the color
-     * @param color
+     * @param color of enum string
      */
     Colors(String color) {
         this.color = color;

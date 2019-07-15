@@ -19,7 +19,7 @@ public enum RegionName {
 
     /**
      * Constructor setting up the name of the region
-     * @param region
+     * @param region of enum string
      */
     RegionName(String region) {
         this.region = region;

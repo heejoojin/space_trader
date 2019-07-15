@@ -11,7 +11,7 @@ public enum Difficulty {
 
     /**
      * Constructor to set the difficulty of the game
-     * @param difficulty
+     * @param difficulty of enum string
      */
     Difficulty(String difficulty) {
         this.difficulty = difficulty;

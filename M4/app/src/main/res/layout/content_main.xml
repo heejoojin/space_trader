@@ -14,6 +14,7 @@
 
     <ImageView
         android:id="@+id/imageView1"
+        android:contentDescription="TODO"
         android:layout_width="400dp"
         android:layout_height="400dp"
         android:layout_marginStart="4dp"

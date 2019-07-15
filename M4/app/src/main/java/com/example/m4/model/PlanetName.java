@@ -23,7 +23,7 @@ public enum PlanetName {
 
     /**
      * Constructor setting up the name of the planet
-     * @param planet
+     * @param planet of enum string
      */
     PlanetName(String planet) {
         this.planet = planet;

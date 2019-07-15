@@ -17,7 +17,7 @@ public enum Resource {
 
     /**
      * Constructor setting up the resource level
-     * @param resource
+     * @param resource of enum string
      */
     Resource(String resource) {
         this.resource = resource;
