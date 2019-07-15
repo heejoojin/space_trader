@@ -6,7 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".views.MarketView" >
+    tools:context=".views.MercenaryView" >
+
+        <Button
+            android:id="@+id/make_item_change_button"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="update credit"
+            app:layout_constraintStart_toEndOf="@+id/credit_num_view"
+            app:layout_constraintStart_toStartOf="@+id/done_button"
+            app:layout_constraintTop_toBottomOf="@+id/selected_item_list" />
 
         <TextView
             android:id="@+id/market_view"
@@ -14,12 +24,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
             android:gravity="center"
-            android:text="Marketplace"
+            android:text="Mercenaries"
             android:textColor="#6d3d7a"
             android:textSize="30sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:textStyle="bold"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/selected_planet_view"
@@ -39,10 +49,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:gravity="center"
-            android:text="Buy Items"
-            android:textStyle="bold"
+            android:text="Hire Mercenaries"
             android:textColor="#6d3d7a"
             android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/selected_planet_view" />
 
@@ -107,20 +117,9 @@
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="30dp"
-            android:text="switch to sell"
+            android:text="switch to fire"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/total_credit_view"/>
-
-        <Button
-            android:id="@+id/make_item_change_button"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:text="buy"
-            app:layout_constraintStart_toEndOf="@+id/credit_num_view"
-            app:layout_constraintStart_toStartOf="@+id/done_button"
-            app:layout_constraintTop_toBottomOf="@+id/selected_item_list" />
+            app:layout_constraintTop_toBottomOf="@+id/total_credit_view" />
 
         <Button
             android:id="@+id/done_button"
