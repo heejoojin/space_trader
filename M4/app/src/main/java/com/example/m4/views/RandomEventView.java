@@ -10,6 +10,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.m4.R;
 
+/**
+ * View class that shows random events occurring when traveling between regions
+ */
+
 public class RandomEventView extends AppCompatActivity implements View.OnClickListener {
 
     private TextView travelMessage;

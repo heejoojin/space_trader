@@ -58,6 +58,9 @@ public class ShipyardView extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    /**
+     * Displays the description of each ship's equipments
+     */
     private void setShip() {
 
         if (Repository.shipClass != null) {
@@ -86,6 +89,10 @@ public class ShipyardView extends AppCompatActivity implements View.OnClickListe
         }
     };
 
+    /**
+     * Creates and returns a list of Ship objects to use in ShipAdapter Class
+     * @return a list of Ship objects
+     */
     private ArrayList<Ship> getListItemData(){
         ArrayList<Ship> listViewShips = new ArrayList<Ship>();
         ArrayList<String> shipName = new ArrayList<>(Arrays.asList("Flea", "Gnat", "Firefly", "Mosquito", "Bumblebee", "Beetle", "Hornet", "Grasshopper", "Termite", "Wasp"));

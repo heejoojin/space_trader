@@ -74,6 +74,9 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
         setadpater.registerDataSetObserver(observer);
     }
 
+    /**
+     * Calculates the total price of selected items
+     */
     public int calculateItemTotal(){
         int itemTotal = 0;
         for (Item order : orders){
@@ -82,6 +85,9 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
         return itemTotal;
     }
 
+    /**
+     * Calculates the total credits that the player owns
+     */
     public int calculateCreditTotal(){
 
         if (Repository.isitBuying) {
@@ -91,11 +97,21 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
         }
     }
 
+    /**
+     * Displays the calculated total price of selected items
+     */
     public void setItemTotal(){
         itemTotaltoEditText.setText("" + calculateItemTotal());
     }
+
+    /**
+     * Displays the total credits that the player owns
+     */
     public void setCreditTotal() {creditTotaltoEditText.setText("" + calculateCreditTotal());}
 
+    /**
+     * Resets all the quantities of selected items to zero after purchasing or selling
+     */
     public void resetItemTotal() {
         for (Item order : orders) {
             order.setQuantityChange(0);
@@ -103,6 +119,9 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
         itemTotaltoEditText.setText("0");
     }
 
+    /**
+     * Updates the change in the number of items owned in cargo
+     */
     public void updateIteminCargo() {
         for (Item order : orders) {
             order.updateQuantity();
@@ -118,6 +137,10 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
         }
     };
 
+    /**
+     * Creates and returns a list of Item objects to use in MarketItemAdapter
+     * @return a list of Item objects
+     */
     private ArrayList<Item> getListItemData(){
         ArrayList<Item> listViewItems = new ArrayList<Item>();
         ArrayList<String> itemName = new ArrayList<>(Arrays.asList("Water", "Furs", "Food", "Ore", "Games", "Firearms", "Medicine", "Machines", "Narcotics", "Robots"));
@@ -129,7 +152,6 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
         }
         return listViewItems;
     }
-
 
     @Override
     public void onClick (View v) {
