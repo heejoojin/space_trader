@@ -35,6 +35,7 @@ public class PlanetsView extends AppCompatActivity implements View.OnClickListen
     private boolean clicked = false;
 
     private Button enterMarket;
+    private Button enterMercenariesMarket;
     private Button travelTonewRegion;
 
     @Override
@@ -54,6 +55,9 @@ public class PlanetsView extends AppCompatActivity implements View.OnClickListen
 
         enterMarket = findViewById(R.id.enter_market_button);
         enterMarket.setOnClickListener(this);
+
+        enterMercenariesMarket = findViewById(R.id.enter_mercneary_button);
+        enterMercenariesMarket.setOnClickListener(this);
 
         travelTonewRegion = findViewById(R.id.travel_region_button);
         travelTonewRegion.setOnClickListener(this);
@@ -103,6 +107,16 @@ public class PlanetsView extends AppCompatActivity implements View.OnClickListen
         if (v.getId() == R.id.enter_market_button) {
             if (clicked) {
                 startActivity(new Intent(this, MarketView.class));
+                MarketItemAdapter.checkpoint = 1000;
+                Repository.isitBuying = true;
+            } else {
+                Toast.makeText(getApplicationContext(), "You have to select a planet", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        if (v.getId() == R.id.enter_mercneary_button) {
+            if (clicked) {
+                startActivity(new Intent(this, MercenaryView.class));
                 MarketItemAdapter.checkpoint = 1000;
                 Repository.isitBuying = true;
             } else {

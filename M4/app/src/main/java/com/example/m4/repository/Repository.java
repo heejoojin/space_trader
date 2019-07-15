@@ -1,6 +1,7 @@
 package com.example.m4.repository;
 import android.content.Intent;
 
+import com.example.m4.model.Mercenary;
 import com.example.m4.model.Player;
 import com.example.m4.model.Planet;
 import com.example.m4.model.Universe;
@@ -19,6 +20,7 @@ public class Repository {
     public static Ship shipClass;
 
     public static ArrayList<Item> itemsList = new ArrayList<>();
+    public static ArrayList<Mercenary> mercenariesList = new ArrayList<>();
     public static ArrayList<Ship> shipList = new ArrayList<>();
 
     public static Boolean isitBuying = true;
@@ -46,6 +48,8 @@ public class Repository {
     public static void setItemsList(ArrayList<Item> il) {
         itemsList = il;
     }
+
+    public static void setMercenariesList(ArrayList<Mercenary> ml) { mercenariesList = ml; }
 
     public static void setShipList(ArrayList<Ship> sl) {shipList = sl; }
 
