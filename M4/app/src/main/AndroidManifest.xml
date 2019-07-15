@@ -35,6 +35,10 @@
             android:name=".views.MarketView"
             android:parentActivityName=".views.PlanetsView" />
 
+        <activity
+            android:name=".views.MercenaryView"
+            android:parentActivityName=".views.PlanetsView" />
+
         <activity android:name=".views.ShipyardView"
             android:parentActivityName=".views.MarketView"/>
 

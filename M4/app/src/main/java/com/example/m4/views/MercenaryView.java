@@ -1,44 +1,43 @@
 package com.example.m4.views;
-
 import android.content.Intent;
 import android.database.DataSetObserver;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import android.view.View.OnClickListener;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.example.m4.adapter.MarketItemAdapter;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.m4.R;
+import com.example.m4.adapter.MercenaryAdapter;
+import com.example.m4.model.Mercenary;
+import com.example.m4.repository.Repository;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import com.example.m4.model.Item;
-import com.example.m4.R;
-import com.example.m4.repository.Repository;
-
-import android.widget.Button;
 
 /**
- * View that represents the market with all its items for sale
+ * View representing the mercenary market, another version of the market that has mercenaries instead
  */
-public class MarketView extends AppCompatActivity implements OnClickListener {
+public class MercenaryView extends AppCompatActivity implements View.OnClickListener {
 
     TextView itemTotaltoEditText, itemTotalView;
     TextView creditTotaltoEditText;
     TextView marketMode;
-    ArrayList<Item> orders;
+    ArrayList<Mercenary> orders;
 
-    MarketItemAdapter setadpater;
+    MercenaryAdapter setadpater;
 
-    Button switchButton, buyorsellButton, toShipyardButton, doneButton;
+    Button switchButton, buyorsellButton, toShipYardButton, doneButton;
 
     TextView selectedPlanet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_market);
+        setContentView(R.layout.activity_mercenary);
 
         selectedPlanet = findViewById(R.id.selected_planet_view);
         String planet_text = "You are in " + Repository.planetClass.getPlanetName().toString() + " Planet";
@@ -52,8 +51,8 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
         buyorsellButton = findViewById(R.id.make_item_change_button);
         buyorsellButton.setOnClickListener(this);
 
-        toShipyardButton = findViewById(R.id.shipyard_button);
-        toShipyardButton.setOnClickListener(this);
+        toShipYardButton = findViewById(R.id.shipyard_button);
+        toShipYardButton.setOnClickListener(this);
 
         doneButton = findViewById(R.id.done_button);
         doneButton.setOnClickListener(this);
@@ -67,27 +66,23 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
         ListView storedOrders = (ListView)findViewById(R.id.selected_item_list);
 
         orders = getListItemData();
-        Repository.setItemsList(orders);
-        MarketItemAdapter adapter = new MarketItemAdapter(this, orders);
+        Repository.setMercenariesList(orders);
+        MercenaryAdapter adapter = new MercenaryAdapter(this, orders);
         setadpater = adapter;
         storedOrders.setAdapter(setadpater);
         setadpater.registerDataSetObserver(observer);
     }
 
-    /**
-     * Calculates the total price of selected items
-     */
     public int calculateItemTotal(){
         int itemTotal = 0;
-        for (Item order : orders){
-            itemTotal += order.getPrice() * order.getQuantityChange();
+        for (Mercenary order : orders){
+            if (order.getHired()) {
+                itemTotal += order.getPrice();
+            }
         }
         return itemTotal;
     }
 
-    /**
-     * Calculates the total credits that the player owns
-     */
     public int calculateCreditTotal(){
 
         if (Repository.isitBuying) {
@@ -97,34 +92,21 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
         }
     }
 
-    /**
-     * Displays the calculated total price of selected items
-     */
     public void setItemTotal(){
         itemTotaltoEditText.setText("" + calculateItemTotal());
     }
-
-    /**
-     * Displays the total credits that the player owns
-     */
     public void setCreditTotal() {creditTotaltoEditText.setText("" + calculateCreditTotal());}
 
-    /**
-     * Resets all the quantities of selected items to zero after purchasing or selling
-     */
     public void resetItemTotal() {
-        for (Item order : orders) {
-            order.setQuantityChange(0);
+        for (Mercenary order : orders) {
+            //order.setQuantityChange(0); todo
         }
         itemTotaltoEditText.setText("0");
     }
 
-    /**
-     * Updates the change in the number of items owned in cargo
-     */
     public void updateIteminCargo() {
-        for (Item order : orders) {
-            order.updateQuantity();
+        for (Mercenary order : orders) {
+            //order.updateQuantity(); todo
         }
     }
 
@@ -137,21 +119,18 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
         }
     };
 
-    /**
-     * Creates and returns a list of Item objects to use in MarketItemAdapter
-     * @return a list of Item objects
-     */
-    private ArrayList<Item> getListItemData(){
-        ArrayList<Item> listViewItems = new ArrayList<Item>();
-        ArrayList<String> itemName = new ArrayList<>(Arrays.asList("Water", "Furs", "Food", "Ore", "Games", "Firearms", "Medicine", "Machines", "Narcotics", "Robots"));
+    private ArrayList<Mercenary> getListItemData(){
+        ArrayList<Mercenary> listViewMercs = new ArrayList<Mercenary>(); //todo: update arraylist type
+        ArrayList<String> itemName = new ArrayList<>(Arrays.asList("Red", "Heejoo", "Nina", "Brian", "Kunhyuk", "John", "Spock", "Jango Fett", "Deadpool", "Boba Fett"));
         ArrayList<Integer> itemPrice = new ArrayList<>(Arrays.asList(30, 250, 100, 350, 250, 1250, 650, 900, 3500, 5000));
         int i = 0;
         while (i < 10) {
-            listViewItems.add(new Item(itemName.get(i), itemPrice.get(i)));
+            listViewMercs.add(new Mercenary(itemName.get(i), itemPrice.get(i)));
             i++;
         }
-        return listViewItems;
+        return listViewMercs;
     }
+
 
     @Override
     public void onClick (View v) {
@@ -160,24 +139,23 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
 
             if (Repository.isitBuying) {
 
-                switchButton.setText("Swith to Buy");
-                buyorsellButton.setText("Sell");
+                switchButton.setText("Switch to Hire");
                 itemTotalView.setText("Total Sale   ");
-                marketMode.setText("Sell Items");
+                marketMode.setText("Fire Your Mercenary");
 
                 Repository.isitBuying = false;
-                resetItemTotal();
+                //resetItemTotal();
                 setadpater.notifyDataSetChanged();
 
 
             } else {
-                switchButton.setText("Swith to Sell");
-                buyorsellButton.setText("Buy");
+                switchButton.setText("Switch to Fire");
                 itemTotalView.setText("Total Expense   ");
-                marketMode.setText("Buy Items");
+                marketMode.setText("Hire a New Mercenary");
 
                 Repository.isitBuying = true;
-                resetItemTotal();
+                //resetItemTotal();
+                creditTotaltoEditText.setText("0");
                 setadpater.notifyDataSetChanged();
             }
 
@@ -185,14 +163,15 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
             if (Repository.isitBuying) {
                 if (Integer.parseInt((String) creditTotaltoEditText.getText()) >= calculateItemTotal()) {
                     if (calculateItemTotal() == 0) {
-                        String m = "You didn't select any items";
+                        String m = "You didn't select a mercenary to hire";
                         Toast.makeText(getApplicationContext(), m, Toast.LENGTH_SHORT).show();
                     } else {
-                        String m = "You successfully purchased the items";
+                        String m = "You successfully hired the mercenary(s)";
                         Toast.makeText(getApplicationContext(), m, Toast.LENGTH_SHORT).show();
                         setCreditTotal();
-                        resetItemTotal();
-                        updateIteminCargo();
+                        //creditTotaltoEditText.setText("" + (Repository.playerClass.getCredits() - Integer.parseInt((String)creditTotaltoEditText.getText())));
+                        //resetItemTotal();
+                        //updateIteminCargo();
                         setadpater.notifyDataSetChanged();
 
                     }
@@ -200,22 +179,21 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
             } else {
                 // selling
                 if (Integer.parseInt((String) itemTotaltoEditText.getText()) > 0) {
-                    String m = "You successfully sold your items";
+                    String m = "You successfully fired your mercenary";
                     Toast.makeText(getApplicationContext(), m, Toast.LENGTH_SHORT).show();
                     setCreditTotal();
-                    resetItemTotal();
-                    updateIteminCargo();
+                    //resetItemTotal();
+                    //updateIteminCargo();
                     setadpater.notifyDataSetChanged();
 
                 } else if (calculateItemTotal() == 0) {
-                    String m = "You didn't select any items";
+                    String m = "You didn't select a mercenary to fire";
                     Toast.makeText(getApplicationContext(), m, Toast.LENGTH_SHORT).show();
 
                 }
             }
         } else if (v.getId() == R.id.shipyard_button) {
             startActivity(new Intent(this, ShipyardView.class));
-
         } else if (v.getId() == R.id.done_button) {
             startActivity(new Intent(this, PlanetsView.class));
         }

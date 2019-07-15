@@ -57,7 +57,7 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
         quantityLeftinHold = (TextView)listItemView.findViewById(R.id.quantityowned_left_num);
         subtractItem = (Button)listItemView.findViewById(R.id.minus_item_button);
         selectedItemNum = (TextView)listItemView.findViewById(R.id.selected_item_amount);
-        addItem = (Button)listItemView.findViewById(R.id.plus_item_button);
+        addItem = (Button)listItemView.findViewById(R.id.hire_fire_button);
         currentPrice = (TextView)listItemView.findViewById(R.id.selected_item_price);
         quantityLeftinMarket = (TextView)listItemView.findViewById(R.id.quantity_leftinmarket_num);
 
