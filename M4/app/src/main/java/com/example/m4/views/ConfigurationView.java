@@ -20,7 +20,7 @@ import com.example.m4.model.Player;
 import com.example.m4.repository.Repository;
 
 /**
- * Configuration view setting up the UI for the inital screen the user will encounter when starting
+ * Configuration view setting up the UI for the initial screen the user will encounter when starting
  * a new game
  */
 public class ConfigurationView extends AppCompatActivity implements OnClickListener {

@@ -15,6 +15,9 @@ import android.widget.TextView;
 
 import java.util.List;
 
+/**
+ * class ShipAdapter
+ */
 public class ShipAdapter extends ArrayAdapter<Ship> {
 
     private List<Ship> list;
@@ -35,6 +38,12 @@ public class ShipAdapter extends ArrayAdapter<Ship> {
         this.context = context;
     }
 
+    /**
+     * getView method, overridden
+     * @param position position
+     * @param convertView a view
+     * @param parent a viewGroup
+     */
     @Override
     public View getView(final int position, final View convertView, ViewGroup parent) {
         View listShipView = convertView;

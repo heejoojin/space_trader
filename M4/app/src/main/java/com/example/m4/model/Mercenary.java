@@ -9,7 +9,7 @@ import java.util.Random;
  */
 public class Mercenary {
 
-    private ArrayList<String> weapons = new ArrayList<String>(Arrays.asList("Assault Rifle", "Battle Rifle", "Sniper Rifle", "Energy Rifle", "Beam Rifle"));
+    private ArrayList<String> weapons = new ArrayList<>(Arrays.asList("Assault Rifle", "Battle Rifle", "Sniper Rifle", "Energy Rifle", "Beam Rifle"));
 
     private String name;
     private boolean hired;

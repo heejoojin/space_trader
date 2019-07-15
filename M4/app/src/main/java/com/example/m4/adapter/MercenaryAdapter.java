@@ -14,6 +14,9 @@ import com.example.m4.repository.Repository;
 
 import java.util.List;
 
+/**
+class MercenaryAdapter
+ */
 public class MercenaryAdapter extends ArrayAdapter<Mercenary>{
 
     private List<Mercenary> list;
@@ -43,6 +46,12 @@ public class MercenaryAdapter extends ArrayAdapter<Mercenary>{
         this.checkpoint = Repository.playerClass.getCredits();
     }
 
+    /**
+     * getView method, overridden
+     * @param position position
+     * @param convertView a view
+     * @param parent a viewGroup
+     */
     @Override
     public View getView(final int position, final View convertView, ViewGroup parent){
         View listItemView = convertView;

@@ -142,7 +142,7 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
      * @return a list of Item objects
      */
     private ArrayList<Item> getListItemData(){
-        ArrayList<Item> listViewItems = new ArrayList<Item>();
+        ArrayList<Item> listViewItems = new ArrayList<>();
         ArrayList<String> itemName = new ArrayList<>(Arrays.asList("Water", "Furs", "Food", "Ore", "Games", "Firearms", "Medicine", "Machines", "Narcotics", "Robots"));
         ArrayList<Integer> itemPrice = new ArrayList<>(Arrays.asList(30, 250, 100, 350, 250, 1250, 650, 900, 3500, 5000));
         int i = 0;

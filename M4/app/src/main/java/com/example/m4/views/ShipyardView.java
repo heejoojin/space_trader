@@ -94,7 +94,7 @@ public class ShipyardView extends AppCompatActivity implements View.OnClickListe
      * @return a list of Ship objects
      */
     private ArrayList<Ship> getListItemData(){
-        ArrayList<Ship> listViewShips = new ArrayList<Ship>();
+        ArrayList<Ship> listViewShips = new ArrayList<>();
         ArrayList<String> shipName = new ArrayList<>(Arrays.asList("Flea", "Gnat", "Firefly", "Mosquito", "Bumblebee", "Beetle", "Hornet", "Grasshopper", "Termite", "Wasp"));
         int i = 0;
         while (i < 10) {

@@ -47,7 +47,8 @@
             android:parentActivityName=".views.UniverseView" />
 
         <activity
-            android:name="views.RandomEventView" />
+            android:name="views.RandomEventView"
+            android:parentActivityName=".views.UniverseView" />
 
         <activity
             android:name=".views.MiniGameView"

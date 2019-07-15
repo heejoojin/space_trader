@@ -120,7 +120,7 @@ public class MercenaryView extends AppCompatActivity implements View.OnClickList
     };
 
     private ArrayList<Mercenary> getListItemData(){
-        ArrayList<Mercenary> listViewMercs = new ArrayList<Mercenary>(); //todo: update arraylist type
+        ArrayList<Mercenary> listViewMercs = new ArrayList<>(); //todo: update arraylist type
         ArrayList<String> itemName = new ArrayList<>(Arrays.asList("Red", "Heejoo", "Nina", "Brian", "Kunhyuk", "John", "Spock", "Jango Fett", "Deadpool", "Boba Fett"));
         ArrayList<Integer> itemPrice = new ArrayList<>(Arrays.asList(30, 250, 100, 350, 250, 1250, 650, 900, 3500, 5000));
         int i = 0;

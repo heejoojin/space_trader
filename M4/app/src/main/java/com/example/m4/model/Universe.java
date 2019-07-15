@@ -68,11 +68,18 @@ public class Universe {
         return string;
     }
 
+    /**
+     * obtain Region
+     * @return ArrayList<Region>
+     */
     //getters and setters for the variables
     public ArrayList<Region> getRegions() {
         return regions;
     }
-
+    /**
+     * set Region
+     * @param regions ArrayList<Region>
+     */
     public void setRegions(ArrayList<Region> regions) {
         this.regions = regions;
     }
