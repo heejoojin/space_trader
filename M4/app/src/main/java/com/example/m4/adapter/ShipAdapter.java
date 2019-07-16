@@ -18,7 +18,9 @@ import java.util.List;
 /**
  * class ShipAdapter
  */
-@SuppressWarnings({"FieldCanBeLocal", "unused"})
+@SuppressWarnings({"FieldCanBeLocal", "unused", "FeatureEnvy",
+        "ChainedMethodCall",
+        "AssignmentOrReturnOfFieldWithMutableType"})
 public class ShipAdapter extends ArrayAdapter<Ship> {
 
     private final List<Ship> list;
@@ -53,6 +55,7 @@ public class ShipAdapter extends ArrayAdapter<Ship> {
         TextView currentShipName = listShipView.findViewById(R.id.selected_ship_name);
         TextView shipEquipment = listShipView.findViewById(R.id.selected_ship_cap);
 
+        assert currentShip != null;
         currentShipName.setText(currentShip.getName());
         String equipment = String.format("has %s, %s, %s, %s, %s",
                 currentShip.getWeapon(),
@@ -68,7 +71,7 @@ public class ShipAdapter extends ArrayAdapter<Ship> {
                 final View currentview = view;
                 currentview.setBackgroundColor(Color.parseColor("#e8dae8"));
                 currentview.postDelayed(new Runnable() {
-
+                    @Override
                     public void run() {
                         currentview.setBackgroundColor(Color.parseColor("#fafafa"));
                     }

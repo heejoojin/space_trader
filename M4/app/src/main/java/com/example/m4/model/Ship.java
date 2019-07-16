@@ -7,15 +7,22 @@ import java.util.Random;
 /**
  * Class representing the player's ship, containing variables such as the items owned
  */
-@SuppressWarnings("FieldCanBeLocal")
+@SuppressWarnings({"FieldCanBeLocal", "ChainedMethodCall"})
 public class Ship {
 
     private final String name;
-    private final ArrayList<String> weapons = new ArrayList<>(Arrays.asList("Pulse laser", "Beam laser", "Military laser", "No weapon"));
-    private final ArrayList<String> shields = new ArrayList<>(Arrays.asList("Energy shield", "Reflective shield", "No shield"));
-    private final ArrayList<String> gadgets = new ArrayList<>(Arrays.asList("Navigation system", "Auto-repair system", "Targeting System", "No gadget"));
-    private final ArrayList<String> escape_pods = new ArrayList<>(Arrays.asList("Escape pod", "No escape pod"));
-    private final ArrayList<String> insurances = new ArrayList<>(Arrays.asList("Insurance", "No insurance"));
+    private final ArrayList<String> weapons =
+            new ArrayList<>(Arrays.asList("Pulse laser", "Beam laser",
+                    "Military laser", "No weapon"));
+    private final ArrayList<String> shields =
+            new ArrayList<>(Arrays.asList("Energy shield", "Reflective shield", "No shield"));
+    private final ArrayList<String> gadgets =
+            new ArrayList<>(Arrays.asList("Navigation system",
+                    "Auto-repair system", "Targeting System", "No gadget"));
+    private final ArrayList<String> escape_pods =
+            new ArrayList<>(Arrays.asList("Escape pod", "No escape pod"));
+    private final ArrayList<String> insurances =
+            new ArrayList<>(Arrays.asList("Insurance", "No insurance"));
 
     private final String weapon;
     private final String shield;

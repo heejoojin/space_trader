@@ -1,6 +1,6 @@
 package com.example.m4.model;
 
-import java.util.*;
+import java.util.Random;
 
 /**
  * Enumerated class that sets up the tech level

@@ -3,7 +3,8 @@ package com.example.m4.model;
 import java.io.Serializable;
 
 /**
- * Item class that represents a singular item such as water. Contains specifications such as its value
+ * Item class that represents a singular item such as water.
+ * Contains specifications such as its value
  * and amount the user owns
  */
 public class Item implements Serializable {
@@ -22,6 +23,7 @@ public class Item implements Serializable {
      * @param name name of the item
      * @param price price of the item
      */
+    @SuppressWarnings("MagicNumber")
     public Item(String name, int price) {
         this.name = name;
         this.quantityOwned = 0;

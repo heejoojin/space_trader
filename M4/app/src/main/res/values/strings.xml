@@ -134,12 +134,14 @@
     <string name="travel_to_a_different_region">Travel to a different region</string>
     <string name="enter_the_mercenaries_market">Enter the Mercenaries Market</string>
     <string name="enter_the_market">Enter the Market</string>
-    <string name="after_an_uneventful_trip_n_you_arrive_at_your_destination">After an uneventful trip,   you arrive at your destination.</string>
+    <string name="after_an_uneventful_trip_n_you_arrive_at_your_destination">
+        After an uneventful trip,   you arrive at your destination.</string>
     <string name="shipyard_1">Shipyard</string>
     <string name="change_your_ship">Change your Ship</string>
     <string name="market">market</string>
     <string name="next">Next</string>
-    <string name="you_are_in_earth_n_gnat_spaceship_fuel_3_203_760_l_available">You are in Earth   Gnat Spaceship | Fuel 3,203,760 L available</string>
+    <string name="you_are_in_earth_n_gnat_spaceship_fuel_3_203_760_l_available">
+        You are in Earth   Gnat Spaceship | Fuel 3,203,760 L available</string>
     <string name="select_a_region_to_travel">Select a Region to Travel</string>
     <string name="select_a_region">select a region</string>
     <string name="tech_level">Tech Level</string>
@@ -148,7 +150,8 @@
     <string name="planets">Planets</string>
     <string name="fuel">Fuel</string>
     <string name="travel">Travel</string>
-    <string name="stay_in_the_same_region_amp_next"><![CDATA[STAY IN THE SAME REGION & NEXT]]></string>
+    <string name="stay_in_the_same_region_amp_next"><![CDATA[STAY IN THE SAME REGION & NEXT]]>
+    </string>
     <string name="map">Map</string>
     <string name="start">START</string>
     <string name="mini_game">MINI GAME</string>

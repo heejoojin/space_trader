@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * Constructor requires no parameters.
  */
 
-@SuppressWarnings("unused")
+@SuppressWarnings("ALL")
 public class Region {
 
     private ArrayList<Planet> planetList = new ArrayList<>();
@@ -48,7 +48,7 @@ public class Region {
      * get Planet List
      * @return arraylist of planets
      */
-    public ArrayList<Planet> getPlanetList() {
+    public Iterable<Planet> getPlanetList() {
         return planetList;
     }
 

@@ -4,19 +4,22 @@ import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Random;
 
 /**
  * View model representing the different events we could encounter whilst traveling
  */
-@SuppressWarnings("FieldCanBeLocal")
+@SuppressWarnings({"FieldCanBeLocal", "ChainedMethodCall"})
 public class TravelViewModel extends AndroidViewModel {
 
     private final ArrayList<String> eventsList =
             //new ArrayList<String>(Arrays.asList("Pirate Encounter"));
-            new ArrayList<>(Arrays.asList("Trader Encounter", "Pirate Encounter", "Police Encounter", "Random Event", "Safe Travel"));
+            new ArrayList<>(Arrays.asList("Trader Encounter", "Pirate Encounter",
+                    "Police Encounter", "Random Event", "Safe Travel"));
 
-    private boolean isitPirate = false;
+    private boolean isitPirate;
     private boolean beatPirate;
 
     public TravelViewModel(@NonNull Application application) {
@@ -29,7 +32,7 @@ public class TravelViewModel extends AndroidViewModel {
      */
     public String getRandomElement() {
         String randomElement = eventsList.get(new Random().nextInt(eventsList.size()));
-        if (randomElement.equals("Pirate Encounter")) {
+        if ("Pirate Encounter".equals(randomElement)) {
             isitPirate = true;
         }
         return randomElement;

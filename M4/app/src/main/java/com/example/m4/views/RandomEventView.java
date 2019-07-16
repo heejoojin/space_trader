@@ -26,7 +26,8 @@ public class RandomEventView extends AppCompatActivity implements View.OnClickLi
         Button backButton = findViewById(R.id.back_button);
         backButton.setOnClickListener(this);
 
-        travelMessage.setText("After an eventful trip,\nyou couldn't arrive at your destination :(\n\nTry again");
+        travelMessage.setText("After an eventful trip," +
+                "\nyou couldn't arrive at your destination :(\n\nTry again");
 
     }
     @Override

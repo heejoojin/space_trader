@@ -3,6 +3,7 @@ package com.example.m4.model;
 /**
  * Enumerated class that establishes all the colors that we may end up using within the
  */
+@SuppressWarnings("unused")
 public enum Colors {
     BLUE("Blue"), GREEN("Green"), RED("Red"), YELLOW("Yellow"), GREY("Grey"),
     PURPLE("Purple"), DARKGREEN("Dark Green"), ORANGE("Orange"), WHITE("White"),

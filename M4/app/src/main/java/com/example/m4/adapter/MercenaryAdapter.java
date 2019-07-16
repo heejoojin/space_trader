@@ -18,7 +18,11 @@ import java.util.List;
 /**
 class MercenaryAdapter
  */
-@SuppressWarnings({"FieldCanBeLocal", "WeakerAccess", "SetTextI18n", "unused"})
+@SuppressWarnings({"FieldCanBeLocal", "WeakerAccess",
+        "SetTextI18n", "unused", "FeatureEnvy",
+        "ChainedMethodCall", "PublicField",
+        "AssignmentOrReturnOfFieldWithMutableType",
+        "AssignmentToStaticFieldFromInstanceMethod"})
 
 public class MercenaryAdapter extends ArrayAdapter<Mercenary>{
 
@@ -29,10 +33,10 @@ public class MercenaryAdapter extends ArrayAdapter<Mercenary>{
 
     private int count = 5;
 
-    private TextView currentItemName,
-            hired,
-            weapon,
-            currentPrice;
+    private TextView currentItemName;
+    private TextView hired;
+    private TextView weapon;
+    private TextView currentPrice;
 
     private Button hireFireMerc;
 
@@ -73,6 +77,7 @@ public class MercenaryAdapter extends ArrayAdapter<Mercenary>{
 
 
         //Set the text of the meal, amount and quantity
+        assert currentItem != null;
         currentItemName.setText(currentItem.getName());
         if (currentItem.getHired()) {
             hired.setText("HIRED");
@@ -92,7 +97,7 @@ public class MercenaryAdapter extends ArrayAdapter<Mercenary>{
                 if (Repository.isitBuying) {
 
                     if (checkpoint >= 0) {
-                        if ( (checkpoint - currentItem.getPrice()) >= 0 && count > 0) {
+                        if (((checkpoint - currentItem.getPrice()) >= 0) && (count > 0)) {
 
                             count--;
 
@@ -101,7 +106,7 @@ public class MercenaryAdapter extends ArrayAdapter<Mercenary>{
 
                             checkpoint -= currentItem.getPrice();
 
-                            System.out.println(checkpoint);
+                            //System.out.println(checkpoint);
                         }
                     }
 
@@ -112,7 +117,7 @@ public class MercenaryAdapter extends ArrayAdapter<Mercenary>{
                         hired.setText("NOT HIRED");
 
 
-                        System.out.println(checkpoint);
+                        //System.out.println(checkpoint);
                     }
                 }
                 notifyDataSetChanged();

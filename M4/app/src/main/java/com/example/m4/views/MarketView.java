@@ -22,17 +22,21 @@ import android.widget.Button;
 /**
  * View that represents the market with all its items for sale
  */
-@SuppressWarnings({"WeakerAccess", "SetTextI18n", "UnnecessaryLocalVariable"})
+@SuppressWarnings({"WeakerAccess", "SetTextI18n",
+        "UnnecessaryLocalVariable", "ChainedMethodCall",
+        "MagicNumber", "AssignmentToStaticFieldFromInstanceMethod"})
 public class MarketView extends AppCompatActivity implements OnClickListener {
 
-    private TextView itemTotaltoEditText, itemTotalView;
+    private TextView itemTotaltoEditText;
+    private TextView itemTotalView;
     private TextView creditTotaltoEditText;
     private TextView marketMode;
     private ArrayList<Item> orders;
 
     private MarketItemAdapter setadpater;
 
-    private Button switchButton, buyorsellButton;
+    private Button switchButton;
+    private Button buyorsellButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +44,8 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
         setContentView(R.layout.activity_market);
 
         TextView selectedPlanet = findViewById(R.id.selected_planet_view);
-        String planet_text = "You are in " + Repository.planetClass.getPlanetName().toString() + " Planet";
+        String planet_text = "You are in " +
+                Repository.planetClass.getPlanetName().toString() + " Planet";
         selectedPlanet.setText(planet_text);
 
         marketMode = findViewById(R.id.market_mode_view);
@@ -146,8 +151,13 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
      */
     private ArrayList<Item> getListItemData(){
         ArrayList<Item> listViewItems = new ArrayList<>();
-        ArrayList<String> itemName = new ArrayList<>(Arrays.asList("Water", "Furs", "Food", "Ore", "Games", "Firearms", "Medicine", "Machines", "Narcotics", "Robots"));
-        ArrayList<Integer> itemPrice = new ArrayList<>(Arrays.asList(30, 250, 100, 350, 250, 1250, 650, 900, 3500, 5000));
+        ArrayList<String> itemName =
+                new ArrayList<>(Arrays.asList("Water", "Furs", "Food",
+                        "Ore", "Games", "Firearms", "Medicine", "Machines",
+                        "Narcotics", "Robots"));
+        ArrayList<Integer> itemPrice =
+                new ArrayList<>(Arrays.asList(30, 250, 100, 350,
+                        250, 1250, 650, 900, 3500, 5000));
         int i = 0;
         while (i < 10) {
             listViewItems.add(new Item(itemName.get(i), itemPrice.get(i)));
@@ -186,7 +196,8 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
 
         } else if (v.getId() == R.id.make_item_change_button) {
             if (Repository.isitBuying) {
-                if (Integer.parseInt((String) creditTotaltoEditText.getText()) >= calculateItemTotal()) {
+                if (Integer.parseInt((String) creditTotaltoEditText.getText()) >=
+                        calculateItemTotal()) {
                     if (calculateItemTotal() == 0) {
                         String m = "You didn't select any items";
                         Toast.makeText(getApplicationContext(), m, Toast.LENGTH_SHORT).show();

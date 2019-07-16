@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 /**
  * View model representing the configuration view the user starts in
  */
+@SuppressWarnings("MagicNumber")
 public class ConfigurationViewModel extends AndroidViewModel {
 
     private int score = 16;

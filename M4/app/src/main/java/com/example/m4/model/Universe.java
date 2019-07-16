@@ -6,7 +6,8 @@ import java.util.Random;
 /**
  * Class that represents the entire universe the game is set in
  */
-@SuppressWarnings({"FieldCanBeLocal", "unused"})
+@SuppressWarnings({"FieldCanBeLocal", "unused", "FeatureEnvy",
+        "ChainedMethodCall", "AssignmentOrReturnOfFieldWithMutableType"})
 public class Universe {
 
     //variables for a universe object
@@ -16,7 +17,7 @@ public class Universe {
     private final int HEIGHT = 150;
     private final int WIDTH = 100;
     private final int MINREGIONDISTANCE = 10;
-    private Random random;
+    private final Random random;
 
     /**
      * Constructor setting up the number of regions and number of planets within the universe
@@ -26,7 +27,8 @@ public class Universe {
     public Universe(int numRegions, int numPlanets) {
 
         if (numPlanets < numRegions) {
-            throw new IllegalArgumentException("Number of planets cannot be less than number of regions.");
+            throw new IllegalArgumentException("Number of planets cannot be" +
+                    "less than number of regions.");
         }
 
         this.numRegions = numRegions;
@@ -58,9 +60,19 @@ public class Universe {
 
         StringBuilder string = new StringBuilder("Universe: \n");
         for (Region region : regions) {
-            string.append(region.getRegionName()).append(": ").append(region.getSpecialResource()).append(", ").append(region.getTechLevel()).append(",").append(" (").append(region.getxLoc()).append(", ").append(region.getyLoc()).append("), ").append(region.getColor()).append(region.getFuelneededtoTravel()).append(" Planets: \n");
+            string.append(region.getRegionName()).append(": ").
+                    append(region.getSpecialResource()).append(", ").
+                    append(region.getTechLevel()).append(",").
+                    append(" (").append(region.getxLoc()).
+                    append(", ").append(region.getyLoc()).
+                    append("), ").append(region.getColor()).
+                    append(region.getFuelneededtoTravel()).
+                    append(" Planets: \n");
             for (Planet planet: region.getPlanetList()) {
-                string.append(planet.getPlanetName()).append(", (").append(planet.getxLocation()).append(", ").append(planet.getyLocation()).append(")\n");
+                string.append(planet.getPlanetName()).
+                        append(", (").append(planet.getxLocation()).
+                        append(", ").append(planet.getyLocation()).
+                        append(")\n");
             }
         }
         return string.toString();
@@ -71,7 +83,7 @@ public class Universe {
      * @return ArrayList<Region>
      */
     //getters and setters for the variables
-    public ArrayList<Region> getRegions() {
+    public Iterable<Region> getRegions() {
         return regions;
     }
 
@@ -267,7 +279,7 @@ public class Universe {
 
         for (Region region : regions) {
             for (Planet planet : region.getPlanetList()) {
-                if (x  == planet.getxLocation() && y == planet.getyLocation()) {
+                if ((x == planet.getxLocation()) && (y == planet.getyLocation())) {
                     return false;
                 }
             }

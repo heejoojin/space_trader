@@ -38,7 +38,8 @@ public class Player {
      * @param traderPoints number of points the user put into trader
      * @param engineerPoints number of points the user put into engineer
      */
-    public Player(String name, int pilotPoints, int fighterPoints, int traderPoints, int engineerPoints) {
+    public Player(String name, int pilotPoints, int fighterPoints,
+                  int traderPoints, int engineerPoints) {
         this.credits = 1000;
         this.name = name;
         this.pilotPoints = pilotPoints;
@@ -47,6 +48,7 @@ public class Player {
         this.engineerPoints = engineerPoints;
         this.ship = "Gnat";
         //this.weaponsLevel = 1;
+        //noinspection MagicNumber
         this.fuel = 3203760;
     }
 

@@ -7,8 +7,10 @@ import com.example.m4.model.Region;
 import com.example.m4.model.Item;
 import com.example.m4.model.RegionName;
 import com.example.m4.model.Ship;
-import java.util.*;
-@SuppressWarnings({"WeakerAccess", "unused"})
+import java.util.List;
+import java.util.ArrayList;
+@SuppressWarnings({"WeakerAccess", "unused",
+        "PublicField", "AssignmentOrReturnOfFieldWithMutableType"})
 public class Repository {
 
     public static Player playerClass;
@@ -17,14 +19,14 @@ public class Repository {
     public static Planet planetClass;
     public static Ship shipClass;
 
-    public static ArrayList<Item> itemsList = new ArrayList<>();
-    public static ArrayList<Mercenary> mercenariesList = new ArrayList<>();
-    public static ArrayList<Ship> shipList = new ArrayList<>();
+    public static List<Item> itemsList = new ArrayList<>();
+    public static List<Mercenary> mercenariesList = new ArrayList<>();
+    public static List<Ship> shipList = new ArrayList<>();
 
     public static Boolean isitBuying = true;
 
     public static RegionName toTravelRegionName;
-    public static ArrayList<Planet> toTravelPlanets;
+    public static Iterable<Planet> toTravelPlanets;
 
 
     /**
@@ -63,7 +65,7 @@ public class Repository {
      * set Items list
      * @param il ArrayList of Items
      */
-    public static void setItemsList(ArrayList<Item> il) {
+    public static void setItemsList(List<Item> il) {
         itemsList = il;
     }
 
@@ -71,13 +73,13 @@ public class Repository {
      * set Mercenaries List
      * @param ml ArrayList of mercenaries
      */
-    public static void setMercenariesList(ArrayList<Mercenary> ml) { mercenariesList = ml; }
+    public static void setMercenariesList(List<Mercenary> ml) { mercenariesList = ml; }
 
     /**
      * set Ship List
      * @param sl arraylist of ships
      */
-    public static void setShipList(ArrayList<Ship> sl) {shipList = sl; }
+    public static void setShipList(List<Ship> sl) {shipList = sl; }
 
     /**
      * set Ship Class
@@ -96,6 +98,6 @@ public class Repository {
      * set toTravel planets
      * @param pls arraylist of planets
      */
-    public static void setToTravelPlanets(ArrayList<Planet> pls) { toTravelPlanets = pls; }
+    public static void setToTravelPlanets(Iterable<Planet> pls) { toTravelPlanets = pls; }
 
 }

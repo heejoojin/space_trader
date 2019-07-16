@@ -1,13 +1,14 @@
 package com.example.m4.model;
 
-import java.util.*;
+import java.util.Random;
 
 /**
  * Enumerated class that represents the resource level
  */
 public enum Resource {
 
-    NOSPECIALRESOURCES("No Special Resource"), MINERALRICH("Mineral Rich"), MINERALPOOR("Mineral Poor"),
+    NOSPECIALRESOURCES("No Special Resource"),
+    MINERALRICH("Mineral Rich"), MINERALPOOR("Mineral Poor"),
     DESERT("Desert"), LOTSOFWATER("Lots of Water"), RICHSOIL("Rich Soil"),
     POORSOIL("Poor Soil"), RICHFAUNA("Rich Fauna"), LIFELESS("Lifeless"),
     WEIRDMUSHROOMS("Weird Mushrooms"), LOTSOFHERBS("Lots of Herbs"),

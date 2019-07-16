@@ -18,6 +18,7 @@ import android.annotation.SuppressLint;
 /**
  * View that will depict the traveling of our ship. Will also show random events that occur
  */
+@SuppressWarnings({"FeatureEnvy", "ChainedMethodCall"})
 @SuppressLint("SetTextI18n")
 public class TravelView extends AppCompatActivity implements View.OnClickListener {
 
@@ -51,7 +52,8 @@ public class TravelView extends AppCompatActivity implements View.OnClickListene
         String randomElement = viewModel.getRandomElement();
 
         String fuel_initial = formatter.format(Repository.playerClass.getFuel());
-        region_display_message = "You are in " + Repository.toTravelRegionName.toString() + "\n" + Repository.playerClass.getShip() + " | Fuel "  +
+        region_display_message = "You are in " + Repository.toTravelRegionName.toString() +
+                "\n" + Repository.playerClass.getShip() + " | Fuel "  +
                 fuel_initial + " L available";
         region_display_textview.setText(region_display_message);
 
@@ -60,13 +62,18 @@ public class TravelView extends AppCompatActivity implements View.OnClickListene
         switch (randomElement) {
             case "Trader Encounter":
 
-                travelMessage.setText("You have encountered a trader!\n\nYou have no items to trade\nGo to market and buy some goods :)");
+                travelMessage.setText("You have encountered a trader!\n" +
+                        "\nYou have no items to trade\nGo to market and buy some goods :)");
 
                 break;
             case "Pirate Encounter":
                 Repository.playerClass.setCredits(Repository.playerClass.getCredits() - 150);
                 creditLeft = String.valueOf(Repository.playerClass.getCredits());
-                pirateMessage = "You have encountered a pirate!\n\nThe pirate took 150 credits from you :(\nNow you have " + creditLeft + " credits\n\nIf you fight him,\nyou could get your money back or\nyou may lose even more.";
+                pirateMessage = "You have encountered a pirate!\n" +
+                        "\nThe pirate took 150 credits from you :(\nNow you have " +
+                        creditLeft +
+                        " credits\n\nIf you fight him,\nyou could get your money back or\n" +
+                        "you may lose even more.";
                 travelMessage.setText(pirateMessage);
 
                 region_display_textview.setText("");
@@ -77,7 +84,8 @@ public class TravelView extends AppCompatActivity implements View.OnClickListene
                 break;
             case "Police Encounter":
 
-                travelMessage.setText("You have encountered a police!\n\nSince you don't have any illegal goods,\nyou don't need to pay any fines :)");
+                travelMessage.setText("You have encountered a police!\n" +
+                        "\nSince you don't have any illegal goods,\nyou don't need to pay any fines :)");
 
                 break;
         }
@@ -96,7 +104,9 @@ public class TravelView extends AppCompatActivity implements View.OnClickListene
                 viewModel.setIsItPirate(false);
 
                 String fuel_initial = formatter.format(Repository.playerClass.getFuel());
-                region_display_message = "You are in " + Repository.toTravelRegionName.toString() + "\n" + Repository.playerClass.getShip() + " | Fuel "  +
+                region_display_message = "You are in " +
+                        Repository.toTravelRegionName.toString() +
+                        "\n" + Repository.playerClass.getShip() + " | Fuel "  +
                         fuel_initial + " L available";
                 region_display_textview.setText(region_display_message);
 
@@ -104,13 +114,16 @@ public class TravelView extends AppCompatActivity implements View.OnClickListene
                 if (viewModel.winningChancePirate()) {
                     Repository.playerClass.setCredits(Repository.playerClass.getCredits() + 150);
                     creditLeft = String.valueOf(Repository.playerClass.getCredits());
-                    pirateMessage = "You beat the pirate!\nYou have collected your 150 credits back :)\nNow you have " + creditLeft + " credits";
+                    pirateMessage = "You beat the pirate!\n" +
+                            "You have collected your 150 credits back :)" +
+                            "\nNow you have " + creditLeft + " credits";
                     travelMessage.setText(pirateMessage);
 
                 } else {
                     Repository.playerClass.setCredits(Repository.playerClass.getCredits() - 200);
                     creditLeft = String.valueOf(Repository.playerClass.getCredits());
-                    pirateMessage = "You lost!\nThe pirate took 200 more credits from you :(\nNow you have " + creditLeft + " credits";
+                    pirateMessage = "You lost!\nThe pirate took 200 more credits from you :(" +
+                            "\nNow you have " + creditLeft + " credits";
                     travelMessage.setText(pirateMessage);
                 }
 

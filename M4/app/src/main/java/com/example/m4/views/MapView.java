@@ -21,6 +21,7 @@ import com.example.m4.repository.Repository;
 /**
  * Creates a grid that will depict all the regions
  */
+@SuppressWarnings("ALL")
 public class MapView extends AppCompatActivity implements View.OnClickListener {
 
     final static int HEIGHT = 150;

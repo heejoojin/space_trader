@@ -21,7 +21,7 @@ import java.util.Arrays;
 /**
  * View representing the mercenary market, another version of the market that has mercenaries instead
  */
-@SuppressWarnings({"WeakerAccess", "SetTextI18n", "UnnecessaryLocalVariable"})
+@SuppressWarnings("ALL")
 public class MercenaryView extends AppCompatActivity implements View.OnClickListener {
 
     private TextView itemTotaltoEditText, itemTotalView;
@@ -97,22 +97,6 @@ public class MercenaryView extends AppCompatActivity implements View.OnClickList
     }
     public void setCreditTotal() {creditTotaltoEditText.setText("" + calculateCreditTotal());}
 
-// --Commented out by Inspection START (2019-07-15 23:31):
-//    public void resetItemTotal() {
-//        for (Mercenary order : orders) {
-//            //order.setQuantityChange(0); todo
-//        }
-//        itemTotaltoEditText.setText("0");
-//    }
-// --Commented out by Inspection STOP (2019-07-15 23:31)
-
-// --Commented out by Inspection START (2019-07-15 23:38):
-//    public void updateIteminCargo() {
-//        for (Mercenary order : orders) {
-//            //order.updateQuantity(); todo
-//        }
-//    }
-// --Commented out by Inspection STOP (2019-07-15 23:38)
 
     final DataSetObserver observer = new DataSetObserver() {
         @Override

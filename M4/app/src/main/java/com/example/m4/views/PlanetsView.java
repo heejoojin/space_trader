@@ -22,14 +22,17 @@ import java.util.List;
 /**
  * View that shows all the planets within the region
  */
-@SuppressWarnings("unchecked")
+@SuppressWarnings({"unchecked",
+        "FeatureEnvy",
+        "ChainedMethodCall",
+        "AssignmentToStaticFieldFromInstanceMethod"})
 public class PlanetsView extends AppCompatActivity implements View.OnClickListener {
 
     private TextView planet_name_text;
     private TextView planet_location_text;
 
     private final List<String> planets = new ArrayList<>();
-    private boolean clicked = false;
+    private boolean clicked;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +41,8 @@ public class PlanetsView extends AppCompatActivity implements View.OnClickListen
         setContentView(R.layout.activity_planets);
 
         TextView selectedRegion = findViewById(R.id.selected_region_view);
-        String region_title = "You are in " + Repository.toTravelRegionName.toString() + " Region" + "\n";
+        String region_title = "You are in " +
+                Repository.toTravelRegionName.toString() + " Region" + "\n";
         selectedRegion.setText(region_title);
 
         GridView planetsView = findViewById(R.id.planets_gridView);
@@ -66,7 +70,7 @@ public class PlanetsView extends AppCompatActivity implements View.OnClickListen
         planetsView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                // TODO Auto-generated method stub
+
                 clicked = true;
 
                 String message = adapter.getItem(position) + " has been selected";
@@ -102,7 +106,9 @@ public class PlanetsView extends AppCompatActivity implements View.OnClickListen
                 MarketItemAdapter.checkpoint = 1000;
                 Repository.isitBuying = true;
             } else {
-                Toast.makeText(getApplicationContext(), "You have to select a planet", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),
+                        "You have to select a planet",
+                        Toast.LENGTH_SHORT).show();
             }
         }
 

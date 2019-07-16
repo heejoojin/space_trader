@@ -20,13 +20,14 @@ import java.util.Arrays;
 /**
  * View representing the shipyard, another version of the market that instead sells ships
  */
-@SuppressWarnings({"FieldCanBeLocal", "WeakerAccess"})
+@SuppressWarnings({"FieldCanBeLocal", "WeakerAccess", "FeatureEnvy", "ChainedMethodCall"})
 public class ShipyardView extends AppCompatActivity implements View.OnClickListener {
 
     private ArrayList<Ship> orders;
     private TextView shipDescription;
 
-    private Button toMarketButton, doneButton;
+    private Button toMarketButton;
+    private Button doneButton;
 
     private TextView selectedPlanet;
 
@@ -36,7 +37,8 @@ public class ShipyardView extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_shipyard);
 
         selectedPlanet = findViewById(R.id.selected_planet_view);
-        String planet_text = "You are in " + Repository.planetClass.getPlanetName().toString() + " Planet";
+        String planet_text = "You are in " +
+                Repository.planetClass.getPlanetName().toString() + " Planet";
         selectedPlanet.setText(planet_text);
 
         shipDescription = findViewById(R.id.ship_description);
@@ -66,7 +68,8 @@ public class ShipyardView extends AppCompatActivity implements View.OnClickListe
 
         if (Repository.shipClass != null) {
             if (Repository.shipClass.getName().equals(Repository.playerClass.getShip())) {
-                String m = "You already have " + Repository.playerClass.getShip() + " spaceship\nSelect a different ship!";
+                String m = "You already have " + Repository.playerClass.getShip() +
+                        " spaceship\nSelect a different ship!";
                 shipDescription.setText(m);
             } else {
                 Repository.playerClass.setShip(Repository.shipClass.getName());
@@ -76,7 +79,8 @@ public class ShipyardView extends AppCompatActivity implements View.OnClickListe
                         Repository.shipClass.getGadget(),
                         Repository.shipClass.getEscapePod(),
                         Repository.shipClass.getInsurance());
-                String m = "You now have " + Repository.shipClass.getName() + " spaceship with " + equipment;
+                String m = "You now have " + Repository.shipClass.getName() +
+                        " spaceship with " + equipment;
                 shipDescription.setText(m);
             }
         }
@@ -96,7 +100,10 @@ public class ShipyardView extends AppCompatActivity implements View.OnClickListe
      */
     private ArrayList<Ship> getListItemData(){
         ArrayList<Ship> listViewShips = new ArrayList<>();
-        ArrayList<String> shipName = new ArrayList<>(Arrays.asList("Flea", "Gnat", "Firefly", "Mosquito", "Bumblebee", "Beetle", "Hornet", "Grasshopper", "Termite", "Wasp"));
+        ArrayList<String> shipName =
+                new ArrayList<>(Arrays.asList("Flea", "Gnat", "Firefly",
+                        "Mosquito", "Bumblebee", "Beetle", "Hornet", "Grasshopper",
+                        "Termite", "Wasp"));
         int i = 0;
         while (i < 10) {
             listViewShips.add(new Ship(shipName.get(i)));

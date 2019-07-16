@@ -15,7 +15,9 @@ import java.util.List;
 /**
  * class MarketItemAdapter
  */
-@SuppressWarnings({"FieldCanBeLocal", "unused"})
+@SuppressWarnings({"FieldCanBeLocal", "unused", "FeatureEnvy",
+        "PublicField", "AssignmentOrReturnOfFieldWithMutableType",
+        "AssignmentToStaticFieldFromInstanceMethod"})
 public class MarketItemAdapter extends ArrayAdapter<Item>{
 
     private final List<Item> list;
@@ -26,13 +28,15 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
     private int count = 5;
 
 
-    private TextView currentItemName,
-            selectedItemNum,
-            quantityLeftinHold,
-            currentPrice,
-            quantityLeftinMarket;
+    private TextView currentItemName;
+    private TextView selectedItemNum;
 
-    private Button addItem, subtractItem;
+    private TextView quantityLeftinHold;
+    private TextView currentPrice;
+    private TextView quantityLeftinMarket;
+
+    private Button addItem;
+    private Button subtractItem;
 
     /**
      * Default ArrayAdapter constructor
@@ -52,6 +56,7 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
      * @param convertView a view
      * @param parent a viewGroup
      */
+    @SuppressWarnings("ChainedMethodCall")
     @Override
     public View getView(final int position, final View convertView, ViewGroup parent){
         View listItemView = convertView;
@@ -90,8 +95,8 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
 
                 if (Repository.isitBuying) {
 
-                    if (checkpoint >= 0 && currentItem.getQuantityInMarket() > 0) {
-                        if ( (checkpoint - currentItem.getPrice()) >= 0 && count > 0) {
+                    if ((checkpoint >= 0) && (currentItem.getQuantityInMarket() > 0)) {
+                        if (((checkpoint - currentItem.getPrice()) >= 0) && (count > 0)) {
 
                             count--;
 
@@ -101,20 +106,21 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
                             currentItem.removeFromQuantityinMarket();
                             checkpoint -= (currentItem.getPrice());
 
-                            System.out.println(checkpoint);
+                            //System.out.println(checkpoint);
                         }
                     }
 
-                } else if (!Repository.isitBuying) {
+                } else {
                     // selling
-                    if (currentItem.getQuantityOwned() > 0 && currentItem.getQuantityChange() < currentItem.getQuantityOwned()) {
+                    if ((currentItem.getQuantityOwned() > 0) &&
+                            (currentItem.getQuantityChange() < currentItem.getQuantityOwned())) {
                         currentItem.addToQuantityChange();
                         currentItem.removeFromQuantityinHold();
                         currentItem.addToQuantityinMarket();
 
                         checkpoint += (currentItem.getPrice());
 
-                        System.out.println(checkpoint);
+                        //System.out.println(checkpoint);
                     }
                 }
                 notifyDataSetChanged();
@@ -132,7 +138,7 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
 
                         checkpoint += (currentItem.getPrice());
 
-                        System.out.println(checkpoint);
+                        //System.out.println(checkpoint);
                     }
                 } else {
                     // selling
@@ -143,7 +149,7 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
 
                         checkpoint -= (currentItem.getPrice());
 
-                        System.out.println(checkpoint);
+                        //System.out.println(checkpoint);
                     }
                 }
                 notifyDataSetChanged();

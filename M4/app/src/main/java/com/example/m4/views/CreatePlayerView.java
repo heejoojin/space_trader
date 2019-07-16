@@ -16,6 +16,7 @@ import com.example.m4.repository.Repository;
  * Create player view that sets up the UI for the player creation
  */
 
+@SuppressWarnings({"FeatureEnvy", "ChainedMethodCall"})
 public class CreatePlayerView extends AppCompatActivity implements OnClickListener {
 
     @Override
@@ -23,7 +24,8 @@ public class CreatePlayerView extends AppCompatActivity implements OnClickListen
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_createplayer);
-//        ConfigurationViewModel viewModel = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
+//        ConfigurationViewModel viewModel =
+//        ViewModelProviders.of(this).get(ConfigurationViewModel.class);
 
         TextView name = findViewById(R.id.player_name);
         TextView difficulty = findViewById(R.id.player_difficulty);

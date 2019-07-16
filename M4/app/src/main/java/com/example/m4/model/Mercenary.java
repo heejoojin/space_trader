@@ -7,10 +7,12 @@ import java.util.Random;
 /**
  * Class that represents a single Mercenary object that can be hired or sold at the mercenary market
  */
-@SuppressWarnings("FieldCanBeLocal")
+@SuppressWarnings({"FieldCanBeLocal", "ChainedMethodCall"})
 public class Mercenary {
 
-    private final ArrayList<String> weapons = new ArrayList<>(Arrays.asList("Assault Rifle", "Battle Rifle", "Sniper Rifle", "Energy Rifle", "Beam Rifle"));
+    private final ArrayList<String> weapons =
+            new ArrayList<>(Arrays.asList("Assault Rifle", "Battle Rifle",
+                    "Sniper Rifle", "Energy Rifle", "Beam Rifle"));
 
     private final String name;
     private boolean hired;
