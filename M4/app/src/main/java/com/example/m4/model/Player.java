@@ -54,62 +54,142 @@ public class Player {
 
     //Getters and setters required for accessing the fields
 
+    /**
+     * get Fuel
+     * @return int of fuel
+     */
     public int getFuel() { return this.fuel; }
 
+    /**
+     * get Credits
+     * @return int of credits
+     */
     public int getCredits() { return this.credits; }
 
+    /**
+     * get Pilot Points
+     * @return int pilot points
+     */
     public int getPilotPoints() { return this.pilotPoints; }
 
+    /**
+     * get Fighter Points
+     * @return int fighter Points
+     */
     public int getFighterPoints() { return this.fighterPoints; }
 
+    /**
+     * get Trader Points
+     * @return int trader points
+     */
     public int getTraderPoints() { return this.traderPoints; }
 
+    /**
+     * get engineer points
+     * @return int engineer points
+     */
     public int getEngineerPoints() {return this.engineerPoints; }
 
+    /**
+     * get Name
+     * @return string of name
+     */
     public String getName() {return this.name; }
 
+    /**
+     * get ship
+     * @return string of ship
+     */
     public String getShip() {return this.ship;}
 
+    /**
+     * get weapons level
+     * @return int weapons level
+     */
     public int getWeaponsLevel() {return this.weaponsLevel;}
 
+    /**
+     * get difficulty
+     * @return Difficulty enum
+     */
     public Difficulty getDifficulty() {
         return this.difficulty;
     }
 
+    /**
+     * set credits
+     * @param credits int
+     */
     public void setCredits(int credits) {
         this.credits = credits;
     }
 
+    /**
+     * set pilot points
+     * @param pilotPoints int
+     */
     public void setPilotPoints(int pilotPoints) {
         this.pilotPoints = pilotPoints;
     }
 
+    /**
+     * set Fighter Points
+     * @param fighterPoints int
+     */
     public void setFighterPoints(int fighterPoints) {
         this.fighterPoints = fighterPoints;
     }
 
+    /**
+     * set trader points
+     * @param traderPoints int
+     */
     public void setTraderPoints(int traderPoints) {
         this.traderPoints = traderPoints;
     }
 
+    /**
+     * set engineer points
+     * @param engineerPoints int
+     */
     public void setEngineerPoints(int engineerPoints) {
         this.engineerPoints = engineerPoints;
     }
 
+    /**
+     * set name
+     * @param name string of name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * set ship
+     * @param ship string of ship
+     */
     public void setShip(String ship) {
         this.ship = ship;
     }
 
+    /**
+     * set weapons level
+     * @param weaponsLevel int weapons level
+     */
     public void setWeaponsLevel(int weaponsLevel) {this.weaponsLevel = weaponsLevel;}
 
+    /**
+     * set difficulty
+     * @param difficulty Difficulty enum
+     */
     public void setDifficulty(Difficulty difficulty) {
         this.difficulty = difficulty;
     }
 
+    /**
+     * set Fuel
+     * @param fuel int of fuel
+     */
     public void setFuel(int fuel) { this.fuel = fuel; }
 
 

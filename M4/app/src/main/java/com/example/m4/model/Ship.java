@@ -39,26 +39,50 @@ public class Ship {
 
     // getters and setters
 
+    /**
+     * get Name
+     * @return String of name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * get weapon
+     * @return String of weapon
+     */
     public String getWeapon() {
         return weapon;
     }
 
+    /**
+     * get Shield
+     * @return String of sheild
+     */
     public String getShield() {
         return shield;
     }
 
+    /**
+     * get Gadget
+     * @return String of gadget
+     */
     public String getGadget() {
         return gadget;
     }
 
+    /**
+     * get Escape Pod
+     * @return String of escape pod
+     */
     public String getEscapePod() {
         return escape_pod;
     }
 
+    /**
+     * get Insurance
+     * @return String of insurance
+     */
     public String getInsurance() {
         return insurance;
     }

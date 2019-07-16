@@ -14,6 +14,12 @@ public class Planet {
 
     //constructors for a planet object
 
+    /**
+     * Planet constructor
+     * @param planetName planet name
+     * @param xLocation int
+     * @param yLocation int
+     */
     public Planet(PlanetName planetName, int xLocation, int yLocation) {
         this.planetName = planetName;
         this.xLocation = xLocation;
@@ -24,34 +30,66 @@ public class Planet {
 
     //getters and setters for the variable
 
+    /**
+     * get planet name
+     * @return planet name
+     */
     public PlanetName getPlanetName() {
         return planetName;
     }
 
+    /**
+     * get color
+     * @return color
+     */
     public Colors getColor() {
         return color;
     }
 
+    /**
+     * get xlocation
+     * @return xLocation
+     */
     public int getxLocation() {
         return xLocation;
     }
 
+    /**
+     * get yLocation
+     * @return yLocation
+     */
     public int getyLocation() {
         return yLocation;
     }
 
+    /**
+     * set planetname
+     * @param planetName planet name from enum
+     */
     public void setPlanetName(PlanetName planetName) {
         this.planetName = planetName;
     }
 
+    /**
+     * set color method
+     * @param color color enum
+     */
     public void setColor(Colors color) {
         this.color = color;
     }
 
+    /**
+     * set xLocation
+     * @param xLocation int
+     */
     public void setxLocation(int xLocation) {
         this.xLocation = xLocation;
     }
 
+    /**
+     * set ylocation
+     * @param yLocation int
+     */
     public void setyLocation(int yLocation) {
         this.yLocation = yLocation;
     }
