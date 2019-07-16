@@ -22,6 +22,10 @@ public class TravelViewModel extends AndroidViewModel {
     private boolean isitPirate;
     private boolean beatPirate;
 
+    /**
+     * Constructor with single parameter
+     * @param application of TravelView
+     */
     public TravelViewModel(@NonNull Application application) {
         super(application);
     }
@@ -48,11 +52,18 @@ public class TravelViewModel extends AndroidViewModel {
         return beatPirate;
     }
 
-    // getter and setter
+    /**
+     * Getter method for IsItPirate
+     * @return true if it is pirate
+     */
     public boolean getIsItPirate() {
         return  isitPirate;
     }
 
+    /**
+     * Setter method for isItPirate
+     * @param isitPirate isItPirate
+     */
     public void setIsItPirate(boolean isitPirate) {
         this.isitPirate = isitPirate;
     }

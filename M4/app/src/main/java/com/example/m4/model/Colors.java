@@ -30,6 +30,7 @@ public enum Colors {
 
     /**
      * Sets color
+     * @param color type of color
      */
     public void setColor(String color) {
         this.color = color;

@@ -43,6 +43,10 @@ public class ConfigurationView extends AppCompatActivity implements OnClickListe
     private TextView trader_points;
     private TextView engineer_points;
 
+    /**
+     * Overridden onCreate method initialize activity
+     * @param savedInstanceState saved instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -100,6 +104,10 @@ public class ConfigurationView extends AppCompatActivity implements OnClickListe
         viewModel = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
     }
 
+    /**
+     * Overridden Onclick method
+     * @param v view
+     */
     @Override
     public void onClick (View v) {
 

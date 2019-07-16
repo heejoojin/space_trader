@@ -46,6 +46,10 @@ public class MapView extends AppCompatActivity implements View.OnClickListener {
     private Drawable whitePaint;
     private Drawable yellowPaint;
 
+    /**
+     * Overridden onCreate method initialize activity
+     * @param savedInstanceState saved instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

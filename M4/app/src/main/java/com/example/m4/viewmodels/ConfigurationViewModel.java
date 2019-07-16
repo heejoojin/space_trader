@@ -12,15 +12,26 @@ public class ConfigurationViewModel extends AndroidViewModel {
 
     private int score = 16;
 
+    /**
+     * Configuration view model constructor with application parameter
+     * @param application of configuration view
+     */
     public ConfigurationViewModel(@NonNull Application application) {
         super(application);
     }
 
-    // getters and setters
+    /**
+     * set score method
+     * @param score take score
+     */
     public void setScore(int score) {
         this.score = score;
     }
 
+    /**
+     * get score method
+     * @return int of score
+     */
     public int getScore() {
         return this.score;
     }

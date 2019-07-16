@@ -19,6 +19,10 @@ import com.example.m4.repository.Repository;
 @SuppressWarnings({"FeatureEnvy", "ChainedMethodCall"})
 public class CreatePlayerView extends AppCompatActivity implements OnClickListener {
 
+    /**
+     * Overridden onCreate method initialize activity
+     * @param savedInstanceState saved instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -51,6 +55,7 @@ public class CreatePlayerView extends AppCompatActivity implements OnClickListen
         create_universe.setOnClickListener(this);
 
     }
+
 
     @Override
     public void onClick (View v) {

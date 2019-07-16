@@ -12,6 +12,11 @@ import java.util.ArrayList;
 @SuppressWarnings({"WeakerAccess", "unused",
         "PublicField", "AssignmentOrReturnOfFieldWithMutableType",
         "UtilityClass", "ClassWithTooManyDependents"})
+
+/**
+ * Class Repository
+ * Store data
+ */
 public class Repository {
 
     public static Player playerClass;

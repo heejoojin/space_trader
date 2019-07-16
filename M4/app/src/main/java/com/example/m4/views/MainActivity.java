@@ -17,8 +17,12 @@ import com.example.m4.R;
  */
 @SuppressWarnings("ChainedMethodCall")
 public class MainActivity extends AppCompatActivity implements OnClickListener {
-    
 
+
+    /**
+     * Overridden onCreate method initialize activity
+     * @param savedInstanceState saved instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

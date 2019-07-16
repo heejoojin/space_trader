@@ -11,6 +11,10 @@ import com.example.m4.R;
  */
 public class ErrorView extends AppCompatActivity {
 
+    /**
+     * Overridden onCreate method initialize activity
+     * @param savedInstanceState saved instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
