@@ -48,7 +48,7 @@ public class PlanetsView extends AppCompatActivity implements View.OnClickListen
         Button enterMarket = findViewById(R.id.enter_market_button);
         enterMarket.setOnClickListener(this);
 
-        Button enterMercenariesMarket = findViewById(R.id.enter_mercneary_button);
+        Button enterMercenariesMarket = findViewById(R.id.enter_mercenary_button);
         enterMercenariesMarket.setOnClickListener(this);
 
         Button travelTonewRegion = findViewById(R.id.travel_region_button);
@@ -105,7 +105,7 @@ public class PlanetsView extends AppCompatActivity implements View.OnClickListen
             }
         }
 
-        if (v.getId() == R.id.enter_mercneary_button) {
+        if (v.getId() == R.id.enter_mercenary_button) {
             if (clicked) {
                 startActivity(new Intent(this, MercenaryView.class));
                 MarketItemAdapter.checkpoint = 1000;
