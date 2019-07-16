@@ -1,7 +1,7 @@
 package com.example.m4.views;
 
 import android.content.Context;
-import android.content.res.Resources;
+// import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
