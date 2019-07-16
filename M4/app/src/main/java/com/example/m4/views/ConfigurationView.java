@@ -23,7 +23,9 @@ import com.example.m4.repository.Repository;
  * Configuration view setting up the UI for the initial screen the user will encounter when starting
  * a new game
  */
-@SuppressWarnings({"FeatureEnvy", "ChainedMethodCall", "MagicNumber"})
+@SuppressWarnings({"FeatureEnvy", "ChainedMethodCall",
+        "MagicNumber", "OverlyComplexMethod",
+        "OverlyLongMethod"})
 public class ConfigurationView extends AppCompatActivity implements OnClickListener {
 
     private ConfigurationViewModel viewModel;
@@ -166,7 +168,8 @@ public class ConfigurationView extends AppCompatActivity implements OnClickListe
                         viewModel.setScore(viewModel.getScore() + 1);
                         score.setText(String.valueOf(viewModel.getScore()));
 
-                    } else if ((v.getId() == R.id.fighter_minus) && (player.getFighterPoints() > 0)) {
+                    } else if ((v.getId() == R.id.fighter_minus) &&
+                            (player.getFighterPoints() > 0)) {
 
                         player.setFighterPoints(player.getFighterPoints() - 1);
                         fighter_points.setText(String.valueOf(player.getFighterPoints()));
@@ -182,7 +185,8 @@ public class ConfigurationView extends AppCompatActivity implements OnClickListe
                         viewModel.setScore(viewModel.getScore() + 1);
                         score.setText(String.valueOf(viewModel.getScore()));
 
-                    } else if ((v.getId() == R.id.engineer_minus) && (player.getEngineerPoints() > 0)){
+                    } else if ((v.getId() == R.id.engineer_minus) &&
+                            (player.getEngineerPoints() > 0)){
 
                         player.setEngineerPoints(player.getEngineerPoints() - 1);
                         engineer_points.setText(String.valueOf(player.getEngineerPoints()));

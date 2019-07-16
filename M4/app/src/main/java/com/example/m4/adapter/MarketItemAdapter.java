@@ -17,15 +17,13 @@ import java.util.List;
  */
 @SuppressWarnings({"FieldCanBeLocal", "unused", "FeatureEnvy",
         "PublicField", "AssignmentOrReturnOfFieldWithMutableType",
-        "AssignmentToStaticFieldFromInstanceMethod"})
+        "AssignmentToStaticFieldFromInstanceMethod", "NullableProblems"})
 public class MarketItemAdapter extends ArrayAdapter<Item>{
 
     private final List<Item> list;
     private final Context context;
 
     public static int checkpoint;
-
-    private int count = 5;
 
 
     private TextView currentItemName;
@@ -78,6 +76,7 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
 
 
         //Set the text of the meal, amount and quantity
+        assert currentItem != null;
         currentItemName.setText(currentItem.getName());
         String m1 = "$ " + currentItem.getPrice();
         currentPrice.setText(m1);
@@ -96,9 +95,7 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
                 if (Repository.isitBuying) {
 
                     if ((checkpoint >= 0) && (currentItem.getQuantityInMarket() > 0)) {
-                        if (((checkpoint - currentItem.getPrice()) >= 0) && (count > 0)) {
-
-                            count--;
+                        if (((checkpoint - currentItem.getPrice()) >= 0)) {
 
                             currentItem.addToQuantityChange();
                             currentItem.addToQuanitiyinHold();

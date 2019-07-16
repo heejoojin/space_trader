@@ -32,9 +32,7 @@ import java.text.DecimalFormat;
 /**
  * View that will depict our entire universe along with its regions/planets
  */
-@SuppressWarnings({"FieldCanBeLocal", "unused", "AccessStaticViaInstance",
-        "unchecked", "FeatureEnvy", "ChainedMethodCall",
-        "AssignmentToStaticFieldFromInstanceMethod"})
+@SuppressWarnings({"ALL", "ClassWithTooManyDependencies"})
 public class UniverseView extends AppCompatActivity implements OnClickListener {
 
     private GridView UniversegridView;

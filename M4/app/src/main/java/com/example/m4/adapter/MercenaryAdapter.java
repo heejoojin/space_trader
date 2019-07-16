@@ -22,7 +22,8 @@ class MercenaryAdapter
         "SetTextI18n", "unused", "FeatureEnvy",
         "ChainedMethodCall", "PublicField",
         "AssignmentOrReturnOfFieldWithMutableType",
-        "AssignmentToStaticFieldFromInstanceMethod"})
+        "AssignmentToStaticFieldFromInstanceMethod",
+        "NullableProblems"})
 
 public class MercenaryAdapter extends ArrayAdapter<Mercenary>{
 
@@ -110,7 +111,7 @@ public class MercenaryAdapter extends ArrayAdapter<Mercenary>{
                         }
                     }
 
-                } else if (!Repository.isitBuying) {
+                } else {
                     // selling
                     if (currentItem.getHired()) {
                         currentItem.setHired(false);

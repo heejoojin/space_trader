@@ -24,7 +24,8 @@ import android.widget.Button;
  */
 @SuppressWarnings({"WeakerAccess", "SetTextI18n",
         "UnnecessaryLocalVariable", "ChainedMethodCall",
-        "MagicNumber", "AssignmentToStaticFieldFromInstanceMethod"})
+        "MagicNumber", "AssignmentToStaticFieldFromInstanceMethod",
+        "OverlyComplexMethod", "OverlyLongMethod", "CyclicClassDependency"})
 public class MarketView extends AppCompatActivity implements OnClickListener {
 
     private TextView itemTotaltoEditText;

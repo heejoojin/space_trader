@@ -10,7 +10,8 @@ import com.example.m4.model.Ship;
 import java.util.List;
 import java.util.ArrayList;
 @SuppressWarnings({"WeakerAccess", "unused",
-        "PublicField", "AssignmentOrReturnOfFieldWithMutableType"})
+        "PublicField", "AssignmentOrReturnOfFieldWithMutableType",
+        "UtilityClass", "ClassWithTooManyDependents"})
 public class Repository {
 
     public static Player playerClass;

@@ -20,7 +20,7 @@ import java.util.List;
  */
 @SuppressWarnings({"FieldCanBeLocal", "unused", "FeatureEnvy",
         "ChainedMethodCall",
-        "AssignmentOrReturnOfFieldWithMutableType"})
+        "AssignmentOrReturnOfFieldWithMutableType", "NullableProblems"})
 public class ShipAdapter extends ArrayAdapter<Ship> {
 
     private final List<Ship> list;

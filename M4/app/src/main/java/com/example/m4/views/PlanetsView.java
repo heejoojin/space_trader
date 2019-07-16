@@ -25,7 +25,7 @@ import java.util.List;
 @SuppressWarnings({"unchecked",
         "FeatureEnvy",
         "ChainedMethodCall",
-        "AssignmentToStaticFieldFromInstanceMethod"})
+        "AssignmentToStaticFieldFromInstanceMethod", "CyclicClassDependency"})
 public class PlanetsView extends AppCompatActivity implements View.OnClickListener {
 
     private TextView planet_name_text;
@@ -118,7 +118,9 @@ public class PlanetsView extends AppCompatActivity implements View.OnClickListen
                 MarketItemAdapter.checkpoint = 1000;
                 Repository.isitBuying = true;
             } else {
-                Toast.makeText(getApplicationContext(), "You have to select a planet", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),
+                        "You have to select a planet",
+                        Toast.LENGTH_SHORT).show();
             }
         }
 
