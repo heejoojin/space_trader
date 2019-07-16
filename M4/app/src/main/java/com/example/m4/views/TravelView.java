@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 import com.example.m4.R;
+import com.example.m4.repository.Repository;
 import com.example.m4.viewmodels.TravelViewModel;
 
 import java.text.DecimalFormat;
