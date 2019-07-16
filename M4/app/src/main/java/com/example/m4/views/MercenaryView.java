@@ -21,7 +21,7 @@ import java.util.Arrays;
 /**
  * View representing the mercenary market, another version of the market that has mercenaries instead
  */
-@SuppressWarnings({"WeakerAccess", "SetTextI18n"})
+@SuppressWarnings({"WeakerAccess", "SetTextI18n", "UnnecessaryLocalVariable"})
 public class MercenaryView extends AppCompatActivity implements View.OnClickListener {
 
     private TextView itemTotaltoEditText, itemTotalView;

@@ -7,6 +7,7 @@
 
     <TextView
         android:id="@+id/selected_item_name"
+        style="@style/TextAppearance.AppCompat.Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="8dp"
@@ -26,7 +27,7 @@
         android:paddingStart="122dp"
         android:paddingRight="0dp"
         android:paddingEnd="0dp"
-        android:textSize="11sp"
+        android:textSize="12sp"
         android:textColor="#6d3d7a"/>
 
     <TextView
@@ -38,7 +39,7 @@
         android:paddingStart="13dp"
         android:paddingRight="0dp"
         android:paddingEnd="0dp"
-        android:textSize="11sp" />
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/quantity_leftinmarket_num"
@@ -49,7 +50,7 @@
         android:paddingStart="75dp"
         android:paddingRight="0dp"
         android:paddingEnd="0dp"
-        android:textSize="11sp" />
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/hired"
@@ -61,7 +62,7 @@
         android:paddingRight="0dp"
         android:paddingEnd="0dp"
         android:text="@string/in_market"
-        android:textSize="11sp" />
+        android:textSize="12sp" />
 
 
     <TextView
@@ -74,18 +75,22 @@
         android:paddingRight="0dp"
         android:paddingEnd="0dp"
         android:text="@string/owned"
-        android:textSize="11sp" />
+        android:textSize="12sp" />
 
     <Button
         android:id="@+id/hire_fire_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:layout_marginLeft="100dp"
+        android:layout_marginStart="100dp"
         android:layout_marginRight="2dp"
         android:layout_marginEnd="2dp"
         android:layout_toLeftOf="@+id/selected_item_amount"
         android:layout_toStartOf="@+id/selected_item_amount"
-        android:text="@string/_plus" />
+        android:text="@string/_plus"
+        tools:ignore="RelativeOverlap"
+        />
 
     <TextView
         android:id="@+id/selected_item_amount"

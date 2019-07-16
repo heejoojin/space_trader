@@ -7,9 +7,9 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:launchMode="singleTop">
+        android:launchMode="singleTop"
+        android:fullBackupContent="@xml/backup_descriptor">
 
         <activity android:name=".views.MainActivity">
             <intent-filter>
@@ -47,10 +47,6 @@
             android:parentActivityName=".views.UniverseView" />
 
         <activity
-            android:name="views.RandomEventView"
-            android:parentActivityName=".views.UniverseView" />
-
-        <activity
             android:name=".views.MiniGameView"
             android:parentActivityName=".views.MainActivity" />
 
@@ -62,6 +58,8 @@
             android:name=".views.MapView"
             android:parentActivityName=".views.UniverseView" />
 
+        <activity android:name=".views.RandomEventView"
+            android:parentActivityName=".views.UniverseView"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

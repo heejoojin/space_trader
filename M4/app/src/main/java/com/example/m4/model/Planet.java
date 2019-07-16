@@ -6,6 +6,7 @@ package com.example.m4.model;
  * the region as well as various other essential variables
  */
 
+@SuppressWarnings("unused")
 public class Planet {
 
     private PlanetName planetName;

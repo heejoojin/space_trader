@@ -34,7 +34,9 @@
         android:hint="@string/user_name"
         android:id="@+id/name_input" app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="50dp" app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginLeft="40dp" android:layout_marginStart="40dp" />
+        android:layout_marginLeft="40dp" android:layout_marginStart="40dp"
+        android:importantForAutofill="no"
+        tools:targetApi="o" />
 
     <TextView
         android:text="@string/difficulty"

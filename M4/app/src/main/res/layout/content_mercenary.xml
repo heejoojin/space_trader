@@ -26,7 +26,7 @@
         android:paddingStart="122dp"
         android:paddingRight="0dp"
         android:paddingEnd="0dp"
-        android:textSize="11sp"
+        android:textSize="12sp"
         android:textColor="#6d3d7a"/>
 
     <TextView
@@ -38,7 +38,7 @@
         android:paddingRight="0dp"
         android:paddingEnd="0dp"
         android:paddingTop="24dp"
-        android:textSize="11sp" />
+        android:textSize="12sp" />
 
 
     <TextView
@@ -50,7 +50,7 @@
         android:paddingRight="0dp"
         android:paddingEnd="0dp"
         android:paddingTop="24dp"
-        android:textSize="11sp" />
+        android:textSize="12sp" />
 
     <Button
         android:id="@+id/hire_fire_button"
@@ -63,7 +63,8 @@
         android:layout_marginEnd="4dp"
         android:layout_toLeftOf="@+id/selected_item_amount"
         android:layout_toStartOf="@+id/selected_item_amount"
-        android:text="@string/select" />
+        android:text="@string/select"
+        tools:ignore="RelativeOverlap" />
 
     <TextView
         android:id="@+id/selected_item_amount"

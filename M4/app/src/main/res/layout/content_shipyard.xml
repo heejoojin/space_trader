@@ -20,6 +20,7 @@
 
     <TextView
         android:id="@+id/selected_ship_cap"
+
         android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,9 +29,12 @@
         android:paddingRight="0dp"
         android:paddingStart="122dp"
         android:paddingEnd="0dp"
-        android:textSize="11sp"
+        android:textSize="12sp"
         android:textColor="#6d3d7a"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"/>
+        android:layout_alignParentEnd="true"
+        android:layout_alignRight="@+id/selected_ship_name"
+        android:layout_alignEnd="@+id/selected_ship_name"
+        tools:ignore="RelativeOverlap" />
 
 </RelativeLayout>

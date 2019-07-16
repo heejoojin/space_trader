@@ -10,7 +10,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 import com.example.m4.R;
-import com.example.m4.repository.Repository;
 import com.example.m4.viewmodels.TravelViewModel;
 
 import java.text.DecimalFormat;
@@ -90,7 +89,7 @@ public class TravelView extends AppCompatActivity implements View.OnClickListene
             startActivity(new Intent(this, PlanetsView.class));
 
         } else if (view.getId() == R.id.back_button) {
-            if (viewModel.getIsItPirate() == true) {
+            if (viewModel.getIsItPirate()) {
 
                 backButton.setText("Back");
                 nextButton.setText("Next");

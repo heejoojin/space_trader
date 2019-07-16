@@ -41,11 +41,7 @@ public class TravelViewModel extends AndroidViewModel {
      */
     public boolean winningChancePirate() {
         int random = new Random().nextInt(2);
-        if (random == 0) {
-            beatPirate = true;
-        } else {
-            beatPirate = false;
-        }
+        beatPirate = random == 0;
         return beatPirate;
     }
 

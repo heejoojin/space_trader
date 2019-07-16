@@ -22,6 +22,7 @@ import java.util.List;
 /**
  * View that shows all the planets within the region
  */
+@SuppressWarnings("unchecked")
 public class PlanetsView extends AppCompatActivity implements View.OnClickListener {
 
     private TextView planet_name_text;
