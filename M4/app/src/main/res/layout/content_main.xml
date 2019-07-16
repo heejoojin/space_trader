@@ -14,7 +14,6 @@
 
     <ImageView
         android:id="@+id/imageView1"
-        android:contentDescription="TODO"
         android:layout_width="400dp"
         android:layout_height="400dp"
         android:layout_marginStart="4dp"
@@ -22,14 +21,15 @@
         android:layout_marginTop="112dp"
         android:src="@drawable/rocket"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="TODO" />
 
 
     <Button
         android:id="@+id/main_start_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="START"
+        android:text="@string/start"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.333"
@@ -41,7 +41,7 @@
     android:id="@+id/main_exit_button"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="EXIT"
+    android:text="@string/exit"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintHorizontal_bias="0.667"
@@ -53,7 +53,7 @@
         android:id="@+id/minigame_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="MINI GAME"
+        android:text="@string/mini_game"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -67,7 +67,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="84dp"
         android:gravity="center"
-        android:text="SPACE TRADER"
+        android:text="@string/space_trader"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="40dp"
         android:textStyle="bold"

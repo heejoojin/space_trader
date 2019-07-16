@@ -16,17 +16,14 @@ import com.example.m4.R;
 
 public class RandomEventView extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView travelMessage;
-    private Button backButton;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_randomevent);
 
-        travelMessage = findViewById(R.id.travel_message);
+        TextView travelMessage = findViewById(R.id.travel_message);
 
-        backButton = findViewById(R.id.back_button);
+        Button backButton = findViewById(R.id.back_button);
         backButton.setOnClickListener(this);
 
         travelMessage.setText("After an eventful trip,\nyou couldn't arrive at your destination :(\n\nTry again");

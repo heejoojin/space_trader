@@ -14,13 +14,15 @@ import com.example.m4.repository.Repository;
 
 import java.util.List;
 
+
 /**
 class MercenaryAdapter
  */
+@SuppressWarnings("FieldCanBeLocal")
 public class MercenaryAdapter extends ArrayAdapter<Mercenary>{
 
-    private List<Mercenary> list;
-    private Context context;
+    private final List<Mercenary> list;
+    private final Context context;
 
     public static int checkpoint;
 
@@ -43,7 +45,7 @@ public class MercenaryAdapter extends ArrayAdapter<Mercenary>{
         super(context, 0 ,myOrders);
         this.list = myOrders;
         this.context = context;
-        this.checkpoint = Repository.playerClass.getCredits();
+        checkpoint = Repository.playerClass.getCredits();
     }
 
     /**
@@ -63,11 +65,11 @@ public class MercenaryAdapter extends ArrayAdapter<Mercenary>{
 
         final Mercenary currentItem = getItem(position);
 
-        currentItemName = (TextView)listItemView.findViewById(R.id.selected_item_name);
-        hireFireMerc = (Button)listItemView.findViewById(R.id.hire_fire_button);
-        currentPrice = (TextView)listItemView.findViewById(R.id.selected_item_price);
-        hired = (TextView)listItemView.findViewById(R.id.hired);
-        weapon = (TextView)listItemView.findViewById(R.id.weapon_equipped);
+        currentItemName = listItemView.findViewById(R.id.selected_item_name);
+        hireFireMerc = listItemView.findViewById(R.id.hire_fire_button);
+        currentPrice = listItemView.findViewById(R.id.selected_item_price);
+        hired = listItemView.findViewById(R.id.hired);
+        weapon = listItemView.findViewById(R.id.weapon_equipped);
 
 
         //Set the text of the meal, amount and quantity

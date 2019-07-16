@@ -11,18 +11,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="8dp"
+        android:paddingRight="0dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="0dp"
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="#6d3d7a"/>
 
     <TextView
         android:id="@+id/selected_ship_cap"
+        android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="5dp"
         android:paddingLeft="122dp"
+        android:paddingRight="0dp"
+        android:paddingStart="122dp"
+        android:paddingEnd="0dp"
         android:textSize="11sp"
         android:textColor="#6d3d7a"
-        android:layout_alignParentRight="true" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
 
 </RelativeLayout>

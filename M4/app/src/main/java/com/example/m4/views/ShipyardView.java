@@ -48,7 +48,7 @@ public class ShipyardView extends AppCompatActivity implements View.OnClickListe
         doneButton = findViewById(R.id.done_button);
         doneButton.setOnClickListener(this);
 
-        final ListView shipList = (ListView)findViewById(R.id.selected_ship_list);
+        final ListView shipList = findViewById(R.id.selected_ship_list);
 
         orders = getListItemData();
         Repository.setShipList(orders);

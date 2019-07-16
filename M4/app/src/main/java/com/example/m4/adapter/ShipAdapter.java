@@ -18,14 +18,11 @@ import java.util.List;
 /**
  * class ShipAdapter
  */
+@SuppressWarnings("FieldCanBeLocal")
 public class ShipAdapter extends ArrayAdapter<Ship> {
 
-    private List<Ship> list;
-    private Context context;
-
-    private String equipment;
-
-    private TextView currentShipName, shipEquipment;
+    private final List<Ship> list;
+    private final Context context;
 
     /**
      * Default ArrayAdapter constructor
@@ -53,11 +50,11 @@ public class ShipAdapter extends ArrayAdapter<Ship> {
             );
         }
         final Ship currentShip = getItem(position);
-        currentShipName = listShipView.findViewById(R.id.selected_ship_name);
-        shipEquipment = listShipView.findViewById(R.id.selected_ship_cap);
+        TextView currentShipName = listShipView.findViewById(R.id.selected_ship_name);
+        TextView shipEquipment = listShipView.findViewById(R.id.selected_ship_cap);
 
         currentShipName.setText(currentShip.getName());
-        equipment = String.format("has %s, %s, %s, %s, %s",
+        String equipment = String.format("has %s, %s, %s, %s, %s",
                 currentShip.getWeapon(),
                 currentShip.getShield(),
                 currentShip.getGadget(),

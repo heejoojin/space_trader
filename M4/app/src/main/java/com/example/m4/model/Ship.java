@@ -1,7 +1,13 @@
 package com.example.m4.model;
 
-import com.example.m4.repository.Repository;
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 225cdf6c8f2240a21bd3829c504d5359ca7108f0
+// import com.example.m4.repository.Repository;
 
+>>>>>>> 225cdf6c8f2240a21bd3829c504d5359ca7108f0
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
@@ -9,6 +15,7 @@ import java.util.Random;
 /**
  * Class representing the player's ship, containing variables such as the items owned
  */
+@SuppressWarnings("FieldCanBeLocal")
 public class Ship {
 
     private String name;

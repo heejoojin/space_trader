@@ -10,6 +10,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="8dp"
+        android:paddingStart="8dp"
+        android:paddingRight="0dp"
+        android:paddingEnd="0dp"
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="#6d3d7a"/>
@@ -20,6 +23,9 @@
         android:layout_height="wrap_content"
         android:paddingTop="5dp"
         android:paddingLeft="122dp"
+        android:paddingStart="122dp"
+        android:paddingRight="0dp"
+        android:paddingEnd="0dp"
         android:textSize="11sp"
         android:textColor="#6d3d7a"/>
 
@@ -28,6 +34,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="92dp"
+        android:paddingStart="92dp"
+        android:paddingRight="0dp"
+        android:paddingEnd="0dp"
         android:paddingTop="24dp"
         android:textSize="11sp" />
 
@@ -37,6 +46,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="22dp"
+        android:paddingStart="22dp"
+        android:paddingRight="0dp"
+        android:paddingEnd="0dp"
         android:paddingTop="24dp"
         android:textSize="11sp" />
 
@@ -46,9 +58,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginRight="4dp"
+        android:layout_marginEnd="4dp"
         android:layout_toLeftOf="@+id/selected_item_amount"
-        android:text="Select" />
+        android:layout_toStartOf="@+id/selected_item_amount"
+        android:text="@string/select" />
 
     <TextView
         android:id="@+id/selected_item_amount"
@@ -56,10 +71,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginTop="13dp"
         android:layout_marginLeft="13dp"
+        android:layout_marginStart="13dp"
         android:layout_marginRight="102dp"
-        android:layout_toLeftOf="@+id/minus_item_button"
+        android:layout_marginEnd="102dp"
         android:textSize="18sp"
         android:gravity="center"
         android:textStyle="bold"/>

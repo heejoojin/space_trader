@@ -58,13 +58,13 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
         doneButton = findViewById(R.id.done_button);
         doneButton.setOnClickListener(this);
 
-        itemTotaltoEditText = (TextView)findViewById(R.id.total_num_view);
-        creditTotaltoEditText = (TextView)findViewById(R.id.credit_num_view);
+        itemTotaltoEditText = findViewById(R.id.total_num_view);
+        creditTotaltoEditText = findViewById(R.id.credit_num_view);
         creditTotaltoEditText.setText("" + Repository.playerClass.getCredits());
 
-        itemTotalView = (TextView)findViewById(R.id.item_total);
+        itemTotalView = findViewById(R.id.item_total);
 
-        ListView storedOrders = (ListView)findViewById(R.id.selected_item_list);
+        ListView storedOrders = findViewById(R.id.selected_item_list);
 
         orders = getListItemData();
         Repository.setItemsList(orders);
@@ -160,7 +160,7 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
 
             if (Repository.isitBuying) {
 
-                switchButton.setText("Swith to Buy");
+                switchButton.setText("Switch to Buy");
                 buyorsellButton.setText("Sell");
                 itemTotalView.setText("Total Sale   ");
                 marketMode.setText("Sell Items");
@@ -171,7 +171,7 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
 
 
             } else {
-                switchButton.setText("Swith to Sell");
+                switchButton.setText("Switch to Sell");
                 buyorsellButton.setText("Buy");
                 itemTotalView.setText("Total Expense   ");
                 marketMode.setText("Buy Items");

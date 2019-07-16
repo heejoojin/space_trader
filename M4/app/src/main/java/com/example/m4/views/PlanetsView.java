@@ -24,19 +24,11 @@ import java.util.List;
  */
 public class PlanetsView extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView selectedRegion;
-    private GridView planetsView;
-    private String region_title;
-
     private TextView planet_name_text;
     private TextView planet_location_text;
 
     private List<String> planets = new ArrayList<>();
     private boolean clicked = false;
-
-    private Button enterMarket;
-    private Button enterMercenariesMarket;
-    private Button travelTonewRegion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,22 +36,22 @@ public class PlanetsView extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_planets);
 
-        selectedRegion = findViewById(R.id.selected_region_view);
-        region_title = "You are in " + Repository.toTravelRegionName.toString() + " Region" + "\n";
+        TextView selectedRegion = findViewById(R.id.selected_region_view);
+        String region_title = "You are in " + Repository.toTravelRegionName.toString() + " Region" + "\n";
         selectedRegion.setText(region_title);
 
-        planetsView = findViewById(R.id.planets_gridView);
+        GridView planetsView = findViewById(R.id.planets_gridView);
 
         planet_name_text = findViewById(R.id.single_planet_selected);
         planet_location_text = findViewById(R.id.single_planet_location_selected);
 
-        enterMarket = findViewById(R.id.enter_market_button);
+        Button enterMarket = findViewById(R.id.enter_market_button);
         enterMarket.setOnClickListener(this);
 
-        enterMercenariesMarket = findViewById(R.id.enter_mercneary_button);
+        Button enterMercenariesMarket = findViewById(R.id.enter_mercneary_button);
         enterMercenariesMarket.setOnClickListener(this);
 
-        travelTonewRegion = findViewById(R.id.travel_region_button);
+        Button travelTonewRegion = findViewById(R.id.travel_region_button);
         travelTonewRegion.setOnClickListener(this);
 
         for (Planet planet : Repository.toTravelPlanets) {
@@ -76,8 +68,7 @@ public class PlanetsView extends AppCompatActivity implements View.OnClickListen
                 // TODO Auto-generated method stub
                 clicked = true;
 
-                String message = "";
-                message = adapter.getItem(position) + " has been selected";
+                String message = adapter.getItem(position) + " has been selected";
                 Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
 
                 for (Planet planet : Repository.toTravelPlanets) {

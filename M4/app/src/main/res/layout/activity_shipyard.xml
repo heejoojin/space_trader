@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:gravity="center"
-        android:text="Shipyard"
+        android:text="@string/shipyard_1"
         android:textColor="#6d3d7a"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:gravity="center"
-        android:text="Planet"
+        android:text="@string/planet"
         android:textColor="#6d3d7a"
         android:textSize="21sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
         android:gravity="center"
-        android:text="Change your Ship"
+        android:text="@string/change_your_ship"
         android:textStyle="bold"
         android:textColor="#6d3d7a"
         android:textSize="20sp"
@@ -133,7 +133,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="56dp"
-        android:text="done"
+        android:text="@string/done"
         app:layout_constraintStart_toEndOf="@+id/market_button"
         app:layout_constraintTop_toBottomOf="@+id/selected_ship_list" />
 
@@ -144,7 +144,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="56dp"
-        android:text="market"
+        android:text="@string/market"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/selected_ship_list" />
 

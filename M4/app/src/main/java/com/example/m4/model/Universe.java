@@ -6,6 +6,7 @@ import java.util.Random;
 /**
  * Class that represents the entire universe the game is set in
  */
+@SuppressWarnings("FieldCanBeLocal")
 public class Universe {
 
     //variables for a universe object
@@ -57,11 +58,11 @@ public class Universe {
 
         String string = "Universe: \n";
         for (Region region : regions) {
-            string += region.getRegionName() + ": " + region.getSpecialResource()
+            string = string + region.getRegionName() + ": " + region.getSpecialResource()
                     + ", " + region.getTechLevel() + "," + " (" + region.getxLoc()
                     + ", " + region.getyLoc() + "), " + region.getColor() + region.getFuelneededtoTravel() + " Planets: \n";
             for (Planet planet: region.getPlanetList()) {
-                string += planet.getPlanetName() + ", (" + planet.getxLocation()
+                string = string + planet.getPlanetName() + ", (" + planet.getxLocation()
                         + ", " + planet.getyLocation() + ")\n";
             }
         }
@@ -162,7 +163,7 @@ public class Universe {
      * is used region
      * this method checks if a RegionName has already been used
      * @param regionName region name
-     * @return
+     * @return boolean is used
      */
     private boolean isUsedRegion(RegionName regionName) {
 
@@ -214,7 +215,7 @@ public class Universe {
      * checks if x and y coordinates are valid to create a region with
      * @param x int
      * @param y int
-     * @return
+     * @return boolean is valid location
      */
     private boolean isValidRegLocation(int x, int y) {
 
@@ -262,7 +263,7 @@ public class Universe {
      * is valid planet location
      * @param x int
      * @param y int
-     * @return
+     * @return boolean is valid planet location
      */
     private boolean isValidPlanetLocation(int x, int y) {
 

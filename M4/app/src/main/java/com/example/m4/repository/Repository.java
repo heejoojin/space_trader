@@ -1,5 +1,12 @@
 package com.example.m4.repository;
-import android.content.Intent;
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+// import android.content.Intent;
+>>>>>>> 225cdf6c8f2240a21bd3829c504d5359ca7108f0
+=======
+// import android.content.Intent;
+>>>>>>> 225cdf6c8f2240a21bd3829c504d5359ca7108f0
 
 import com.example.m4.model.Mercenary;
 import com.example.m4.model.Player;

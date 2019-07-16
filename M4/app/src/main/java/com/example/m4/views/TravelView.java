@@ -6,9 +6,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.m4.model.Universe;
+<<<<<<< HEAD
+<<<<<<< HEAD
 import com.example.m4.repository.Repository;
-import android.widget.Toast;
+=======
+// import com.example.m4.model.Universe;
+import com.example.m4.repository.Repository;
+// import android.widget.Toast;
+>>>>>>> 225cdf6c8f2240a21bd3829c504d5359ca7108f0
+=======
+// import com.example.m4.model.Universe;
+import com.example.m4.repository.Repository;
+// import android.widget.Toast;
+>>>>>>> 225cdf6c8f2240a21bd3829c504d5359ca7108f0
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 import com.example.m4.R;
@@ -57,25 +67,29 @@ public class TravelView extends AppCompatActivity implements View.OnClickListene
 
         // "Trader Encounter", "Pirate Encounter", "Police Encounter", "Safe Travel"
 
-        if (randomElement.equals("Trader Encounter")) {
+        switch (randomElement) {
+            case "Trader Encounter":
 
-            travelMessage.setText("You have encountered a trader!\n\nYou have no items to trade\nGo to market and buy some goods :)");
+                travelMessage.setText("You have encountered a trader!\n\nYou have no items to trade\nGo to market and buy some goods :)");
 
-        } else if (randomElement.equals("Pirate Encounter")) {
-            Repository.playerClass.setCredits(Repository.playerClass.getCredits() - 150);
-            creditLeft = String.valueOf(Repository.playerClass.getCredits());
-            pirateMessage = "You have encountered a pirate!\n\nThe pirate took 150 credits from you :(\nNow you have " + creditLeft + " credits\n\nIf you fight him,\nyou could get your money back or\nyou may lose even more.";
-            travelMessage.setText(pirateMessage);
+                break;
+            case "Pirate Encounter":
+                Repository.playerClass.setCredits(Repository.playerClass.getCredits() - 150);
+                creditLeft = String.valueOf(Repository.playerClass.getCredits());
+                pirateMessage = "You have encountered a pirate!\n\nThe pirate took 150 credits from you :(\nNow you have " + creditLeft + " credits\n\nIf you fight him,\nyou could get your money back or\nyou may lose even more.";
+                travelMessage.setText(pirateMessage);
 
-            region_display_textview.setText("");
+                region_display_textview.setText("");
 
-            backButton.setText("Fight !");
-            nextButton.setText("Surrender & Next");
+                backButton.setText("Fight !");
+                nextButton.setText("Surrender & Next");
 
-        } else if (randomElement.equals("Police Encounter")) {
+                break;
+            case "Police Encounter":
 
-            travelMessage.setText("You have encountered a police!\n\nSince you don't have any illegal goods,\nyou don't need to pay any fines :)");
+                travelMessage.setText("You have encountered a police!\n\nSince you don't have any illegal goods,\nyou don't need to pay any fines :)");
 
+                break;
         }
     }
 

@@ -15,10 +15,11 @@ import java.util.List;
 /**
  * class MarketItemAdapter
  */
+@SuppressWarnings("FieldCanBeLocal")
 public class MarketItemAdapter extends ArrayAdapter<Item>{
 
-    private List<Item> list;
-    private Context context;
+    private final List<Item> list;
+    private final Context context;
 
     public static int checkpoint;
 
@@ -42,7 +43,7 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
         super(context, 0, myOrders);
         this.list = myOrders;
         this.context = context;
-        this.checkpoint = Repository.playerClass.getCredits();
+        checkpoint = Repository.playerClass.getCredits();
     }
 
     /**
@@ -62,13 +63,13 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
 
         final Item currentItem = getItem(position);
 
-        currentItemName = (TextView)listItemView.findViewById(R.id.selected_item_name);
-        quantityLeftinHold = (TextView)listItemView.findViewById(R.id.quantityowned_left_num);
-        subtractItem = (Button)listItemView.findViewById(R.id.minus_item_button);
-        selectedItemNum = (TextView)listItemView.findViewById(R.id.selected_item_amount);
-        addItem = (Button)listItemView.findViewById(R.id.hire_fire_button);
-        currentPrice = (TextView)listItemView.findViewById(R.id.selected_item_price);
-        quantityLeftinMarket = (TextView)listItemView.findViewById(R.id.quantity_leftinmarket_num);
+        currentItemName = listItemView.findViewById(R.id.selected_item_name);
+        quantityLeftinHold = listItemView.findViewById(R.id.quantityowned_left_num);
+        subtractItem = listItemView.findViewById(R.id.minus_item_button);
+        selectedItemNum = listItemView.findViewById(R.id.selected_item_amount);
+        addItem = listItemView.findViewById(R.id.hire_fire_button);
+        currentPrice = listItemView.findViewById(R.id.selected_item_price);
+        quantityLeftinMarket = listItemView.findViewById(R.id.quantity_leftinmarket_num);
 
 
         //Set the text of the meal, amount and quantity

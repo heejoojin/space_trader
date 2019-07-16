@@ -9,13 +9,13 @@ import java.util.*;
 /**
  * View model representing the different events we could encounter whilst traveling
  */
+@SuppressWarnings("FieldCanBeLocal")
 public class TravelViewModel extends AndroidViewModel {
 
     private ArrayList<String> eventsList =
             //new ArrayList<String>(Arrays.asList("Pirate Encounter"));
             new ArrayList<>(Arrays.asList("Trader Encounter", "Pirate Encounter", "Police Encounter", "Random Event", "Safe Travel"));
 
-    private String randomElement;
     private boolean isitPirate = false;
     private boolean beatPirate;
 
@@ -28,7 +28,7 @@ public class TravelViewModel extends AndroidViewModel {
      * @return the random event
      */
     public String getRandomElement() {
-        randomElement = eventsList.get(new Random().nextInt(eventsList.size()));
+        String randomElement = eventsList.get(new Random().nextInt(eventsList.size()));
         if (randomElement.equals("Pirate Encounter")) {
             isitPirate = true;
         }

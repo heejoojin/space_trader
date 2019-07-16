@@ -10,6 +10,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="8dp"
+        android:paddingStart="8dp"
+        android:paddingRight="0dp"
+        android:paddingEnd="0dp"
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="#6d3d7a"/>
@@ -20,6 +23,9 @@
         android:layout_height="wrap_content"
         android:paddingTop="5dp"
         android:paddingLeft="122dp"
+        android:paddingStart="122dp"
+        android:paddingRight="0dp"
+        android:paddingEnd="0dp"
         android:textSize="11sp"
         android:textColor="#6d3d7a"/>
 
@@ -29,6 +35,9 @@
         android:layout_height="wrap_content"
         android:paddingTop="24dp"
         android:paddingLeft="13dp"
+        android:paddingStart="13dp"
+        android:paddingRight="0dp"
+        android:paddingEnd="0dp"
         android:textSize="11sp" />
 
     <TextView
@@ -37,6 +46,9 @@
         android:layout_height="wrap_content"
         android:paddingTop="24dp"
         android:paddingLeft="85dp"
+        android:paddingStart="85dp"
+        android:paddingRight="0dp"
+        android:paddingEnd="0dp"
         android:textSize="11sp" />
 
     <TextView
@@ -45,7 +57,10 @@
         android:layout_height="wrap_content"
         android:paddingTop="24dp"
         android:paddingLeft="92dp"
-        android:text="   in market"
+        android:paddingStart="92dp"
+        android:paddingRight="0dp"
+        android:paddingEnd="0dp"
+        android:text="@string/in_market"
         android:textSize="11sp" />
 
 
@@ -55,7 +70,10 @@
         android:layout_height="wrap_content"
         android:paddingTop="24dp"
         android:paddingLeft="22dp"
-        android:text="  owned  | "
+        android:paddingStart="22dp"
+        android:paddingRight="0dp"
+        android:paddingEnd="0dp"
+        android:text="@string/owned"
         android:textSize="11sp" />
 
     <Button
@@ -64,8 +82,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginRight="2dp"
+        android:layout_marginEnd="2dp"
         android:layout_toLeftOf="@+id/selected_item_amount"
-        android:text="+" />
+        android:layout_toStartOf="@+id/selected_item_amount"
+        android:text="@string/_plus" />
 
     <TextView
         android:id="@+id/selected_item_amount"
@@ -73,10 +93,14 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginTop="13dp"
         android:layout_marginLeft="13dp"
+        android:layout_marginStart="13dp"
         android:layout_marginRight="102dp"
+        android:layout_marginEnd="102dp"
         android:layout_toLeftOf="@+id/minus_item_button"
+        android:layout_toStartOf="@+id/minus_item_button"
         android:textSize="18sp"
         android:gravity="center"
         android:textStyle="bold"/>
@@ -86,6 +110,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:text="-" />
+        android:layout_alignParentEnd="true"
+        android:text="@string/_minus" />
 
 </RelativeLayout>

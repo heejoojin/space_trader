@@ -57,13 +57,13 @@ public class MercenaryView extends AppCompatActivity implements View.OnClickList
         doneButton = findViewById(R.id.done_button);
         doneButton.setOnClickListener(this);
 
-        itemTotaltoEditText = (TextView)findViewById(R.id.total_num_view);
-        creditTotaltoEditText = (TextView)findViewById(R.id.credit_num_view);
+        itemTotaltoEditText = findViewById(R.id.total_num_view);
+        creditTotaltoEditText = findViewById(R.id.credit_num_view);
         creditTotaltoEditText.setText("" + Repository.playerClass.getCredits());
 
-        itemTotalView = (TextView)findViewById(R.id.item_total);
+        itemTotalView = findViewById(R.id.item_total);
 
-        ListView storedOrders = (ListView)findViewById(R.id.selected_item_list);
+        ListView storedOrders = findViewById(R.id.selected_item_list);
 
         orders = getListItemData();
         Repository.setMercenariesList(orders);

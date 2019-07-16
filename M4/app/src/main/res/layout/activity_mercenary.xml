@@ -13,7 +13,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
-            android:text="update credit"
+            android:text="@string/update_credit"
             app:layout_constraintStart_toEndOf="@+id/credit_num_view"
             app:layout_constraintStart_toStartOf="@+id/done_button"
             app:layout_constraintTop_toBottomOf="@+id/selected_item_list" />
@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
             android:gravity="center"
-            android:text="Mercenaries"
+            android:text="@string/mercenaries"
             android:textColor="#6d3d7a"
             android:textSize="30sp"
             android:textStyle="bold"
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:gravity="center"
-            android:text="Planet"
+            android:text="@string/planet"
             android:textColor="#6d3d7a"
             android:textSize="21sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:gravity="center"
-            android:text="Hire Mercenaries"
+            android:text="@string/hire_mercenaries"
             android:textColor="#6d3d7a"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -70,9 +70,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/selected_item_list"
-            android:text="Total Expense  "
+            android:text="@string/total_expense"
             android:textColor="#6d3d7a"
             android:textSize="20dp"
             />
@@ -80,9 +81,10 @@
             android:id="@+id/total_num_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
+            android:text="@string/_0"
             android:layout_marginTop="15dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             app:layout_constraintStart_toEndOf="@+id/item_total"
             app:layout_constraintTop_toBottomOf="@+id/selected_item_list"
             />
@@ -92,10 +94,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:textColor="#6d3d7a"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/total_num_view"
-            android:text="Total Credit  "
+            android:text="@string/total_credit"
             android:textSize="20dp"
             />
 
@@ -105,9 +108,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="0dp"
+            android:layout_marginStart="0dp"
             app:layout_constraintStart_toEndOf="@+id/total_credit_view"
             app:layout_constraintTop_toBottomOf="@+id/total_num_view"
-            android:text="1000"
+            android:text="@string/_1000"
             />
 
         <Button
@@ -117,7 +121,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:text="switch to fire"
+            android:text="@string/switch_to_fire"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/total_credit_view" />
 
@@ -129,7 +133,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="30dp"
-            android:text="done"
+            android:text="@string/done"
             app:layout_constraintStart_toEndOf="@+id/shipyard_button"
             app:layout_constraintTop_toBottomOf="@+id/total_credit_view" />
 
@@ -141,7 +145,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="30dp"
-            android:text="shipyard"
+            android:text="@string/shipyard"
             app:layout_constraintStart_toEndOf="@+id/switch_button"
             app:layout_constraintTop_toBottomOf="@+id/total_credit_view" />
 
