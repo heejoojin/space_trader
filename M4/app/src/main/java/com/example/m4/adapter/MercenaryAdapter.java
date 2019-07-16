@@ -18,7 +18,8 @@ import java.util.List;
 /**
 class MercenaryAdapter
  */
-@SuppressWarnings("FieldCanBeLocal")
+@SuppressWarnings({"FieldCanBeLocal", "WeakerAccess", "SetTextI18n", "unused"})
+
 public class MercenaryAdapter extends ArrayAdapter<Mercenary>{
 
     private final List<Mercenary> list;
@@ -26,15 +27,14 @@ public class MercenaryAdapter extends ArrayAdapter<Mercenary>{
 
     public static int checkpoint;
 
-    public int count = 5;
+    private int count = 5;
 
-
-    TextView currentItemName,
+    private TextView currentItemName,
             hired,
             weapon,
             currentPrice;
 
-    Button hireFireMerc;
+    private Button hireFireMerc;
 
     /**
      * Default ArrayAdapter constructor

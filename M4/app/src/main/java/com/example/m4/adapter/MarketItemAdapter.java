@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * class MarketItemAdapter
  */
-@SuppressWarnings("FieldCanBeLocal")
+@SuppressWarnings({"FieldCanBeLocal", "unused"})
 public class MarketItemAdapter extends ArrayAdapter<Item>{
 
     private final List<Item> list;
@@ -23,16 +23,16 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
 
     public static int checkpoint;
 
-    public int count = 5;
+    private int count = 5;
 
 
-    TextView currentItemName,
+    private TextView currentItemName,
             selectedItemNum,
             quantityLeftinHold,
             currentPrice,
             quantityLeftinMarket;
 
-    Button addItem, subtractItem;
+    private Button addItem, subtractItem;
 
     /**
      * Default ArrayAdapter constructor
@@ -74,10 +74,14 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
 
         //Set the text of the meal, amount and quantity
         currentItemName.setText(currentItem.getName());
-        currentPrice.setText("$ " + currentItem.getPrice());
-        quantityLeftinHold.setText("" + currentItem.getQuantityOwned());
-        selectedItemNum.setText(""+ currentItem.getQuantityChange());
-        quantityLeftinMarket.setText("" + currentItem.getQuantityInMarket());
+        String m1 = "$ " + currentItem.getPrice();
+        currentPrice.setText(m1);
+        String m2 = "" + currentItem.getQuantityOwned();
+        quantityLeftinHold.setText(m2);
+        String m3 = ""+ currentItem.getQuantityChange();
+        selectedItemNum.setText(m3);
+        String m4 = "" + currentItem.getQuantityInMarket();
+        quantityLeftinMarket.setText(m4);
 
 
         addItem.setOnClickListener(new View.OnClickListener() {

@@ -6,7 +6,7 @@ import java.util.Random;
 /**
  * Class that represents the entire universe the game is set in
  */
-@SuppressWarnings("FieldCanBeLocal")
+@SuppressWarnings({"FieldCanBeLocal", "unused"})
 public class Universe {
 
     //variables for a universe object
@@ -56,17 +56,14 @@ public class Universe {
     @Override
     public String toString() {
 
-        String string = "Universe: \n";
+        StringBuilder string = new StringBuilder("Universe: \n");
         for (Region region : regions) {
-            string = string + region.getRegionName() + ": " + region.getSpecialResource()
-                    + ", " + region.getTechLevel() + "," + " (" + region.getxLoc()
-                    + ", " + region.getyLoc() + "), " + region.getColor() + region.getFuelneededtoTravel() + " Planets: \n";
+            string.append(region.getRegionName()).append(": ").append(region.getSpecialResource()).append(", ").append(region.getTechLevel()).append(",").append(" (").append(region.getxLoc()).append(", ").append(region.getyLoc()).append("), ").append(region.getColor()).append(region.getFuelneededtoTravel()).append(" Planets: \n");
             for (Planet planet: region.getPlanetList()) {
-                string = string + planet.getPlanetName() + ", (" + planet.getxLocation()
-                        + ", " + planet.getyLocation() + ")\n";
+                string.append(planet.getPlanetName()).append(", (").append(planet.getxLocation()).append(", ").append(planet.getyLocation()).append(")\n");
             }
         }
-        return string;
+        return string.toString();
     }
 
     /**
@@ -77,6 +74,7 @@ public class Universe {
     public ArrayList<Region> getRegions() {
         return regions;
     }
+
     /**
      * set Region
      * @param regions ArrayList<Region>

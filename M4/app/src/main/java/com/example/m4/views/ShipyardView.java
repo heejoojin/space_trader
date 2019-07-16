@@ -20,14 +20,15 @@ import java.util.Arrays;
 /**
  * View representing the shipyard, another version of the market that instead sells ships
  */
+@SuppressWarnings({"FieldCanBeLocal", "WeakerAccess"})
 public class ShipyardView extends AppCompatActivity implements View.OnClickListener {
 
-    ArrayList<Ship> orders;
-    TextView shipDescription;
+    private ArrayList<Ship> orders;
+    private TextView shipDescription;
 
-    Button toMarketButton, doneButton;
+    private Button toMarketButton, doneButton;
 
-    TextView selectedPlanet;
+    private TextView selectedPlanet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +82,7 @@ public class ShipyardView extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    DataSetObserver observer = new DataSetObserver() {
+    final DataSetObserver observer = new DataSetObserver() {
         @Override
         public void onChanged() {
             super.onChanged();

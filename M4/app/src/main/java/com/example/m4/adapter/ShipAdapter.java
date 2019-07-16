@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * class ShipAdapter
  */
-@SuppressWarnings("FieldCanBeLocal")
+@SuppressWarnings({"FieldCanBeLocal", "unused"})
 public class ShipAdapter extends ArrayAdapter<Ship> {
 
     private final List<Ship> list;

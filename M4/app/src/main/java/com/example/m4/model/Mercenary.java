@@ -12,10 +12,10 @@ public class Mercenary {
 
     private final ArrayList<String> weapons = new ArrayList<>(Arrays.asList("Assault Rifle", "Battle Rifle", "Sniper Rifle", "Energy Rifle", "Beam Rifle"));
 
-    private String name;
+    private final String name;
     private boolean hired;
-    private String weapon;
-    private int price;
+    private final String weapon;
+    private final int price;
 
     /**
      * Constructor setting up name and weapon equipped

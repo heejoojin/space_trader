@@ -12,7 +12,7 @@ import java.util.*;
 @SuppressWarnings("FieldCanBeLocal")
 public class TravelViewModel extends AndroidViewModel {
 
-    private ArrayList<String> eventsList =
+    private final ArrayList<String> eventsList =
             //new ArrayList<String>(Arrays.asList("Pirate Encounter"));
             new ArrayList<>(Arrays.asList("Trader Encounter", "Pirate Encounter", "Police Encounter", "Random Event", "Safe Travel"));
 

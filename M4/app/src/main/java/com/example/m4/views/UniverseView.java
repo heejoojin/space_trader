@@ -33,7 +33,7 @@ import java.text.DecimalFormat;
 /**
  * View that will depict our entire universe along with its regions/planets
  */
-@SuppressWarnings("FieldCanBeLocal")
+@SuppressWarnings({"FieldCanBeLocal", "unused"})
 public class UniverseView extends AppCompatActivity implements OnClickListener {
 
     private GridView UniversegridView;
@@ -59,10 +59,10 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
     private static Boolean travelled = false;
     private TravelViewModel viewModel;
 
-    private DecimalFormat formatter = new DecimalFormat("#,###,###");
-    String region_display_message;
+    private final DecimalFormat formatter = new DecimalFormat("#,###,###");
+    private String region_display_message;
 
-    String randomElement;
+    private String randomElement;
 
 
     @Override

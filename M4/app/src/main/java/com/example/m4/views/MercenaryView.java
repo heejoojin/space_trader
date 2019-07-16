@@ -21,25 +21,25 @@ import java.util.Arrays;
 /**
  * View representing the mercenary market, another version of the market that has mercenaries instead
  */
+@SuppressWarnings({"WeakerAccess", "SetTextI18n"})
 public class MercenaryView extends AppCompatActivity implements View.OnClickListener {
 
-    TextView itemTotaltoEditText, itemTotalView;
-    TextView creditTotaltoEditText;
-    TextView marketMode;
-    ArrayList<Mercenary> orders;
+    private TextView itemTotaltoEditText, itemTotalView;
+    private TextView creditTotaltoEditText;
+    private TextView marketMode;
+    private ArrayList<Mercenary> orders;
 
-    MercenaryAdapter setadpater;
+    private MercenaryAdapter setadpater;
 
-    Button switchButton, buyorsellButton, toShipYardButton, doneButton;
+    private Button switchButton;
 
-    TextView selectedPlanet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mercenary);
 
-        selectedPlanet = findViewById(R.id.selected_planet_view);
+        TextView selectedPlanet = findViewById(R.id.selected_planet_view);
         String planet_text = "You are in " + Repository.planetClass.getPlanetName().toString() + " Planet";
         selectedPlanet.setText(planet_text);
 
@@ -48,13 +48,13 @@ public class MercenaryView extends AppCompatActivity implements View.OnClickList
         switchButton = findViewById(R.id.switch_button);
         switchButton.setOnClickListener(this);
 
-        buyorsellButton = findViewById(R.id.make_item_change_button);
+        Button buyorsellButton = findViewById(R.id.make_item_change_button);
         buyorsellButton.setOnClickListener(this);
 
-        toShipYardButton = findViewById(R.id.shipyard_button);
+        Button toShipYardButton = findViewById(R.id.shipyard_button);
         toShipYardButton.setOnClickListener(this);
 
-        doneButton = findViewById(R.id.done_button);
+        Button doneButton = findViewById(R.id.done_button);
         doneButton.setOnClickListener(this);
 
         itemTotaltoEditText = findViewById(R.id.total_num_view);
@@ -97,20 +97,24 @@ public class MercenaryView extends AppCompatActivity implements View.OnClickList
     }
     public void setCreditTotal() {creditTotaltoEditText.setText("" + calculateCreditTotal());}
 
-    public void resetItemTotal() {
-        for (Mercenary order : orders) {
-            //order.setQuantityChange(0); todo
-        }
-        itemTotaltoEditText.setText("0");
-    }
+// --Commented out by Inspection START (2019-07-15 23:31):
+//    public void resetItemTotal() {
+//        for (Mercenary order : orders) {
+//            //order.setQuantityChange(0); todo
+//        }
+//        itemTotaltoEditText.setText("0");
+//    }
+// --Commented out by Inspection STOP (2019-07-15 23:31)
 
-    public void updateIteminCargo() {
-        for (Mercenary order : orders) {
-            //order.updateQuantity(); todo
-        }
-    }
+// --Commented out by Inspection START (2019-07-15 23:38):
+//    public void updateIteminCargo() {
+//        for (Mercenary order : orders) {
+//            //order.updateQuantity(); todo
+//        }
+//    }
+// --Commented out by Inspection STOP (2019-07-15 23:38)
 
-    DataSetObserver observer = new DataSetObserver() {
+    final DataSetObserver observer = new DataSetObserver() {
         @Override
         public void onChanged() {
             super.onChanged();

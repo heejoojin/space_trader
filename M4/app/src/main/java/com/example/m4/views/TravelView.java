@@ -1,4 +1,5 @@
 package com.example.m4.views;
+import com.example.m4.repository.Repository;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,17 +13,19 @@ import com.example.m4.R;
 import com.example.m4.viewmodels.TravelViewModel;
 
 import java.text.DecimalFormat;
+import android.annotation.SuppressLint;
 
 /**
  * View that will depict the traveling of our ship. Will also show random events that occur
  */
+@SuppressLint("SetTextI18n")
 public class TravelView extends AppCompatActivity implements View.OnClickListener {
 
     private TextView travelMessage;
     private TextView region_display_textview;
     private Button nextButton;
     private Button backButton;
-    private DecimalFormat formatter = new DecimalFormat("#,###,###");
+    private final DecimalFormat formatter = new DecimalFormat("#,###,###");
     private String region_display_message;
 
     private TravelViewModel viewModel;

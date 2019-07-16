@@ -27,7 +27,7 @@ public class ConfigurationView extends AppCompatActivity implements OnClickListe
 
     private ConfigurationViewModel viewModel;
 
-    private Player player = new Player("", 0, 0, 0, 0);
+    private final Player player = new Player("", 0, 0, 0, 0);
 
 
     private EditText name;

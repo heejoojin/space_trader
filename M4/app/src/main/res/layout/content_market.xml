@@ -45,8 +45,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="24dp"
-        android:paddingLeft="85dp"
-        android:paddingStart="85dp"
+        android:paddingLeft="75dp"
+        android:paddingStart="75dp"
         android:paddingRight="0dp"
         android:paddingEnd="0dp"
         android:textSize="11sp" />

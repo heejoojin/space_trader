@@ -1,6 +1,5 @@
 package com.example.m4.views;
 
-import androidx.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,12 +10,12 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.m4.R;
-import com.example.m4.viewmodels.ConfigurationViewModel;
 import com.example.m4.repository.Repository;
 
 /**
  * Create player view that sets up the UI for the player creation
  */
+
 public class CreatePlayerView extends AppCompatActivity implements OnClickListener {
 
     @Override
@@ -24,7 +23,7 @@ public class CreatePlayerView extends AppCompatActivity implements OnClickListen
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_createplayer);
-        ConfigurationViewModel viewModel = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
+//        ConfigurationViewModel viewModel = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
 
         TextView name = findViewById(R.id.player_name);
         TextView difficulty = findViewById(R.id.player_difficulty);

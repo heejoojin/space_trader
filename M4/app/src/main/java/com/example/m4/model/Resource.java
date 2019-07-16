@@ -23,9 +23,9 @@ public enum Resource {
         this.resource = resource;
     }
 
-    public String getResource() {
-        return resource;
-    }
+//    public String getResource() {
+//        return resource;
+//    }
 
     /**
      * Overridden toString method

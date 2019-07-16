@@ -8,16 +8,14 @@ import java.io.Serializable;
  */
 public class Item implements Serializable {
 
-    private String name;
+    private final String name;
     private int quantityOwned;
     private int quantityChange;
-    private int price;
+    private final int price;
     private int quantityInMarket;
 
     private int beforeUpdateOwned;
     private int beforeUpdateInMarket;
-
-    private int beforeUpdateQuantityLimited;
 
     /**
      * Constructor to set up the name of the item and its preliminary price

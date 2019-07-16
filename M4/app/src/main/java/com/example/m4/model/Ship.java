@@ -10,18 +10,18 @@ import java.util.Random;
 @SuppressWarnings("FieldCanBeLocal")
 public class Ship {
 
-    private String name;
-    private ArrayList<String> weapons = new ArrayList<>(Arrays.asList("Pulse laser", "Beam laser", "Military laser", "No weapon"));
-    private ArrayList<String> shields = new ArrayList<>(Arrays.asList("Energy shield", "Reflective shield", "No shield"));
-    private ArrayList<String> gadgets = new ArrayList<>(Arrays.asList("Navigation system", "Auto-repair system", "Targeting System", "No gadget"));
-    private ArrayList<String> escape_pods = new ArrayList<>(Arrays.asList("Escape pod", "No escape pod"));
-    private ArrayList<String> insurances = new ArrayList<>(Arrays.asList("Insurance", "No insurance"));
+    private final String name;
+    private final ArrayList<String> weapons = new ArrayList<>(Arrays.asList("Pulse laser", "Beam laser", "Military laser", "No weapon"));
+    private final ArrayList<String> shields = new ArrayList<>(Arrays.asList("Energy shield", "Reflective shield", "No shield"));
+    private final ArrayList<String> gadgets = new ArrayList<>(Arrays.asList("Navigation system", "Auto-repair system", "Targeting System", "No gadget"));
+    private final ArrayList<String> escape_pods = new ArrayList<>(Arrays.asList("Escape pod", "No escape pod"));
+    private final ArrayList<String> insurances = new ArrayList<>(Arrays.asList("Insurance", "No insurance"));
 
-    private String weapon;
-    private String shield;
-    private String gadget;
-    private String escape_pod;
-    private String insurance;
+    private final String weapon;
+    private final String shield;
+    private final String gadget;
+    private final String escape_pod;
+    private final String insurance;
 
     /**
      * Constructor setting up the name of the ship and the price within the market

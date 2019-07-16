@@ -1,16 +1,18 @@
 package com.example.m4.model;
 
+
 /**
  * Planet class that represents a singular planet within a Region. Contains its coordinates within
  * the region as well as various other essential variables
  */
+
 public class Planet {
 
     private PlanetName planetName;
     private Colors color;
     private int xLocation;
     private int yLocation;
-    private int fuel;
+    // private int fuel;
 
     //constructors for a planet object
 

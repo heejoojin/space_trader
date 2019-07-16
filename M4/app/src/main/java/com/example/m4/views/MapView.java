@@ -5,7 +5,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -18,12 +17,12 @@ import com.example.m4.R;
  */
 public class MapView extends AppCompatActivity implements View.OnClickListener {
 
-    final static int HEIGHT = 150;
-    final static int WIDTH = 100;
-    int tileSize;
+    private final static int HEIGHT = 150;
+    private final static int WIDTH = 100;
+    private int tileSize;
     private Context context;
 
-    private ImageView[][] mapGrid = new ImageView[HEIGHT][WIDTH];
+    private final ImageView[][] mapGrid = new ImageView[HEIGHT][WIDTH];
     private Drawable tilePaint;
 
 
@@ -38,7 +37,7 @@ public class MapView extends AppCompatActivity implements View.OnClickListener {
 
         tilePaint = context.getResources().getDrawable(R.drawable.cell);
 
-        Button backButton = findViewById(R.id.map_back_button);
+//        Button backButton = findViewById(R.id.map_back_button);
         LinearLayout grid = findViewById(R.id.mapSquare);
         layTiles(grid);
 

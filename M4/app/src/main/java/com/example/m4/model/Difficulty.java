@@ -1,13 +1,13 @@
 package com.example.m4.model;
-
 /**
  * Enumerated class to set the difficulty of the game
  */
+
 public enum Difficulty {
 
     BEGINNER("Beginner"), EASY("Easy"), NORMAL("Normal"), HARD("Hard"), IMPOSSIBLE("Impossible");
 
-    private String difficulty;
+    private final String difficulty;
 
     /**
      * Constructor to set the difficulty of the game
@@ -17,20 +17,20 @@ public enum Difficulty {
         this.difficulty = difficulty;
     }
 
-    /**
-     * Gets difficulty
-     * @return name of difficulty
-     */
-    public String getDifficulty() {
-        return difficulty;
-    }
-
-    /**
-     * Sets difficulty
-     */
-    public void setDifficulty(String difficulty) {
-        this.difficulty = difficulty;
-    }
+//    /**
+//     * Gets difficulty
+//     * @return name of difficulty
+//     */
+//    public String getDifficulty() {
+//        return difficulty;
+//    }
+//
+//    /**
+//     * Sets difficulty
+//     */
+//    public void setDifficulty(String difficulty) {
+//        this.difficulty = difficulty;
+//    }
 
     /**
      * Overridden toString method

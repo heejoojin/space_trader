@@ -8,7 +8,7 @@ import com.example.m4.model.Item;
 import com.example.m4.model.RegionName;
 import com.example.m4.model.Ship;
 import java.util.*;
-
+@SuppressWarnings({"WeakerAccess", "unused"})
 public class Repository {
 
     public static Player playerClass;

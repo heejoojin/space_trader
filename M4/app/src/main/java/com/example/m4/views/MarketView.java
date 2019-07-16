@@ -22,25 +22,24 @@ import android.widget.Button;
 /**
  * View that represents the market with all its items for sale
  */
+@SuppressWarnings({"WeakerAccess", "SetTextI18n"})
 public class MarketView extends AppCompatActivity implements OnClickListener {
 
-    TextView itemTotaltoEditText, itemTotalView;
-    TextView creditTotaltoEditText;
-    TextView marketMode;
-    ArrayList<Item> orders;
+    private TextView itemTotaltoEditText, itemTotalView;
+    private TextView creditTotaltoEditText;
+    private TextView marketMode;
+    private ArrayList<Item> orders;
 
-    MarketItemAdapter setadpater;
+    private MarketItemAdapter setadpater;
 
-    Button switchButton, buyorsellButton, toShipyardButton, doneButton;
-
-    TextView selectedPlanet;
+    private Button switchButton, buyorsellButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_market);
 
-        selectedPlanet = findViewById(R.id.selected_planet_view);
+        TextView selectedPlanet = findViewById(R.id.selected_planet_view);
         String planet_text = "You are in " + Repository.planetClass.getPlanetName().toString() + " Planet";
         selectedPlanet.setText(planet_text);
 
@@ -52,15 +51,16 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
         buyorsellButton = findViewById(R.id.make_item_change_button);
         buyorsellButton.setOnClickListener(this);
 
-        toShipyardButton = findViewById(R.id.shipyard_button);
+        Button toShipyardButton = findViewById(R.id.shipyard_button);
         toShipyardButton.setOnClickListener(this);
 
-        doneButton = findViewById(R.id.done_button);
+        Button doneButton = findViewById(R.id.done_button);
         doneButton.setOnClickListener(this);
 
         itemTotaltoEditText = findViewById(R.id.total_num_view);
         creditTotaltoEditText = findViewById(R.id.credit_num_view);
-        creditTotaltoEditText.setText("" + Repository.playerClass.getCredits());
+        String m1 = "" + Repository.playerClass.getCredits();
+        creditTotaltoEditText.setText(m1);
 
         itemTotalView = findViewById(R.id.item_total);
 
@@ -101,13 +101,16 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
      * Displays the calculated total price of selected items
      */
     public void setItemTotal(){
-        itemTotaltoEditText.setText("" + calculateItemTotal());
+        String m2 = "" + calculateItemTotal();
+        itemTotaltoEditText.setText(m2);
     }
 
     /**
      * Displays the total credits that the player owns
      */
-    public void setCreditTotal() {creditTotaltoEditText.setText("" + calculateCreditTotal());}
+    public void setCreditTotal() {
+        String m3 = "" + calculateCreditTotal();
+        creditTotaltoEditText.setText(m3);}
 
     /**
      * Resets all the quantities of selected items to zero after purchasing or selling
@@ -128,7 +131,7 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
         }
     }
 
-    DataSetObserver observer = new DataSetObserver() {
+    final DataSetObserver observer = new DataSetObserver() {
         @Override
         public void onChanged() {
             super.onChanged();
