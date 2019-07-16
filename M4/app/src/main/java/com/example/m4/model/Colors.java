@@ -5,8 +5,8 @@ package com.example.m4.model;
  */
 public enum Colors {
     BLUE("Blue"), GREEN("Green"), RED("Red"), YELLOW("Yellow"), GREY("Grey"),
-    PURPLE("Purple"), PINK("Pink"), ORANGE("Orange"), WHITE("White"), BLACK("Black"),
-    NAVY("Navy"), BURGUNDY("Burgundy");
+    PURPLE("Purple"), DARKGREEN("Dark Green"), ORANGE("Orange"), WHITE("White"),
+    LIGHTORANGE("Light Orange"), NAVY("Navy"), BURGUNDY("Burgundy");
 
     private String color;
 

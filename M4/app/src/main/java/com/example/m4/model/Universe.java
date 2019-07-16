@@ -315,6 +315,7 @@ public class Universe {
             }
 
             int index = regions.indexOf(closeRegion);
+            planet.setColor(regions.get(index).getColor());
             regions.get(index).addPlanet(planet);
         }
 
