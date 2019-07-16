@@ -7,14 +7,7 @@ import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.TextView;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-// import androidx.appcompat.app.AppCompatActivity;
->>>>>>> 225cdf6c8f2240a21bd3829c504d5359ca7108f0
-=======
-// import androidx.appcompat.app.AppCompatActivity;
->>>>>>> 225cdf6c8f2240a21bd3829c504d5359ca7108f0
+
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.m4.model.PlanetName;
@@ -26,16 +19,7 @@ import com.example.m4.R;
 
 import android.widget.Button;
 import com.example.m4.model.Planet;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-// import com.example.m4.model.Resource;
-// import com.example.m4.model.TechLevel;
->>>>>>> 225cdf6c8f2240a21bd3829c504d5359ca7108f0
-=======
-// import com.example.m4.model.Resource;
-// import com.example.m4.model.TechLevel;
->>>>>>> 225cdf6c8f2240a21bd3829c504d5359ca7108f0
+
 import com.example.m4.model.Universe;
 import com.example.m4.repository.Repository;
 import com.example.m4.viewmodels.TravelViewModel;
@@ -45,14 +29,6 @@ import android.widget.Toast;
 
 import java.lang.String;
 import java.text.DecimalFormat;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-// import com.example.m4.viewmodels.TravelViewModel;
->>>>>>> 225cdf6c8f2240a21bd3829c504d5359ca7108f0
-=======
-// import com.example.m4.viewmodels.TravelViewModel;
->>>>>>> 225cdf6c8f2240a21bd3829c504d5359ca7108f0
 
 /**
  * View that will depict our entire universe along with its regions/planets

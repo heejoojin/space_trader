@@ -6,19 +6,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-import com.example.m4.repository.Repository;
-=======
-// import com.example.m4.model.Universe;
-import com.example.m4.repository.Repository;
-// import android.widget.Toast;
->>>>>>> 225cdf6c8f2240a21bd3829c504d5359ca7108f0
-=======
-// import com.example.m4.model.Universe;
-import com.example.m4.repository.Repository;
-// import android.widget.Toast;
->>>>>>> 225cdf6c8f2240a21bd3829c504d5359ca7108f0
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 import com.example.m4.R;

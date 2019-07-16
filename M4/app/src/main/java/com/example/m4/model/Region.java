@@ -1,14 +1,6 @@
 package com.example.m4.model;
 
 import java.util.ArrayList;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-// import java.util.List;
->>>>>>> 225cdf6c8f2240a21bd3829c504d5359ca7108f0
-=======
-// import java.util.List;
->>>>>>> 225cdf6c8f2240a21bd3829c504d5359ca7108f0
 
 /**
  * Represents a region of planets, defined using an ArrayList of Planet objects.

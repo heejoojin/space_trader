@@ -1,14 +1,6 @@
 package com.example.m4.views;
 
 import android.content.Context;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-// import android.content.res.Resources;
->>>>>>> 225cdf6c8f2240a21bd3829c504d5359ca7108f0
-=======
-// import android.content.res.Resources;
->>>>>>> 225cdf6c8f2240a21bd3829c504d5359ca7108f0
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.DisplayMetrics;

@@ -1,13 +1,4 @@
 package com.example.m4.model;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-// import java.util.*;
->>>>>>> 225cdf6c8f2240a21bd3829c504d5359ca7108f0
-=======
-// import java.util.*;
->>>>>>> 225cdf6c8f2240a21bd3829c504d5359ca7108f0
-
 /**
  * This class represents a player object
  */
