@@ -112,11 +112,13 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
             save_next_button.setVisibility(View.VISIBLE);
         }
 
-        universe = new Universe(12, 30);
-        universe.populate();
-        String string = universe.toString();
-        Log.d("Universe", string);
-        Repository.setUniverseClass(universe);
+        if (Repository.universeClass == null) {
+            universe = new Universe(12, 30);
+            universe.populate();
+            String string = universe.toString();
+            Log.d("Universe", string);
+            Repository.setUniverseClass(universe);
+        }
 
 
         final ArrayAdapter adapter = new ArrayAdapter(this,
