@@ -19,37 +19,22 @@ import com.example.m4.repository.Repository;
  */
 public class CreatePlayerView extends AppCompatActivity implements OnClickListener {
 
-    private ConfigurationViewModel viewModel;
-
-    private TextView name;
-    private TextView difficulty;
-    private TextView ship;
-    private TextView credit;
-
-
-    private TextView pilot;
-    private TextView fighter;
-    private TextView trader;
-    private TextView engineer;
-
-    private Button create_universe;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_createplayer);
-        viewModel = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
+        ConfigurationViewModel viewModel = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
 
-        name = findViewById(R.id.player_name);
-        difficulty = findViewById(R.id.player_difficulty);
-        ship = findViewById(R.id.player_ship);
-        credit = findViewById(R.id.player_credit);
+        TextView name = findViewById(R.id.player_name);
+        TextView difficulty = findViewById(R.id.player_difficulty);
+        TextView ship = findViewById(R.id.player_ship);
+        TextView credit = findViewById(R.id.player_credit);
 
-        pilot = findViewById(R.id.player_pilot);
-        fighter = findViewById(R.id.player_fighter);
-        trader = findViewById(R.id.player_trader);
-        engineer = findViewById(R.id.player_engineer);
+        TextView pilot = findViewById(R.id.player_pilot);
+        TextView fighter = findViewById(R.id.player_fighter);
+        TextView trader = findViewById(R.id.player_trader);
+        TextView engineer = findViewById(R.id.player_engineer);
 
         name.setText(Repository.playerClass.getName());
         difficulty.setText(Repository.playerClass.getDifficulty().toString());
@@ -61,7 +46,7 @@ public class CreatePlayerView extends AppCompatActivity implements OnClickListen
         trader.setText(String.valueOf(Repository.playerClass.getTraderPoints()));
         engineer.setText(String.valueOf(Repository.playerClass.getEngineerPoints()));
 
-        create_universe = findViewById(R.id.create_universe_button);
+        Button create_universe = findViewById(R.id.create_universe_button);
         create_universe.setOnClickListener(this);
 
     }
