@@ -16,30 +16,25 @@ import com.example.m4.R;
  * The main activity view which contains the start and exit button as well as minigames
  */
 public class MainActivity extends AppCompatActivity implements OnClickListener {
-
-    private Button open;
-    private Button exit;
-    private Button minigame;
-
-    private TextView title;
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        open = findViewById(R.id.main_start_button);
+        Button open = findViewById(R.id.main_start_button);
         open.setOnClickListener(this);
 
-        exit = findViewById(R.id.main_exit_button);
+        Button exit = findViewById(R.id.main_exit_button);
         exit.setOnClickListener(this);
 
-        title = findViewById(R.id.game_title_view);
+        TextView title = findViewById(R.id.game_title_view);
 
         title.getPaint().setStrokeWidth(5);
         title.getPaint().setStyle(Paint.Style.STROKE);
 
-        minigame = findViewById(R.id.minigame_button);
+        Button minigame = findViewById(R.id.minigame_button);
         minigame.setOnClickListener(this);
     }
 

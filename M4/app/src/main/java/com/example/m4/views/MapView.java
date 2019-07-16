@@ -25,8 +25,6 @@ public class MapView extends AppCompatActivity implements View.OnClickListener {
     private Context context;
 
     private ImageView[][] mapGrid = new ImageView[HEIGHT][WIDTH];
-    private Button backButton;
-    private LinearLayout grid;
     private Drawable tilePaint;
 
 
@@ -41,8 +39,8 @@ public class MapView extends AppCompatActivity implements View.OnClickListener {
 
         tilePaint = context.getResources().getDrawable(R.drawable.cell);
 
-        backButton = findViewById(R.id.map_back_button);
-        grid = findViewById(R.id.mapSquare);
+        Button backButton = findViewById(R.id.map_back_button);
+        LinearLayout grid = findViewById(R.id.mapSquare);
         layTiles(grid);
 
     }

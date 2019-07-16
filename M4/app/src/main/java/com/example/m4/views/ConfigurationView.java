@@ -35,22 +35,10 @@ public class ConfigurationView extends AppCompatActivity implements OnClickListe
     private Spinner difficultySpinner;
     private TextView score;
 
-    private Button pilot_plus;
-    private Button pilot_minus;
-    private Button fighter_plus;
-    private Button fighter_minus;
-    private Button trader_plus;
-    private Button trader_minus;
-    private Button engineer_plus;
-    private Button engineer_minus;
-
     private TextView pilot_points;
     private TextView fighter_points;
     private TextView trader_points;
     private TextView engineer_points;
-
-    private Button exit;
-    private Button okay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,34 +61,34 @@ public class ConfigurationView extends AppCompatActivity implements OnClickListe
         trader_points = findViewById(R.id.trader_points);
         engineer_points = findViewById(R.id.engineer_points);
 
-        pilot_plus = findViewById(R.id.pilot_plus);
+        Button pilot_plus = findViewById(R.id.pilot_plus);
         pilot_plus.setOnClickListener(this);
 
-        pilot_minus = findViewById(R.id.pilot_minus);
+        Button pilot_minus = findViewById(R.id.pilot_minus);
         pilot_minus.setOnClickListener(this);
 
-        fighter_plus = findViewById(R.id.fighter_plus);
+        Button fighter_plus = findViewById(R.id.fighter_plus);
         fighter_plus.setOnClickListener(this);
 
-        fighter_minus = findViewById(R.id.fighter_minus);
+        Button fighter_minus = findViewById(R.id.fighter_minus);
         fighter_minus.setOnClickListener(this);
 
-        trader_plus = findViewById(R.id.trader_plus);
+        Button trader_plus = findViewById(R.id.trader_plus);
         trader_plus.setOnClickListener(this);
 
-        trader_minus = findViewById(R.id.trader_minus);
+        Button trader_minus = findViewById(R.id.trader_minus);
         trader_minus.setOnClickListener(this);
 
-        engineer_plus = findViewById(R.id.engineer_plus);
+        Button engineer_plus = findViewById(R.id.engineer_plus);
         engineer_plus.setOnClickListener(this);
 
-        engineer_minus = findViewById(R.id.engineer_minus);
+        Button engineer_minus = findViewById(R.id.engineer_minus);
         engineer_minus.setOnClickListener(this);
 
-        exit = findViewById(R.id.exit_button);
+        Button exit = findViewById(R.id.exit_button);
         exit.setOnClickListener(this);
 
-        okay = findViewById(R.id.okay_button);
+        Button okay = findViewById(R.id.okay_button);
         okay.setOnClickListener(this);
 
         viewModel = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
