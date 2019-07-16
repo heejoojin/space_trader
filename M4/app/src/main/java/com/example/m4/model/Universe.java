@@ -162,7 +162,7 @@ public class Universe {
      * is used region
      * this method checks if a RegionName has already been used
      * @param regionName region name
-     * @return
+     * @return boolean is used
      */
     private boolean isUsedRegion(RegionName regionName) {
 
@@ -214,7 +214,7 @@ public class Universe {
      * checks if x and y coordinates are valid to create a region with
      * @param x int
      * @param y int
-     * @return
+     * @return boolean is valid location
      */
     private boolean isValidRegLocation(int x, int y) {
 
@@ -262,7 +262,7 @@ public class Universe {
      * is valid planet location
      * @param x int
      * @param y int
-     * @return
+     * @return boolean is valid planet location
      */
     private boolean isValidPlanetLocation(int x, int y) {
 

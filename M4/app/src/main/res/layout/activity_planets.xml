@@ -108,10 +108,10 @@
         android:layout_marginTop="8dp"
         android:text=" Travel to a different region "
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enter_mercneary_button" />
+        app:layout_constraintTop_toBottomOf="@+id/enter_mercenary_button" />
 
     <Button
-        android:id="@+id/enter_mercneary_button"
+        android:id="@+id/enter_mercenary_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="68dp"

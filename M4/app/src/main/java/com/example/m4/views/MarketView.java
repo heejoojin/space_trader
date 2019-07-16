@@ -160,7 +160,7 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
 
             if (Repository.isitBuying) {
 
-                switchButton.setText("Swith to Buy");
+                switchButton.setText("Switch to Buy");
                 buyorsellButton.setText("Sell");
                 itemTotalView.setText("Total Sale   ");
                 marketMode.setText("Sell Items");
@@ -171,7 +171,7 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
 
 
             } else {
-                switchButton.setText("Swith to Sell");
+                switchButton.setText("Switch to Sell");
                 buyorsellButton.setText("Buy");
                 itemTotalView.setText("Total Expense   ");
                 marketMode.setText("Buy Items");
