@@ -67,7 +67,7 @@
         android:text=""
         android:textStyle="bold"
         android:textColor="#6d3d7a"
-        android:textSize="13dp"
+        android:textSize="13sp"
         />
     <!--<TextView-->
     <!--android:id="@+id/total_num_view"-->

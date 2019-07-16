@@ -65,7 +65,7 @@
             app:layout_constraintTop_toBottomOf="@+id/selected_item_list"
             android:text="@string/total_expense"
             android:textColor="#6d3d7a"
-            android:textSize="20dp"
+            android:textSize="20sp"
             />
         <TextView
             android:id="@+id/total_num_view"
@@ -90,7 +90,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/total_num_view"
             android:text="@string/total_credit"
-            android:textSize="20dp"
+            android:textSize="20sp"
             />
 
         <TextView
