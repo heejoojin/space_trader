@@ -84,26 +84,50 @@ public class Universe {
         this.regions = regions;
     }
 
+    /**
+     * get Num regions
+     * @return int of number of regions
+     */
     public int getNumRegions() {
         return numRegions;
     }
 
+    /**
+     * set number of regions
+     * @param numRegions int number of regions
+     */
     public void setNumRegions(int numRegions) {
         this.numRegions = numRegions;
     }
 
+    /**
+     * get number of planets
+     * @return int number of planets
+     */
     public int getNumPlanets() {
         return numPlanets;
     }
 
+    /**
+     * set number of planets
+     * @param numPlanets int number of planets
+     */
     public void setNumPlanets(int numPlanets) {
         this.numPlanets = numPlanets;
     }
 
+    /**
+     * get height
+     * @return height int
+     */
     public int getHEIGHT() {
         return HEIGHT;
     }
 
+    /**
+     * get width
+     * @return width int
+     */
     public int getWIDTH() {
         return WIDTH;
     }
@@ -125,12 +149,21 @@ public class Universe {
         }
     }
 
-    //adds a region object to the universe
+    /**
+     * add region
+     * adds a region object to the universe
+     * @param region region
+     */
     private void addRegion(Region region) {
         regions.add(region);
     }
 
-    //this method checks if a RegionName has already been used
+    /**
+     * is used region
+     * this method checks if a RegionName has already been used
+     * @param regionName region name
+     * @return
+     */
     private boolean isUsedRegion(RegionName regionName) {
 
         for (Region region : regions) {
@@ -141,7 +174,11 @@ public class Universe {
         return false;
     }
 
-    //this method returns a RegionName that hasn't been used
+    /**
+     * get unique region
+     * this method returns a RegionName that hasn't been used
+     * @return region name
+     */
     private RegionName getUniqueRegion() {
 
         RegionName temp = RegionName.getRandom();
@@ -153,7 +190,11 @@ public class Universe {
         return temp;
     }
 
-    //return valid x and y coordinates for region
+    /**
+     * get unique region location
+     * return valid x and y coordinates for region
+     * @return int array of locations
+     */
     private int[] getUniqueRegLocation() {
 
         int tempX = random.nextInt(WIDTH);
@@ -168,7 +209,13 @@ public class Universe {
 
     }
 
-    //checks if x and y coordinates are valid to create a region with
+    /**
+     * is valid region location
+     * checks if x and y coordinates are valid to create a region with
+     * @param x int
+     * @param y int
+     * @return
+     */
     private boolean isValidRegLocation(int x, int y) {
 
         for (Region region : regions) {
@@ -179,6 +226,11 @@ public class Universe {
         return true;
     }
 
+    /**
+     * is used planet
+     * @param planetName planetname
+     * @return boolean is used
+     */
     private boolean isUsedPlanet(PlanetName planetName) {
         for (Region region : regions) {
             for (Planet planet : region.getPlanetList()) {
@@ -190,6 +242,10 @@ public class Universe {
         return true;
     }
 
+    /**
+     * get unique planet location
+     * @return int array
+     */
     private int[] getUniquePlanetLocation() {
 
         int tempX = random.nextInt(WIDTH);
@@ -202,6 +258,12 @@ public class Universe {
         return new int[]{tempX, tempY};
     }
 
+    /**
+     * is valid planet location
+     * @param x int
+     * @param y int
+     * @return
+     */
     private boolean isValidPlanetLocation(int x, int y) {
 
         for (Region region : regions) {
@@ -214,6 +276,10 @@ public class Universe {
         return true;
     }
 
+    /**
+     * get unique planet name
+     * @return planetName
+     */
     private PlanetName getUniquePlanetName() {
 
         PlanetName name = PlanetName.getRandom();
