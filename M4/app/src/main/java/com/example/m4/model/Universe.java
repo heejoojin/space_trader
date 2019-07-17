@@ -86,7 +86,7 @@ public class Universe {
      * @return ArrayList<Region>
      */
     //getters and setters for the variables
-    public Iterable<Region> getRegions() {
+    public ArrayList<Region> getRegions() {
         return regions;
     }
 
