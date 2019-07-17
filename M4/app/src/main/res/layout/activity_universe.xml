@@ -54,7 +54,7 @@
             tools:ignore="NestedScrolling" />
 
         <TextView
-            android:id="@+id/regionname_view"
+            android:id="@+id/region_name_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
@@ -78,7 +78,7 @@
             app:layout_constraintTop_toBottomOf="@+id/universe_gridView" />
 
         <TextView
-            android:id="@+id/techlevel_view"
+            android:id="@+id/tech_level_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/tech_level"
@@ -88,10 +88,10 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="70dp"
             android:layout_marginLeft="70dp"
-            app:layout_constraintTop_toBottomOf="@+id/regionname_view" />
+            app:layout_constraintTop_toBottomOf="@+id/region_name_view" />
 
         <TextView
-            android:id="@+id/techlevel_selected"
+            android:id="@+id/tech_level_selected"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -113,7 +113,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="70dp"
             android:layout_marginLeft="70dp"
-            app:layout_constraintTop_toBottomOf="@+id/techlevel_view" />
+            app:layout_constraintTop_toBottomOf="@+id/tech_level_view" />
 
         <TextView
             android:id="@+id/resource_selected"
@@ -125,7 +125,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="200dp"
             android:layout_marginLeft="200dp"
-            app:layout_constraintTop_toBottomOf="@+id/techlevel_selected" />
+            app:layout_constraintTop_toBottomOf="@+id/tech_level_selected" />
 
         <TextView
             android:id="@+id/location_view"

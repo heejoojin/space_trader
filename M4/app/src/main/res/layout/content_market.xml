@@ -31,7 +31,7 @@
         android:textColor="#6d3d7a"/>
 
     <TextView
-        android:id="@+id/quantityowned_left_num"
+        android:id="@+id/quantity_owned_left_num"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="24dp"
@@ -42,7 +42,7 @@
         android:textSize="12sp" />
 
     <TextView
-        android:id="@+id/quantity_leftinmarket_num"
+        android:id="@+id/quantity_left_in_market_num"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="24dp"

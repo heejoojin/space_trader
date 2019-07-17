@@ -109,13 +109,13 @@ public class MapView extends AppCompatActivity implements View.OnClickListener {
                         mapGrid[y][x].setBackground(bluePaint);
                     } else if (currentPlanet.getColor() == Colors.BURGUNDY) {
                         mapGrid[y][x].setBackground(burgundyPaint);
-                    } else if (currentPlanet.getColor() == Colors.DARKGREEN) {
+                    } else if (currentPlanet.getColor() == Colors.DARK_GREEN) {
                         mapGrid[y][x].setBackground(darkgreenPaint);
                     } else if (currentPlanet.getColor() == Colors.GREEN) {
                         mapGrid[y][x].setBackground(greenPaint);
                     } else if (currentPlanet.getColor() == Colors.GREY) {
                         mapGrid[y][x].setBackground(greyPaint);
-                    } else if (currentPlanet.getColor() == Colors.LIGHTORANGE) {
+                    } else if (currentPlanet.getColor() == Colors.LIGHT_ORANGE) {
                         mapGrid[y][x].setBackground(lightorangePaint);
                     } else if (currentPlanet.getColor() == Colors.NAVY) {
                         mapGrid[y][x].setBackground(navyPaint);

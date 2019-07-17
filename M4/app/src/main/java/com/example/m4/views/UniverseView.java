@@ -91,7 +91,7 @@ public class UniverseView extends AppCompatActivity implements OnClickListener {
         region_display_textview.setText(region_display_message);
         region_text = findViewById(R.id.region_selected);
         planets_text = findViewById(R.id.planet_selected);
-        techlevel_text = findViewById(R.id.techlevel_selected);
+        techlevel_text = findViewById(R.id.tech_level_selected);
         resource_text = findViewById(R.id.resource_selected);
         location_text = findViewById(R.id.location_selected);
         color_text = findViewById(R.id.color_selected);

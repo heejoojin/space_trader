@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         title.getPaint().setStrokeWidth(5);
         title.getPaint().setStyle(Paint.Style.STROKE);
 
-        Button minigame = findViewById(R.id.minigame_button);
+        Button minigame = findViewById(R.id.mini_game_button);
         minigame.setOnClickListener(this);
     }
 
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             startActivity(new Intent(MainActivity.this, ConfigurationView.class));
         } else if (v.getId() == R.id.main_exit_button) {
             System.exit(0);
-        } else if (v.getId() == R.id.minigame_button) {
+        } else if (v.getId() == R.id.mini_game_button) {
             startActivity(new Intent(MainActivity.this, MiniGameView.class));
         }
     }

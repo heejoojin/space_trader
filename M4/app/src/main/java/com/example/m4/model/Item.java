@@ -43,7 +43,7 @@ public class Item implements Serializable {
     }
 
     /**
-     * Gets the number of the iten that the player owns
+     * Gets the number of the iten=m that the player owns
      * @return inf of quantity owned
      */
     public int getQuantityOwned() {
@@ -78,7 +78,7 @@ public class Item implements Serializable {
 
     /**
      * getter method for QuantityChange
-     * @return int of Quantitychange
+     * @return int of Quantity change
      */
     public int getQuantityChange(){
         return quantityChange;
@@ -94,7 +94,7 @@ public class Item implements Serializable {
     /**
      * Increase beforeUpdateOwned
      */
-    public void addToQuanitiyinHold() {
+    public void addToQuantityInHold() {
 
         this.beforeUpdateOwned += 1;
     }
@@ -102,7 +102,7 @@ public class Item implements Serializable {
     /**
      * Decrease beforeUpdatedOwned
      */
-    public void removeFromQuantityinHold() {
+    public void removeFromQuantityInHold() {
 
         if (this.beforeUpdateOwned >= 1){
             this.beforeUpdateOwned -= 1;
@@ -121,7 +121,7 @@ public class Item implements Serializable {
     /**
      * increase beforeUpdatedInMarket
      */
-    public void addToQuantityinMarket() {
+    public void addToQuantityInMarket() {
 
         this.beforeUpdateInMarket += 1;
 
@@ -130,7 +130,7 @@ public class Item implements Serializable {
     /**
      * decrease beforeUpdateInMarket
      */
-    public void removeFromQuantityinMarket() {
+    public void removeFromQuantityInMarket() {
 
         if (this.beforeUpdateInMarket >= 1) {
             this.beforeUpdateInMarket -= 1;
@@ -139,8 +139,8 @@ public class Item implements Serializable {
     }
 
     /**
-     * setter method for quantitychange
-     * @param quantityChange int of quantityChange
+     * setter method for quantity change
+     * @param quantityChange int of quantity Change
      */
     public void setQuantityChange(int quantityChange) {
         this.quantityChange = quantityChange;

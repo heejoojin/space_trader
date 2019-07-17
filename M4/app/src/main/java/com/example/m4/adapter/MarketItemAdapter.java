@@ -67,7 +67,7 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
         final Item currentItem = getItem(position);
 
         currentItemName = listItemView.findViewById(R.id.selected_item_name);
-        quantityLeftinHold = listItemView.findViewById(R.id.quantityowned_left_num);
+        quantityLeftinHold = listItemView.findViewById(R.id.quantity_owned_left_num);
         subtractItem = listItemView.findViewById(R.id.minus_item_button);
         selectedItemNum = listItemView.findViewById(R.id.selected_item_amount);
         addItem = listItemView.findViewById(R.id.hire_fire_button);
@@ -98,9 +98,9 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
                         if (((checkpoint - currentItem.getPrice()) >= 0)) {
 
                             currentItem.addToQuantityChange();
-                            currentItem.addToQuanitiyinHold();
+                            currentItem.addToQuantityInHold();
 
-                            currentItem.removeFromQuantityinMarket();
+                            currentItem.removeFromQuantityInMarket();
                             checkpoint -= (currentItem.getPrice());
 
                             //System.out.println(checkpoint);
@@ -112,8 +112,8 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
                     if ((currentItem.getQuantityOwned() > 0) &&
                             (currentItem.getQuantityChange() < currentItem.getQuantityOwned())) {
                         currentItem.addToQuantityChange();
-                        currentItem.removeFromQuantityinHold();
-                        currentItem.addToQuantityinMarket();
+                        currentItem.removeFromQuantityInHold();
+                        currentItem.addToQuantityInMarket();
 
                         checkpoint += (currentItem.getPrice());
 
@@ -130,8 +130,8 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
                 if (Repository.isitBuying) {
                     if (currentItem.getQuantityChange() != 0) {
                         currentItem.removeFromQuantityChange();
-                        currentItem.removeFromQuantityinHold();
-                        currentItem.addToQuantityinMarket();
+                        currentItem.removeFromQuantityInHold();
+                        currentItem.addToQuantityInMarket();
 
                         checkpoint += (currentItem.getPrice());
 
@@ -141,8 +141,8 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
                     // selling
                     if (currentItem.getQuantityChange() != 0) {
                         currentItem.removeFromQuantityChange();
-                        currentItem.addToQuanitiyinHold();
-                        currentItem.removeFromQuantityinMarket();
+                        currentItem.addToQuantityInHold();
+                        currentItem.removeFromQuantityInMarket();
 
                         checkpoint -= (currentItem.getPrice());
 
