@@ -36,6 +36,7 @@ public class Item implements Serializable {
 
     /**
      * Gets name of the item
+     * @return String of name
      */
     public String getName() {
         return name;
@@ -43,6 +44,7 @@ public class Item implements Serializable {
 
     /**
      * Gets the number of the iten that the player owns
+     * @return inf of quantity owned
      */
     public int getQuantityOwned() {
         return quantityOwned;
@@ -59,29 +61,47 @@ public class Item implements Serializable {
 
     /**
      * Gets the price of the item
+     * @return int of price of item
      */
     public int getPrice() {
         return price;
     }
 
-    
+
+    /**
+     * getter method for QuantityInMarket
+     * @return int of quantityInMarket
+     */
     public int getQuantityInMarket() {
         return quantityInMarket;
     }
 
+    /**
+     * getter method for QuantityChange
+     * @return int of Quantitychange
+     */
     public int getQuantityChange(){
         return quantityChange;
     }
 
+    /**
+     * Increase quantityChange
+     */
     public void addToQuantityChange() {
         this.quantityChange += 1;
     }
 
+    /**
+     * Increase beforeUpdateOwned
+     */
     public void addToQuanitiyinHold() {
 
         this.beforeUpdateOwned += 1;
     }
 
+    /**
+     * Decrease beforeUpdatedOwned
+     */
     public void removeFromQuantityinHold() {
 
         if (this.beforeUpdateOwned >= 1){
@@ -89,18 +109,27 @@ public class Item implements Serializable {
         }
     }
 
+    /**
+     * Decrease quantityChange
+     */
     public void removeFromQuantityChange(){
         if (this.quantityChange >= 1){
             this.quantityChange -= 1;
         }
     }
 
+    /**
+     * increase beforeUpdatedInMarket
+     */
     public void addToQuantityinMarket() {
 
         this.beforeUpdateInMarket += 1;
 
     }
 
+    /**
+     * decrease beforeUpdateInMarket
+     */
     public void removeFromQuantityinMarket() {
 
         if (this.beforeUpdateInMarket >= 1) {
@@ -108,6 +137,11 @@ public class Item implements Serializable {
 
         }
     }
+
+    /**
+     * setter method for quantitychange
+     * @param quantityChange int of quantityChange
+     */
     public void setQuantityChange(int quantityChange) {
         this.quantityChange = quantityChange;
     }

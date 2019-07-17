@@ -39,6 +39,10 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
     private Button switchButton;
     private Button buyorsellButton;
 
+    /**
+     * Overridden onCreate method initialize activity
+     * @param savedInstanceState saved instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,6 +86,7 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
 
     /**
      * Calculates the total price of selected items
+     * @return int of itemTotal
      */
     public int calculateItemTotal(){
         int itemTotal = 0;
@@ -93,6 +98,7 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
 
     /**
      * Calculates the total credits that the player owns
+     * @return int of calculateCreditTotal
      */
     public int calculateCreditTotal(){
 

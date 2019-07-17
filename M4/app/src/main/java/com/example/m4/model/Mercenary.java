@@ -22,6 +22,7 @@ public class Mercenary {
     /**
      * Constructor setting up name and weapon equipped
      * @param name name of mercenary
+     * @param price price of Mercenary
      */
     public Mercenary(String name, int price) {
         this.name = name;
