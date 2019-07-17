@@ -32,6 +32,7 @@ public class MercenaryView extends AppCompatActivity implements View.OnClickList
     private MercenaryAdapter setadpater;
 
     private Button switchButton;
+    private Button buyorsellButton;
 
 
     @Override
@@ -48,7 +49,7 @@ public class MercenaryView extends AppCompatActivity implements View.OnClickList
         switchButton = findViewById(R.id.switch_button);
         switchButton.setOnClickListener(this);
 
-        Button buyorsellButton = findViewById(R.id.make_item_change_button);
+        buyorsellButton = findViewById(R.id.make_item_change_button);
         buyorsellButton.setOnClickListener(this);
 
         Button toShipYardButton = findViewById(R.id.shipyard_button);
@@ -73,6 +74,9 @@ public class MercenaryView extends AppCompatActivity implements View.OnClickList
         setadpater.registerDataSetObserver(observer);
     }
 
+    /**
+     * Calculates the total price of selected mercenaries
+     */
     public int calculateItemTotal(){
         int itemTotal = 0;
         for (Mercenary order : orders){
@@ -83,6 +87,9 @@ public class MercenaryView extends AppCompatActivity implements View.OnClickList
         return itemTotal;
     }
 
+    /**
+     * Calculates the total credits that the player owns
+     */
     public int calculateCreditTotal(){
 
         if (Repository.isitBuying) {
@@ -92,11 +99,24 @@ public class MercenaryView extends AppCompatActivity implements View.OnClickList
         }
     }
 
+    /**
+     * Displays the calculated total price of selected mercenaries
+     */
     public void setItemTotal(){
         itemTotaltoEditText.setText("" + calculateItemTotal());
     }
+
+    /**
+     * Displays the total credits that the player owns
+     */
     public void setCreditTotal() {creditTotaltoEditText.setText("" + calculateCreditTotal());}
 
+    /**
+     * Resets all the expenses amount to zero after purchasing or selling
+     */
+    public void resetItemTotal() {
+        itemTotaltoEditText.setText("0");
+    }
 
     final DataSetObserver observer = new DataSetObserver() {
         @Override
@@ -107,6 +127,10 @@ public class MercenaryView extends AppCompatActivity implements View.OnClickList
         }
     };
 
+    /**
+     * Creates and returns a list of Mercenary objects to use in MercenaryAdapter
+     * @return a list of Mercenary objects
+     */
     private ArrayList<Mercenary> getListItemData(){
         ArrayList<Mercenary> listViewMercs = new ArrayList<>(); //todo: update arraylist type
         ArrayList<String> itemName = new ArrayList<>(Arrays.asList("Red", "Heejoo", "Nina", "Brian", "Kunhyuk", "John", "Spock", "Jango Fett", "Deadpool", "Boba Fett"));
@@ -132,7 +156,7 @@ public class MercenaryView extends AppCompatActivity implements View.OnClickList
                 marketMode.setText("Fire Your Mercenary");
 
                 Repository.isitBuying = false;
-                //resetItemTotal();
+                resetItemTotal();
                 setadpater.notifyDataSetChanged();
 
 
@@ -142,8 +166,7 @@ public class MercenaryView extends AppCompatActivity implements View.OnClickList
                 marketMode.setText("Hire a New Mercenary");
 
                 Repository.isitBuying = true;
-                //resetItemTotal();
-                creditTotaltoEditText.setText("0");
+                resetItemTotal();
                 setadpater.notifyDataSetChanged();
             }
 
@@ -157,9 +180,7 @@ public class MercenaryView extends AppCompatActivity implements View.OnClickList
                         String m = "You successfully hired the mercenary(s)";
                         Toast.makeText(getApplicationContext(), m, Toast.LENGTH_SHORT).show();
                         setCreditTotal();
-                        //creditTotaltoEditText.setText("" + (Repository.playerClass.getCredits() - Integer.parseInt((String)creditTotaltoEditText.getText())));
-                        //resetItemTotal();
-                        //updateIteminCargo();
+                        resetItemTotal();
                         setadpater.notifyDataSetChanged();
 
                     }
@@ -170,8 +191,7 @@ public class MercenaryView extends AppCompatActivity implements View.OnClickList
                     String m = "You successfully fired your mercenary";
                     Toast.makeText(getApplicationContext(), m, Toast.LENGTH_SHORT).show();
                     setCreditTotal();
-                    //resetItemTotal();
-                    //updateIteminCargo();
+                    resetItemTotal();
                     setadpater.notifyDataSetChanged();
 
                 } else if (calculateItemTotal() == 0) {
