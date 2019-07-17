@@ -1,5 +1,7 @@
 package com.example.m4.model;
 
+import androidx.annotation.NonNull;
+
 import java.util.Random;
 
 /**

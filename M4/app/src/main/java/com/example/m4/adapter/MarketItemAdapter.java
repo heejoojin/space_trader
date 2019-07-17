@@ -72,7 +72,7 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
         selectedItemNum = listItemView.findViewById(R.id.selected_item_amount);
         addItem = listItemView.findViewById(R.id.hire_fire_button);
         currentPrice = listItemView.findViewById(R.id.selected_item_price);
-        quantityLeftinMarket = listItemView.findViewById(R.id.quantity_leftinmarket_num);
+        quantityLeftinMarket = listItemView.findViewById(R.id.quantity_left_in_market_num);
 
 
         //Set the text of the meal, amount and quantity

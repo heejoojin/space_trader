@@ -1,6 +1,7 @@
 package com.example.m4.model;
 
 import java.util.Random;
+import androidx.annotation.NonNull;
 
 /**
  * Enumerated class representing all possible
