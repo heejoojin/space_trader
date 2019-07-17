@@ -14,8 +14,7 @@ import java.util.ArrayList;
         "UtilityClass", "ClassWithTooManyDependents"})
 
 /**
- * Class Repository
- * Store data
+ * Class Repository store data
  */
 public class Repository {
 
