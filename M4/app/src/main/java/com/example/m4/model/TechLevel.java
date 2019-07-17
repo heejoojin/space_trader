@@ -1,5 +1,7 @@
 package com.example.m4.model;
 
+import androidx.annotation.NonNull;
+
 import java.util.Random;
 
 /**
@@ -35,6 +37,7 @@ public enum TechLevel {
      * @return the tech level
      */
     @Override
+    @NonNull
     public String toString() {
         return rep;
     }

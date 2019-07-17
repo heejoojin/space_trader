@@ -1,4 +1,7 @@
 package com.example.m4.model;
+
+import androidx.annotation.NonNull;
+
 /**
  * Enumerated class to set the difficulty of the game
  */
@@ -37,6 +40,7 @@ public enum Difficulty {
      * @return the difficulty of the game
      */
     @Override
+    @NonNull
     public String toString() {
         return difficulty;
     }

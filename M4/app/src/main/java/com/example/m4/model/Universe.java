@@ -1,5 +1,7 @@
 package com.example.m4.model;
 
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -56,6 +58,7 @@ public class Universe {
      * @return returns a string containing all the regions and planets within the universe
      */
     @Override
+    @NonNull
     public String toString() {
 
         StringBuilder string = new StringBuilder("Universe: \n");

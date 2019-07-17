@@ -1,5 +1,7 @@
 package com.example.m4.model;
 
+import androidx.annotation.NonNull;
+
 /**
  * Enumerated class that establishes all the colors that we may end up using within the
  */
@@ -40,6 +42,7 @@ public enum Colors {
      * @return the color currently set
      */
     @Override
+    @NonNull
     public String toString() {
         return color;
     }

@@ -1,5 +1,7 @@
 package com.example.m4.model;
 
+import androidx.annotation.NonNull;
+
 import java.util.Random;
 
 /**
@@ -33,6 +35,7 @@ public enum Resource {
      * @return the resource level
      */
     @Override
+    @NonNull
     public String toString() {
         return resource;
     }

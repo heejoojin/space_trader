@@ -40,6 +40,7 @@ public enum PlanetName {
      * @return planet name
      */
     @Override
+    @NonNull
     public String toString() {
         return planet;
     }

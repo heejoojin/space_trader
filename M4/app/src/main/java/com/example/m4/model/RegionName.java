@@ -39,6 +39,7 @@ public enum RegionName {
      * @return name of the region
      */
     @Override
+    @NonNull
     public String toString() {
         return region;
     }
