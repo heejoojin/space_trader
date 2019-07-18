@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.m4.R;
 import com.example.m4.adapter.MercenaryAdapter;
+import com.example.m4.model.Item;
 import com.example.m4.model.Mercenary;
 import com.example.m4.repository.Repository;
 
@@ -59,6 +60,7 @@ public class MercenaryView extends AppCompatActivity implements View.OnClickList
         doneButton.setOnClickListener(this);
 
         itemTotaltoEditText = findViewById(R.id.total_num_view);
+
         creditTotaltoEditText = findViewById(R.id.credit_num_view);
         creditTotaltoEditText.setText("" + Repository.playerClass.getCredits());
 
@@ -80,9 +82,7 @@ public class MercenaryView extends AppCompatActivity implements View.OnClickList
     public int calculateItemTotal(){
         int itemTotal = 0;
         for (Mercenary order : orders){
-            if (order.getHired()) {
-                itemTotal += order.getPrice();
-            }
+            itemTotal += order.getPrice() * order.getQuantityChange();
         }
         return itemTotal;
     }
@@ -115,6 +115,9 @@ public class MercenaryView extends AppCompatActivity implements View.OnClickList
      * Resets all the expenses amount to zero after purchasing or selling
      */
     public void resetItemTotal() {
+        for (Mercenary order : orders) {
+            order.setQuantityChange(0);
+        }
         itemTotaltoEditText.setText("0");
     }
 
@@ -142,6 +145,8 @@ public class MercenaryView extends AppCompatActivity implements View.OnClickList
         }
         return listViewMercs;
     }
+
+
 
 
     @Override

@@ -98,12 +98,13 @@ public class MercenaryAdapter extends ArrayAdapter<Mercenary>{
                 if (Repository.isitBuying) {
 
                     if (checkpoint >= 0) {
-                        if (((checkpoint - currentItem.getPrice()) >= 0) && (count > 0)) {
+                        if (((checkpoint - currentItem.getPrice()) >= 0) && (count > 0) && !currentItem.getHired()) {
 
                             count--;
 
                             currentItem.setHired(true);
                             hired.setText("HIRED");
+                            currentItem.setQuantityChange(1);
 
                             checkpoint -= currentItem.getPrice();
 
@@ -114,6 +115,7 @@ public class MercenaryAdapter extends ArrayAdapter<Mercenary>{
                 } else {
                     // selling
                     if (currentItem.getHired()) {
+                        currentItem.setQuantityChange(1);
                         currentItem.setHired(false);
                         hired.setText("NOT HIRED");
 

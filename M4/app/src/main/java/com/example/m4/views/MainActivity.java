@@ -11,12 +11,16 @@ import android.widget.TextView;
 import android.graphics.Paint;
 
 import com.example.m4.R;
+import com.example.m4.model.Player;
+import com.example.m4.repository.Repository;
 
 /**
  * The main activity view which contains the start and exit button as well as mini games
  */
 @SuppressWarnings("ChainedMethodCall")
 public class MainActivity extends AppCompatActivity implements OnClickListener {
+
+    //private final Player player = new Player("", 0, 0, 0, 0);
 
 
     /**
@@ -41,13 +45,18 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
         Button minigame = findViewById(R.id.mini_game_button);
         minigame.setOnClickListener(this);
+
     }
 
 
     @Override
     public void onClick (View v) {
         if (v.getId() == R.id.main_start_button) {
-            startActivity(new Intent(MainActivity.this, ConfigurationView.class));
+            if (Repository.playerClass == null) {
+                startActivity(new Intent(MainActivity.this, ConfigurationView.class));
+            } else {
+                startActivity(new Intent(MainActivity.this, PlayerView.class));
+            }
         } else if (v.getId() == R.id.main_exit_button) {
             System.exit(0);
         } else if (v.getId() == R.id.mini_game_button) {

@@ -60,6 +60,9 @@
 
         <activity android:name=".views.RandomEventView"
             android:parentActivityName=".views.UniverseView"/>
+
+        <activity android:name=".views.PlayerView"
+            android:parentActivityName=".views.MainActivity"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

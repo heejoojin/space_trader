@@ -18,6 +18,7 @@ public class Mercenary {
     private boolean hired;
     private final String weapon;
     private final int price;
+    private int quantityChange;
 
     /**
      * Constructor setting up name and weapon equipped
@@ -54,6 +55,12 @@ public class Mercenary {
      * @return price
      */
     public int getPrice() { return price; }
+
+    public int getQuantityChange() { return quantityChange; }
+
+    public void setQuantityChange(int quantityChange) {
+        this.quantityChange = quantityChange;
+    }
 
     /**
      * Setter for hired
