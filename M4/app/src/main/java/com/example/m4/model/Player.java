@@ -40,6 +40,11 @@ public class Player {
      */
     public Player(String name, int pilotPoints, int fighterPoints,
                   int traderPoints, int engineerPoints) {
+        if ((pilotPoints + fighterPoints
+                + traderPoints + engineerPoints) >16) {
+            throw new IllegalArgumentException("Total skill points"
+                    + "cannot exceed 16");
+        }
         this.credits = 1000;
         this.name = name;
         this.pilotPoints = pilotPoints;
