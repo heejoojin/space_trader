@@ -32,8 +32,6 @@ public class MercenaryAdapter extends ArrayAdapter<Mercenary>{
 
     public static int checkpoint;
 
-    private int count = 5;
-
     private TextView currentItemName;
     private TextView hired;
     private TextView weapon;
@@ -98,9 +96,7 @@ public class MercenaryAdapter extends ArrayAdapter<Mercenary>{
                 if (Repository.isitBuying) {
 
                     if (checkpoint >= 0) {
-                        if (((checkpoint - currentItem.getPrice()) >= 0) && (count > 0) && !currentItem.getHired()) {
-
-                            count--;
+                        if (((checkpoint - currentItem.getPrice()) >= 0) && !currentItem.getHired()) {
 
                             currentItem.setHired(true);
                             hired.setText("HIRED");

@@ -57,7 +57,7 @@ public class ShipAdapter extends ArrayAdapter<Ship> {
 
         assert currentShip != null;
         currentShipName.setText(currentShip.getName());
-        String equipment = String.format("has %s, %s, %s, %s, %s",
+        final String equipment = String.format("  %s, %s, %s, %s, %s",
                 currentShip.getWeapon(),
                 currentShip.getShield(),
                 currentShip.getGadget(),
@@ -77,6 +77,7 @@ public class ShipAdapter extends ArrayAdapter<Ship> {
                     }
                 }, 1000);
                 Repository.setShipClass(currentShip);
+                Repository.playerClass.setWeapons(equipment);
                 notifyDataSetChanged();
             }
 

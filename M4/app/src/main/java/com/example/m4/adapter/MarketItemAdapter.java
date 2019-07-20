@@ -75,7 +75,6 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
         quantityLeftinMarket = listItemView.findViewById(R.id.quantity_left_in_market_num);
 
 
-        //Set the text of the meal, amount and quantity
         assert currentItem != null;
         currentItemName.setText(currentItem.getName());
         String m1 = "$ " + currentItem.getPrice();
@@ -103,6 +102,8 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
                             currentItem.removeFromQuantityInMarket();
                             checkpoint -= (currentItem.getPrice());
 
+                            Repository.playerClass.setCredits(checkpoint);
+
                             //System.out.println(checkpoint);
                         }
                     }
@@ -116,6 +117,8 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
                         currentItem.addToQuantityInMarket();
 
                         checkpoint += (currentItem.getPrice());
+
+                        Repository.playerClass.setCredits(checkpoint);
 
                         //System.out.println(checkpoint);
                     }
@@ -135,6 +138,8 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
 
                         checkpoint += (currentItem.getPrice());
 
+                        Repository.playerClass.setCredits(checkpoint);
+
                         //System.out.println(checkpoint);
                     }
                 } else {
@@ -145,6 +150,8 @@ public class MarketItemAdapter extends ArrayAdapter<Item>{
                         currentItem.removeFromQuantityInMarket();
 
                         checkpoint -= (currentItem.getPrice());
+
+                        Repository.playerClass.setCredits(checkpoint);
 
                         //System.out.println(checkpoint);
                     }

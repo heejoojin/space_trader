@@ -7,8 +7,11 @@ import com.example.m4.model.Region;
 import com.example.m4.model.Item;
 import com.example.m4.model.RegionName;
 import com.example.m4.model.Ship;
+
+import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.HashMap;
 @SuppressWarnings({"WeakerAccess", "unused",
         "PublicField", "AssignmentOrReturnOfFieldWithMutableType",
         "UtilityClass", "ClassWithTooManyDependents"})
@@ -33,7 +36,7 @@ public class Repository {
     public static RegionName toTravelRegionName;
     public static Iterable<Planet> toTravelPlanets;
 
-
+    public static HashMap<String, Integer> itemMap = new HashMap<>();
     /**
      * set Player Class method
      * @param p player Class
@@ -104,5 +107,15 @@ public class Repository {
      * @param pls arraylist of planets
      */
     public static void setToTravelPlanets(Iterable<Planet> pls) { toTravelPlanets = pls; }
+
+    public static void saveItemMap() {
+        ArrayList<String> itemName =
+                new ArrayList<>(Arrays.asList("Water", "Furs", "Food",
+                        "Ore", "Games", "Firearms", "Medicine", "Machines",
+                        "Narcotics", "Robots"));
+        for (int i=0; i < itemName.size(); i++) {
+            itemMap.put(itemName.get(i), 0);
+        }
+    }
 
 }

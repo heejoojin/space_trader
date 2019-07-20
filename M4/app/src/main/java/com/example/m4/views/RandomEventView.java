@@ -43,14 +43,16 @@ public class RandomEventView extends AppCompatActivity implements View.OnClickLi
             if (isitaddingCredits) {
                 travelMessage.setText("After an eventful trip," +
                         "\nyou couldn't arrive at your destination :(\n" +
-                        "but you found found and gained" + randomElement + "credits" + "\nTry again");
+                        "but you just found " + randomElement + "credits! Congrats!" +
+                        "\n\nTry again to travel to your destination");
 
                 Repository.playerClass.setCredits(Repository.playerClass.getCredits() + randomElement);
 
             } else {
                 travelMessage.setText("After an eventful trip," +
                         "\nyou couldn't arrive at your destination :(\n" +
-                        "and you have lost your " + randomElement + "credits" + "\nTry again");
+                        "and you just got robbed of " + randomElement + "credits" +
+                        "\n\nTry again to travel to your destination");
 
                 Repository.playerClass.setCredits(Repository.playerClass.getCredits() - randomElement);
             }

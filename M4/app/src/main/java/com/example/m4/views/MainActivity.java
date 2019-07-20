@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     public void onClick (View v) {
         if (v.getId() == R.id.main_start_button) {
             if (Repository.playerClass == null) {
+                Repository.saveItemMap();
                 startActivity(new Intent(MainActivity.this, ConfigurationView.class));
             } else {
                 startActivity(new Intent(MainActivity.this, PlayerView.class));

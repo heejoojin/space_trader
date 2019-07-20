@@ -167,7 +167,8 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
                         250, 1250, 650, 900, 3500, 5000));
         int i = 0;
         while (i < 10) {
-            listViewItems.add(new Item(itemName.get(i), itemPrice.get(i)));
+            String name = itemName.get(i);
+            listViewItems.add(new Item(name, itemPrice.get(i), Repository.itemMap.get(name)));
             i++;
         }
         return listViewItems;

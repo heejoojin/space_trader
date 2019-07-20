@@ -24,7 +24,8 @@ public class Player {
 
     /** this player's ship */
     private String ship;
-    // private int weaponsLevel;
+
+    private String weapons;
 
     private Difficulty difficulty;
 
@@ -52,8 +53,7 @@ public class Player {
         this.traderPoints = traderPoints;
         this.engineerPoints = engineerPoints;
         this.ship = "Gnat";
-        //this.weaponsLevel = 1;
-        //noinspection MagicNumber
+        this.weapons = "None";
         this.fuel = 3203760;
     }
 
@@ -107,11 +107,11 @@ public class Player {
      */
     public String getShip() {return this.ship;}
 
-//    /**
-//     * get weapons level
-//     * @return int weapons level
-//     */
-//    public int getWeaponsLevel() {return this.weaponsLevel;}
+    /**
+     * get weapons level
+     * @return string weapons level
+     */
+    public String getWeapons() {return this.weapons;}
 
     /**
      * get difficulty
@@ -177,11 +177,11 @@ public class Player {
         this.ship = ship;
     }
 
-//    /**
-//     * set weapons level
-//     * @param weaponsLevel int weapons level
-//     */
-//    public void setWeaponsLevel(int weaponsLevel) {this.weaponsLevel = weaponsLevel;}
+    /**
+     * set weapons level
+     * @param weapons string weapons level
+     */
+    public void setWeapons(String weapons) {this.weapons = weapons;}
 
     /**
      * set difficulty

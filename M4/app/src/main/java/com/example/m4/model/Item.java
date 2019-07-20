@@ -1,5 +1,7 @@
 package com.example.m4.model;
 
+import com.example.m4.repository.Repository;
+
 import java.io.Serializable;
 
 /**
@@ -24,12 +26,12 @@ public class Item implements Serializable {
      * @param price price of the item
      */
     @SuppressWarnings("MagicNumber")
-    public Item(String name, int price) {
+    public Item(String name, int price, int quantityOwned) {
         this.name = name;
-        this.quantityOwned = 0;
+        this.quantityOwned = quantityOwned;
         this.price = price * (1 + (int)(Math.random() * (6 - 1)));
         this.quantityChange = 0;
-        this.quantityInMarket = 5 + (int)(Math.random() * (51 - 5));
+        this.quantityInMarket = 15 + (int)(Math.random() * (51 - 15));
         this.beforeUpdateInMarket = this.quantityInMarket;
         this.beforeUpdateOwned = 0;
     }
@@ -56,7 +58,7 @@ public class Item implements Serializable {
     public void updateQuantity() {
         this.quantityOwned = this.beforeUpdateOwned;
         this.quantityInMarket = this.beforeUpdateInMarket;
-
+        Repository.itemMap.put(name, beforeUpdateOwned);
     }
 
     /**
