@@ -7,8 +7,13 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.example.m4.R;
+import com.example.m4.repository.Repository;
+import com.example.m4.viewmodels.RandomEventViewModel;
+
+import java.util.Random;
 
 /**
  * View class that shows random events occurring when traveling between regions
@@ -27,8 +32,30 @@ public class RandomEventView extends AppCompatActivity implements View.OnClickLi
         Button backButton = findViewById(R.id.back_button);
         backButton.setOnClickListener(this);
 
-        travelMessage.setText("After an eventful trip," +
-                "\nyou couldn't arrive at your destination :(\n\nTry again");
+        RandomEventViewModel viewModel = ViewModelProviders.of(this).get(RandomEventViewModel.class);
+        int randomElement = viewModel.getRandomElement();
+        boolean isitaddingCredits = viewModel.chanceGettingCredits();
+
+        if (randomElement == 0) {
+            travelMessage.setText("After an eventful trip," +
+                    "\nyou couldn't arrive at your destination :(\n\nTry again");
+        } else {
+            if (isitaddingCredits) {
+                travelMessage.setText("After an eventful trip," +
+                        "\nyou couldn't arrive at your destination :(\n" +
+                        "but you found found and gained" + randomElement + "credits" + "\nTry again");
+
+                Repository.playerClass.setCredits(Repository.playerClass.getCredits() + randomElement);
+
+            } else {
+                travelMessage.setText("After an eventful trip," +
+                        "\nyou couldn't arrive at your destination :(\n" +
+                        "and you have lost your " + randomElement + "credits" + "\nTry again");
+
+                Repository.playerClass.setCredits(Repository.playerClass.getCredits() - randomElement);
+            }
+        }
+
 
     }
     @Override
