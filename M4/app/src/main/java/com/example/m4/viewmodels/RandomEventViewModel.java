@@ -34,7 +34,7 @@ public class RandomEventViewModel extends AndroidViewModel {
     }
 
     public int getRandomChance() {
-        return new Random().nextInt(3);
+        return new Random().nextInt(4);
     }
 
     public boolean getAddCredits() {
@@ -53,9 +53,9 @@ public class RandomEventViewModel extends AndroidViewModel {
         return randomItem;
     }
 
-
     public String loseRandomItem() {
-        String randomItem = itemName.get(new Random().nextInt(10));
+        String randomItem = itemName.get(new Random().nextInt(3));
+        // first three items
 
         if (Repository.itemMap.get(randomItem) > 0) {
             int num = Repository.itemMap.get(randomItem);
@@ -67,4 +67,18 @@ public class RandomEventViewModel extends AndroidViewModel {
             return null;
         }
     }
+
+    public String specialWeapon() {
+        ArrayList<String> specialWeaponName =
+                new ArrayList<>(Arrays.asList("Eclipse Plasma Gun",
+                        "Energized Meson Gun",
+                        "Multi-Shot Electron Zapper",
+                        "Enhanced Thermal Gun",
+                        "Energized Hand Sniper",
+                        "Firestorm Ray Equalizer",
+                        "Infused Proton Cannon",
+                        "Meteor Plasma Shooter"));
+        return specialWeaponName.get(new Random().nextInt(specialWeaponName.size()));
+    }
+
 }

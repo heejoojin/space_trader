@@ -41,6 +41,7 @@ public class RandomEventView extends AppCompatActivity implements View.OnClickLi
         boolean isitaddingCredits = viewModel.getAddCredits();
 
         int randomChance = viewModel.getRandomChance();
+        System.out.println(randomChance);
 
         // when randomElement == 0
         // case 1 no credits being changed
@@ -79,15 +80,25 @@ public class RandomEventView extends AppCompatActivity implements View.OnClickLi
             newMessage = base + "but you just found a new " + item + " item!\nCongrats!" +
                     "\n\nTry again to travel to your destination";
             travelMessage.setText(newMessage);
+
         } else if (randomChance == 2) {
 
-            // case 5 lose an item that you already have
+            // case 5 lose an item in cargo
             String item = viewModel.loseRandomItem();
 
             if (item != null) {
                 newMessage = base + "and you just lost one of your " + item + " items :(" +
                         "\n\nTry again to travel to your destination";
+                travelMessage.setText(newMessage);
             }
+        } else if (randomChance == 3) {
+
+            // case 6 get a special weapon
+            Repository.shipClass.setSpecialWeapon(viewModel.specialWeapon());
+            newMessage = base + "but you got a SPECIAL WEAPON,\n" + viewModel.specialWeapon() +
+                    "Congrats!" +
+                    "\n\nTry again to travel to your destination";
+            travelMessage.setText(newMessage);
         }
     }
     @Override

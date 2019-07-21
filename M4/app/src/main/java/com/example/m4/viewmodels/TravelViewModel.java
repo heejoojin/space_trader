@@ -19,7 +19,7 @@ import java.util.Random;
 public class TravelViewModel extends AndroidViewModel {
 
     private final ArrayList<String> eventsList =
-            // new ArrayList<>(Arrays.asList("Random Event", "Safe Travel"));
+            //new ArrayList<>(Arrays.asList("Random Event"));
             new ArrayList<>(Arrays.asList("Trader Encounter", "Pirate Encounter",
                     "Police Encounter", "Random Event", "Safe Travel"));
 

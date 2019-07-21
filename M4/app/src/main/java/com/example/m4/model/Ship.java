@@ -29,6 +29,7 @@ public class Ship {
     private final String gadget;
     private final String escape_pod;
     private final String insurance;
+    private String special_weapon;
 
     /**
      * Constructor setting up the name of the ship and the price within the market
@@ -41,6 +42,8 @@ public class Ship {
         this.gadget = gadgets.get(new Random().nextInt(gadgets.size()));
         this.escape_pod = escape_pods.get(new Random().nextInt(escape_pods.size()));
         this.insurance = insurances.get(new Random().nextInt(insurances.size()));
+        this.special_weapon = "No special Weapon";
+
     }
 
     // getters and setters
@@ -93,14 +96,31 @@ public class Ship {
         return insurance;
     }
 
+//    /**
+//     * get Special Weapon
+//     * @return String of special weapon
+//     */
+//    public String getSpecialWeapon() {
+//        return special_weapon;
+//    }
+
+    /**
+     * set Special Weapon
+     */
+    public void setSpecialWeapon(String special_weapon) {
+        this.special_weapon = special_weapon;
+    }
+
+
     @Override
     public String toString() {
-        String equipment = String.format("%s,\n%s,\n%s,\n%s,\n%s",
+        String equipment = String.format("%s,\n%s,\n%s,\n%s,\n%s,\nSPECIAL WEAPON : %s",
                 weapon,
                 shield,
                 gadget,
                 escape_pod,
-                insurance);
+                insurance,
+                special_weapon);
         return equipment;
     }
 }

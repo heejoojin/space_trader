@@ -112,7 +112,7 @@ public class ConfigurationView extends AppCompatActivity implements OnClickListe
     public void onClick (View v) {
 
         if (v.getId() == R.id.exit_button) {
-            System.exit(0);
+            finish();
         }
 
         if ((viewModel.getScore() <= 16) &&
