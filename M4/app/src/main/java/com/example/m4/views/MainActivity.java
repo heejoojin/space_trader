@@ -2,6 +2,8 @@ package com.example.m4.views;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View.OnClickListener;
 import android.view.View;
@@ -20,7 +22,7 @@ import com.example.m4.repository.Repository;
 public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     //private final Player player = new Player("", 0, 0, 0, 0);
-
+    MediaPlayer mySong;
 
     /**
      * Overridden onCreate method initialize activity
@@ -45,6 +47,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         Button minigame = findViewById(R.id.mini_game_button);
         minigame.setOnClickListener(this);
 
+        mySong = MediaPlayer.create(MainActivity.this, R.raw.song);
+
     }
 
 
@@ -63,5 +67,15 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         } else if (v.getId() == R.id.mini_game_button) {
             startActivity(new Intent(MainActivity.this, MiniGameView.class));
         }
+    }
+
+    public void playIT(View v) {
+        mySong.start();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mySong.release();
     }
 }

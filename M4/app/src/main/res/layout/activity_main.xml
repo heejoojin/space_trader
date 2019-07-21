@@ -10,5 +10,14 @@
 
     <include layout="@layout/content_main"/>
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Music"
+        android:onClick="playIT"
+        tools:layout_editor_absoluteX="159dp"
+        tools:layout_editor_absoluteY="532dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
