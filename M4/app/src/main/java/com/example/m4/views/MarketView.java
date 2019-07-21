@@ -210,6 +210,7 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
                         String m = "You didn't select any items";
                         Toast.makeText(getApplicationContext(), m, Toast.LENGTH_SHORT).show();
                     } else {
+                        Repository.setTransactionHistory(true);
                         String m = "You successfully purchased the items";
                         Toast.makeText(getApplicationContext(), m, Toast.LENGTH_SHORT).show();
                         setCreditTotal();

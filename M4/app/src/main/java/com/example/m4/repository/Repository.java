@@ -32,11 +32,14 @@ public class Repository {
     public static List<Ship> shipList = new ArrayList<>();
 
     public static Boolean isitBuying = true;
+    public static Boolean transactionHistory = false;
 
     public static RegionName toTravelRegionName;
     public static Iterable<Planet> toTravelPlanets;
 
     public static HashMap<String, Integer> itemMap = new HashMap<>();
+    public static HashMap<String, String> mercenaryMap = new HashMap<>();
+
     /**
      * set Player Class method
      * @param p player Class
@@ -116,6 +119,21 @@ public class Repository {
         for (int i=0; i < itemName.size(); i++) {
             itemMap.put(itemName.get(i), 0);
         }
+    }
+
+    public static void saveMercenaryMap() {
+        ArrayList<String> mercenaryName =
+                new ArrayList<>(Arrays.asList("Red", "Heejoo", "Nina",
+                        "Brian", "Kunhyuk", "John", "Spock",
+                        "Jango Fett", "Deadpool", "Boba Fett"));
+
+        for (int i=0; i < mercenaryName.size(); i++) {
+            mercenaryMap.put(mercenaryName.get(i), "NOT HIRED");
+        }
+    }
+
+    public static void setTransactionHistory(boolean h) {
+        transactionHistory = h;
     }
 
 }

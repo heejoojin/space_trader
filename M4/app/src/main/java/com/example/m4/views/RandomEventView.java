@@ -22,6 +22,10 @@ import java.util.Random;
 @SuppressWarnings("CyclicClassDependency")
 public class RandomEventView extends AppCompatActivity implements View.OnClickListener {
 
+    private String base = "After an eventful trip," +
+            "\nyou couldn't arrive at your destination :(\n";
+    private String newMessage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,38 +38,62 @@ public class RandomEventView extends AppCompatActivity implements View.OnClickLi
 
         RandomEventViewModel viewModel = ViewModelProviders.of(this).get(RandomEventViewModel.class);
         int randomElement = viewModel.getRandomElement();
-        boolean isitaddingCredits = viewModel.chanceGettingCredits();
+        boolean isitaddingCredits = viewModel.getAddCredits();
 
-        if (randomElement == 0) {
-            travelMessage.setText("After an eventful trip," +
-                    "\nyou couldn't arrive at your destination :(\n\nTry again");
-        } else {
-            if (isitaddingCredits) {
-                travelMessage.setText("After an eventful trip," +
-                        "\nyou couldn't arrive at your destination :(\n" +
-                        "but you just found " + randomElement + "credits! Congrats!" +
-                        "\n\nTry again to travel to your destination");
+        int randomChance = viewModel.getRandomChance();
 
-                Repository.playerClass.setCredits(Repository.playerClass.getCredits() + randomElement);
+        // when randomElement == 0
+        // case 1 no credits being changed
+        newMessage = base + "\n\nTry again";
+        travelMessage.setText(newMessage);
 
-            } else {
-                travelMessage.setText("After an eventful trip," +
-                        "\nyou couldn't arrive at your destination :(\n" +
-                        "and you just got robbed of " + randomElement + "credits" +
-                        "\n\nTry again to travel to your destination");
+        if (randomChance == 0) {
+            // changing credits
+            if (randomElement != 0) {
+                // credits being changed
 
-                Repository.playerClass.setCredits(Repository.playerClass.getCredits() - randomElement);
+                if (isitaddingCredits) {
+
+                    // case 2 found credits
+                    newMessage = base + "but you just found " + randomElement + " credits! Congrats!" +
+                            "\n\nTry again to travel to your destination";
+                    travelMessage.setText(newMessage);
+                    Repository.playerClass.setCredits(Repository.playerClass.getCredits() + randomElement);
+                } else {
+
+                    // case 3 lost credits
+                    if (randomElement < Repository.playerClass.getCredits()) {
+                        newMessage = base + "and you just lost " + randomElement + " credits :(" +
+                                "\n\nTry again to travel to your destination";
+                        travelMessage.setText(newMessage);
+
+                        Repository.playerClass.setCredits(Repository.playerClass.getCredits() - randomElement);
+                    }
+                }
+            }
+        } else if (randomChance == 1) {
+
+            // case 4 get a new item
+            String item = viewModel.findRandomItem();
+
+            newMessage = base + "but you just found a new " + item + " item!\nCongrats!" +
+                    "\n\nTry again to travel to your destination";
+            travelMessage.setText(newMessage);
+        } else if (randomChance == 2) {
+
+            // case 5 lose an item that you already have
+            String item = viewModel.loseRandomItem();
+
+            if (item != null) {
+                newMessage = base + "and you just lost one of your " + item + " items :(" +
+                        "\n\nTry again to travel to your destination";
             }
         }
-
-
     }
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.back_button) {
             startActivity(new Intent(this, UniverseView.class));
         }
-
     }
-
 }

@@ -77,7 +77,6 @@ public class ShipAdapter extends ArrayAdapter<Ship> {
                     }
                 }, 1000);
                 Repository.setShipClass(currentShip);
-                Repository.playerClass.setWeapons(equipment);
                 notifyDataSetChanged();
             }
 

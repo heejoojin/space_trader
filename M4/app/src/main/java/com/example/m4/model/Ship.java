@@ -93,4 +93,14 @@ public class Ship {
         return insurance;
     }
 
+    @Override
+    public String toString() {
+        String equipment = String.format("%s,\n%s,\n%s,\n%s,\n%s",
+                weapon,
+                shield,
+                gadget,
+                escape_pod,
+                insurance);
+        return equipment;
+    }
 }

@@ -140,14 +140,13 @@ public class MercenaryView extends AppCompatActivity implements View.OnClickList
         ArrayList<Integer> itemPrice = new ArrayList<>(Arrays.asList(30, 250, 100, 350, 250, 1250, 650, 900, 3500, 5000));
         int i = 0;
         while (i < 10) {
-            listViewMercs.add(new Mercenary(itemName.get(i), itemPrice.get(i)));
+            String name = itemName.get(i);
+            listViewMercs.add(new Mercenary(name, itemPrice.get(i),
+                    Repository.mercenaryMap.get(name)));
             i++;
         }
         return listViewMercs;
     }
-
-
-
 
     @Override
     public void onClick (View v) {
@@ -182,6 +181,7 @@ public class MercenaryView extends AppCompatActivity implements View.OnClickList
                         String m = "You didn't select a mercenary to hire";
                         Toast.makeText(getApplicationContext(), m, Toast.LENGTH_SHORT).show();
                     } else {
+                        Repository.setTransactionHistory(true);
                         String m = "You successfully hired the mercenary(s)";
                         Toast.makeText(getApplicationContext(), m, Toast.LENGTH_SHORT).show();
                         setCreditTotal();

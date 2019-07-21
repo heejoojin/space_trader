@@ -55,7 +55,12 @@ public class PlayerView extends AppCompatActivity implements View.OnClickListene
             planet.setText("None");
         }
 
-        weapon.setText(Repository.playerClass.getWeapons());
+        if (Repository.shipClass != null) {
+            weapon.setText(Repository.shipClass.toString());
+        } else {
+            weapon.setText("No Weapon");
+        }
+
 
         Button next = findViewById(R.id.next_button);
         next.setOnClickListener(this);

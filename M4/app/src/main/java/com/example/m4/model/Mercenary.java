@@ -1,5 +1,7 @@
 package com.example.m4.model;
 
+import com.example.m4.repository.Repository;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
@@ -24,10 +26,15 @@ public class Mercenary {
      * Constructor setting up name and weapon equipped
      * @param name name of mercenary
      * @param price price of Mercenary
+     * @param isithired whether the mecenary is hired or not
      */
-    public Mercenary(String name, int price) {
+    public Mercenary(String name, int price, String isithired) {
         this.name = name;
-        hired = false;
+        if (isithired.equals("NOT HIRED")) {
+            hired = false;
+        } else {
+            hired = true;
+        }
         weapon = weapons.get(new Random().nextInt(weapons.size()));
         this.price = price;
     }
@@ -66,5 +73,12 @@ public class Mercenary {
      * Setter for hired
      * @param hired true or false
      */
-    public void setHired(boolean hired) { this.hired = hired; }
+    public void setHired(boolean hired) {
+        this.hired = hired;
+        if (hired == true) {
+            Repository.mercenaryMap.put(name, "HIRED");
+        } else {
+            Repository.mercenaryMap.put(name, "NOT HIRED");
+        }
+    }
 }

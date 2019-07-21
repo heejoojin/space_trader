@@ -33,6 +33,8 @@ public class TravelView extends AppCompatActivity implements View.OnClickListene
     private String creditLeft;
     private String pirateMessage;
 
+    private String[] tradegoods;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,8 +64,20 @@ public class TravelView extends AppCompatActivity implements View.OnClickListene
         switch (randomElement) {
             case "Trader Encounter":
 
-                travelMessage.setText("You have encountered a trader!\n" +
-                        "\nYou have no items to trade\nGo to market and buy some goods :)");
+                if (!Repository.transactionHistory) {
+                    travelMessage.setText("You have encountered a trader!\n" +
+                            "\nYou have no items to trade\nGo to the market and buy some goods :)");
+                } else {
+                    tradegoods = viewModel.tradeGoods();
+
+                    if (tradegoods[0] != null) {
+                        travelMessage.setText("You have encountered a trader!\n" +
+                                "\nYou have some items available in your cargo\nDo you want to trade some goods?");
+
+                        backButton.setText("Yes");
+                        nextButton.setText("No & Move on");
+                    }
+                }
 
                 break;
             case "Pirate Encounter":
@@ -127,6 +141,15 @@ public class TravelView extends AppCompatActivity implements View.OnClickListene
                             "\nNow you have " + creditLeft + " credits";
                     travelMessage.setText(pirateMessage);
                 }
+
+            } else if (Repository.transactionHistory && viewModel.getIsItTrader() &&
+                    tradegoods[0] != null) {
+                // trade
+                String[] arr = viewModel.tradeGoods();
+                travelMessage.setText("You have traded your " + arr[0] +
+                        "\nwith his " + arr[1]);
+                backButton.setText("Back");
+                nextButton.setText("Next");
 
             } else {
                 startActivity(new Intent(this, UniverseView.class));

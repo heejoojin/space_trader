@@ -88,7 +88,6 @@ public class MercenaryAdapter extends ArrayAdapter<Mercenary>{
         currentPrice.setText("$ " + currentItem.getPrice());
 
 
-
         hireFireMerc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -104,6 +103,8 @@ public class MercenaryAdapter extends ArrayAdapter<Mercenary>{
 
                             checkpoint -= currentItem.getPrice();
 
+                            Repository.playerClass.setCredits(checkpoint);
+
                             //System.out.println(checkpoint);
                         }
                     }
@@ -114,7 +115,7 @@ public class MercenaryAdapter extends ArrayAdapter<Mercenary>{
                         currentItem.setQuantityChange(1);
                         currentItem.setHired(false);
                         hired.setText("NOT HIRED");
-
+                        Repository.playerClass.setCredits(checkpoint);
 
                         //System.out.println(checkpoint);
                     }
