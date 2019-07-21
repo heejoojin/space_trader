@@ -11,11 +11,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.example.m4.adapter.MarketItemAdapter;
 
+import java.io.SyncFailedException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import com.example.m4.model.Item;
 import com.example.m4.R;
 import com.example.m4.repository.Repository;
+import java.util.Iterator;
 
 import android.widget.Button;
 
@@ -71,8 +73,19 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
         creditTotaltoEditText = findViewById(R.id.credit_num_view);
         String m1 = "" + Repository.playerClass.getCredits();
         creditTotaltoEditText.setText(m1);
-
         itemTotalView = findViewById(R.id.item_total);
+
+        if (!Repository.isitBuying) {
+            switchButton.setText("Switch to Buy");
+            buyorsellButton.setText("Sell");
+            itemTotalView.setText("Total Sale   ");
+            marketMode.setText("Sell Items");
+        } else {
+            switchButton.setText("Switch to Sell");
+            buyorsellButton.setText("Buy");
+            itemTotalView.setText("Total Expense   ");
+            marketMode.setText("Buy Items");
+        }
 
         ListView storedOrders = findViewById(R.id.selected_item_list);
 
@@ -218,6 +231,7 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
                         updateIteminCargo();
                         setadpater.notifyDataSetChanged();
 
+
                     }
                 }
             } else {
@@ -229,6 +243,7 @@ public class MarketView extends AppCompatActivity implements OnClickListener {
                     resetItemTotal();
                     updateIteminCargo();
                     setadpater.notifyDataSetChanged();
+
 
                 } else if (calculateItemTotal() == 0) {
                     String m = "You didn't select any items";
