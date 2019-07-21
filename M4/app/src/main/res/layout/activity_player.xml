@@ -273,8 +273,8 @@
         android:id="@+id/player_weapon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
         android:layout_marginTop="16dp"
         android:text="weapon"
         app:layout_constraintStart_toStartOf="@+id/player_planet"
@@ -299,7 +299,7 @@
         android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/weapon_header"
+        app:layout_constraintTop_toTopOf="@+id/player_weapon"
         />
 
 

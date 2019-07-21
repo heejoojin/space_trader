@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                 startActivity(new Intent(MainActivity.this, PlayerView.class));
             }
         } else if (v.getId() == R.id.main_exit_button) {
-            System.exit(0);
+            finish();
         } else if (v.getId() == R.id.mini_game_button) {
             startActivity(new Intent(MainActivity.this, MiniGameView.class));
         }
