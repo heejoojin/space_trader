@@ -1,6 +1,8 @@
 package com.example.m4.model;
 
 
+
+
 /**
  * Planet class that represents a singular planet within a Region. Contains its coordinates within
  * the region as well as various other essential variables
@@ -29,7 +31,6 @@ public class Planet {
         this.yLocation = yLocation;
 //        this.fuel = (10000 + (int)(Math.random() * (30000 - 10000)));
     }
-
 
     //getters and setters for the variable
 

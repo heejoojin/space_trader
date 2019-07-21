@@ -12,6 +12,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 //@SuppressWarnings({"WeakerAccess", "unused",
 //        "PublicField", "AssignmentOrReturnOfFieldWithMutableType",
 //        "UtilityClass", "ClassWithTooManyDependents"})
@@ -39,6 +41,8 @@ public class Repository {
 
     public static HashMap<String, Integer> itemMap = new HashMap<>();
     public static HashMap<String, String> mercenaryMap = new HashMap<>();
+
+    private static DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
     /**
      * set Player Class method
@@ -70,6 +74,9 @@ public class Repository {
      */
     public static void setPlanetClass(Planet pl) {
         planetClass = pl;
+        databaseReference.child("user").
+                child("planet").
+                setValue(pl.getPlanetName().toString());
     }
 
     /**
@@ -96,20 +103,38 @@ public class Repository {
      * set Ship Class
      * @param s ship
      */
-    public static void setShipClass(Ship s) { shipClass = s; }
+    public static void setShipClass(Ship s) {
+        shipClass = s;
+        databaseReference.child("ship equipments").
+                child("weapon").setValue(s.getWeapon());
+        databaseReference.child("ship equipments").
+                child("shield").setValue(s.getShield());
+        databaseReference.child("ship equipments").
+                child("gadget").setValue(s.getGadget());
+        databaseReference.child("ship equipments").
+                child("escape pod").setValue(s.getEscapePod());
+        databaseReference.child("ship equipments").
+                child("insurance").setValue(s.getInsurance());
+    }
 
     /**
      * set toTravel region name
      * @param rn region name
      */
-    public static void setToTravelRegionName(RegionName rn) { toTravelRegionName = rn; }
+    public static void setToTravelRegionName(RegionName rn) {
+        toTravelRegionName = rn;
+        databaseReference.child("user").
+                child("region").setValue(rn.toString());
+    }
 
 
     /**
      * set toTravel planets
      * @param pls arraylist of planets
      */
-    public static void setToTravelPlanets(Iterable<Planet> pls) { toTravelPlanets = pls; }
+    public static void setToTravelPlanets(Iterable<Planet> pls) {
+        toTravelPlanets = pls;
+    }
 
     /**
      * save the quantity of each item owned in cargo using Hashmap

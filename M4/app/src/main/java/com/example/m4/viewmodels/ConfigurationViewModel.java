@@ -4,6 +4,10 @@ import android.app.Application;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.annotation.NonNull;
 
+import com.example.m4.repository.Repository;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 /**
  * View model representing the configuration view the user starts in
  */
@@ -11,6 +15,8 @@ import androidx.annotation.NonNull;
 public class ConfigurationViewModel extends AndroidViewModel {
 
     private int score = 16;
+    private DatabaseReference databaseReference;
+
 
     /**
      * Configuration view model constructor with application parameter
@@ -34,5 +40,15 @@ public class ConfigurationViewModel extends AndroidViewModel {
      */
     public int getScore() {
         return this.score;
+    }
+
+    /**
+     * store the new user's info in Google Firebase realtime database
+     *
+     */
+    public void fireBase() {
+
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+        databaseReference.push().child("user").child("name").setValue(Repository.playerClass.getName());
     }
 }

@@ -98,7 +98,7 @@ public class RandomEventView extends AppCompatActivity implements View.OnClickLi
         } else if (randomChance == 3) {
 
             // case 6 get a special weapon
-            Repository.shipClass.setSpecialWeapon(viewModel.specialWeapon());
+            Repository.playerClass.setSpecialWeapon(viewModel.specialWeapon());
             newMessage = base + "but you got a SPECIAL WEAPON,\n" + viewModel.specialWeapon() +
                     "Congrats!" +
                     "\n\nTry again to travel to your destination";

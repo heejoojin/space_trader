@@ -1,23 +1,26 @@
 package com.example.m4.views;
 
-import androidx.lifecycle.ViewModelProviders;
 import android.content.Intent;
-
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.view.View;
-import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.example.m4.R;
 import com.example.m4.model.Difficulty;
-import com.example.m4.viewmodels.ConfigurationViewModel;
 import com.example.m4.model.Player;
 import com.example.m4.repository.Repository;
+import com.example.m4.viewmodels.ConfigurationViewModel;
+//import com.google.firebase.database.DatabaseReference;
+//import com.google.firebase.database.FirebaseDatabase;
+
 
 /**
  * Configuration view setting up the UI for the initial screen the user will encounter when starting
@@ -29,9 +32,10 @@ import com.example.m4.repository.Repository;
 public class ConfigurationView extends AppCompatActivity implements OnClickListener {
 
     private ConfigurationViewModel viewModel;
+//    private FirebaseDatabase firebaseDatabase;
+//    private DatabaseReference databaseReference;
 
     private final Player player = new Player("", 0, 0, 0, 0);
-
 
     private EditText name;
 
@@ -102,6 +106,8 @@ public class ConfigurationView extends AppCompatActivity implements OnClickListe
         okay.setOnClickListener(this);
 
         viewModel = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
+
+        //databaseReference = FirebaseDatabase.getInstance().getReference();
     }
 
     /**

@@ -1,4 +1,7 @@
 package com.example.m4.model;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 /**
  * This class represents a player object
  */
@@ -25,11 +28,20 @@ public class Player {
     /** this player's ship */
     private String ship;
 
-//    private String weapons;
+    private String specialWeapon;
 
     private Difficulty difficulty;
 
     private int fuel;
+
+    private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+
+//    /**
+//     * Default constructor required for calls to DataSnapshot.getValue(Player.class)
+//     */
+//    public Player() {
+//        // Default constructor required for calls to DataSnapshot.getValue(User.class)
+//    }
 
     /**
      * Constructor that sets up the inital player information
@@ -53,8 +65,39 @@ public class Player {
         this.traderPoints = traderPoints;
         this.engineerPoints = engineerPoints;
         this.ship = "Gnat";
-//        this.weapons = "None";
+        this.specialWeapon = "No Special Weapon";
         this.fuel = 3203760;
+        // private DatabaseReference databaseReference =
+        // FirebaseDatabase.getInstance().getReference();
+        databaseReference.child("user").
+                child("name").setValue(this.name);
+
+//        databaseReference.child("user").
+//                child("difficulty").setValue(this.difficulty.toString());
+
+        databaseReference.child("user").
+                child("credits").setValue(this.credits);
+
+        databaseReference.child("user").
+                child("pilot").setValue(this.pilotPoints);
+
+        databaseReference.child("user").
+                child("trader").setValue(this.traderPoints);
+
+        databaseReference.child("user").
+                child("engineer").setValue(this.engineerPoints);
+
+        databaseReference.child("user").
+                child("fighter").setValue(this.fighterPoints);
+
+        databaseReference.child("user").
+                child("ship").setValue(this.ship);
+
+        databaseReference.child("user").
+                child("fuel").setValue(this.fuel);
+
+        databaseReference.child("user").
+                child("special weapon").setValue(this.specialWeapon);
     }
 
     //Getters and setters required for accessing the fields
@@ -107,11 +150,11 @@ public class Player {
      */
     public String getShip() {return this.ship;}
 
-//    /**
-//     * get weapons level
-//     * @return string weapons level
-//     */
-//    public String getWeapons() {return this.weapons;}
+    /**
+     * get speicalWeapon
+     * @return string speicalWeapon
+     */
+    public String getSpecialWeapon() {return this.specialWeapon;}
 
     /**
      * get difficulty
@@ -127,6 +170,9 @@ public class Player {
      */
     public void setCredits(int credits) {
         this.credits = credits;
+        databaseReference.child("user").
+                child("credits").setValue(this.credits);
+
     }
 
     /**
@@ -135,6 +181,8 @@ public class Player {
      */
     public void setPilotPoints(int pilotPoints) {
         this.pilotPoints = pilotPoints;
+        databaseReference.child("user").
+                child("pilot").setValue(this.pilotPoints);
     }
 
     /**
@@ -143,6 +191,10 @@ public class Player {
      */
     public void setFighterPoints(int fighterPoints) {
         this.fighterPoints = fighterPoints;
+        databaseReference.child("user").
+                child("fighter").setValue(this.fighterPoints);
+
+
     }
 
     /**
@@ -151,6 +203,8 @@ public class Player {
      */
     public void setTraderPoints(int traderPoints) {
         this.traderPoints = traderPoints;
+        databaseReference.child("user").
+                child("trader").setValue(this.traderPoints);
     }
 
     /**
@@ -159,6 +213,8 @@ public class Player {
      */
     public void setEngineerPoints(int engineerPoints) {
         this.engineerPoints = engineerPoints;
+        databaseReference.child("user").
+                child("engineer").setValue(this.engineerPoints);
     }
 
     /**
@@ -167,6 +223,8 @@ public class Player {
      */
     public void setName(String name) {
         this.name = name;
+        databaseReference.child("user").
+                child("name").setValue(this.name);
     }
 
     /**
@@ -175,13 +233,19 @@ public class Player {
      */
     public void setShip(String ship) {
         this.ship = ship;
+        databaseReference.child("user").
+                child("ship").setValue(this.ship);
     }
 
-//    /**
-//     * set weapons level
-//     * @param weapons string weapons level
-//     */
-//    public void setWeapons(String weapons) {this.weapons = weapons;}
+    /**
+     * set speical weapon
+     * @param specialWeapon string special weapon
+     */
+    public void setSpecialWeapon(String specialWeapon) {
+        this.specialWeapon = specialWeapon;
+        databaseReference.child("user").
+                child("special weapon").setValue(this.specialWeapon);
+    }
 
     /**
      * set difficulty
@@ -189,13 +253,19 @@ public class Player {
      */
     public void setDifficulty(Difficulty difficulty) {
         this.difficulty = difficulty;
+        databaseReference.child("user").
+                child("difficulty").setValue(this.difficulty.toString());
     }
 
     /**
      * set Fuel
      * @param fuel int of fuel
      */
-    public void setFuel(int fuel) { this.fuel = fuel; }
+    public void setFuel(int fuel) {
+        this.fuel = fuel;
+        databaseReference.child("user").
+                child("fuel").setValue(this.fuel);
+    }
 
 
 }
