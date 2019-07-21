@@ -6,7 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 
 import com.example.m4.repository.Repository;
-import com.example.m4.views.RandomEventView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -84,6 +83,10 @@ public class TravelViewModel extends AndroidViewModel {
         this.isitPirate = isitPirate;
     }
 
+    /**
+     * Conducts trading transaction with Trader
+     * @return string array that contains goods to trade
+     */
     public String[] tradeGoods() {
         String[] arr = new String[2];
         ArrayList<String> itemName =

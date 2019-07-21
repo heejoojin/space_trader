@@ -24,6 +24,7 @@ public class Item implements Serializable {
      * Constructor to set up the name of the item and its preliminary price
      * @param name name of the item
      * @param price price of the item
+     * @param quantityOwned quantity of the item in cargo
      */
     @SuppressWarnings("MagicNumber")
     public Item(String name, int price, int quantityOwned) {

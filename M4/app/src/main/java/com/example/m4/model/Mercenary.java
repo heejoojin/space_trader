@@ -63,8 +63,16 @@ public class Mercenary {
      */
     public int getPrice() { return price; }
 
+    /**
+     * Getter for change in mercenary quantity
+     * @return quantity changed;
+     */
     public int getQuantityChange() { return quantityChange; }
 
+    /**
+     * Setter for change in mercenary quantity
+     * @param quantityChange change in mercenary quantity
+     */
     public void setQuantityChange(int quantityChange) {
         this.quantityChange = quantityChange;
     }

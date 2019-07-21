@@ -44,7 +44,8 @@ public class ShipyardView extends AppCompatActivity implements View.OnClickListe
 
         shipDescription = findViewById(R.id.ship_description);
         if (Repository.shipClass == null) {
-            String m = "Your current ship is\n" + Repository.playerClass.getShip() + " spaceship with no equipments";
+            String m = "Your current ship is\n" + Repository.playerClass.getShip() +
+                    " spaceship with no equipments";
             shipDescription.setText(m);
         } else {
             String equipment = String.format("%s,\n%s, %s, %s, and %s",

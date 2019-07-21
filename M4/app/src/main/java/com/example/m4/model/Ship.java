@@ -106,6 +106,7 @@ public class Ship {
 
     /**
      * set Special Weapon
+     * @param special_weapon string of special weapon
      */
     public void setSpecialWeapon(String special_weapon) {
         this.special_weapon = special_weapon;

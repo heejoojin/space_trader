@@ -72,7 +72,8 @@ public class TravelView extends AppCompatActivity implements View.OnClickListene
 
                     if (tradegoods[0] != null) {
                         travelMessage.setText("You have encountered a trader!\n" +
-                                "\nYou have some items available in your cargo\nDo you want to trade some goods?");
+                                "\nYou have some items available in your cargo\n" +
+                                "Do you want to trade some goods?");
 
                         backButton.setText("Yes");
                         nextButton.setText("No & Move on");

@@ -1,17 +1,13 @@
 package com.example.m4;
 
-import com.example.m4.model.Item;
 import com.example.m4.model.Player;
 import com.example.m4.model.Universe;
-import com.example.m4.model.Region;
 
 import junit.framework.TestCase;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.ArrayList;
 
 public class RedChuUnitTest {
 

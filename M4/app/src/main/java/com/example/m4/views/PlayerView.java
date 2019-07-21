@@ -11,6 +11,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.m4.R;
 import com.example.m4.repository.Repository;
 
+
+/**
+ * View class that displays a player's information
+ * Contains values such as name, credits, difficulty of the game
+ * name of the ship, game points, player's planet as well as region
+ * and equipments including weapon, shield, gadget, escape pod and insurance
+ */
 public class PlayerView extends AppCompatActivity implements View.OnClickListener {
 
     @Override

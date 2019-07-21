@@ -13,7 +13,7 @@ import com.example.m4.R;
 import com.example.m4.repository.Repository;
 import com.example.m4.viewmodels.RandomEventViewModel;
 
-import java.util.Random;
+// import java.util.Random;
 
 /**
  * View class that shows random events occurring when traveling between regions
@@ -36,8 +36,9 @@ public class RandomEventView extends AppCompatActivity implements View.OnClickLi
         Button backButton = findViewById(R.id.back_button);
         backButton.setOnClickListener(this);
 
-        RandomEventViewModel viewModel = ViewModelProviders.of(this).get(RandomEventViewModel.class);
-        int randomElement = viewModel.getRandomElement();
+        RandomEventViewModel viewModel =
+                ViewModelProviders.of(this).get(RandomEventViewModel.class);
+        int randomCredit = viewModel.getRandomCredit();
         boolean isitaddingCredits = viewModel.getAddCredits();
 
         int randomChance = viewModel.getRandomChance();
@@ -50,25 +51,28 @@ public class RandomEventView extends AppCompatActivity implements View.OnClickLi
 
         if (randomChance == 0) {
             // changing credits
-            if (randomElement != 0) {
+            if (randomCredit != 0) {
                 // credits being changed
 
                 if (isitaddingCredits) {
 
                     // case 2 found credits
-                    newMessage = base + "but you just found " + randomElement + " credits! Congrats!" +
+                    newMessage = base + "but you just found " +
+                            randomCredit + " credits! Congrats!" +
                             "\n\nTry again to travel to your destination";
                     travelMessage.setText(newMessage);
-                    Repository.playerClass.setCredits(Repository.playerClass.getCredits() + randomElement);
+                    Repository.playerClass.setCredits(Repository.playerClass.getCredits() +
+                            randomCredit);
                 } else {
 
                     // case 3 lost credits
-                    if (randomElement < Repository.playerClass.getCredits()) {
-                        newMessage = base + "and you just lost " + randomElement + " credits :(" +
+                    if (randomCredit < Repository.playerClass.getCredits()) {
+                        newMessage = base + "and you just lost " + randomCredit + " credits :(" +
                                 "\n\nTry again to travel to your destination";
                         travelMessage.setText(newMessage);
 
-                        Repository.playerClass.setCredits(Repository.playerClass.getCredits() - randomElement);
+                        Repository.playerClass.setCredits(Repository.playerClass.getCredits() -
+                                randomCredit);
                     }
                 }
             }

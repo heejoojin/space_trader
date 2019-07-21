@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.m4.R;
 import com.example.m4.adapter.MercenaryAdapter;
-import com.example.m4.model.Item;
 import com.example.m4.model.Mercenary;
 import com.example.m4.repository.Repository;
 
@@ -181,7 +180,7 @@ public class MercenaryView extends AppCompatActivity implements View.OnClickList
                         String m = "You didn't select a mercenary to hire";
                         Toast.makeText(getApplicationContext(), m, Toast.LENGTH_SHORT).show();
                     } else {
-                        Repository.setTransactionHistory(true);
+//                        Repository.setTransactionHistory(true);
                         String m = "You successfully hired the mercenary(s)";
                         Toast.makeText(getApplicationContext(), m, Toast.LENGTH_SHORT).show();
                         setCreditTotal();

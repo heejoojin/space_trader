@@ -11,7 +11,6 @@ import android.widget.TextView;
 import android.graphics.Paint;
 
 import com.example.m4.R;
-import com.example.m4.model.Player;
 import com.example.m4.repository.Repository;
 
 /**

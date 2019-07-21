@@ -95,7 +95,8 @@ public class MercenaryAdapter extends ArrayAdapter<Mercenary>{
                 if (Repository.isitBuying) {
 
                     if (checkpoint >= 0) {
-                        if (((checkpoint - currentItem.getPrice()) >= 0) && !currentItem.getHired()) {
+                        if (((checkpoint - currentItem.getPrice()) >= 0) &&
+                                !currentItem.getHired()) {
 
                             currentItem.setHired(true);
                             hired.setText("HIRED");

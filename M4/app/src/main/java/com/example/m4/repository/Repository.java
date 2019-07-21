@@ -12,12 +12,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
-@SuppressWarnings({"WeakerAccess", "unused",
-        "PublicField", "AssignmentOrReturnOfFieldWithMutableType",
-        "UtilityClass", "ClassWithTooManyDependents"})
+//@SuppressWarnings({"WeakerAccess", "unused",
+//        "PublicField", "AssignmentOrReturnOfFieldWithMutableType",
+//        "UtilityClass", "ClassWithTooManyDependents"})
 
 /**
- * Class Repository store data
+ * Repository class that stores the player's information
  */
 public class Repository {
 
@@ -111,6 +111,9 @@ public class Repository {
      */
     public static void setToTravelPlanets(Iterable<Planet> pls) { toTravelPlanets = pls; }
 
+    /**
+     * save the quantity of each item owned in cargo using Hashmap
+     */
     public static void saveItemMap() {
         ArrayList<String> itemName =
                 new ArrayList<>(Arrays.asList("Water", "Furs", "Food",
@@ -121,6 +124,9 @@ public class Repository {
         }
     }
 
+    /**
+     * save the quantity of each mercenary owned in cargo using Hashmap
+     */
     public static void saveMercenaryMap() {
         ArrayList<String> mercenaryName =
                 new ArrayList<>(Arrays.asList("Red", "Heejoo", "Nina",
@@ -131,7 +137,10 @@ public class Repository {
             mercenaryMap.put(mercenaryName.get(i), "NOT HIRED");
         }
     }
-
+    /**
+     * set whether or not the user have had any transactions in the market
+     * @param h boolean to check any transaction history
+     */
     public static void setTransactionHistory(boolean h) {
         transactionHistory = h;
     }

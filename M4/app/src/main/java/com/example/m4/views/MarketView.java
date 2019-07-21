@@ -11,13 +11,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.example.m4.adapter.MarketItemAdapter;
 
-import java.io.SyncFailedException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import com.example.m4.model.Item;
 import com.example.m4.R;
 import com.example.m4.repository.Repository;
-import java.util.Iterator;
 
 import android.widget.Button;
 
