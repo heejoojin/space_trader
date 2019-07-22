@@ -32,15 +32,5 @@
         app:layout_constraintStart_toStartOf="@id/no_player"
         android:layout_marginTop="100dp" app:layout_constraintTop_toTopOf="@id/no_player" />
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    
-        <VideoView
-            android:id="@+id/video_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
-    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -30,23 +30,22 @@
         android:text="@string/start"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.328"
+        app:layout_constraintHorizontal_bias="0.185"
         app:layout_constraintStart_toStartOf="@+id/imageView1"
         app:layout_constraintTop_toTopOf="@id/imageView1"
-        app:layout_constraintVertical_bias="0.759" />
+        app:layout_constraintVertical_bias="0.772" />
 
     <Button
         android:id="@+id/main_exit_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/exit"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView1"
-        app:layout_constraintHorizontal_bias="0.621"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="@+id/imageView1"
         app:layout_constraintTop_toTopOf="@id/imageView1"
-        app:layout_constraintVertical_bias="0.759" />
+        app:layout_constraintVertical_bias="0.772" />
 
     <Button
         android:id="@+id/mini_game_button"
@@ -54,11 +53,11 @@
         android:layout_height="wrap_content"
         android:text="@string/mini_game"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/main_start_button"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@id/main_start_button"
-        app:layout_constraintTop_toTopOf="@id/main_start_button"
-        app:layout_constraintVertical_bias="0.398" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.826"
+        app:layout_constraintStart_toStartOf="@+id/imageView1"
+        app:layout_constraintTop_toTopOf="@+id/imageView1"
+        app:layout_constraintVertical_bias="0.772" />
 
     <TextView
         android:id="@+id/game_title_view"
@@ -82,25 +81,33 @@
         android:id="@+id/music_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="30dp"
         android:text="Pause Music"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/main_exit_button"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toTopOf="@+id/main_start_button"
+        app:layout_constraintStart_toStartOf="@+id/main_start_button" />
+
+    <Button
+        android:id="@+id/video_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Music Video"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="60dp"
         app:layout_constraintStart_toStartOf="@+id/main_exit_button"
         app:layout_constraintTop_toTopOf="@+id/main_exit_button"
-        app:layout_constraintVertical_bias="0.4" />
+        />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Firebase Cloud Storage"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/mini_game_button"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/mini_game_button"
-        app:layout_constraintTop_toTopOf="@+id/mini_game_button"
-        app:layout_constraintVertical_bias="0.689" />
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="14dp"
+        app:layout_constraintStart_toStartOf="@+id/music_button"
+        app:layout_constraintTop_toTopOf="@+id/music_button"
+         />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

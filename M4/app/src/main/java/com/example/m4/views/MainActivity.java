@@ -73,6 +73,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         Button save = findViewById(R.id.button);
         save.setOnClickListener(this);
 
+        Button video = findViewById(R.id.video_button);
+        video.setOnClickListener(this);
+
         music = findViewById(R.id.music_button);
         music.setOnClickListener(this);
 
@@ -141,6 +144,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                 music.setText("Pause Music");
                 mySong.start();
             }
+        } else if (v.getId() == R.id.video_button) {
+            mySong.pause();
+            startActivity(new Intent(MainActivity.this, VideoView.class));
         }
     }
 
