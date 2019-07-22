@@ -3,10 +3,12 @@ package com.example.m4.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View.OnClickListener;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Button;
 import android.content.Intent;
 import android.widget.TextView;
@@ -14,20 +16,41 @@ import android.graphics.Paint;
 
 import com.example.m4.R;
 import com.example.m4.repository.Repository;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import android.net.Uri;
+import java.io.File;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.Bitmap;
+import java.io.ByteArrayOutputStream;
+import com.google.android.gms.tasks.OnFailureListener;
+import androidx.annotation.NonNull;
+
 
 /**
  * The main activity view which contains the start and exit button as well as mini games
  */
-@SuppressWarnings("ChainedMethodCall")
+//@SuppressWarnings("ChainedMethodCall")
 public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     //private final Player player = new Player("", 0, 0, 0, 0);
-    MediaPlayer mySong;
+    private MediaPlayer mySong;
+    private StorageReference storage = FirebaseStorage.getInstance().
+            getReferenceFromUrl("gs://cs2340-d0e6c.appspot.com/");
+    private UploadTask uploadTask;
+    private ImageView image;
+    private boolean isitPaused;
+    private Button music;
 
     /**
      * Overridden onCreate method initialize activity
      * @param savedInstanceState saved instance state
      */
+    @SuppressLint("WrongThread")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,14 +70,29 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         Button minigame = findViewById(R.id.mini_game_button);
         minigame.setOnClickListener(this);
 
+        Button save = findViewById(R.id.button);
+        save.setOnClickListener(this);
+
+        music = findViewById(R.id.music_button);
+        music.setOnClickListener(this);
+
+        image = findViewById(R.id.imageView1);
+        image.setDrawingCacheEnabled(true);
+        image.buildDrawingCache();
+
         mySong = MediaPlayer.create(MainActivity.this, R.raw.song);
+        mySong.start();
+
+//        Resources res = getResources();
+//        Drawable drawable = res.getDrawable(R.drawable.rocket);
+
 
     }
-
 
     @Override
     public void onClick (View v) {
         if (v.getId() == R.id.main_start_button) {
+            mySong.pause();
             if (Repository.playerClass == null) {
                 Repository.saveItemMap();
                 Repository.saveMercenaryMap();
@@ -63,19 +101,47 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                 startActivity(new Intent(MainActivity.this, PlayerView.class));
             }
         } else if (v.getId() == R.id.main_exit_button) {
+            mySong.pause();
             finish();
         } else if (v.getId() == R.id.mini_game_button) {
+            mySong.pause();
             startActivity(new Intent(MainActivity.this, MiniGameView.class));
+        } else if (v.getId() == R.id.button) {
+
+            // save image
+            // extra credit - google cloud storage
+
+            Bitmap bitmap = ((BitmapDrawable) image.getDrawable()).getBitmap();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+            byte[] data = baos.toByteArray();
+
+            StorageReference childStr = storage.child("images/rocket.png");
+            uploadTask = childStr.putBytes(data);
+            uploadTask.addOnFailureListener(new OnFailureListener() {
+
+                @Override
+                public void onFailure(@NonNull Exception exception) {
+                    // Handle unsuccessful uploads
+                }
+            }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    // taskSnapshot.getMetadata() contains file metadata such as size, content-type, etc.
+                    // ...
+                }
+            });
+        } else if (v.getId() == R.id.music_button) {
+            if (!isitPaused) {
+                isitPaused = true;
+                music.setText("Play Music");
+                mySong.pause();
+            } else {
+                isitPaused = false;
+                music.setText("Pause Music");
+                mySong.start();
+            }
         }
     }
 
-    public void playIT(View v) {
-        mySong.start();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        mySong.release();
-    }
 }

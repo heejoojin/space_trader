@@ -32,16 +32,20 @@
         app:layout_constraintStart_toStartOf="parent"
         android:textColor="#6d3d7a"
         android:textSize="21sp"
-        android:layout_marginLeft="40dp" android:layout_marginStart="40dp"/>
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
         android:ems="15"
-        android:id="@+id/player_name" app:layout_constraintTop_toTopOf="@+id/name_view"
-        android:layout_marginTop="40dp" app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginLeft="40dp" android:layout_marginStart="40dp"/>
+        android:id="@+id/player_name"
+        app:layout_constraintTop_toTopOf="@+id/name_view"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"/>
 
     <TextView
         android:text="@string/difficulty_1"
