@@ -44,6 +44,8 @@ public class MiniGameView extends AppCompatActivity implements View.OnClickListe
         winCount = 0;
         loseCount = 0;
 
+
+
     }
 
     @Override
@@ -51,48 +53,66 @@ public class MiniGameView extends AppCompatActivity implements View.OnClickListe
         int id = v.getId();
         switch (id) {
             case R.id.btn_terran:
-                userInput = 1;
-                input.setBackgroundResource(R.mipmap.terran);
-                setOutput();
+                if (loseCount != 5) {
+                    userInput = 1;
+                    input.setBackgroundResource(R.mipmap.terran);
+                    setOutput();
+                } else {
+                    userInput = 1;
+                    input.setBackgroundResource(R.mipmap.terran1);
+                    setOutput();
+                }
                 break;
             case R.id.btn_protoss:
-                userInput = 2;
-                input.setBackgroundResource(R.mipmap.protoss);
-                setOutput();
+                if (loseCount != 5) {
+                    userInput = 2;
+                    input.setBackgroundResource(R.mipmap.protoss);
+                    setOutput();
+                } else {
+                    userInput = 2;
+                    input.setBackgroundResource(R.mipmap.protoss1);
+                    setOutput();
+                }
                 break;
             case R.id.btn_zerg:
-                userInput = 3;
-                input.setBackgroundResource(R.mipmap.zerg);
-                setOutput();
+                if (loseCount != 5) {
+                    userInput = 3;
+                    input.setBackgroundResource(R.mipmap.zerg);
+                    setOutput();
+                } else {
+                    userInput = 3;
+                    input.setBackgroundResource(R.mipmap.zerg1);
+                    setOutput();
+                }
                 break;
         }
 
     }
 
     private void setOutput() {
-        int imageId = (int) (Math.random() * images.length);
-        output.setBackgroundResource(images[imageId]);
-        checkResult(imageId);
+        int i = (int) (Math.random() * images.length);
+        output.setBackgroundResource(images[i]);
+        checkResult(i);
     }
 
-    private void checkResult(int imageId) {
-        if (userInput == 1 && imageId == 0) {     //User choose Rock,Computer choose Rock
+    private void checkResult(int i) {
+        if (userInput == 1 && i == 0) {
             showResult(2);
-        } else if (userInput == 1 && imageId == 1) { //User choose Rock,Computer choose Paper
+        } else if (userInput == 1 && i == 1) {
             showResult(0);
-        } else if (userInput == 1 && imageId == 2) { //User choose Rock,Computer choose Scissors
+        } else if (userInput == 1 && i == 2) {
             showResult(1);
-        } else if (userInput == 2 && imageId == 0) { //User choose Paper,Computer choose Rock
+        } else if (userInput == 2 && i == 0) {
             showResult(1);
-        } else if (userInput == 2 && imageId == 1) { //User choose Paper,Computer choose Paper
+        } else if (userInput == 2 && i == 1) {
             showResult(2);
-        } else if (userInput == 2 && imageId == 2) { //User choose Paper,Computer choose Scissors
+        } else if (userInput == 2 && i == 2) {
             showResult(0);
-        } else if (userInput == 3 && imageId == 0) {//User choose Scissors,Computer choose Rock
+        } else if (userInput == 3 && i == 0) {
             showResult(0);
-        } else if (userInput == 3 && imageId == 1) { //User choose Scissors,Computer choose Paper
+        } else if (userInput == 3 && i == 1) {
             showResult(1);
-        } else if (userInput == 3 && imageId == 2) { //User choose Scissors,Computer choose Scissors
+        } else if (userInput == 3 && i == 2) {
             showResult(2);
         }
     }
@@ -117,6 +137,4 @@ public class MiniGameView extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(getApplicationContext(), "Tie", Toast.LENGTH_SHORT).show();
         }
     }
-
-
 }
