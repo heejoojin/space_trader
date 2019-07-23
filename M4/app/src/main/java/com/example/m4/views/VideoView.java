@@ -8,6 +8,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.m4.R;
 
+/**
+ * View representing the video that will be displayed
+ */
 public class VideoView extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
