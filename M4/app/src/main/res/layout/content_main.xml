@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
-    android:id="@+id/content_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
@@ -83,20 +82,21 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:layout_marginLeft="30dp"
-        android:text="Pause Music"
+        android:text="@string/pause_music"
         app:layout_constraintTop_toTopOf="@+id/main_start_button"
-        app:layout_constraintStart_toStartOf="@+id/main_start_button" />
+        app:layout_constraintStart_toStartOf="@+id/main_start_button"
+        android:layout_marginStart="30dp" />
 
     <Button
         android:id="@+id/video_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Music Video"
+        android:text="@string/music_video"
         android:layout_marginTop="50dp"
         android:layout_marginLeft="60dp"
         app:layout_constraintStart_toStartOf="@+id/main_exit_button"
         app:layout_constraintTop_toTopOf="@+id/main_exit_button"
-        />
+        android:layout_marginStart="60dp" />
 
     <Button
         android:id="@+id/button"
@@ -107,7 +107,8 @@
         android:layout_marginLeft="14dp"
         app:layout_constraintStart_toStartOf="@+id/music_button"
         app:layout_constraintTop_toTopOf="@+id/music_button"
-         />
+        tools:ignore="HardcodedText"
+        android:layout_marginStart="14dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,8 +20,7 @@ import java.util.Arrays;
 /**
  * View representing the shipyard, another version of the market that instead sells ships
  */
-@SuppressWarnings({"FieldCanBeLocal", "WeakerAccess", "FeatureEnvy",
-        "ChainedMethodCall", "CyclicClassDependency"})
+@SuppressWarnings("ALL")
 public class ShipyardView extends AppCompatActivity implements View.OnClickListener {
 
     private ArrayList<Ship> orders;

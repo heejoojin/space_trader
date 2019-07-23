@@ -16,7 +16,7 @@ import com.example.m4.repository.Repository;
  * Create player view that sets up the UI for the player creation
  */
 
-@SuppressWarnings({"FeatureEnvy", "ChainedMethodCall"})
+@SuppressWarnings("ALL")
 public class CreatePlayerView extends AppCompatActivity implements OnClickListener {
 
     /**

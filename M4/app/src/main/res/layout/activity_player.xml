@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_marginTop="16dp"
-        android:text="Welcome Back!"
+        android:text="@string/welcome_back"
         android:textColor="#6d3d7a"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -223,7 +223,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Region"
+        android:text="@string/region3"
         android:textColor="#6d3d7a"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/engineer_header"
@@ -234,7 +234,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="region"
+        android:text="@string/region4"
         app:layout_constraintStart_toStartOf="@+id/player_engineer"
         app:layout_constraintTop_toBottomOf="@+id/player_engineer" />
 
@@ -243,27 +243,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="planet"
+        android:text="@string/planet3"
         app:layout_constraintStart_toStartOf="@+id/player_region"
-        app:layout_constraintTop_toBottomOf="@+id/player_region" />
+        app:layout_constraintTop_toBottomOf="@+id/player_region"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/planet_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Planet"
+        android:text="@string/planet4"
         android:textColor="#6d3d7a"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/region_header"
         app:layout_constraintTop_toBottomOf="@+id/region_header" />
 
     <TextView
-        android:id="@+id/weapon_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Equipments"
+        android:text="@string/equipments2"
         android:textColor="#6d3d7a"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/planet_header"
@@ -276,7 +276,7 @@
         android:layout_marginStart="60dp"
         android:layout_marginLeft="60dp"
         android:layout_marginTop="16dp"
-        android:text="weapon"
+        android:text="@string/weapon3"
         app:layout_constraintStart_toStartOf="@+id/player_planet"
         app:layout_constraintTop_toBottomOf="@+id/player_planet" />
 

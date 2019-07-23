@@ -1,3 +1,4 @@
+<!--suppress ALL -->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">CS 2340 Space Trader</string>
     <string name="title_activity_scrolling" tools:keep="@string/title_activity_scrolling">ScrollingActivity</string>
@@ -160,5 +161,20 @@
     <string name="owned">owned |</string>
     <string name="select">Select</string>
     <string name="todo">TODO</string>
-    <string name="music">music</string>
+    <string name="choose_your_species">Choose your species</string>
+    <string name="choose_terran">Choose Terran</string>
+    <string name="choose_protoss">Choose Protoss</string>
+    <string name="instruction">Instruction:</string>
+    <string name="description">This game is influenced by Starcraft, centers on galatic struggle   for dominance among three species   - Terran win against Zerg and lose to Protoss.  - Protoss win against Terran and lose to Zerg.  - Zerg win against Protoss and lose to Terran.</string>
+    <string name="todo">TODO</string>
+    <string name="todo">TODO</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="region3">Region</string>
+    <string name="region4">region</string>
+    <string name="planet3">planet</string>
+    <string name="planet4">Planet</string>
+    <string name="weapon3">weapon</string>
+    <string name="equipments2">Equipments</string>
+    <string name="pause_music">Pause Music</string>
+    <string name="music_video">Music Video</string>
 </resources>
