@@ -18,7 +18,7 @@ public class Universe {
     private int numPlanets;
     private final int HEIGHT = 150;
     private final int WIDTH = 100;
-    private final int MINREGIONDISTANCE = 10;
+    private final int MIN_REGION_DISTANCE = 10;
     private final Random random;
 
     /**
@@ -233,7 +233,7 @@ public class Universe {
     private boolean isValidRegLocation(int x, int y) {
 
         for (Region region : regions) {
-            if (Math.hypot(region.getxLoc() - x, region.getyLoc() - y) < MINREGIONDISTANCE) {
+            if (Math.hypot(region.getxLoc() - x, region.getyLoc() - y) < MIN_REGION_DISTANCE) {
                 return false;
             }
         }

@@ -9,10 +9,10 @@ import java.util.Random;
  */
 public enum TechLevel {
 
-    PREAGRICULTURE("Pre-Agriculture"), AGRICULTURE("Agriculture"),
-    MEDIEVAL("Medieval"), RENAISSANCE("Renaissance"), EARLYINDUSTRIAL("Early Industrial"),
+    PRE_AGRICULTURE("Pre-Agriculture"), AGRICULTURE("Agriculture"),
+    MEDIEVAL("Medieval"), RENAISSANCE("Renaissance"), EARLY_INDUSTRIAL("Early Industrial"),
     INDUSTRIAL("Industrial"), POSTINDUSTRIAL("Post-Industrial"),
-    HITECH(" Hi-Tech");
+    HI_TECH(" Hi-Tech");
 
     private final String rep;
 
