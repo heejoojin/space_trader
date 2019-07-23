@@ -18,7 +18,7 @@ import android.annotation.SuppressLint;
 /**
  * View that will depict the traveling of our ship. Will also show random events that occur
  */
-@SuppressWarnings({"FeatureEnvy", "ChainedMethodCall", "MagicNumber", "CyclicClassDependency"})
+@SuppressWarnings("ALL")
 @SuppressLint("SetTextI18n")
 public class TravelView extends AppCompatActivity implements View.OnClickListener {
 

@@ -20,10 +20,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import android.net.Uri;
-import java.io.File;
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
+
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.Bitmap;
 import java.io.ByteArrayOutputStream;
@@ -35,6 +32,7 @@ import androidx.annotation.NonNull;
  * The main activity view which contains the start and exit button as well as mini games
  */
 //@SuppressWarnings("ChainedMethodCall")
+@SuppressWarnings("ALL")
 public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     //private final Player player = new Player("", 0, 0, 0, 0);

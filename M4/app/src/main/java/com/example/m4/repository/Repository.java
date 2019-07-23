@@ -21,6 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 /**
  * Repository class that stores the player's information
  */
+@SuppressWarnings("ALL")
 public class Repository {
 
     public static Player playerClass;

@@ -9,6 +9,7 @@ import java.io.Serializable;
  * Contains specifications such as its value
  * and amount the user owns
  */
+@SuppressWarnings("ALL")
 public class Item implements Serializable {
 
     private final String name;

@@ -10,7 +10,7 @@ import com.google.firebase.database.FirebaseDatabase;
 /**
  * Class representing the player's ship, containing variables such as the items owned
  */
-@SuppressWarnings({"FieldCanBeLocal", "ChainedMethodCall"})
+@SuppressWarnings("ALL")
 public class Ship {
 
     private final String name;

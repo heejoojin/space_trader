@@ -18,6 +18,7 @@ import com.example.m4.repository.Repository;
  * name of the ship, game points, player's planet as well as region
  * and equipments including weapon, shield, gadget, escape pod and insurance
  */
+@SuppressWarnings("ALL")
 public class PlayerView extends AppCompatActivity implements View.OnClickListener {
 
     @Override

@@ -11,7 +11,7 @@ import com.google.firebase.database.FirebaseDatabase;
 /**
  * View model representing the configuration view the user starts in
  */
-@SuppressWarnings("MagicNumber")
+@SuppressWarnings("ALL")
 public class ConfigurationViewModel extends AndroidViewModel {
 
     private int score = 16;

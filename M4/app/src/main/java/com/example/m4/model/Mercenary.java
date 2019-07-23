@@ -9,7 +9,7 @@ import java.util.Random;
 /**
  * Class that represents a single Mercenary object that can be hired or sold at the mercenary market
  */
-@SuppressWarnings({"FieldCanBeLocal", "ChainedMethodCall"})
+@SuppressWarnings("ALL")
 public class Mercenary {
 
     private final ArrayList<String> weapons =

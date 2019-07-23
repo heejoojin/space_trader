@@ -14,7 +14,7 @@ import java.util.Random;
 /**
  * View model representing the different events we could encounter whilst traveling
  */
-@SuppressWarnings({"FieldCanBeLocal", "ChainedMethodCall"})
+@SuppressWarnings("ALL")
 public class TravelViewModel extends AndroidViewModel {
 
     private final ArrayList<String> eventsList =

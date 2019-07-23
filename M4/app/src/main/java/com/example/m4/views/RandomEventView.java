@@ -19,7 +19,7 @@ import com.example.m4.viewmodels.RandomEventViewModel;
  * View class that shows random events occurring when traveling between regions
  */
 
-@SuppressWarnings("CyclicClassDependency")
+@SuppressWarnings("ALL")
 public class RandomEventView extends AppCompatActivity implements View.OnClickListener {
 
     private String base = "After an eventful trip," +

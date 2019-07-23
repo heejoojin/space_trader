@@ -22,10 +22,7 @@ import android.widget.Button;
 /**
  * View that represents the market with all its items for sale
  */
-@SuppressWarnings({"WeakerAccess", "SetTextI18n",
-        "UnnecessaryLocalVariable", "ChainedMethodCall",
-        "MagicNumber", "AssignmentToStaticFieldFromInstanceMethod",
-        "OverlyComplexMethod", "OverlyLongMethod", "CyclicClassDependency"})
+@SuppressWarnings("ALL")
 public class MarketView extends AppCompatActivity implements OnClickListener {
 
     private TextView itemTotaltoEditText;

@@ -12,6 +12,7 @@ import com.example.m4.R;
 /**
  * Minigame view that will depict the minigame we are playing
  */
+@SuppressWarnings("ALL")
 public class MiniGameView extends AppCompatActivity implements View.OnClickListener {
 
     ImageView input, output;
@@ -32,11 +33,11 @@ public class MiniGameView extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_minigame);
 
-        input = (ImageView) findViewById(R.id.iv_input);
-        output = (ImageView) findViewById(R.id.iv_output);
-        terran = (Button) findViewById(R.id.btn_terran);
-        protoss = (Button) findViewById(R.id.btn_protoss);
-        zerg = (Button) findViewById(R.id.btn_zerg);
+        input = findViewById(R.id.iv_input);
+        output = findViewById(R.id.iv_output);
+        terran = findViewById(R.id.btn_terran);
+        protoss = findViewById(R.id.btn_protoss);
+        zerg = findViewById(R.id.btn_zerg);
 
         terran.setOnClickListener(this);
         protoss.setOnClickListener(this);

@@ -14,6 +14,7 @@ import java.util.Random;
 /**
  * View model representing the random event view the user may encounter
  */
+@SuppressWarnings("ALL")
 public class RandomEventViewModel extends AndroidViewModel {
 
     private ArrayList<Integer> eventsList =

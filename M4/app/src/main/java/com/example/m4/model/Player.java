@@ -5,6 +5,7 @@ import com.google.firebase.database.FirebaseDatabase;
 /**
  * This class represents a player object
  */
+@SuppressWarnings("ALL")
 public class Player {
 
     /** this player's credits */
