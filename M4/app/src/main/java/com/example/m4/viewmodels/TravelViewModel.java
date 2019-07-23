@@ -22,10 +22,10 @@ public class TravelViewModel extends AndroidViewModel {
             new ArrayList<>(Arrays.asList("Trader Encounter", "Pirate Encounter",
                     "Police Encounter", "Random Event", "Safe Travel"));
 
-    private boolean isitPirate;
+    private boolean isPirate;
     private boolean beatPirate;
 
-    private boolean isitTrader;
+    private boolean isTrader;
 
     /**
      * Constructor with single parameter
@@ -42,9 +42,9 @@ public class TravelViewModel extends AndroidViewModel {
     public String getRandomElement() {
         String randomElement = eventsList.get(new Random().nextInt(eventsList.size()));
         if ("Pirate Encounter".equals(randomElement)) {
-            isitPirate = true;
+            isPirate = true;
         } else if ("Trader Encounter".equals(randomElement)) {
-            isitTrader = true;
+            isTrader = true;
         }
         return randomElement;
     }
@@ -64,7 +64,7 @@ public class TravelViewModel extends AndroidViewModel {
      * @return true if it is pirate
      */
     public boolean getIsItPirate() {
-        return  isitPirate;
+        return isPirate;
     }
 
     /**
@@ -72,15 +72,15 @@ public class TravelViewModel extends AndroidViewModel {
      * @return true if it is trader
      */
     public boolean getIsItTrader() {
-        return  isitTrader;
+        return isTrader;
     }
 
     /**
      * Setter method for isItPirate
-     * @param isitPirate isItPirate
+     * @param isPirate isItPirate
      */
-    public void setIsItPirate(boolean isitPirate) {
-        this.isitPirate = isitPirate;
+    public void setIsItPirate(boolean isPirate) {
+        this.isPirate = isPirate;
     }
 
     /**

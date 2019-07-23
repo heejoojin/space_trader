@@ -23,7 +23,7 @@ import android.annotation.SuppressLint;
 public class TravelView extends AppCompatActivity implements View.OnClickListener {
 
     private TextView travelMessage;
-    private TextView region_display_textview;
+    private TextView region_display_text_view;
     private Button nextButton;
     private Button backButton;
     private final DecimalFormat formatter = new DecimalFormat("#,###,###");
@@ -33,7 +33,7 @@ public class TravelView extends AppCompatActivity implements View.OnClickListene
     private String creditLeft;
     private String pirateMessage;
 
-    private String[] tradegoods;
+    private String[] trade_goods;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +48,7 @@ public class TravelView extends AppCompatActivity implements View.OnClickListene
         backButton = findViewById(R.id.back_button);
         backButton.setOnClickListener(this);
 
-        region_display_textview = findViewById(R.id.region_display_view);
+        region_display_text_view = findViewById(R.id.region_display_view);
 
         viewModel = ViewModelProviders.of(this).get(TravelViewModel.class);
         String randomElement = viewModel.getRandomElement();
@@ -57,7 +57,7 @@ public class TravelView extends AppCompatActivity implements View.OnClickListene
         region_display_message = "You are in " + Repository.toTravelRegionName.toString() +
                 "\n" + Repository.playerClass.getShip() + " | Fuel "  +
                 fuel_initial + " L available";
-        region_display_textview.setText(region_display_message);
+        region_display_text_view.setText(region_display_message);
 
         // "Trader Encounter", "Pirate Encounter", "Police Encounter", "Safe Travel"
 
@@ -68,9 +68,9 @@ public class TravelView extends AppCompatActivity implements View.OnClickListene
                     travelMessage.setText("You have encountered a trader!\n" +
                             "\nYou have no items to trade\nGo to the market and buy some goods :)");
                 } else {
-                    tradegoods = viewModel.tradeGoods();
+                    trade_goods = viewModel.tradeGoods();
 
-                    if (tradegoods[0] != null) {
+                    if (trade_goods[0] != null) {
                         travelMessage.setText("You have encountered a trader!\n" +
                                 "\nYou have some items available in your cargo\n" +
                                 "Do you want to trade some goods?");
@@ -91,7 +91,7 @@ public class TravelView extends AppCompatActivity implements View.OnClickListene
                         "you may lose even more.";
                 travelMessage.setText(pirateMessage);
 
-                region_display_textview.setText("");
+                region_display_text_view.setText("");
 
                 backButton.setText("Fight !");
                 nextButton.setText("Surrender & Next");
@@ -124,7 +124,7 @@ public class TravelView extends AppCompatActivity implements View.OnClickListene
                         Repository.toTravelRegionName.toString() +
                         "\n" + Repository.playerClass.getShip() + " | Fuel "  +
                         fuel_initial + " L available";
-                region_display_textview.setText(region_display_message);
+                region_display_text_view.setText(region_display_message);
 
                 // fight
                 if (viewModel.winningChancePirate()) {
@@ -144,7 +144,7 @@ public class TravelView extends AppCompatActivity implements View.OnClickListene
                 }
 
             } else if (Repository.transactionHistory && viewModel.getIsItTrader() &&
-                    tradegoods[0] != null) {
+                    trade_goods[0] != null) {
                 // trade
                 String[] arr = viewModel.tradeGoods();
                 travelMessage.setText("You have traded your " + arr[0] +
