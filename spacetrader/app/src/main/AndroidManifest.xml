@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.cs2340.spacetrader">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/rocket"
+        android:theme="@style/AppTheme"
+        android:launchMode="singleTop"
+        android:fullBackupContent="@xml/backup_descriptor">
+
+        <activity android:name="com.cs2340.spacetrader.views.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.cs2340.spacetrader.views.ConfigurationView"
+            android:parentActivityName="com.cs2340.spacetrader.views.MainActivity" />
+        <activity
+            android:name="com.cs2340.spacetrader.views.ErrorView"
+            android:parentActivityName="com.cs2340.spacetrader.views.ConfigurationView" />
+        <activity
+            android:name="com.cs2340.spacetrader.views.CreatePlayerView"
+            android:parentActivityName="com.cs2340.spacetrader.views.ConfigurationView" />
+        <activity
+            android:name="com.cs2340.spacetrader.views.UniverseView"
+            android:parentActivityName="com.cs2340.spacetrader.views.CreatePlayerView" />
+
+        <activity
+            android:name="com.cs2340.spacetrader.views.MarketView"
+            android:parentActivityName="com.cs2340.spacetrader.views.PlanetsView" />
+
+        <activity
+            android:name="com.cs2340.spacetrader.views.MercenaryView"
+            android:parentActivityName="com.cs2340.spacetrader.views.PlanetsView" />
+
+        <activity android:name="com.cs2340.spacetrader.views.ShipyardView"
+            android:parentActivityName="com.cs2340.spacetrader.views.MarketView"/>
+
+        <activity
+            android:name="com.cs2340.spacetrader.views.PlanetsView"
+            android:parentActivityName="com.cs2340.spacetrader.views.UniverseView" />
+
+        <activity
+            android:name="com.cs2340.spacetrader.views.MiniGameView"
+            android:parentActivityName="com.cs2340.spacetrader.views.MainActivity" />
+
+        <activity
+            android:name="com.cs2340.spacetrader.views.TravelView"
+            android:parentActivityName="com.cs2340.spacetrader.views.UniverseView" />
+
+        <activity
+            android:name="com.cs2340.spacetrader.views.MapView"
+            android:parentActivityName="com.cs2340.spacetrader.views.UniverseView" />
+
+        <activity android:name="com.cs2340.spacetrader.views.RandomEventView"
+            android:parentActivityName="com.cs2340.spacetrader.views.UniverseView"/>
+
+        <activity android:name="com.cs2340.spacetrader.views.PlayerView"
+            android:parentActivityName="com.cs2340.spacetrader.views.MainActivity"/>
+
+        <activity android:name="com.cs2340.spacetrader.views.VideoView"
+            android:parentActivityName="com.cs2340.spacetrader.views.MainActivity"/>
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>
