@@ -1,9 +1,7 @@
 # Space Trader for Android Application
 
-Android application that reintroduces a classic open-source Palm Pilot game called Space Trader.
-
 ##  Introduction
-This application is to redesign a classic open-source Palm Pilot game called Space Trader. The original game was developed by Pieter Spronck.
+This Android application is to redesign a classic open-source Palm Pilot game called Space Trader. The original game was developed by Pieter Spronck - https://en.wikipedia.org/wiki/Space_Trader_(Palm_OS).
 Our new version of Space Trader was created with by Heejoo Jin, Nina Moorman, Red Chu, Brian Chuo, and Kunhyuk Lee using Java and Android Studio.
 
 ## Space Trader Documentation
